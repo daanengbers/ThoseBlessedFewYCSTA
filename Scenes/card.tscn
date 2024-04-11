@@ -1,0 +1,180 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddk4sj2wey0g6"]
+
+[ext_resource type="Script" path="res://Script/card.gd" id="1_hmyi1"]
+[ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="3_6plav"]
+[ext_resource type="Texture2D" uid="uid://siyq5k5htydp" path="res://Assets/UpgradeIcons.png" id="4_6nhxx"]
+[ext_resource type="Texture2D" uid="uid://c06r1ivxwugfu" path="res://Assets/Spellcards.png" id="4_vnyd0"]
+
+[sub_resource type="Animation" id="Animation_rgsj7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("eh:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("eh:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("eh:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4ro3d"]
+resource_name = "select"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("eh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2, 0.65, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 4), Vector2(0, -15), Vector2(0, -14), Vector2(0, -13), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("eh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.174533, 0.174533, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("eh:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.08, 0.9), Vector2(0.96, 1.08344), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kmwro"]
+_data = {
+"RESET": SubResource("Animation_rgsj7"),
+"select": SubResource("Animation_4ro3d")
+}
+
+[node name="card" type="Node2D"]
+script = ExtResource("1_hmyi1")
+
+[node name="eh" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="Spellcards" type="Sprite2D" parent="eh"]
+texture_filter = 1
+texture = ExtResource("4_vnyd0")
+hframes = 3
+
+[node name="Cardname" type="Label" parent="eh"]
+texture_filter = 1
+offset_left = -30.0
+offset_top = -73.0
+offset_right = 30.0
+offset_bottom = -40.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("3_6plav")
+text = "Card name Card name Card name"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Carddescription" type="Label" parent="eh"]
+texture_filter = 1
+offset_left = -29.0
+offset_top = -6.0
+offset_right = 30.0
+offset_bottom = 37.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("3_6plav")
+text = "Card descr"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Anim" type="AnimationPlayer" parent="eh"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_kmwro")
+}
+
+[node name="UpgradeIcons" type="Sprite2D" parent="eh"]
+position = Vector2(-9, -19)
+texture = ExtResource("4_6nhxx")
+hframes = 4
+vframes = 4

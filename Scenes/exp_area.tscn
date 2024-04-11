@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://qcnugi4u6sup"]
+
+[ext_resource type="Script" path="res://Script/exp_area.gd" id="1_18sew"]
+[ext_resource type="Texture2D" uid="uid://bc4wd2u4nb0i6" path="res://Assets/YCSTA_XP.png" id="2_us7n4"]
+[ext_resource type="Texture2D" uid="uid://dhndfxnjcfqdj" path="res://Assets/Lightshadow.png" id="3_s20xk"]
+
+[sub_resource type="Animation" id="Animation_v47f3"]
+resource_name = "play"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 3, 2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_244cs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iqsw0"]
+_data = {
+"RESET": SubResource("Animation_244cs"),
+"play": SubResource("Animation_v47f3")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x2k04"]
+radius = 5.09902
+
+[node name="EXP_area" type="Area2D" groups=["EXPorb"]]
+script = ExtResource("1_18sew")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_us7n4")
+hframes = 3
+vframes = 2
+
+[node name="Anim" type="AnimationPlayer" parent="Sprite"]
+libraries = {
+"": SubResource("AnimationLibrary_iqsw0")
+}
+
+[node name="box" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x2k04")
+
+[node name="Lightshadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+texture_filter = 1
+position = Vector2(0, 7)
+texture = ExtResource("3_s20xk")

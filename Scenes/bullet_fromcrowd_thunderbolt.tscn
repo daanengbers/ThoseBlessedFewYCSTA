@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://crg7f6gkmd33i"]
+
+[ext_resource type="Script" path="res://Script/bullet_fromcrowd.gd" id="1_f6atg"]
+[ext_resource type="Texture2D" uid="uid://d3kc5rmd2m011" path="res://Assets/YCSTA_thunderbolt.png" id="2_7g18b"]
+[ext_resource type="Texture2D" uid="uid://dp4umjagy7dv3" path="res://Assets/YCSTA_Bullets-4.png" id="3_13duv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_146p2"]
+radius = 3.0
+
+[node name="bullet_fromcrowd" type="RigidBody2D"]
+z_index = 1
+gravity_scale = 0.0
+script = ExtResource("1_f6atg")
+damage = 2
+destroyonimpact = false
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_7g18b")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = -1
+texture_filter = 1
+amount = 4
+lifetime = 0.4
+texture = ExtResource("3_13duv")
+emission_shape = 1
+emission_sphere_radius = 8.0
+spread = 180.0
+gravity = Vector2(0, 0)
+angle_max = 360.0
+
+[node name="QueueTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="HITbox_BULLET" type="Area2D" parent="."]
+
+[node name="box" type="CollisionShape2D" parent="HITbox_BULLET"]
+shape = SubResource("CircleShape2D_146p2")
+
+[connection signal="timeout" from="QueueTimer" to="." method="_on_queue_timer_timeout"]
+[connection signal="area_entered" from="HITbox_BULLET" to="." method="_on_hi_tbox_bullet_area_entered"]

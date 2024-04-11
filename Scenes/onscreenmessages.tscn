@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3u2hpn8irajn"]
+
+[ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="1_cts1n"]
+[ext_resource type="Script" path="res://Script/onscreenmessages.gd" id="1_ermhu"]
+
+[sub_resource type="Animation" id="Animation_gnau2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.588235, 0.588235, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_72mdp"]
+resource_name = "appear"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 0.588235, 1), Color(1, 1, 0.588235, 1), Color(1, 0.588235, 0.588235, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xmgj3"]
+_data = {
+"RESET": SubResource("Animation_gnau2"),
+"appear": SubResource("Animation_72mdp")
+}
+
+[node name="Onscreenmessages" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_ermhu")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Message" type="Label" parent="UI"]
+modulate = Color(1, 0.588235, 0.588235, 0)
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_cts1n")
+text = "Debug Debug Debug"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anim" type="AnimationPlayer" parent="UI/Message"]
+libraries = {
+"": SubResource("AnimationLibrary_xmgj3")
+}

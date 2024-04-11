@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://chein4j5hyj4l"]
+
+[ext_resource type="Script" path="res://Script/exp_areameebling.gd" id="1_lctd2"]
+[ext_resource type="Texture2D" uid="uid://cepec0r5btrff" path="res://Assets/Meebling_Deathanimations (1).png" id="2_o4lxc"]
+[ext_resource type="Texture2D" uid="uid://dhndfxnjcfqdj" path="res://Assets/Lightshadow.png" id="3_rp7i1"]
+[ext_resource type="AudioStream" uid="uid://b3qee1fus0dfw" path="res://Sounds/meeblingdeath.wav" id="4_4wbkr"]
+
+[sub_resource type="Animation" id="Animation_244cs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_v47f3"]
+resource_name = "play"
+length = 0.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iqsw0"]
+_data = {
+"RESET": SubResource("Animation_244cs"),
+"play": SubResource("Animation_v47f3")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x2k04"]
+radius = 8.06226
+
+[node name="EXP_areameebling" type="Area2D" groups=["EXPorb"]]
+script = ExtResource("1_lctd2")
+meeblingsoul = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_o4lxc")
+vframes = 2
+
+[node name="Anim" type="AnimationPlayer" parent="Sprite"]
+libraries = {
+"": SubResource("AnimationLibrary_iqsw0")
+}
+
+[node name="box" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x2k04")
+disabled = true
+
+[node name="Lightshadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+texture_filter = 1
+position = Vector2(0, 7)
+texture = ExtResource("3_rp7i1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="Deathsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4wbkr")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
