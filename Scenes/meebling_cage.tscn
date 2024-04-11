@@ -1,0 +1,132 @@
+[gd_scene load_steps=15 format=3 uid="uid://x81ykcq4gjl2"]
+
+[ext_resource type="Script" path="res://Script/meebling_cage.gd" id="1_do8tn"]
+[ext_resource type="Texture2D" uid="uid://s1lerk08s0ny" path="res://Assets/20healthbar-2.png" id="3_gnpef"]
+[ext_resource type="Texture2D" uid="uid://cptlnq1xtt2a" path="res://Assets/20healthbar-1.png" id="4_kfsuq"]
+[ext_resource type="Texture2D" uid="uid://ckg51a0nne2w" path="res://Assets/Cage_New_Base.png" id="4_wl41v"]
+[ext_resource type="Texture2D" uid="uid://cwmeqfovr3d0e" path="res://Assets/Cage_New_Backbones.png" id="5_nitk7"]
+[ext_resource type="Texture2D" uid="uid://dvav5qp6ypv2b" path="res://Assets/YCSTA_Meeblings-Spritesheet.png" id="6_fidun"]
+[ext_resource type="Texture2D" uid="uid://bcxisre43usjl" path="res://Assets/Cage_New_Done.png" id="6_u4khu"]
+[ext_resource type="AudioStream" uid="uid://2hu5ry8wyff6" path="res://Sounds/meeblingbreak.wav" id="8_s73dh"]
+[ext_resource type="AudioStream" uid="uid://bad6nr05h2axn" path="res://Sounds/lvlup1.wav" id="9_bb7yo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lohtj"]
+size = Vector2(37, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34pq5"]
+size = Vector2(30, 32)
+
+[sub_resource type="Animation" id="Animation_01rm2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3s4dr"]
+resource_name = "hurt"
+length = 0.1
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.04, 0.06, 0.08),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, 0), Vector2(2, 0), Vector2(-1, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s8dhd"]
+_data = {
+"RESET": SubResource("Animation_01rm2"),
+"hurt": SubResource("Animation_3s4dr")
+}
+
+[node name="MeeblingCage" type="StaticBody2D" groups=["enemy_m"]]
+z_index = 1
+texture_filter = 1
+script = ExtResource("1_do8tn")
+
+[node name="HURTbox_Enemy" type="Area2D" parent="."]
+
+[node name="box" type="CollisionShape2D" parent="HURTbox_Enemy"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_lohtj")
+
+[node name="Colbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_34pq5")
+
+[node name="Healthbar" type="TextureProgressBar" parent="."]
+offset_left = -10.0
+offset_top = -23.0
+offset_right = 10.0
+offset_bottom = -22.0
+texture_under = ExtResource("3_gnpef")
+texture_progress = ExtResource("4_kfsuq")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Base" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, -3)
+texture = ExtResource("4_wl41v")
+
+[node name="BackBones" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, -3)
+texture = ExtResource("5_nitk7")
+
+[node name="Captive" type="Sprite2D" parent="Sprites"]
+position = Vector2(2, 1)
+texture = ExtResource("6_fidun")
+hframes = 3
+vframes = 3
+
+[node name="Dome" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, -2)
+texture = ExtResource("6_u4khu")
+
+[node name="Anim" type="AnimationPlayer" parent="Sprites"]
+libraries = {
+"": SubResource("AnimationLibrary_s8dhd")
+}
+
+[node name="ChipSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_s73dh")
+
+[node name="BreakSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_bb7yo")

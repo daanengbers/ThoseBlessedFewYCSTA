@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdtabu32m1o56"]
+
+[ext_resource type="Script" path="res://Script/bullet_fromcrowd.gd" id="1_gso4t"]
+[ext_resource type="Texture2D" uid="uid://bmx1qmkj1cy3r" path="res://Assets/YCSTA_Bullets-1.png" id="2_odlr2"]
+[ext_resource type="Texture2D" uid="uid://clcwajmp8hby7" path="res://Assets/YCSTA_Bullets-2.png" id="3_d0uog"]
+
+[sub_resource type="Curve" id="Curve_oy50o"]
+_data = [Vector2(0, 0.78022), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.53689, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_jvesi"]
+offsets = PackedFloat32Array(0, 0.38, 0.653333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.512288, 0.80981, 0.524563, 1, 0.39386, 0.914418, 0.569469, 1, 1, 1, 1, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_146p2"]
+radius = 3.0
+
+[node name="bullet_fromcrowd" type="RigidBody2D"]
+z_index = 1
+gravity_scale = 0.0
+script = ExtResource("1_gso4t")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_odlr2")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = -1
+texture_filter = 1
+lifetime = 0.4
+texture = ExtResource("3_d0uog")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 12.0
+scale_amount_min = 0.65
+scale_amount_curve = SubResource("Curve_oy50o")
+color_ramp = SubResource("Gradient_jvesi")
+
+[node name="QueueTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="HITbox_BULLET" type="Area2D" parent="."]
+
+[node name="box" type="CollisionShape2D" parent="HITbox_BULLET"]
+shape = SubResource("CircleShape2D_146p2")
+
+[connection signal="timeout" from="QueueTimer" to="." method="_on_queue_timer_timeout"]
+[connection signal="area_entered" from="HITbox_BULLET" to="." method="_on_hi_tbox_bullet_area_entered"]

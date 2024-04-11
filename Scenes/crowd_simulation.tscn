@@ -1,0 +1,504 @@
+[gd_scene load_steps=29 format=3 uid="uid://b46qb74feih7m"]
+
+[ext_resource type="Script" path="res://Script/crowd_simulation.gd" id="1_hyuob"]
+[ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="3_gjq7j"]
+[ext_resource type="Texture2D" uid="uid://bgea8g4xbhsgm" path="res://Assets/YCSTA_Arrow.png" id="3_ljybb"]
+[ext_resource type="Texture2D" uid="uid://deqsdtpq6bt6s" path="res://Assets/YCSTA_UIboxes-1.png" id="3_rhqmm"]
+[ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="4_h7cj8"]
+[ext_resource type="Texture2D" uid="uid://siyq5k5htydp" path="res://Assets/UpgradeIcons.png" id="4_w0fu6"]
+[ext_resource type="Texture2D" uid="uid://digsb5q5shm5s" path="res://Assets/blacktile28.png" id="5_be4lt"]
+[ext_resource type="Texture2D" uid="uid://c3xvjkeusvj11" path="res://Assets/placeholderlvlbar-2.png" id="6_tn3wl"]
+[ext_resource type="Texture2D" uid="uid://cuh6tn3srfoe8" path="res://Assets/placeholderlvlbar-1.png" id="7_hj0fj"]
+[ext_resource type="FontFile" uid="uid://b85f1e3h4hl2q" path="res://Fonts/Retro Gaming.ttf" id="8_wwr2p"]
+[ext_resource type="Script" path="res://Script/SelectLevelupscreen.gd" id="9_v754b"]
+[ext_resource type="Texture2D" uid="uid://bc65frbmttbad" path="res://Assets/Selectcardarrow.png" id="11_41qpt"]
+[ext_resource type="Texture2D" uid="uid://cg180gfaancl0" path="res://Assets/Buttonshowcase.png" id="11_g741n"]
+[ext_resource type="Texture2D" uid="uid://cgakxi0t1lwe7" path="res://Assets/Staticons.png" id="11_q0y8a"]
+[ext_resource type="AudioStream" uid="uid://3c7qv37m47tq" path="res://Sounds/cardnoise1.wav" id="13_n4qgp"]
+[ext_resource type="AudioStream" uid="uid://bad6nr05h2axn" path="res://Sounds/lvlup1.wav" id="16_nlck6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j74bb"]
+atlas = ExtResource("11_g741n")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g64dw"]
+atlas = ExtResource("11_g741n")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tm4gb"]
+atlas = ExtResource("11_g741n")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3r4j"]
+atlas = ExtResource("11_g741n")
+region = Rect2(64, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v688"]
+atlas = ExtResource("11_g741n")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pd6dk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j74bb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g64dw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tm4gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3r4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v688")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="Animation" id="Animation_yqass"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kxa56"]
+resource_name = "play"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v57cf"]
+_data = {
+"RESET": SubResource("Animation_yqass"),
+"play": SubResource("Animation_kxa56")
+}
+
+[sub_resource type="Animation" id="Animation_rcns4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xxqfg"]
+resource_name = "default"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dgkm7"]
+_data = {
+"RESET": SubResource("Animation_rcns4"),
+"default": SubResource("Animation_xxqfg")
+}
+
+[node name="Crowd_Simulation" type="CharacterBody2D" groups=["crowd_p"]]
+z_index = 20
+script = ExtResource("1_hyuob")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Box01" type="Sprite2D" parent="UI"]
+texture_filter = 1
+position = Vector2(269, 17)
+texture = ExtResource("3_rhqmm")
+
+[node name="UpgradeIcons" type="Sprite2D" parent="UI/Box01"]
+texture_filter = 1
+texture = ExtResource("4_w0fu6")
+hframes = 4
+vframes = 4
+frame = 15
+
+[node name="CDB" type="TextureProgressBar" parent="UI/Box01"]
+modulate = Color(1, 1, 1, 0.501961)
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("5_be4lt")
+
+[node name="Box02" type="Sprite2D" parent="UI"]
+texture_filter = 1
+position = Vector2(302, 17)
+texture = ExtResource("3_rhqmm")
+
+[node name="UpgradeIcons" type="Sprite2D" parent="UI/Box02"]
+texture_filter = 1
+texture = ExtResource("4_w0fu6")
+hframes = 4
+vframes = 4
+frame = 15
+
+[node name="CDB" type="TextureProgressBar" parent="UI/Box02"]
+modulate = Color(1, 1, 1, 0.501961)
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("5_be4lt")
+
+[node name="Box03" type="Sprite2D" parent="UI"]
+texture_filter = 1
+position = Vector2(269, 48)
+texture = ExtResource("3_rhqmm")
+
+[node name="UpgradeIcons" type="Sprite2D" parent="UI/Box03"]
+texture_filter = 1
+texture = ExtResource("4_w0fu6")
+hframes = 4
+vframes = 4
+frame = 15
+
+[node name="CDB" type="TextureProgressBar" parent="UI/Box03"]
+modulate = Color(1, 1, 1, 0.501961)
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("5_be4lt")
+
+[node name="Box04" type="Sprite2D" parent="UI"]
+texture_filter = 1
+position = Vector2(302, 48)
+texture = ExtResource("3_rhqmm")
+
+[node name="UpgradeIcons" type="Sprite2D" parent="UI/Box04"]
+texture_filter = 1
+texture = ExtResource("4_w0fu6")
+hframes = 4
+vframes = 4
+frame = 15
+
+[node name="CDB" type="TextureProgressBar" parent="UI/Box04"]
+modulate = Color(1, 1, 1, 0.501961)
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("5_be4lt")
+
+[node name="Activateletter01" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 256.0
+offset_top = 24.0
+offset_right = 282.0
+offset_bottom = 37.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "G"
+horizontal_alignment = 1
+
+[node name="Activateletter02" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 289.0
+offset_top = 24.0
+offset_right = 315.0
+offset_bottom = 37.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "H"
+horizontal_alignment = 1
+
+[node name="Activateletter03" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 256.0
+offset_top = 55.0
+offset_right = 282.0
+offset_bottom = 68.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "V"
+horizontal_alignment = 1
+
+[node name="Activateletter04" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 289.0
+offset_top = 55.0
+offset_right = 315.0
+offset_bottom = 68.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "B"
+horizontal_alignment = 1
+
+[node name="Staticons" type="Sprite2D" parent="UI"]
+texture_filter = 1
+position = Vector2(8, 27)
+texture = ExtResource("11_q0y8a")
+
+[node name="Text_ATKlvl" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 17.0
+offset_right = 160.0
+offset_bottom = 13.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "1"
+vertical_alignment = 1
+
+[node name="Text_SPDlvl" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 17.0
+offset_top = 10.0
+offset_right = 160.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "30"
+vertical_alignment = 1
+
+[node name="Text_CDNlvl" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 17.0
+offset_top = 20.0
+offset_right = 160.0
+offset_bottom = 33.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "-0"
+vertical_alignment = 1
+
+[node name="Text_AMTlvl" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 17.0
+offset_top = 30.0
+offset_right = 160.0
+offset_bottom = 43.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "+0"
+vertical_alignment = 1
+
+[node name="Text_HPlvl" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 17.0
+offset_top = 40.0
+offset_right = 160.0
+offset_bottom = 53.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "10"
+vertical_alignment = 1
+
+[node name="LVLbar" type="TextureProgressBar" parent="UI"]
+offset_left = 60.0
+offset_top = 168.0
+offset_right = 260.0
+offset_bottom = 174.0
+max_value = 5.0
+texture_under = ExtResource("6_tn3wl")
+texture_progress = ExtResource("7_hj0fj")
+
+[node name="LVLtext" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 60.0
+offset_top = 159.0
+offset_right = 260.0
+offset_bottom = 172.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "Level 1"
+horizontal_alignment = 1
+
+[node name="SelectLevelupscreen" type="Node2D" parent="UI"]
+process_mode = 3
+visible = false
+script = ExtResource("9_v754b")
+
+[node name="Blackrect" type="ColorRect" parent="UI/SelectLevelupscreen"]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="buttonstopress" type="AnimatedSprite2D" parent="UI/SelectLevelupscreen/Blackrect"]
+texture_filter = 1
+position = Vector2(284, 154)
+sprite_frames = SubResource("SpriteFrames_pd6dk")
+frame_progress = 0.811403
+
+[node name="Text1" type="Label" parent="UI/SelectLevelupscreen"]
+texture_filter = 1
+offset_top = 4.0
+offset_right = 320.0
+offset_bottom = 32.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("8_wwr2p")
+theme_override_font_sizes/font_size = 22
+text = "LEVEL UP!"
+horizontal_alignment = 1
+
+[node name="CardArrow" type="Sprite2D" parent="UI/SelectLevelupscreen"]
+z_index = 1
+texture_filter = 1
+position = Vector2(90, 144)
+texture = ExtResource("11_41qpt")
+hframes = 2
+vframes = 2
+
+[node name="Anim" type="AnimationPlayer" parent="UI/SelectLevelupscreen/CardArrow"]
+libraries = {
+"": SubResource("AnimationLibrary_v57cf")
+}
+
+[node name="UnpauseTimer" type="Timer" parent="UI/SelectLevelupscreen"]
+wait_time = 1.2
+one_shot = true
+
+[node name="Tut" type="Label" parent="UI/SelectLevelupscreen"]
+texture_filter = 1
+offset_left = 4.0
+offset_top = 147.0
+offset_right = 257.0
+offset_bottom = 160.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "Press with the button you want to assign it to"
+horizontal_alignment = 1
+
+[node name="CardSelect" type="AudioStreamPlayer2D" parent="UI/SelectLevelupscreen"]
+stream = ExtResource("13_n4qgp")
+
+[node name="Deathscreen" type="Node2D" parent="UI"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="UI/Deathscreen"]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Gameover" type="Label" parent="UI/Deathscreen"]
+modulate = Color(1, 0.529412, 0.443137, 1)
+texture_filter = 1
+offset_top = 51.0
+offset_right = 320.0
+offset_bottom = 79.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("8_wwr2p")
+theme_override_font_sizes/font_size = 22
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="UI/Deathscreen"]
+texture_filter = 1
+offset_top = 105.0
+offset_right = 320.0
+offset_bottom = 118.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "Score: 0"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/Deathscreen"]
+texture_filter = 1
+offset_top = 83.0
+offset_right = 320.0
+offset_bottom = 96.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "All your meeblings have died"
+horizontal_alignment = 1
+
+[node name="Mainarrow" type="Sprite2D" parent="."]
+z_index = 5
+texture_filter = 1
+position = Vector2(0, -14)
+texture = ExtResource("3_ljybb")
+hframes = 2
+vframes = 2
+
+[node name="Anim" type="AnimationPlayer" parent="Mainarrow"]
+libraries = {
+"": SubResource("AnimationLibrary_dgkm7")
+}
+
+[node name="Arrowshadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -5
+texture_filter = 1
+texture = ExtResource("4_h7cj8")
+
+[node name="MenuTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="LVLup" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("16_nlck6")
+
+[connection signal="timeout" from="UI/SelectLevelupscreen/UnpauseTimer" to="UI/SelectLevelupscreen" method="_on_unpause_timer_timeout"]
+[connection signal="timeout" from="MenuTimer" to="." method="_on_menu_timer_timeout"]

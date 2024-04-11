@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8tpnlv3v27iv"]
+
+[ext_resource type="Texture2D" uid="uid://byakgioxqpjy1" path="res://Assets/YCSTA_Bullet-1.png" id="1_eq53n"]
+[ext_resource type="Script" path="res://Script/bullet_fromenemy.gd" id="1_ou0l5"]
+
+[node name="Bullet_fromenemy" type="RigidBody2D"]
+script = ExtResource("1_ou0l5")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_eq53n")

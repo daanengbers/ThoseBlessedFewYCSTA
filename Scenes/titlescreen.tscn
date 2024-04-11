@@ -1,0 +1,510 @@
+[gd_scene load_steps=28 format=3 uid="uid://dw514lhixokq6"]
+
+[ext_resource type="Script" path="res://Script/titlescreen.gd" id="1_u8lfr"]
+[ext_resource type="FontFile" uid="uid://b85f1e3h4hl2q" path="res://Fonts/Retro Gaming.ttf" id="1_yyesp"]
+[ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="2_y0bsr"]
+[ext_resource type="Texture2D" uid="uid://cg180gfaancl0" path="res://Assets/Buttonshowcase.png" id="4_ioxw2"]
+[ext_resource type="Shader" path="res://Shaders/Deepbluewater.gdshader" id="6_x6l34"]
+[ext_resource type="Texture2D" uid="uid://c3eclcaowkgku" path="res://Assets/YCSTA_Oceanlayer01.png" id="7_3vvos"]
+[ext_resource type="Shader" path="res://Shaders/midwater.gdshader" id="8_adrkk"]
+[ext_resource type="Texture2D" uid="uid://bdgasffw74sxs" path="res://Assets/YCSTA_Oceanlayer02.png" id="9_dvkx1"]
+[ext_resource type="Shader" path="res://Shaders/Highwater.gdshader" id="10_wkd7s"]
+[ext_resource type="Texture2D" uid="uid://dte8v2f42bepp" path="res://Assets/YCSTA_Oceanlayer03.png" id="11_tiv2n"]
+[ext_resource type="Texture2D" uid="uid://dcpgqevgemchf" path="res://Assets/SplashArt_LettersOnly.png" id="12_8726h"]
+[ext_resource type="Texture2D" uid="uid://cgfs33467kkpo" path="res://Assets/YCSTA_Sliderbar_Empty.png" id="12_xn63q"]
+[ext_resource type="Texture2D" uid="uid://b8le24g41ft5i" path="res://Assets/YCSTA_Sliderbar_Full.png" id="13_n1b1a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkyut"]
+atlas = ExtResource("4_ioxw2")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14ay5"]
+atlas = ExtResource("4_ioxw2")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32woi"]
+atlas = ExtResource("4_ioxw2")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbecv"]
+atlas = ExtResource("4_ioxw2")
+region = Rect2(64, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qtq6"]
+atlas = ExtResource("4_ioxw2")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0mqun"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkyut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14ay5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32woi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbecv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qtq6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u32qm"]
+shader = ExtResource("6_x6l34")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jj1wh"]
+shader = ExtResource("8_adrkk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nuvyx"]
+shader = ExtResource("10_wkd7s")
+
+[sub_resource type="Animation" id="Animation_td3cs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Start:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Settings:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Credits:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_66txs"]
+resource_name = "selectcredits"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Start:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Settings:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ipi63"]
+resource_name = "selectsettings"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Start:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Settings:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_38d60"]
+resource_name = "selectstart"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Start:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.501961, 0.501961, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Settings:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l5exb"]
+_data = {
+"RESET": SubResource("Animation_td3cs"),
+"selectcredits": SubResource("Animation_66txs"),
+"selectsettings": SubResource("Animation_ipi63"),
+"selectstart": SubResource("Animation_38d60")
+}
+
+[node name="Titlescreen" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_u8lfr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = 28.0
+offset_top = 12.0
+offset_right = 291.0
+offset_bottom = 73.0
+
+[node name="Highestscore" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_top = 89.0
+offset_right = 320.0
+offset_bottom = 117.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_yyesp")
+theme_override_font_sizes/font_size = 22
+text = "LEVEL 0"
+horizontal_alignment = 1
+
+[node name="Highestscore2" type="Label" parent="."]
+visible = false
+modulate = Color(0.443137, 0.917647, 0.431373, 1)
+texture_filter = 1
+offset_top = 32.0
+offset_right = 320.0
+offset_bottom = 60.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_yyesp")
+theme_override_font_sizes/font_size = 22
+text = "THOSE BLESSED FEW"
+horizontal_alignment = 1
+
+[node name="HStext" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 1.0
+offset_top = 78.0
+offset_right = 320.0
+offset_bottom = 101.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_y0bsr")
+text = "HIGHEST SCORE :"
+horizontal_alignment = 1
+
+[node name="ButtonAnim" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(160, 151)
+sprite_frames = SubResource("SpriteFrames_0mqun")
+
+[node name="BG" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="Deepblue" type="ParallaxLayer" parent="BG"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(384, 256)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="BG/Deepblue"]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_u32qm")
+texture = ExtResource("7_3vvos")
+centered = false
+
+[node name="Midwater" type="ParallaxLayer" parent="BG"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(384, 256)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="BG/Midwater"]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jj1wh")
+texture = ExtResource("9_dvkx1")
+centered = false
+
+[node name="Highwater" type="ParallaxLayer" parent="BG"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(384, 256)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="BG/Highwater"]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_nuvyx")
+texture = ExtResource("11_tiv2n")
+centered = false
+
+[node name="SplashArtCombi" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(162, 52)
+texture = ExtResource("12_8726h")
+
+[node name="Pressableactions" type="Node2D" parent="."]
+
+[node name="Start" type="Label" parent="Pressableactions"]
+texture_filter = 1
+offset_left = 1.0
+offset_top = 108.0
+offset_right = 320.0
+offset_bottom = 121.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_y0bsr")
+text = "START RUN"
+horizontal_alignment = 1
+
+[node name="Settings" type="Label" parent="Pressableactions"]
+texture_filter = 1
+offset_left = 1.0
+offset_top = 128.0
+offset_right = 320.0
+offset_bottom = 141.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_y0bsr")
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="Credits" type="Label" parent="Pressableactions"]
+texture_filter = 1
+offset_left = 1.0
+offset_top = 148.0
+offset_right = 320.0
+offset_bottom = 161.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_y0bsr")
+text = "CREDITS"
+horizontal_alignment = 1
+
+[node name="Anim" type="AnimationPlayer" parent="Pressableactions"]
+libraries = {
+"": SubResource("AnimationLibrary_l5exb")
+}
+
+[node name="Settingspage" type="Node2D" parent="."]
+visible = false
+
+[node name="Blackrect" type="ColorRect" parent="Settingspage"]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 0.745098)
+
+[node name="Text" type="Label" parent="Settingspage"]
+modulate = Color(1, 1, 0.745098, 1)
+texture_filter = 1
+offset_top = 8.0
+offset_right = 320.0
+offset_bottom = 21.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("2_y0bsr")
+text = "- Settings Menu -"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Text2" type="Label" parent="Settingspage"]
+texture_filter = 1
+offset_top = 58.0
+offset_right = 320.0
+offset_bottom = 71.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("2_y0bsr")
+text = "Music Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MusicProgress" type="TextureProgressBar" parent="Settingspage"]
+offset_left = 110.0
+offset_top = 76.0
+offset_right = 210.0
+offset_bottom = 86.0
+value = 50.0
+texture_under = ExtResource("12_xn63q")
+texture_progress = ExtResource("13_n1b1a")
+
+[node name="Text3" type="Label" parent="Settingspage"]
+texture_filter = 1
+offset_top = 89.0
+offset_right = 320.0
+offset_bottom = 102.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("2_y0bsr")
+text = "Sound Effects Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Text4" type="Label" parent="Settingspage"]
+texture_filter = 1
+offset_top = 122.0
+offset_right = 320.0
+offset_bottom = 135.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("2_y0bsr")
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MusicProgress2" type="TextureProgressBar" parent="Settingspage"]
+offset_left = 110.0
+offset_top = 107.0
+offset_right = 210.0
+offset_bottom = 117.0
+value = 50.0
+texture_under = ExtResource("12_xn63q")
+texture_progress = ExtResource("13_n1b1a")
+
+[node name="Creditspage" type="Node2D" parent="."]
+visible = false
+
+[node name="Blackrect" type="ColorRect" parent="Creditspage"]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 0.745098)
+
+[node name="Text" type="Label" parent="Creditspage"]
+modulate = Color(1, 1, 0.745098, 1)
+texture_filter = 1
+offset_right = 320.0
+offset_bottom = 180.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("2_y0bsr")
+text = "- A game by Studio Meebly -
+
+Andreas Ioannou
+Pixel art & Environments
+
+Daan Engbers ( kappidaan )
+General design, Pixel art, Balancing
+
+Glenn Kolenbrander ( DREAMWARE )
+Music and Sounds
+
+Wouter van Ham ( WeenterMakesGames )
+Programming, Art direction"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
