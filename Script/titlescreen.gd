@@ -10,6 +10,8 @@ var page = 1
 func _ready():
 	$ButtonAnim.play("default")
 	pressanim.play("selectstart")
+	Globalsettings.timerrunning = false
+	Globalsettings.g_seconds = 0
 
 func _process(delta):
 	if Input.is_action_just_pressed("down") && selectedbutton < 3 && page == 1:

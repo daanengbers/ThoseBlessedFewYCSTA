@@ -4,6 +4,7 @@ var SKULL = preload("res://Scenes/enemy_member.tscn")
 var EYEBALL = preload("res://Scenes/enemy_eyeball.tscn")
 
 var cycles = 0
+var secconds = Globalsettings.g_seconds
 var biome = 1
 
 var randomenemyspawn = 1
@@ -61,20 +62,36 @@ func _on_spawn_timer_timeout():
 		spawnskullenemy()
 	elif randomenemyspawn == 2:
 		spawneyeenemy()
-	
 	randomspawnlocx = randi()% 320
 	randomspawnlocy = randi()% 180
+	secconds = Globalsettings.g_seconds
 	$SpawnTimer.start()
 	cycles += 1
-	if cycles == 10:
-		$SpawnTimer.wait_time = 3.5
-	if cycles == 20:
+	if secconds == 10:
 		$SpawnTimer.wait_time = 3
-	if cycles == 30:
+	if secconds == 20:
+		$SpawnTimer.wait_time = 2.8
+	if secconds == 30:
 		$SpawnTimer.wait_time = 2.5
-	if cycles == 40:
-		$SpawnTimer.wait_time = 2
-	if cycles == 55:
+	if secconds == 40:
+		$SpawnTimer.wait_time = 2.2
+	if secconds == 60:
 		$SpawnTimer.wait_time = 1.5
-	if cycles == 70:
-		$SpawnTimer.wait_time = 1
+	if secconds == 75:
+		$SpawnTimer.wait_time = 1.6
+	if secconds == 90:
+		$SpawnTimer.wait_time = 1.2
+	if secconds == 105:
+		$SpawnTimer.wait_time = 0.9
+	if secconds == 120:
+		$SpawnTimer.wait_time = 0.7
+	if secconds == 140:
+		$SpawnTimer.wait_time = 0.5
+	if secconds == 200:
+		$SpawnTimer.wait_time = 0.3
+	if secconds == 400:
+		$SpawnTimer.wait_time = 0.2
+	if secconds == 600:
+		$SpawnTimer.wait_time = 0.1
+	if secconds == 900:
+		$SpawnTimer.wait_time = 0.01

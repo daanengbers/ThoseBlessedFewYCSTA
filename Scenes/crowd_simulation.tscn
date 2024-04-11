@@ -473,6 +473,18 @@ theme_override_fonts/font = ExtResource("3_gjq7j")
 text = "All your meeblings have died"
 horizontal_alignment = 1
 
+[node name="GameTimerUI" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 141.0
+offset_right = 181.0
+offset_bottom = 15.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Mainarrow" type="Sprite2D" parent="."]
 z_index = 5
 texture_filter = 1
@@ -492,13 +504,15 @@ z_index = -5
 texture_filter = 1
 texture = ExtResource("4_h7cj8")
 
-[node name="MenuTimer" type="Timer" parent="."]
-wait_time = 6.0
-one_shot = true
-
 [node name="LVLup" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("16_nlck6")
 
+[node name="Timers" type="Node" parent="."]
+
+[node name="MenuTimer" type="Timer" parent="Timers"]
+wait_time = 6.0
+one_shot = true
+
 [connection signal="timeout" from="UI/SelectLevelupscreen/UnpauseTimer" to="UI/SelectLevelupscreen" method="_on_unpause_timer_timeout"]
-[connection signal="timeout" from="MenuTimer" to="." method="_on_menu_timer_timeout"]
+[connection signal="timeout" from="Timers/MenuTimer" to="." method="_on_menu_timer_timeout"]

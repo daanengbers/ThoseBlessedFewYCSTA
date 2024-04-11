@@ -15,6 +15,9 @@ var currentrun_minuscooldown = 0
 var currentrun_extrabullets = 0
 var currentrun_extrahealth = 0
 
+var timerrunning = false
+var g_seconds = 0
+
 var g_spell1 = 0
 var g_spell2 = 0
 var g_spell3 = 0
@@ -22,7 +25,7 @@ var g_spell4 = 0
 
 func _ready():
 	bus_index = AudioServer.get_bus_index(bus_name)
-	
+
 
 func _process(delta):
 	
@@ -52,3 +55,9 @@ func resetrun():
 	g_spell3 = 0
 	g_spell4 = 0
 	
+
+
+func _on_game_timer_timeout():
+	if timerrunning == true:
+		g_seconds += 1
+	$Timers/GameTimer.start()

@@ -14,6 +14,8 @@ var spell2cooldown = 0
 var spell3cooldown = 0
 var spell4cooldown = 0
 
+var secconds = 0
+
 var cooldownspeed = .2
 
 var xp = Globalsettings.global_xp
@@ -29,6 +31,8 @@ func _ready():
 	$UI/SelectLevelupscreen/Blackrect/buttonstopress.play("default")
 
 func _physics_process(delta):
+	
+	$UI/GameTimerUI.set_text(str(Globalsettings.g_seconds))
 	
 	crowdm = get_tree().get_nodes_in_group("crowd_m")
 	if crowdm.size() <= 1:
