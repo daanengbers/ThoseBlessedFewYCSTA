@@ -52,7 +52,7 @@ func _ready():
 	hp = MAX_HP
 	$Healthbar.max_value = MAX_HP
 	m_anim.play("bounce")
-	randomsprite = randi()%3
+	randomsprite = randi()%4
 	$Meebling.frame = randomsprite
 
 func _physics_process(delta):

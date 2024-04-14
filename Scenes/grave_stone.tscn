@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq6q1k1apculs"]
+
+[ext_resource type="Texture2D" uid="uid://cc47o43w7r2i0" path="res://Assets/Gravestones.png" id="1_ebiry"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4h2l"]
+size = Vector2(28, 18)
+
+[node name="GraveStone" type="StaticBody2D"]
+z_index = 1
+texture_filter = 1
+collision_layer = 3
+collision_mask = 3
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ebiry")
+hframes = 2
+vframes = 3
+
+[node name="box" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_m4h2l")

@@ -4,6 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://bc4wd2u4nb0i6" path="res://Assets/YCSTA_XP.png" id="2_us7n4"]
 [ext_resource type="Texture2D" uid="uid://dhndfxnjcfqdj" path="res://Assets/Lightshadow.png" id="3_s20xk"]
 
+[sub_resource type="Animation" id="Animation_244cs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_v47f3"]
 resource_name = "play"
 length = 0.4
@@ -22,21 +37,6 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 3, 2, 1]
 }
 
-[sub_resource type="Animation" id="Animation_244cs"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iqsw0"]
 _data = {
 "RESET": SubResource("Animation_244cs"),
@@ -46,7 +46,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_x2k04"]
 radius = 5.09902
 
-[node name="EXP_area" type="Area2D" groups=["EXPorb"]]
+[node name="EXP_area" type="Area2D" groups=["Despawn", "EXPorb"]]
 script = ExtResource("1_18sew")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -69,3 +69,5 @@ z_index = -1
 texture_filter = 1
 position = Vector2(0, 7)
 texture = ExtResource("3_s20xk")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

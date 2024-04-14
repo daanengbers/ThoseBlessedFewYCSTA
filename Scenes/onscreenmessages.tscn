@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b3u2hpn8irajn"]
 
-[ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="1_cts1n"]
 [ext_resource type="Script" path="res://Script/onscreenmessages.gd" id="1_ermhu"]
+[ext_resource type="FontFile" uid="uid://b85f1e3h4hl2q" path="res://Fonts/Retro Gaming.ttf" id="2_s1qol"]
 
 [sub_resource type="Animation" id="Animation_gnau2"]
 length = 0.001
@@ -57,10 +57,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("1_cts1n")
+theme_override_fonts/font = ExtResource("2_s1qol")
+theme_override_font_sizes/font_size = 22
 text = "Debug Debug Debug"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Anim" type="AnimationPlayer" parent="UI/Message"]
 libraries = {

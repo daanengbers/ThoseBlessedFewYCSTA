@@ -11,10 +11,13 @@ config_version=5
 [application]
 
 config/name="YouCantSaveThemAll"
+config/description="A game made by Andreas Ioannou, Daan Engbers, Glenn Kolenbrander and Wouter van Ham for the XP game jam 2024."
 run/main_scene="res://Scenes/titlescreen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 run/max_fps=60
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+config/icon="res://Icons/Meebling_Icon_ingame.png"
+config/windows_native_icon="res://Icons/Meebling_Icon_ingame_ICO.ico"
 
 [autoload]
 

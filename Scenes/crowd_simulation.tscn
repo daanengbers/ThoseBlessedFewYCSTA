@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b46qb74feih7m"]
+[gd_scene load_steps=28 format=3 uid="uid://b46qb74feih7m"]
 
 [ext_resource type="Script" path="res://Script/crowd_simulation.gd" id="1_hyuob"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="3_gjq7j"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://bc65frbmttbad" path="res://Assets/Selectcardarrow.png" id="11_41qpt"]
 [ext_resource type="Texture2D" uid="uid://cg180gfaancl0" path="res://Assets/Buttonshowcase.png" id="11_g741n"]
 [ext_resource type="Texture2D" uid="uid://cgakxi0t1lwe7" path="res://Assets/Staticons.png" id="11_q0y8a"]
-[ext_resource type="AudioStream" uid="uid://3c7qv37m47tq" path="res://Sounds/cardnoise1.wav" id="13_n4qgp"]
 [ext_resource type="AudioStream" uid="uid://bad6nr05h2axn" path="res://Sounds/lvlup1.wav" id="16_nlck6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j74bb"]
@@ -427,9 +426,6 @@ theme_override_fonts/font = ExtResource("3_gjq7j")
 text = "Press with the button you want to assign it to"
 horizontal_alignment = 1
 
-[node name="CardSelect" type="AudioStreamPlayer2D" parent="UI/SelectLevelupscreen"]
-stream = ExtResource("13_n4qgp")
-
 [node name="Deathscreen" type="Node2D" parent="UI"]
 visible = false
 
@@ -507,6 +503,7 @@ texture = ExtResource("4_h7cj8")
 [node name="LVLup" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("16_nlck6")
+volume_db = 10.0
 
 [node name="Timers" type="Node" parent="."]
 

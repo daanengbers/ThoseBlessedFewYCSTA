@@ -1,9 +1,13 @@
 extends Area2D
 
+var stageuntildespawn = 10
+var randomid = 0
 @export var expamount = 20
 @export var meeblingsoul = false
 
 func _ready():
+	randomize()
+	randomid = randi()%9999 + 1
 	$Sprite/Anim.play("play")
 	if meeblingsoul == true:
 		$Deathsound.play()
@@ -13,3 +17,12 @@ func _process(delta):
 
 func _on_timer_timeout():
 	$box.set_deferred("disabled", false)
+
+func _on_area_entered(area):
+	if area.is_in_group("EXPorb"):
+		if expamount < area.expamount:
+			area.expamount += expamount
+			area.stageuntildespawn = 10
+			queue_free()
+		else:
+			pass

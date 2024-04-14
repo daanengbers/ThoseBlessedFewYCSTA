@@ -24,8 +24,8 @@ var g_spell3 = 0
 var g_spell4 = 0
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	bus_index = AudioServer.get_bus_index(bus_name)
-
 
 func _process(delta):
 	
@@ -42,7 +42,6 @@ func setmusic():
 	$Normalmusic.stop()
 	$Bossmusic.stop()
 
-
 func resetrun():
 	global_xp = 0
 	currentrun_extraattack = 0
@@ -54,10 +53,14 @@ func resetrun():
 	g_spell2 = 0
 	g_spell3 = 0
 	g_spell4 = 0
-	
-
 
 func _on_game_timer_timeout():
 	if timerrunning == true:
-		g_seconds += 1
+		if get_tree().paused == false:
+			g_seconds += 1
 	$Timers/GameTimer.start()
+
+func _on_despawn_timer_timeout():
+	for des in get_tree().get_nodes_in_group("Despawn"):
+		des.subtract_despawn()
+	$Timers/DespawnTimer.start()

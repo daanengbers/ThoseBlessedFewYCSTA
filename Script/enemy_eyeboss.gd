@@ -8,7 +8,7 @@ var AOE = preload("res://Scenes/enemy_aoe.tscn")
 
 @onready var e_anim = $Icon/Anim
 
-@export var hp = 400
+@export var hp = 1600
 var alive = true
 
 @export var chasing = false

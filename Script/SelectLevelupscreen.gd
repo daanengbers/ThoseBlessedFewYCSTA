@@ -28,7 +28,6 @@ func _process(delta):
 		#Spells select
 		
 		if Input.is_action_just_pressed("spell1") && pressed == false:
-			$CardSelect.play()
 			pressed  = true
 			if cardselected == 1:
 				card1.selectcard(1)
@@ -39,7 +38,6 @@ func _process(delta):
 			$UnpauseTimer.start()
 		
 		if Input.is_action_just_pressed("spell2") && pressed == false:
-			$CardSelect.play()
 			pressed  = true
 			if cardselected == 1:
 				card1.selectcard(2)
@@ -50,7 +48,6 @@ func _process(delta):
 			$UnpauseTimer.start()
 		
 		if Input.is_action_just_pressed("spell3") && pressed == false:
-			$CardSelect.play()
 			pressed  = true
 			if cardselected == 1:
 				card1.selectcard(3)
@@ -61,7 +58,6 @@ func _process(delta):
 			$UnpauseTimer.start()
 		
 		if Input.is_action_just_pressed("spell4") && pressed == false:
-			$CardSelect.play()
 			pressed  = true
 			if cardselected == 1:
 				card1.selectcard(4)
