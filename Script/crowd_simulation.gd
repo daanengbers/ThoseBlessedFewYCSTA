@@ -15,6 +15,7 @@ var spell3cooldown = 0
 var spell4cooldown = 0
 
 var secconds = 0
+var minutes = 0
 
 var cooldownspeed = .2
 
@@ -32,7 +33,7 @@ func _ready():
 
 func _physics_process(_delta):
 	
-	$UI/GameTimerUI.set_text(str(Globalsettings.g_seconds))
+	$UI/GameTimerUI.set_text(str(Globalsettings.g_uiminutes) + ":" + str(Globalsettings.g_uisecconds))
 	
 	crowdm = get_tree().get_nodes_in_group("crowd_m")
 	if crowdm.size() <= 1:
