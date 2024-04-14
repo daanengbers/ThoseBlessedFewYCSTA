@@ -8,9 +8,6 @@ var DMGVAL = preload("res://Scenes/damagenumber.tscn")
 func _ready():
 	pass
 
-func _process(delta):
-	pass
-
 func _on_queue_timer_timeout():
 	queue_free()
 

@@ -8,7 +8,7 @@ var AOE = preload("res://Scenes/enemy_aoe.tscn")
 
 @onready var e_anim = $Icon/Anim
 
-@export var hp = 1600
+@export var hp = 2000
 var alive = true
 
 @export var chasing = false
@@ -25,11 +25,9 @@ func _ready():
 	randomspeedextra = randi()%10
 	e_anim.play("bounce")
 	$EffectsAnim.play("default")
-	$Healthbar.max_value = hp
+	$UI/Healthbar.max_value = hp
 
-func _physics_process(delta):
-	
-	
+func _physics_process(_delta):
 	
 	crowd_members = get_tree().get_nodes_in_group("crowd_m")
 	nearest_crowdm = crowd_members[0]
@@ -41,7 +39,6 @@ func _physics_process(delta):
 	dist_to_crowdm = abs(global_position - nearest_crowdm.global_position)
 	
 	$Rot.look_at(nearest_crowdm.global_position)
-	$Healthbar.value = hp
 	
 	if dist_to_crowdm.x > 20 or dist_to_crowdm.y > 20:
 		if chasing == true:
@@ -58,15 +55,17 @@ func _physics_process(delta):
 		else:
 			$Icon.flip_h = false
 	
-	$TestLabel.set_text(str(nearest_crowdm))
-	
 	move_and_slide()
 
 func hurt():
 	$EffectsAnim.play("hurt")
+	$UI/Healthbar.value = hp
 
 func kill():
 	Onscreenmessages.displaymessage("Boss Defeated")
+	Globalsettings.bossfight_active = false
+	Globalsettings.globalmusic = 1
+	Globalsettings.setmusic()
 	alive = false
 	spawn_exporb()
 	queue_free()
@@ -91,9 +90,13 @@ func _on_attack_timer_timeout():
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
-	$ChaseTimer.start()
+	if Globalsettings.bossfight_active == false:
+		if chasing == false:
+			$ChaseTimer.start()
 
 func _on_chase_timer_timeout():
 	chasing = true
+	$UI.visible = true
+	Globalsettings.bossfight_active = true
 	Globalsettings.globalmusic = 2
 	Globalsettings.setmusic()

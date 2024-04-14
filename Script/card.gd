@@ -7,9 +7,6 @@ func _ready():
 	cardnr = randi()%9 + 1
 	setcardstats()
 
-func _process(delta):
-	pass
-
 func rerandomizecard():
 	cardnr = randi()%9 + 1
 

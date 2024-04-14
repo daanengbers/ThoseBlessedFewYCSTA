@@ -9,9 +9,6 @@ func _ready():
 	randomid = randi()%9999 + 1
 	$Sprite/Anim.play("play")
 
-func _process(delta):
-	pass
-
 func subtract_despawn():
 	stageuntildespawn -= 1
 	if stageuntildespawn <= 0:

@@ -1,14 +1,14 @@
 [gd_scene load_steps=20 format=3 uid="uid://wp5xcajm7wky"]
 
-[ext_resource type="Script" path="res://Script/enemy_member.gd" id="1_7rc2u"]
-[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/YCSTA_healthbar-1.png" id="2_x3uwu"]
-[ext_resource type="Texture2D" uid="uid://blxj1s22wdk50" path="res://Assets/YCSTA_Enemies-1.png" id="2_xf88v"]
-[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/YCSTA_healthbar-2.png" id="3_0v6uq"]
-[ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="3_x2q3d"]
-[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/rotatingarrow.png" id="4_hhbrl"]
-[ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="8_mqsg5"]
-[ext_resource type="AudioStream" uid="uid://bg2xrdk3npnsa" path="res://Sounds/spellshort1.wav" id="9_h0kib"]
-[ext_resource type="Texture2D" uid="uid://dsh5841pjc8i5" path="res://Assets/YCSTA_Souldparticles.png" id="9_jqcfg"]
+[ext_resource type="Script" path="res://Script/enemy_member.gd" id="1_6agiw"]
+[ext_resource type="Texture2D" uid="uid://blxj1s22wdk50" path="res://Assets/YCSTA_Enemies-1.png" id="2_g3rx0"]
+[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/rotatingarrow.png" id="3_fkv5n"]
+[ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="4_6x5aa"]
+[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/YCSTA_healthbar-1.png" id="5_7ffgk"]
+[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/YCSTA_healthbar-2.png" id="6_knrq3"]
+[ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="7_ah8uh"]
+[ext_resource type="Texture2D" uid="uid://dsh5841pjc8i5" path="res://Assets/YCSTA_Souldparticles.png" id="8_j87fl"]
+[ext_resource type="AudioStream" uid="uid://bg2xrdk3npnsa" path="res://Sounds/spellshort1.wav" id="9_jfdhv"]
 
 [sub_resource type="Animation" id="Animation_roeck"]
 length = 0.001
@@ -62,7 +62,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 0.392157, 0.392157, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_vq5j7"]
@@ -111,17 +111,14 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.38, 0.753333, 1)
 colors = PackedColorArray(0.944885, 0.700689, 0, 1, 1, 0.556863, 0.160784, 1, 1, 0.243137, 0.372549, 0.627451, 1, 0, 0, 0)
 
-[node name="Enemy_member" type="CharacterBody2D" groups=["enemy_m"]]
+[node name="Enemy_skull" type="CharacterBody2D" groups=["enemy_m"]]
 z_index = 1
-script = ExtResource("1_7rc2u")
-SPEED = 40
-hp = 3
+script = ExtResource("1_6agiw")
 
 [node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(1, 0.392157, 0.392157, 1)
 texture_filter = 1
 position = Vector2(0, 1)
-texture = ExtResource("2_xf88v")
+texture = ExtResource("2_g3rx0")
 
 [node name="Anim" type="AnimationPlayer" parent="Icon"]
 libraries = {
@@ -134,7 +131,7 @@ visible = false
 [node name="Rotatingarrow" type="Sprite2D" parent="Rot"]
 texture_filter = 1
 rotation = 1.5708
-texture = ExtResource("4_hhbrl")
+texture = ExtResource("3_fkv5n")
 
 [node name="Exclamation" type="Label" parent="."]
 visible = false
@@ -146,21 +143,8 @@ offset_right = 14.0
 offset_bottom = -10.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("3_x2q3d")
+theme_override_fonts/font = ExtResource("4_6x5aa")
 text = "!"
-horizontal_alignment = 1
-
-[node name="TestLabel" type="Label" parent="."]
-visible = false
-texture_filter = 1
-offset_left = -270.0
-offset_top = -36.0
-offset_right = 270.0
-offset_bottom = -23.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("3_x2q3d")
-text = "closest"
 horizontal_alignment = 1
 
 [node name="Healthbar" type="TextureProgressBar" parent="."]
@@ -170,13 +154,8 @@ offset_right = 5.0
 offset_bottom = -12.0
 max_value = 10.0
 value = 10.0
-texture_under = ExtResource("2_x3uwu")
-texture_progress = ExtResource("3_0v6uq")
-
-[node name="AttackTimer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-autostart = true
+texture_under = ExtResource("5_7ffgk")
+texture_progress = ExtResource("6_knrq3")
 
 [node name="HURTbox_Enemy" type="Area2D" parent="."]
 
@@ -193,14 +172,14 @@ modulate = Color(1, 1, 1, 0.501961)
 z_index = -1
 texture_filter = 1
 position = Vector2(0, 7)
-texture = ExtResource("8_mqsg5")
+texture = ExtResource("7_ah8uh")
 
 [node name="Fire" type="CPUParticles2D" parent="."]
 z_index = -1
 texture_filter = 1
 amount = 2
 lifetime = 2.0
-texture = ExtResource("9_jqcfg")
+texture = ExtResource("8_j87fl")
 direction = Vector2(0, -1)
 spread = 10.0
 gravity = Vector2(0, 0)
@@ -211,6 +190,13 @@ scale_amount_curve = SubResource("Curve_vfb2r")
 color_ramp = SubResource("Gradient_f4ocr")
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_h0kib")
+stream = ExtResource("9_jfdhv")
 
-[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[node name="Timers" type="Node" parent="."]
+
+[node name="UpdateTimer" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timers/UpdateTimer" to="." method="_on_update_timer_timeout"]

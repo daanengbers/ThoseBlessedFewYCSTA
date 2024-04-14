@@ -30,7 +30,7 @@ func _ready():
 	$Mainarrow/Anim.play("default")
 	$UI/SelectLevelupscreen/Blackrect/buttonstopress.play("default")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	$UI/GameTimerUI.set_text(str(Globalsettings.g_seconds))
 	

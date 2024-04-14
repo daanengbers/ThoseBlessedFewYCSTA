@@ -1,6 +1,6 @@
 extends Node2D
 
-var SKULL = preload("res://Scenes/enemy_member.tscn")
+var SKULL = preload("res://Scenes/enemy_skull.tscn")
 var EYEBALL = preload("res://Scenes/enemy_eyeball.tscn")
 var SLIME = preload("res://Scenes/enemy_slime.tscn")
 
@@ -70,9 +70,6 @@ func spawnslimeenemy():
 	if randomtoporside == 4:
 		sk.position.x = global_position.x + 360
 		sk.position.y = global_position.y + randomspawnlocy
-
-func _process(delta):
-	pass
 
 func _on_spawn_timer_timeout():
 	randomenemyspawn = randi()% highesttypeenemy + 1

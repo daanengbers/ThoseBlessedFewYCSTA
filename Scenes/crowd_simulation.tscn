@@ -470,6 +470,7 @@ text = "All your meeblings have died"
 horizontal_alignment = 1
 
 [node name="GameTimerUI" type="Label" parent="UI"]
+visible = false
 texture_filter = 1
 offset_left = 141.0
 offset_right = 181.0

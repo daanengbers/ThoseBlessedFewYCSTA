@@ -94,9 +94,9 @@ shape = SubResource("RectangleShape2D_34pq5")
 
 [node name="Healthbar" type="TextureProgressBar" parent="."]
 offset_left = -10.0
-offset_top = -23.0
+offset_top = -25.0
 offset_right = 10.0
-offset_bottom = -22.0
+offset_bottom = -24.0
 texture_under = ExtResource("3_gnpef")
 texture_progress = ExtResource("4_kfsuq")
 

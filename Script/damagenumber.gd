@@ -15,8 +15,6 @@ func _ready():
 		modulate = Color(1,.4,.1)
 	elif dmg_value >= 50:
 		modulate = Color(1,.2,0)
-	
-	
 
 func _on_timer_timeout():
 	queue_free()

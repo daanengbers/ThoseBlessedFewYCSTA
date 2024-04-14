@@ -55,7 +55,7 @@ func _ready():
 	randomsprite = randi()%4
 	$Meebling.frame = randomsprite
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	# find near enemies
 	enemy_members = get_tree().get_nodes_in_group("enemy_m")

@@ -7,7 +7,7 @@ var EXPORB = preload("res://Scenes/exp_area.tscn")
 
 @onready var e_anim = $Icon/Anim
 
-@export var hp = 10
+@export var hp = 24
 var alive = true
 
 var randomspeedextra = 0
@@ -23,11 +23,14 @@ func _ready():
 	e_anim.play("bounce")
 	$EffectsAnim.play("default")
 	$Healthbar.max_value = hp
+	$Healthbar.value = hp
+	update_meeblingsandmovement()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
-	
-	
+	move_and_slide()
+
+func update_meeblingsandmovement():
 	crowd_members = get_tree().get_nodes_in_group("crowd_m")
 	nearest_crowdm = crowd_members[0]
 	
@@ -38,7 +41,6 @@ func _physics_process(delta):
 	dist_to_crowdm = abs(global_position - nearest_crowdm.global_position)
 	
 	$Rot.look_at(nearest_crowdm.global_position)
-	$Healthbar.value = hp
 	
 	if dist_to_crowdm.x > 14 or dist_to_crowdm.y > 14:
 		velocity = Vector2(SPEED + randomspeedextra, 0).rotated($Rot.rotation)
@@ -48,19 +50,16 @@ func _physics_process(delta):
 		velocity.y = 0
 		withinreach = true
 	
-	if canflip == true:
-		if velocity.x > 0:
-			$Icon.flip_h = true
-		else:
-			$Icon.flip_h = false
-	
-	$TestLabel.set_text(str(nearest_crowdm))
-	
-	move_and_slide()
+	if withinreach == true:
+		nearest_crowdm.hp -= 1
+		nearest_crowdm.hurt()
+		if nearest_crowdm.hp <= 0:
+			nearest_crowdm.kill()
 
 func hurt():
 	$EffectsAnim.play("hurt")
 	$HurtSound.play()
+	$Healthbar.value = hp
 
 func kill():
 	alive = false
@@ -72,10 +71,6 @@ func spawn_exporb():
 	get_parent().add_child.call_deferred(ex)
 	ex.position = global_position
 
-func _on_attack_timer_timeout():
-	$AttackTimer.start()
-	if withinreach == true:
-		nearest_crowdm.hp -= 1
-		nearest_crowdm.hurt()
-		if nearest_crowdm.hp <= 0:
-			nearest_crowdm.kill()
+func _on_update_timer_timeout():
+	update_meeblingsandmovement()
+	$Timers/UpdateTimer.start()

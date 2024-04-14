@@ -22,11 +22,11 @@
 [ext_resource type="Texture2D" uid="uid://beqbkd7gxp347" path="res://Assets/BridgeStoneModular.png" id="10_aul4j"]
 [ext_resource type="Texture2D" uid="uid://bxoxbig2xrc6h" path="res://Assets/Tower_Split_Lower.png" id="21_4mpwi"]
 [ext_resource type="PackedScene" uid="uid://bcp1j8ohl53o8" path="res://Scenes/enemy_eyeboss.tscn" id="21_k1ikb"]
-[ext_resource type="Texture2D" uid="uid://brxeopbxhltc6" path="res://Assets/WoodenBridge-1.png" id="21_wsapo"]
+[ext_resource type="PackedScene" uid="uid://cfhu8chdech4a" path="res://Scenes/Decor/decor_skullonstick.tscn" id="22_dby0b"]
 [ext_resource type="Texture2D" uid="uid://d3cveew3vqy0c" path="res://Assets/Tower_Split_Upper.png" id="22_fq5mk"]
 [ext_resource type="PackedScene" uid="uid://x81ykcq4gjl2" path="res://Scenes/meebling_cage.tscn" id="22_n6bcc"]
-[ext_resource type="Texture2D" uid="uid://c1g6aa0cys7ck" path="res://Assets/Cliff_Sprite_v3.png" id="25_qdv3a"]
 [ext_resource type="PackedScene" uid="uid://dq6q1k1apculs" path="res://Scenes/grave_stone.tscn" id="27_uqgjp"]
+[ext_resource type="Texture2D" uid="uid://d1tfpy0c0luuh" path="res://Assets/CampDecorations-3.png" id="28_cfgnc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ec5ca"]
 texture = ExtResource("2_id5t6")
@@ -523,7 +523,7 @@ position = Vector2(104, 87)
 position = Vector2(63, 112)
 
 [node name="MeeblingCage" parent="Ysorter" instance=ExtResource("22_n6bcc")]
-position = Vector2(144, -37)
+position = Vector2(78, -29)
 
 [node name="MeeblingCage2" parent="Ysorter" instance=ExtResource("22_n6bcc")]
 position = Vector2(34, -459)
@@ -606,6 +606,24 @@ position = Vector2(-734, 118)
 [node name="GraveStone" parent="Ysorter" instance=ExtResource("27_uqgjp")]
 position = Vector2(-48, 88)
 
+[node name="Decor_Skullonstick" parent="Ysorter" instance=ExtResource("22_dby0b")]
+position = Vector2(38, -44)
+
+[node name="Decor_Skullonstick2" parent="Ysorter" instance=ExtResource("22_dby0b")]
+position = Vector2(34, 0)
+
+[node name="Decor_Skullonstick3" parent="Ysorter" instance=ExtResource("22_dby0b")]
+position = Vector2(117, -47)
+
+[node name="Decor_Skullonstick4" parent="Ysorter" instance=ExtResource("22_dby0b")]
+position = Vector2(118, 4)
+
+[node name="NonsortedDecor" type="Node2D" parent="."]
+
+[node name="CampDecorations-3" type="Sprite2D" parent="NonsortedDecor"]
+position = Vector2(78, 19)
+texture = ExtResource("28_cfgnc")
+
 [node name="Crowdgrouploc" type="Node2D" parent="." groups=["crowd_m"]]
 position = Vector2(0, 100000)
 
@@ -620,153 +638,6 @@ texture = ExtResource("10_aul4j")
 [node name="BridgeStoneModular3" type="Sprite2D" parent="."]
 position = Vector2(240, -287)
 texture = ExtResource("10_aul4j")
-
-[node name="WoodenBridge-1" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-222, 146)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-2" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-286, 146)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-3" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-350, 146)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-4" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-414, 146)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-5" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-478, 146)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-6" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-542, 146)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-7" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-606, 146)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="Bribe" type="Node2D" parent="."]
-visible = false
-z_index = -1
-position = Vector2(-1028, 111)
-
-[node name="WoodenBridge-8" type="Sprite2D" parent="Bribe"]
-position = Vector2(164, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-9" type="Sprite2D" parent="Bribe"]
-position = Vector2(100, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-10" type="Sprite2D" parent="Bribe"]
-position = Vector2(36.0001, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-11" type="Sprite2D" parent="Bribe"]
-position = Vector2(-27.9999, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-12" type="Sprite2D" parent="Bribe"]
-position = Vector2(-91.9999, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-13" type="Sprite2D" parent="Bribe"]
-position = Vector2(-156, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="Bribe2" type="Node2D" parent="."]
-visible = false
-z_index = -1
-position = Vector2(-676, -736)
-
-[node name="WoodenBridge-8" type="Sprite2D" parent="Bribe2"]
-position = Vector2(164, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-9" type="Sprite2D" parent="Bribe2"]
-position = Vector2(100, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-10" type="Sprite2D" parent="Bribe2"]
-position = Vector2(36.0001, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-11" type="Sprite2D" parent="Bribe2"]
-position = Vector2(-27.9999, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-12" type="Sprite2D" parent="Bribe2"]
-position = Vector2(-91.9999, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-13" type="Sprite2D" parent="Bribe2"]
-position = Vector2(-156, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-14" type="Sprite2D" parent="Bribe2"]
-position = Vector2(-220, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-20" type="Sprite2D" parent="Bribe2"]
-position = Vector2(-604, 1.52588e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-15" type="Sprite2D" parent="Bribe2"]
-position = Vector2(-284, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-16" type="Sprite2D" parent="Bribe2"]
-position = Vector2(-348, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-17" type="Sprite2D" parent="Bribe2"]
-position = Vector2(-412, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-18" type="Sprite2D" parent="Bribe2"]
-position = Vector2(-476, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
-
-[node name="WoodenBridge-19" type="Sprite2D" parent="Bribe2"]
-position = Vector2(-540, 7.62939e-05)
-rotation = -1.57079
-texture = ExtResource("21_wsapo")
 
 [node name="Waterareas" type="Node2D" parent="."]
 
@@ -807,23 +678,3 @@ texture = ExtResource("22_fq5mk")
 position = Vector2(0, 4)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_qcf3t")
-
-[node name="DeadGrassCornersV1s" type="Sprite2D" parent="."]
-position = Vector2(-918, 1302)
-texture = ExtResource("4_2igfj")
-
-[node name="GrassBlendVF" type="Sprite2D" parent="."]
-position = Vector2(-666, 1313)
-texture = ExtResource("6_i8tby")
-
-[node name="Dungeontiles-1" type="Sprite2D" parent="."]
-position = Vector2(-352, 1293)
-texture = ExtResource("7_n2kuw")
-
-[node name="CliffSpriteV1" type="Sprite2D" parent="."]
-position = Vector2(-886, 1521)
-texture = ExtResource("2_id5t6")
-
-[node name="CliffSpriteV3" type="Sprite2D" parent="."]
-position = Vector2(-730, 1501)
-texture = ExtResource("25_qdv3a")

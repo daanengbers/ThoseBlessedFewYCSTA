@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blqpntbwv062y"
-path="res://.godot/imported/Cage_Base_v1.png-88efa2f29c1b59f21ea0f2eae8768fb6.ctex"
+uid="uid://d2cvcawr3bnjv"
+path="res://.godot/imported/Bosshealthbar-full.png-da712a6c6ec7e7183fff5e632256a498.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cage_Base_v1.png"
-dest_files=["res://.godot/imported/Cage_Base_v1.png-88efa2f29c1b59f21ea0f2eae8768fb6.ctex"]
+source_file="res://Assets/Bosshealthbar-full.png"
+dest_files=["res://.godot/imported/Bosshealthbar-full.png-da712a6c6ec7e7183fff5e632256a498.ctex"]
 
 [params]
 

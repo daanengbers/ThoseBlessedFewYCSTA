@@ -13,7 +13,7 @@ func _ready():
 	Globalsettings.timerrunning = false
 	Globalsettings.g_seconds = 0
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("down") && selectedbutton < 3 && page == 1:
 		selectotherbutton(1)
 	if Input.is_action_just_pressed("up") && selectedbutton > 1 && page == 1:
@@ -27,10 +27,6 @@ func _process(delta):
 			page = 2
 		if selectedbutton == 3:
 			$Creditspage.visible = true
-	
-	
-	
-
 
 func selectotherbutton(plusminus):
 	selectedbutton += plusminus

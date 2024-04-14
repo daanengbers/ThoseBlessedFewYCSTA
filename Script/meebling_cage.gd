@@ -6,20 +6,23 @@ var MEEBLING = preload("res://Scenes/crowd_member.tscn")
 
 var alive = true
 var spawnedmeebling = false
-@export var hp = 20
+@export var hp = 80
 @export var meeblingscaught = 1
 
 func _ready():
 	$Healthbar.max_value = hp
+	$Healthbar.value = hp
+	
 	c_anim.play("RESET")
 
-func _process(delta):
-	$Healthbar.value = hp
+#func _process(delta):
+#	pass
 
 func hurt():
 	$ChipSound.play()
 	c_anim.play("RESET")
 	c_anim.play("hurt")
+	$Healthbar.value = hp
 
 func spawnmeebling():
 	var me = MEEBLING.instantiate()

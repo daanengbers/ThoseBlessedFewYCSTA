@@ -15,7 +15,7 @@ func _ready():
 
 
 
-func _process(delta):
+func _process(_delta):
 	
 	if inmenu == true:
 		if Input.is_action_just_pressed("right") && cardselected < 3 && pressed == false:

@@ -1,12 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://bcp1j8ohl53o8"]
+[gd_scene load_steps=18 format=3 uid="uid://bcp1j8ohl53o8"]
 
 [ext_resource type="Script" path="res://Script/enemy_eyeboss.gd" id="1_44h2m"]
+[ext_resource type="Texture2D" uid="uid://bb421vdm7lu2" path="res://Assets/Bosshealthbar-empty.png" id="2_2ywce"]
 [ext_resource type="Texture2D" uid="uid://0gsv2qag8ku1" path="res://Assets/Eyeballboss_all.png" id="2_c3bg3"]
+[ext_resource type="Texture2D" uid="uid://d2cvcawr3bnjv" path="res://Assets/Bosshealthbar-full.png" id="3_hetge"]
 [ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/rotatingarrow.png" id="4_fmnum"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="5_8hmig"]
-[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/YCSTA_healthbar-1.png" id="6_4yjtd"]
-[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/YCSTA_healthbar-2.png" id="7_m438r"]
-[ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="8_eq8tr"]
 [ext_resource type="Texture2D" uid="uid://bpt5xouk1ltxv" path="res://Assets/Bigprojsprites-bigcircle.png" id="8_joycp"]
 
 [sub_resource type="Animation" id="Animation_roeck"]
@@ -137,9 +136,32 @@ colors = PackedColorArray(0.945098, 0.701961, 0, 0, 1, 0.894118, 0, 1, 1, 0.5568
 [node name="Enemy_Eyeboss" type="CharacterBody2D" groups=["enemy_m"]]
 z_index = 1
 script = ExtResource("1_44h2m")
-hp = 2000
 
-[node name="Bigprojsprites-bigcircle" type="Sprite2D" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Healthbar" type="TextureProgressBar" parent="UI"]
+offset_left = 46.0
+offset_top = 9.0
+offset_right = 246.0
+offset_bottom = 19.0
+max_value = 2000.0
+value = 2000.0
+texture_under = ExtResource("2_2ywce")
+texture_progress = ExtResource("3_hetge")
+
+[node name="Bossname" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 46.0
+offset_right = 246.0
+offset_bottom = 13.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_8hmig")
+text = "Crimson Angel"
+horizontal_alignment = 1
+
+[node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.501961)
 texture_filter = 1
 position = Vector2(0, 18)
@@ -167,48 +189,6 @@ texture_filter = 1
 rotation = 1.5708
 texture = ExtResource("4_fmnum")
 
-[node name="Exclamation" type="Label" parent="."]
-visible = false
-modulate = Color(1, 0, 0, 1)
-texture_filter = 1
-offset_left = -14.0
-offset_top = -23.0
-offset_right = 14.0
-offset_bottom = -10.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("5_8hmig")
-text = "!"
-horizontal_alignment = 1
-
-[node name="TestLabel" type="Label" parent="."]
-visible = false
-texture_filter = 1
-offset_left = -270.0
-offset_top = -36.0
-offset_right = 270.0
-offset_bottom = -23.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("5_8hmig")
-text = "closest"
-horizontal_alignment = 1
-
-[node name="Healthbar" type="TextureProgressBar" parent="."]
-offset_left = -5.0
-offset_top = -13.0
-offset_right = 5.0
-offset_bottom = -12.0
-max_value = 10.0
-value = 10.0
-texture_under = ExtResource("6_4yjtd")
-texture_progress = ExtResource("7_m438r")
-
-[node name="AttackTimer" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
-autostart = true
-
 [node name="HURTbox_Enemy" type="Area2D" parent="."]
 visible = false
 
@@ -219,13 +199,6 @@ shape = SubResource("CircleShape2D_1rmrd")
 libraries = {
 "": SubResource("AnimationLibrary_tudjj")
 }
-
-[node name="Arrowshadow" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.501961)
-z_index = -1
-texture_filter = 1
-position = Vector2(0, 7)
-texture = ExtResource("8_eq8tr")
 
 [node name="Fire" type="CPUParticles2D" parent="."]
 z_index = -1
@@ -246,10 +219,15 @@ color_ramp = SubResource("Gradient_f4ocr")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
 [node name="ChaseTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
-[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
