@@ -17,6 +17,8 @@ var currentrun_extrahealth = 0
 
 var timerrunning = false
 var g_seconds = 0
+var g_uisecconds = 0
+var g_uiminutes = 0
 
 var g_spell1 = 0
 var g_spell2 = 0
@@ -58,6 +60,10 @@ func _on_game_timer_timeout():
 	if timerrunning == true:
 		if get_tree().paused == false:
 			g_seconds += 1
+			g_uisecconds +=1 
+			if g_uisecconds == 60:
+				g_uiminutes += 1
+				g_uisecconds = 0
 	$Timers/GameTimer.start()
 
 func _on_despawn_timer_timeout():
