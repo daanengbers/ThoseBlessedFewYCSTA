@@ -114,6 +114,8 @@ colors = PackedColorArray(0.944885, 0.700689, 0, 1, 1, 0.556863, 0.160784, 1, 1,
 [node name="Enemy_member" type="CharacterBody2D" groups=["enemy_m"]]
 z_index = 1
 script = ExtResource("1_7rc2u")
+SPEED = 40
+hp = 3
 
 [node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(1, 0.392157, 0.392157, 1)

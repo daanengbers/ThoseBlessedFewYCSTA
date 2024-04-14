@@ -2,6 +2,7 @@ extends Node2D
 
 var SKULL = preload("res://Scenes/enemy_member.tscn")
 var EYEBALL = preload("res://Scenes/enemy_eyeball.tscn")
+var SLIME = preload("res://Scenes/enemy_slime.tscn")
 
 var cycles = 0
 var secconds = Globalsettings.g_seconds
@@ -53,6 +54,23 @@ func spawneyeenemy():
 		sk.position.x = global_position.x + 360
 		sk.position.y = global_position.y + randomspawnlocy
 
+func spawnslimeenemy():
+	var sk = SLIME.instantiate()
+	get_parent().get_parent().add_child.call_deferred(sk)
+	var randomtoporside = randi()%4 + 1
+	if randomtoporside == 1:
+		sk.position.x = global_position.x + randomspawnlocx
+		sk.position.y = global_position.y - 40
+	if randomtoporside == 2:
+		sk.position.x = global_position.x + randomspawnlocx
+		sk.position.y = global_position.y + 220
+	if randomtoporside == 3:
+		sk.position.x = global_position.x - 40
+		sk.position.y = global_position.y + randomspawnlocy
+	if randomtoporside == 4:
+		sk.position.x = global_position.x + 360
+		sk.position.y = global_position.y + randomspawnlocy
+
 func _process(delta):
 	pass
 
@@ -60,8 +78,10 @@ func _on_spawn_timer_timeout():
 	randomenemyspawn = randi()% highesttypeenemy + 1
 	if randomenemyspawn ==1:
 		spawnskullenemy()
-	elif randomenemyspawn == 2:
+	if randomenemyspawn == 2:
 		spawneyeenemy()
+	if randomenemyspawn == 3:
+		spawnslimeenemy()
 	randomspawnlocx = randi()% 320
 	randomspawnlocy = randi()% 180
 	secconds = Globalsettings.g_seconds
@@ -81,6 +101,7 @@ func _on_spawn_timer_timeout():
 		$SpawnTimer.wait_time = 1.6
 	if secconds == 90:
 		$SpawnTimer.wait_time = 1.2
+		highesttypeenemy += 1
 	if secconds == 105:
 		$SpawnTimer.wait_time = 0.9
 	if secconds == 120:

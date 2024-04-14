@@ -137,6 +137,7 @@ colors = PackedColorArray(0.945098, 0.701961, 0, 0, 1, 0.894118, 0, 1, 1, 0.5568
 [node name="Enemy_Eyeboss" type="CharacterBody2D" groups=["enemy_m"]]
 z_index = 1
 script = ExtResource("1_44h2m")
+hp = 2000
 
 [node name="Bigprojsprites-bigcircle" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.501961)
