@@ -58,6 +58,7 @@ func setcardstats():
 
 func selectcard(s_button):
 	$eh/Anim.play("select")
+	$eh/Select.play()
 	if cardnr == 1:
 		addstats(1,0,0,0,0)
 	if cardnr == 2:
@@ -107,10 +108,10 @@ func selectcard(s_button):
 func addstats(atk,spd,cdn,amt,hp):
 	Globalsettings.currentrun_extraattack += atk
 	Globalsettings.currentrun_extraspeed += spd
-	if Globalsettings.currentrun_minuscooldown < 95:
+	if (Globalsettings.currentrun_minuscooldown + cdn) < 80:
 		Globalsettings.currentrun_minuscooldown += cdn
 	else:
-		Globalsettings.currentrun_minuscooldown = 95
+		Globalsettings.currentrun_minuscooldown = 80
 	Globalsettings.currentrun_extrabullets += amt
 	Globalsettings.currentrun_extrahealth += hp
 	if hp >= 1:

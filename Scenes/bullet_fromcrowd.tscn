@@ -16,7 +16,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0.512288, 0.80981, 0.524563, 1, 0.39386, 0
 radius = 3.0
 
 [node name="bullet_fromcrowd" type="RigidBody2D"]
-z_index = 1
+z_index = 2
 gravity_scale = 0.0
 script = ExtResource("1_gso4t")
 

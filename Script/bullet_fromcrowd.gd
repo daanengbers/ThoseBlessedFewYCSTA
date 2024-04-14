@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var DMGVAL = preload("res://Scenes/damagenumber.tscn")
 
-@export var damage = 1
+@export var damage = 5
 @export var destroyonimpact = true
 
 func _ready():

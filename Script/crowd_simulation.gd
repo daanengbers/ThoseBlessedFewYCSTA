@@ -37,7 +37,7 @@ func _physics_process(delta):
 	crowdm = get_tree().get_nodes_in_group("crowd_m")
 	if crowdm.size() <= 1:
 		if gameover == false:
-			$MenuTimer.start()
+			$Timers/MenuTimer.start()
 		gameover = true
 		velocity.x = 0
 		velocity.y = 0
@@ -83,7 +83,7 @@ func _physics_process(delta):
 	
 	
 	# Stat showcase system
-	$UI/Text_ATKlvl.set_text(str(1 + Globalsettings.currentrun_extraattack))
+	$UI/Text_ATKlvl.set_text(str(5 + Globalsettings.currentrun_extraattack))
 	$UI/Text_SPDlvl.set_text(str(30 + Globalsettings.currentrun_extraspeed))
 	$UI/Text_CDNlvl.set_text(str(-0 + Globalsettings.currentrun_minuscooldown))
 	$UI/Text_AMTlvl.set_text(str(1 + Globalsettings.currentrun_extrabullets))
@@ -111,7 +111,21 @@ func level_up():
 	
 	$LVLup.play()
 	
-	xpuntilnextlvl += 2
+	if level <= 10:
+		xpuntilnextlvl += 2
+	elif level >= 11 && level <= 30:
+		xpuntilnextlvl += 3
+	elif level >= 31 && level <= 50:
+		xpuntilnextlvl += 4
+	elif level >= 51 && level <= 70:
+		xpuntilnextlvl += 5
+	elif level >= 71 && level <= 90:
+		xpuntilnextlvl += 6
+	elif level >= 91 && level <= 100:
+		xpuntilnextlvl += 7
+	elif level >= 101:
+		xpuntilnextlvl += 10
+	
 	$UI/LVLbar.max_value = xpuntilnextlvl
 	$UI/LVLbar.value = Globalsettings.global_xp
 	$UI/LVLtext.set_text("Level: " + str(level))
