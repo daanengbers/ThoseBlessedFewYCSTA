@@ -83,11 +83,7 @@ func _physics_process(_delta):
 	
 	
 	# Stat showcase system
-	$UI/Text_ATKlvl.set_text(str(5 + Globalsettings.currentrun_extraattack))
-	$UI/Text_SPDlvl.set_text(str(30 + Globalsettings.currentrun_extraspeed))
-	$UI/Text_CDNlvl.set_text(str(-0 + Globalsettings.currentrun_minuscooldown))
-	$UI/Text_AMTlvl.set_text(str(1 + Globalsettings.currentrun_extrabullets))
-	$UI/Text_HPlvl.set_text(str(10 + Globalsettings.currentrun_extrahealth))
+	
 	
 	#$UI/Spellicon_01/Cooldown.value = spell1cooldown
 	
@@ -104,6 +100,13 @@ func displayupgrades():
 		$UI/Box03/UpgradeIcons.frame = Globalsettings.g_spell3 + 4
 	if Globalsettings.g_spell4 != 0:
 		$UI/Box04/UpgradeIcons.frame = Globalsettings.g_spell4 + 4
+	$UI/Text_ATKlvl.set_text(str(5 + Globalsettings.currentrun_extraattack))
+	$UI/Text_SPDlvl.set_text(str(30 + Globalsettings.currentrun_extraspeed))
+	$UI/Text_CDNlvl.set_text(str(-0 + Globalsettings.currentrun_minuscooldown))
+	$UI/Text_AMTlvl.set_text(str(1 + Globalsettings.currentrun_extrabullets))
+	$UI/Text_HPlvl.set_text(str(10 + Globalsettings.currentrun_extrahealth))
+	if Globalsettings.currentrun_minuscooldown >= 80:
+		$UI/Text_CDNlvl.modulate = Color(1,.2,.2)
 
 func level_up():
 	level += 1

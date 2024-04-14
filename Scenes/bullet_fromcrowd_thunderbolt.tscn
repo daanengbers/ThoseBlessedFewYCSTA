@@ -11,7 +11,6 @@ radius = 3.0
 z_index = 2
 gravity_scale = 0.0
 script = ExtResource("1_f6atg")
-damage = 2
 destroyonimpact = false
 
 [node name="Sprite" type="Sprite2D" parent="."]
