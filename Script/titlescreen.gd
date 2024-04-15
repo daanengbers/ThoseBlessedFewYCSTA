@@ -12,6 +12,8 @@ func _ready():
 	pressanim.play("selectstart")
 	Globalsettings.timerrunning = false
 	Globalsettings.g_seconds = 0
+	Globalsettings.g_uiminutes = 0
+	Globalsettings.g_uisecconds = 0
 
 func _process(_delta):
 	if Input.is_action_just_pressed("down") && selectedbutton < 3 && page == 1:
