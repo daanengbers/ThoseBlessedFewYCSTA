@@ -281,72 +281,78 @@ horizontal_alignment = 1
 
 [node name="Staticons" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(8, 27)
+position = Vector2(8, 39)
 texture = ExtResource("11_q0y8a")
 
 [node name="Text_ATKlvl" type="Label" parent="UI"]
 texture_filter = 1
 offset_left = 17.0
+offset_top = 12.0
 offset_right = 160.0
-offset_bottom = 13.0
+offset_bottom = 25.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_constants/line_spacing = -2
 theme_override_fonts/font = ExtResource("3_gjq7j")
 text = "5"
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Text_SPDlvl" type="Label" parent="UI"]
 texture_filter = 1
 offset_left = 17.0
-offset_top = 10.0
+offset_top = 22.0
 offset_right = 160.0
-offset_bottom = 23.0
+offset_bottom = 35.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_constants/line_spacing = -2
 theme_override_fonts/font = ExtResource("3_gjq7j")
 text = "30"
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Text_CDNlvl" type="Label" parent="UI"]
 texture_filter = 1
 offset_left = 17.0
-offset_top = 20.0
+offset_top = 32.0
 offset_right = 160.0
-offset_bottom = 33.0
+offset_bottom = 45.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_constants/line_spacing = -2
 theme_override_fonts/font = ExtResource("3_gjq7j")
 text = "0"
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Text_AMTlvl" type="Label" parent="UI"]
 texture_filter = 1
 offset_left = 17.0
-offset_top = 30.0
+offset_top = 42.0
 offset_right = 160.0
-offset_bottom = 43.0
+offset_bottom = 55.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_constants/line_spacing = -2
 theme_override_fonts/font = ExtResource("3_gjq7j")
 text = "0"
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Text_HPlvl" type="Label" parent="UI"]
 texture_filter = 1
 offset_left = 17.0
-offset_top = 40.0
+offset_top = 52.0
 offset_right = 160.0
-offset_bottom = 53.0
+offset_bottom = 65.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_constants/line_spacing = -2
 theme_override_fonts/font = ExtResource("3_gjq7j")
 text = "10"
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="LVLbar" type="TextureProgressBar" parent="UI"]
 offset_left = 60.0
@@ -471,15 +477,15 @@ horizontal_alignment = 1
 
 [node name="GameTimerUI" type="Label" parent="UI"]
 texture_filter = 1
-offset_left = 141.0
-offset_right = 181.0
-offset_bottom = 15.0
+offset_left = 17.0
+offset_right = 57.0
+offset_bottom = 13.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_gjq7j")
-text = "00:00"
-horizontal_alignment = 1
+text = "0"
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Mainarrow" type="Sprite2D" parent="."]
 z_index = 5

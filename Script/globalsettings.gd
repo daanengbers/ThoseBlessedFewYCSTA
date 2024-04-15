@@ -55,6 +55,9 @@ func resetrun():
 	g_spell2 = 0
 	g_spell3 = 0
 	g_spell4 = 0
+	g_seconds = 0
+	g_uisecconds = 0
+	g_uiminutes = 0
 
 func _on_game_timer_timeout():
 	if timerrunning == true:

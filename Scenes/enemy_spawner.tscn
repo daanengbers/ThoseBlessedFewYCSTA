@@ -5,9 +5,21 @@
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_g3mno")
 
+[node name="SecondTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 4.0
 one_shot = true
 autostart = true
 
+[node name="Label" type="Label" parent="."]
+offset_left = 74.0
+offset_top = 83.0
+offset_right = 114.0
+offset_bottom = 106.0
+text = "000"
+
+[connection signal="timeout" from="SecondTimer" to="." method="_on_second_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

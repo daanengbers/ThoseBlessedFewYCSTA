@@ -4,7 +4,6 @@ var SKULL = preload("res://Scenes/enemy_skull.tscn")
 var EYEBALL = preload("res://Scenes/enemy_eyeball.tscn")
 var SLIME = preload("res://Scenes/enemy_slime.tscn")
 
-var cycles = 0
 var secconds = Globalsettings.g_seconds
 var biome = 1
 
@@ -19,6 +18,9 @@ var randomspawnlocy = 0
 
 func _ready():
 	randomize()
+
+func _process(delta):
+	$Label.set_text(str(secconds))
 
 func spawnskullenemy():
 	var sk = SKULL.instantiate()
@@ -71,21 +73,11 @@ func spawnslimeenemy():
 		sk.position.x = global_position.x + 360
 		sk.position.y = global_position.y + randomspawnlocy
 
-func _on_spawn_timer_timeout():
-	randomenemyspawn = randi()% highesttypeenemy + 1
-	if randomenemyspawn ==1:
-		spawnskullenemy()
-	if randomenemyspawn == 2:
-		spawneyeenemy()
-	if randomenemyspawn == 3:
-		spawnslimeenemy()
-	randomspawnlocx = randi()% 320
-	randomspawnlocy = randi()% 180
+func _on_second_timer_timeout():
 	secconds = Globalsettings.g_seconds
-	$SpawnTimer.start()
-	cycles += 1
+	$SecondTimer.start()
 	if secconds == 10:
-		$SpawnTimer.wait_time = 3
+		$SpawnTimer.wait_time = 3.5
 	if secconds == 20:
 		$SpawnTimer.wait_time = 2.8
 	if secconds == 30:
@@ -113,3 +105,18 @@ func _on_spawn_timer_timeout():
 		$SpawnTimer.wait_time = 0.1
 	if secconds == 900:
 		$SpawnTimer.wait_time = 0.01
+
+func _on_spawn_timer_timeout():
+	randomenemyspawn = randi()% highesttypeenemy + 1
+	if randomenemyspawn ==1:
+		spawnskullenemy()
+	if randomenemyspawn == 2:
+		spawneyeenemy()
+	if randomenemyspawn == 3:
+		spawnslimeenemy()
+	randomspawnlocx = randi()% 320
+	randomspawnlocy = randi()% 180
+	$SpawnTimer.start()
+
+
+

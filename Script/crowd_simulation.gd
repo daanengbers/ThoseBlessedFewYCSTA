@@ -128,7 +128,7 @@ func level_up():
 	elif level >= 91 && level <= 100:
 		xpuntilnextlvl += 7
 	elif level >= 101:
-		xpuntilnextlvl += 10
+		xpuntilnextlvl += 10 + level * 2
 	
 	$UI/LVLbar.max_value = xpuntilnextlvl
 	$UI/LVLbar.value = Globalsettings.global_xp
