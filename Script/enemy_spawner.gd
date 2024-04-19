@@ -81,28 +81,28 @@ func _on_second_timer_timeout():
 	if secconds == 20:
 		$SpawnTimer.wait_time = 2.8
 	if secconds == 30:
-		$SpawnTimer.wait_time = 2.5
+		$SpawnTimer.wait_time = 2.7
 	if secconds == 40:
-		$SpawnTimer.wait_time = 2.2
+		$SpawnTimer.wait_time = 2.6
 	if secconds == 60:
-		$SpawnTimer.wait_time = 1.5
+		$SpawnTimer.wait_time = 2.4
 	if secconds == 75:
-		$SpawnTimer.wait_time = 1.6
+		$SpawnTimer.wait_time = 2.2
 	if secconds == 90:
-		$SpawnTimer.wait_time = 1.2
-		highesttypeenemy += 1
+		$SpawnTimer.wait_time = 1.7
 	if secconds == 105:
-		$SpawnTimer.wait_time = 0.9
+		$SpawnTimer.wait_time = 1.5
 	if secconds == 120:
-		$SpawnTimer.wait_time = 0.7
+		$SpawnTimer.wait_time = 1.3
 	if secconds == 140:
-		$SpawnTimer.wait_time = 0.5
+		$SpawnTimer.wait_time = 1
 	if secconds == 200:
-		$SpawnTimer.wait_time = 0.3
+		highesttypeenemy += 1
+		$SpawnTimer.wait_time = 0.7
 	if secconds == 400:
-		$SpawnTimer.wait_time = 0.2
+		$SpawnTimer.wait_time = 0.4
 	if secconds == 600:
-		$SpawnTimer.wait_time = 0.1
+		$SpawnTimer.wait_time = 0.2
 	if secconds == 900:
 		$SpawnTimer.wait_time = 0.01
 
