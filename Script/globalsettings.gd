@@ -20,6 +20,8 @@ var g_seconds = 0
 var g_uisecconds = 0
 var g_uiminutes = 0
 
+var g_enemiesAlive = 0
+
 var g_spell1 = 0
 var g_spell2 = 0
 var g_spell3 = 0

@@ -34,6 +34,7 @@ func _ready():
 func _physics_process(_delta):
 	
 	$UI/GameTimerUI.set_text(str(Globalsettings.g_uiminutes) + ":" + str(Globalsettings.g_uisecconds))
+	$UI/EnemiesAliveUI.set_text(str(Globalsettings.g_enemiesAlive))
 	
 	crowdm = get_tree().get_nodes_in_group("crowd_m")
 	if crowdm.size() <= 1:

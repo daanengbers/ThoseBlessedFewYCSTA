@@ -475,6 +475,24 @@ theme_override_fonts/font = ExtResource("3_gjq7j")
 text = "All your meeblings have died"
 horizontal_alignment = 1
 
+[node name="EnemiesAliveUI" type="Label" parent="UI"]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 1.375
+anchor_top = 11.8462
+anchor_right = 1.375
+anchor_bottom = 11.8462
+offset_left = -351.0
+offset_top = -1978.31
+offset_right = -311.0
+offset_bottom = -1965.31
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "0"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="GameTimerUI" type="Label" parent="UI"]
 texture_filter = 1
 offset_left = 17.0

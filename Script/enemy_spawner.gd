@@ -107,6 +107,7 @@ func _on_second_timer_timeout():
 		$SpawnTimer.wait_time = 0.01
 
 func _on_spawn_timer_timeout():
+	Globalsettings.g_enemiesAlive += 1
 	randomenemyspawn = randi()% highesttypeenemy + 1
 	if randomenemyspawn ==1:
 		spawnskullenemy()
