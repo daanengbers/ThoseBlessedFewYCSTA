@@ -29,4 +29,3 @@ func _on_hi_tbox_bullet_area_entered(area):
 			area.get_parent().kill()
 		if destroyonimpact == true:
 			hitimpact()
-
