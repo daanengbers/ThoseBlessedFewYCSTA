@@ -27,3 +27,6 @@ func _on_area_entered(area):
 				queue_free()
 			else:
 				pass
+	if area.get_parent().is_in_group("crowd_m"):
+		Globalsettings.global_xp += expamount
+		queue_free()

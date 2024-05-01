@@ -19,7 +19,9 @@ func _on_timer_timeout():
 	$box.set_deferred("disabled", false)
 
 func _on_area_entered(area):
-	pass
+	if area.get_parent().is_in_group("crowd_m"):
+		Globalsettings.global_xp += expamount
+		queue_free()
 	#if area.is_in_group("EXPorb"):
 	#	if expamount < area.expamount:
 	#		area.expamount += expamount

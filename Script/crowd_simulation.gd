@@ -40,10 +40,11 @@ func _physics_process(_delta):
 	if crowdm.size() <= 1:
 		if gameover == false:
 			$Timers/MenuTimer.start()
-		gameover = true
-		velocity.x = 0
-		velocity.y = 0
-		$UI/Deathscreen.visible = true
+			gameover = true
+			velocity.x = 0
+			velocity.y = 0
+			$UI/Deathscreen.visible = true
+			$UI/Deathscreen/Score.set_text("Score: " + str(Globalsettings.global_xp))
 	
 	# controls
 	

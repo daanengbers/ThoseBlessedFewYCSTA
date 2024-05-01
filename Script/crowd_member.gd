@@ -215,8 +215,8 @@ func spawndeadbody():
 func _on_hur_tbox_crowd_area_entered(area):
 	if area.is_in_group("EXPorb"):
 		$EXPpickup.play()
-		Globalsettings.global_xp += area.expamount
-		area.queue_free()
+		#Globalsettings.global_xp += area.expamount
+		#area.queue_free()
 	if area.is_in_group("Drownwater"):
 		drown()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://di5jjqqiofweh"]
+[gd_scene load_steps=16 format=3 uid="uid://di5jjqqiofweh"]
 
 [ext_resource type="Script" path="res://Script/enemy_boss_sludgeknight.gd" id="1_pw6be"]
 [ext_resource type="Texture2D" uid="uid://bb421vdm7lu2" path="res://Assets/Bosshealthbar-empty.png" id="2_vslwl"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/rotatingarrow.png" id="7_yaphl"]
 [ext_resource type="Texture2D" uid="uid://bgky1tcemyfw2" path="res://Assets/SludgeKnight_Blade.png" id="9_4hid5"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5q1n"]
+size = Vector2(16, 65)
+
 [sub_resource type="Animation" id="Animation_601at"]
 length = 0.001
 tracks/0/type = "value"
@@ -19,10 +22,10 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-0.436332]
+"values": [-0.436332, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -101,9 +104,15 @@ tracks/2/path = NodePath("../../..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(1.5, 1.7, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
+"args": [],
+"method": &"turnbladeboxon"
+}, {
+"args": [],
+"method": &"turnbladeboxoff"
+}, {
 "args": [],
 "method": &"endattack"
 }]
@@ -131,8 +140,8 @@ offset_left = 46.0
 offset_top = 9.0
 offset_right = 246.0
 offset_bottom = 19.0
-max_value = 2000.0
-value = 2000.0
+max_value = 8000.0
+value = 8000.0
 texture_under = ExtResource("2_vslwl")
 texture_progress = ExtResource("3_gv25d")
 
@@ -178,6 +187,14 @@ y_sort_enabled = true
 position = Vector2(-30, 16)
 rotation = -0.436332
 metadata/_edit_group_ = true
+
+[node name="HurtAREA" type="Area2D" parent="Sprites/Blade/BladePivotpoint"]
+position = Vector2(0, -26)
+
+[node name="box" type="CollisionShape2D" parent="Sprites/Blade/BladePivotpoint/HurtAREA"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_l5q1n")
+disabled = true
 
 [node name="SludgeKnightBlade" type="Sprite2D" parent="Sprites/Blade/BladePivotpoint"]
 position = Vector2(0, -26)
@@ -226,5 +243,6 @@ wait_time = 4.0
 one_shot = true
 autostart = true
 
+[connection signal="area_entered" from="Sprites/Blade/BladePivotpoint/HurtAREA" to="." method="_on_hurt_area_area_entered"]
 [connection signal="timeout" from="Timers/UpdateTimer" to="." method="_on_update_timer_timeout"]
 [connection signal="timeout" from="Timers/AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -12,6 +12,7 @@ var AOE = preload("res://Scenes/enemy_aoe.tscn")
 @onready var blade = $Sprites/Blade
 
 @export var hp = 8000
+@export var damage = 3
 var alive = true
 
 @export var chasing = true
@@ -36,8 +37,6 @@ func _ready():
 	Globalsettings.setmusic()
 
 func _physics_process(_delta):
-	
-	
 	
 	move_and_slide()
 
@@ -144,6 +143,21 @@ func _on_update_timer_timeout():
 	$Timers/UpdateTimer.start()
 
 func _on_attack_timer_timeout():
-	if dist_to_crowdm.x < 100 && dist_to_crowdm.y < 100:
+	if dist_to_crowdm.x < 75 && dist_to_crowdm.y < 75:
 		swingattack()
 	$Timers/AttackTimer.start()
+
+# Blade hitbox functions
+
+func turnbladeboxon():
+	$Sprites/Blade/BladePivotpoint/HurtAREA/box.set_deferred("disabled", false)
+
+func turnbladeboxoff():
+	$Sprites/Blade/BladePivotpoint/HurtAREA/box.set_deferred("disabled", true)
+
+func _on_hurt_area_area_entered(area):
+	if area.get_parent().is_in_group("crowd_m"):
+		area.get_parent().hp -= damage
+		area.get_parent().hurt()
+		if area.get_parent().hp <= 0:
+			area.get_parent().kill()
