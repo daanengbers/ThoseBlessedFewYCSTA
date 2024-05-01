@@ -19,7 +19,7 @@ var randomspawnlocy = 0
 func _ready():
 	randomize()
 
-func _process(delta):
+func _process(_delta):
 	$Label.set_text(str(secconds))
 
 func spawnskullenemy():

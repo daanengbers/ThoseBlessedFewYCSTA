@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var EXPORB = preload("res://Scenes/exp_area.tscn")
+var EXPLOSION = preload("res://Scenes/bloodexplosion.tscn")
 
 @export var SPEED = 20
 @export var canflip = false
@@ -16,6 +17,7 @@ var dist_to_crowdm
 var crowd_members
 var nearest_crowdm
 var withinreach = false
+var startedexploding = false
 
 func _ready():
 	randomize()
@@ -41,7 +43,7 @@ func update_meeblingsandmovement():
 	
 	$Rot.look_at(nearest_crowdm.global_position)
 	
-	if dist_to_crowdm.x > 14 or dist_to_crowdm.y > 14:
+	if (dist_to_crowdm.x > 20 or dist_to_crowdm.y > 20) && startedexploding == false:
 		velocity = Vector2(SPEED + randomspeedextra, 0).rotated($Rot.rotation)
 		withinreach = false
 	else:
@@ -55,11 +57,24 @@ func update_meeblingsandmovement():
 		else:
 			$Icon.flip_h = false
 	
-	if withinreach == true:
-		nearest_crowdm.hp -= 1
-		nearest_crowdm.hurt()
-		if nearest_crowdm.hp <= 0:
-			nearest_crowdm.kill()
+	if withinreach == true && startedexploding == false:
+		startexploding()
+		
+		
+		#nearest_crowdm.hp -= 1
+		#nearest_crowdm.hurt()
+		#if nearest_crowdm.hp <= 0:
+		#	nearest_crowdm.kill()
+
+func startexploding():
+	startedexploding = true
+	e_anim.play("explodestartup")
+
+func explode():
+	var expl = EXPLOSION.instantiate()
+	get_parent().add_child.call_deferred(expl)
+	expl.position = global_position
+	kill()
 
 func hurt():
 	$EffectsAnim.play("hurt")

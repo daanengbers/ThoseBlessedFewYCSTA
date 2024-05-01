@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=3 uid="uid://cb4wvyqgsjpu2"]
+
+[ext_resource type="Script" path="res://Script/bloodexplosion.gd" id="1_0ecay"]
+[ext_resource type="Texture2D" uid="uid://c07teyxn2rj2r" path="res://Assets/Bloodsprite-1.png" id="1_6q6bs"]
+[ext_resource type="Texture2D" uid="uid://clcwajmp8hby7" path="res://Assets/YCSTA_Bullets-2.png" id="3_t0gwp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1ykm"]
+size = Vector2(44, 24)
+
+[sub_resource type="Curve" id="Curve_rqiic"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.522472, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.22094, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_stlly"]
+offsets = PackedFloat32Array(0, 0.693333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_71vyo"]
+colors = PackedColorArray(0.739789, 4.70478e-06, 3.85046e-07, 1, 1, 0.313968, 0.232179, 1)
+
+[sub_resource type="Animation" id="Animation_1bsci"]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_vl4q1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_te87l"]
+_data = {
+"RESET": SubResource("Animation_vl4q1"),
+"fade": SubResource("Animation_1bsci")
+}
+
+[node name="Bloodexplosion" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_0ecay")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_6q6bs")
+
+[node name="box" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q1ykm")
+
+[node name="HitboxTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="Bloodsplatter" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 12
+lifetime = 1.4
+one_shot = true
+explosiveness = 0.95
+lifetime_randomness = 0.3
+texture = ExtResource("3_t0gwp")
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector2(0, -1)
+spread = 25.0
+gravity = Vector2(0, 98)
+initial_velocity_min = 55.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.7
+scale_amount_curve = SubResource("Curve_rqiic")
+color_ramp = SubResource("Gradient_stlly")
+color_initial_ramp = SubResource("Gradient_71vyo")
+
+[node name="Coloranim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_te87l")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="HitboxTimer" to="." method="_on_hitbox_timer_timeout"]

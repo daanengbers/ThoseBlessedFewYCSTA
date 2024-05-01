@@ -30,6 +30,7 @@ func _ready():
 	#e_anim.play("bounce")
 	#$EffectsAnim.play("default")
 	$UI/Healthbar.max_value = hp
+	$Sprites/Blade/BladePivotpoint/Swordanimation.play("idle")
 	Globalsettings.bossfight_active = true
 	Globalsettings.globalmusic = 2
 	Globalsettings.setmusic()
