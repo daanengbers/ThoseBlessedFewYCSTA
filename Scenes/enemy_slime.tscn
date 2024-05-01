@@ -136,7 +136,7 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.38, 0.753333, 1)
 colors = PackedColorArray(0.944885, 0.700689, 0, 1, 1, 0.556863, 0.160784, 1, 1, 0.243137, 0.372549, 0.627451, 1, 0, 0, 0)
 
-[node name="Enemy_member" type="CharacterBody2D" groups=["enemy_m"]]
+[node name="Enemy_slime" type="CharacterBody2D" groups=["enemy_m"]]
 z_index = 1
 script = ExtResource("1_27jjo")
 SPEED = 30
