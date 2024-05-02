@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var BULLETINST = preload("res://Scenes/bullet_fromcrowd.tscn")
+var SPARKLE = preload("res://Scenes/sparkle.tscn")
 var FIREBALL = preload("res://Scenes/bullet_fromcrowd_fireball.tscn")
 var THUNDERBOLT = preload("res://Scenes/bullet_fromcrowd_thunderbolt.tscn")
 
@@ -24,6 +25,7 @@ var alive = true
 var spellnumber = 0
 
 var randomsprite = 0
+var random_s = 0
 var randomxplus = 0
 var randomyplus = 0
 var randomspeedextra = 0
@@ -52,7 +54,11 @@ func _ready():
 	hp = MAX_HP
 	$Healthbar.max_value = MAX_HP
 	m_anim.play("bounce")
-	randomsprite = randi()%4
+	randomsprite = randi()%6
+	random_s = randi()%4096 + 1
+	if random_s == 4096:
+		randomsprite = 8
+		spawnsparkle()
 	$Meebling.frame = randomsprite
 
 func _physics_process(_delta):
@@ -158,6 +164,11 @@ func spawnbullet():
 	if currentextrabullets > 0:
 		$DoubleBulletTimer.start()
 		currentextrabullets -= 1
+
+func spawnsparkle():
+	var sp = SPARKLE.instantiate()
+	get_parent().add_child.call_deferred(sp)
+	sp.position = global_position
 
 func spawnfireball():
 	$Bigspell.play()

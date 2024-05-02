@@ -44,7 +44,7 @@ func _physics_process(_delta):
 			velocity.x = 0
 			velocity.y = 0
 			$UI/Deathscreen.visible = true
-			$UI/Deathscreen/Score.set_text("Score: " + str(Globalsettings.global_xp))
+			$UI/Deathscreen/Score.set_text("Score: " + str(Globalsettings.global_total_xp))
 	
 	# controls
 	

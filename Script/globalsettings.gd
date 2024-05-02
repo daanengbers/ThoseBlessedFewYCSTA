@@ -7,6 +7,7 @@ var bus_name: String
 var bus_index: int
 
 var global_xp = 0
+var global_total_xp = 0
 var highscore_xp = 0
 
 var currentrun_extraattack = 0
@@ -35,6 +36,9 @@ func _ready():
 
 func _process(_delta):
 	
+	# Gray this out before release:
+	g_enemiesAlive = get_tree().get_nodes_in_group("enemy_m").size()
+	
 	if globalmusic == 1:
 		if $Normalmusic.playing == false:
 			$Normalmusic.play()
@@ -48,6 +52,7 @@ func setmusic():
 
 func resetrun():
 	global_xp = 0
+	global_total_xp = 0
 	currentrun_extraattack = 0
 	currentrun_extraspeed = 0
 	currentrun_minuscooldown = 0

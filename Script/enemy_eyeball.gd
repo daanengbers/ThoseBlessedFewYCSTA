@@ -82,7 +82,6 @@ func hurt():
 	$Healthbar.value = hp
 
 func kill():
-	Globalsettings.g_enemiesAlive -= 1
 	alive = false
 	spawn_exporb()
 	queue_free()

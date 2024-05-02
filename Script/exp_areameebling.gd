@@ -21,6 +21,7 @@ func _on_timer_timeout():
 func _on_area_entered(area):
 	if area.get_parent().is_in_group("crowd_m"):
 		Globalsettings.global_xp += expamount
+		Globalsettings.global_total_xp += expamount
 		queue_free()
 	#if area.is_in_group("EXPorb"):
 	#	if expamount < area.expamount:

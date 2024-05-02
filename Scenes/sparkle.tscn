@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://csdd0fbvi0dop"]
+
+[ext_resource type="Script" path="res://Script/sparkle.gd" id="1_kigjn"]
+[ext_resource type="Texture2D" uid="uid://dhlmlnchmo2yo" path="res://Assets/Sparkle1.png" id="2_ono76"]
+[ext_resource type="Texture2D" uid="uid://b3uxttb7alddf" path="res://Assets/Sparkle2.png" id="2_peno5"]
+[ext_resource type="AudioStream" uid="uid://bw56ci8al1bwb" path="res://Sounds/fastsparkle.wav" id="4_76yvn"]
+
+[sub_resource type="Curve" id="Curve_nhuni"]
+_data = [Vector2(0, 0), 0.0, 3.80914, 0, 0, Vector2(0.196629, 1), 0.0, 0.0, 0, 0, Vector2(0.314607, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.75561, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_7vvto"]
+_data = [Vector2(0, 0), 0.0, 7.17216, 0, 0, Vector2(0.224719, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.6223, 0.0, 0, 0]
+point_count = 3
+
+[node name="Sparkle" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_kigjn")
+
+[node name="Shines" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 6
+one_shot = true
+explosiveness = 0.6
+lifetime_randomness = 0.6
+texture = ExtResource("2_peno5")
+emission_shape = 1
+emission_sphere_radius = 16.0
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_nhuni")
+
+[node name="Sparkles" type="CPUParticles2D" parent="."]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.2
+texture = ExtResource("2_ono76")
+direction = Vector2(0, -1)
+gravity = Vector2(0, 98)
+initial_velocity_min = 55.0
+initial_velocity_max = 70.0
+scale_amount_curve = SubResource("Curve_7vvto")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_76yvn")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
