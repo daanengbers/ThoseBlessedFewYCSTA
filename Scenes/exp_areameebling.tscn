@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://chein4j5hyj4l"]
 
 [ext_resource type="Script" path="res://Script/exp_areameebling.gd" id="1_lctd2"]
-[ext_resource type="Texture2D" uid="uid://cepec0r5btrff" path="res://Assets/Meebling_Deathanimations (1).png" id="2_o4lxc"]
+[ext_resource type="Texture2D" uid="uid://chkpdkwkhftff" path="res://Assets/YCSTA_XP_new.png" id="2_6vt1a"]
 [ext_resource type="Texture2D" uid="uid://dhndfxnjcfqdj" path="res://Assets/Lightshadow.png" id="3_rp7i1"]
 [ext_resource type="AudioStream" uid="uid://b3qee1fus0dfw" path="res://Sounds/meeblingdeath.wav" id="4_4wbkr"]
 
@@ -22,7 +22,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_v47f3"]
 resource_name = "play"
-length = 0.2
+length = 0.6
 loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
@@ -32,10 +32,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [5, 6, 7, 8, 9, 7]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iqsw0"]
@@ -53,8 +53,10 @@ meeblingsoul = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_o4lxc")
-vframes = 2
+position = Vector2(0, -1)
+texture = ExtResource("2_6vt1a")
+hframes = 5
+vframes = 5
 
 [node name="Anim" type="AnimationPlayer" parent="Sprite"]
 libraries = {

@@ -93,6 +93,7 @@ shape = SubResource("RectangleShape2D_lohtj")
 shape = SubResource("RectangleShape2D_34pq5")
 
 [node name="Healthbar" type="TextureProgressBar" parent="."]
+visible = false
 offset_left = -10.0
 offset_top = -25.0
 offset_right = 10.0

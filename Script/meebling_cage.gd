@@ -15,13 +15,11 @@ func _ready():
 	
 	c_anim.play("RESET")
 
-#func _process(delta):
-#	pass
-
 func hurt():
 	$ChipSound.play()
 	c_anim.play("RESET")
 	c_anim.play("hurt")
+	$Healthbar.visible = true
 	$Healthbar.value = hp
 
 func spawnmeebling():

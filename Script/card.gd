@@ -17,7 +17,10 @@ func setcardstats():
 	if cardnr == 2:
 		actuallysetstats(0,"Nimble Soul","+5 Speed",1)
 	if cardnr == 3:
-		actuallysetstats(0,"Speedy Spectre","-2% Cooldown",2)
+		if Globalsettings.currentrun_minuscooldown >= 80:
+			cardnr = 50
+		else:
+			actuallysetstats(0,"Speedy Spectre","-2% Cooldown",2)
 	if cardnr == 4:
 		actuallysetstats(0,"Healthy Hauntings","+2 Max HP",4)
 	if cardnr == 5:
@@ -25,32 +28,33 @@ func setcardstats():
 	if cardnr == 6:
 		actuallysetstats(1,"Lightningbolt","projectile that passes through",6)
 	# Uncommon spells
-	
-	
-	
-	
-	#if cardnr == 5:
-	#	actuallysetstats(0,"Numerous Spells","+1 Attack Amount",3)
-	#if cardnr == 6:
-	#	actuallysetstats(0,"Hard-Hitting Souls","+2 Attack",0)
 	if cardnr == 7:
 		actuallysetstats(0,"Quick Souls","+7 Speed",1)
 	if cardnr == 8:
-		actuallysetstats(0,"Adrenaline Spectres","-4% Cooldown",2)
+		if Globalsettings.currentrun_minuscooldown >= 80:
+			cardnr = 50
+		else:
+			actuallysetstats(0,"Adrenaline Spectres","-4% Cooldown",2)
 	if cardnr == 9:
 		actuallysetstats(0,"Impenetrable Soul","+3 Max HP",4)
-	# Rare spells
 	if cardnr == 10:
-		actuallysetstats(0,"","",1)
+		actuallysetstats(0,"Summon Meebling","Add another Meebling to the party",13)
+	# Rare spells
 	if cardnr == 11:
-		actuallysetstats(0,"","",1)
+		actuallysetstats(0,"Hard-Hitting Souls","+2 Attack",0)
 	if cardnr == 12:
-		actuallysetstats(0,"","",1)
+		actuallysetstats(0,"Supersonic Souls","+10 Speed",1)
 	if cardnr == 13:
 		actuallysetstats(0,"","",1)
 	if cardnr == 14:
 		actuallysetstats(0,"","",1)
+	if cardnr == 15:
+		actuallysetstats(0,"","",1)
+	if cardnr == 16:
+		actuallysetstats(0,"","",1)
 	
+	if cardnr == 50:
+		actuallysetstats(2,"Develish Deal","Reset Cooldown. +1 bullet",14)
 	
 
 func selectcard(s_button):
@@ -91,7 +95,9 @@ func selectcard(s_button):
 	
 	
 	
-	
+	if cardnr == 50:
+		Globalsettings.currentrun_minuscooldown = 0
+		addstats(0,0,0,1,0)
 	
 	
 	

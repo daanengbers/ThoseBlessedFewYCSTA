@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b46qb74feih7m"]
+[gd_scene load_steps=31 format=3 uid="uid://b46qb74feih7m"]
 
 [ext_resource type="Script" path="res://Script/crowd_simulation.gd" id="1_hyuob"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="3_gjq7j"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bc65frbmttbad" path="res://Assets/Selectcardarrow.png" id="11_41qpt"]
 [ext_resource type="Texture2D" uid="uid://cg180gfaancl0" path="res://Assets/Buttonshowcase.png" id="11_g741n"]
 [ext_resource type="Texture2D" uid="uid://cgakxi0t1lwe7" path="res://Assets/Staticons.png" id="11_q0y8a"]
+[ext_resource type="Texture2D" uid="uid://dsh5841pjc8i5" path="res://Assets/YCSTA_Souldparticles.png" id="13_nqnof"]
 [ext_resource type="AudioStream" uid="uid://bad6nr05h2axn" path="res://Sounds/lvlup1.wav" id="16_nlck6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j74bb"]
@@ -96,6 +97,14 @@ _data = {
 "RESET": SubResource("Animation_yqass"),
 "play": SubResource("Animation_kxa56")
 }
+
+[sub_resource type="Gradient" id="Gradient_bue6w"]
+offsets = PackedFloat32Array(0, 0.486667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_ge54m"]
+offsets = PackedFloat32Array(0, 0.313333, 0.686667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.431865, 1, 0.400656, 1, 0.431373, 1, 0.858824, 1, 1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_rcns4"]
 length = 0.001
@@ -420,6 +429,10 @@ libraries = {
 wait_time = 1.2
 one_shot = true
 
+[node name="CanpressTimer" type="Timer" parent="UI/SelectLevelupscreen"]
+wait_time = 0.4
+one_shot = true
+
 [node name="Tut" type="Label" parent="UI/SelectLevelupscreen"]
 texture_filter = 1
 offset_left = 4.0
@@ -431,6 +444,25 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_gjq7j")
 text = "Press with the button you want to assign it to"
 horizontal_alignment = 1
+
+[node name="Confetti" type="CPUParticles2D" parent="UI/SelectLevelupscreen"]
+texture_filter = 1
+position = Vector2(160, 188)
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.9
+texture = ExtResource("13_nqnof")
+emission_shape = 3
+emission_rect_extents = Vector2(160, 8)
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, -98)
+initial_velocity_min = 100.0
+initial_velocity_max = 160.0
+scale_amount_max = 1.4
+color_ramp = SubResource("Gradient_bue6w")
+color_initial_ramp = SubResource("Gradient_ge54m")
 
 [node name="Deathscreen" type="Node2D" parent="UI"]
 visible = false
@@ -536,4 +568,5 @@ wait_time = 6.0
 one_shot = true
 
 [connection signal="timeout" from="UI/SelectLevelupscreen/UnpauseTimer" to="UI/SelectLevelupscreen" method="_on_unpause_timer_timeout"]
+[connection signal="timeout" from="UI/SelectLevelupscreen/CanpressTimer" to="UI/SelectLevelupscreen" method="_on_canpress_timer_timeout"]
 [connection signal="timeout" from="Timers/MenuTimer" to="." method="_on_menu_timer_timeout"]

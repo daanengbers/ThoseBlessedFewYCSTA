@@ -60,6 +60,7 @@ func hurt():
 	$EffectsAnim.play("hurt")
 	$HurtSound.play()
 	$Healthbar.value = hp
+	$Healthbar.visible = true
 
 func kill():
 	alive = false

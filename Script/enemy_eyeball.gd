@@ -79,6 +79,7 @@ func explode():
 func hurt():
 	$EffectsAnim.play("hurt")
 	$HurtSound.play()
+	$Healthbar.visible = true
 	$Healthbar.value = hp
 
 func kill():

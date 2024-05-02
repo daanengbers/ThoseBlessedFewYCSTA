@@ -2,6 +2,7 @@ extends Node2D
 
 var CARD = preload("res://Scenes/card.tscn")
 var cardselected = 1
+var canselectcard = false
 
 var inmenu = false
 var pressed = false
@@ -27,7 +28,7 @@ func _process(_delta):
 		
 		#Spells select
 		
-		if Input.is_action_just_pressed("spell1") && pressed == false:
+		if Input.is_action_just_pressed("spell1") && pressed == false && canselectcard == true:
 			pressed  = true
 			if cardselected == 1:
 				card1.selectcard(1)
@@ -37,7 +38,7 @@ func _process(_delta):
 				card3.selectcard(1)
 			$UnpauseTimer.start()
 		
-		if Input.is_action_just_pressed("spell2") && pressed == false:
+		if Input.is_action_just_pressed("spell2") && pressed == false && canselectcard == true:
 			pressed  = true
 			if cardselected == 1:
 				card1.selectcard(2)
@@ -47,7 +48,7 @@ func _process(_delta):
 				card3.selectcard(2)
 			$UnpauseTimer.start()
 		
-		if Input.is_action_just_pressed("spell3") && pressed == false:
+		if Input.is_action_just_pressed("spell3") && pressed == false && canselectcard == true:
 			pressed  = true
 			if cardselected == 1:
 				card1.selectcard(3)
@@ -57,7 +58,7 @@ func _process(_delta):
 				card3.selectcard(3)
 			$UnpauseTimer.start()
 		
-		if Input.is_action_just_pressed("spell4") && pressed == false:
+		if Input.is_action_just_pressed("spell4") && pressed == false && canselectcard == true:
 			pressed  = true
 			if cardselected == 1:
 				card1.selectcard(4)
@@ -68,15 +69,6 @@ func _process(_delta):
 			$UnpauseTimer.start()
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-	
 
 func setselectarrow():
 	if cardselected == 1:
@@ -87,6 +79,9 @@ func setselectarrow():
 		$CardArrow.position.x = 230
 
 func spawncards(xpos):
+	canselectcard = false
+	$CanpressTimer.start()
+	$Confetti.emitting = true
 	var ca = CARD.instantiate()
 	add_child.call_deferred(ca)
 	ca.position.x = xpos
@@ -106,3 +101,6 @@ func _on_unpause_timer_timeout():
 	card2.queue_free()
 	card3.queue_free()
 	get_parent().get_parent().displayupgrades()
+
+func _on_canpress_timer_timeout():
+	canselectcard = true

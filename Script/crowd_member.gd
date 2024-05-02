@@ -192,6 +192,7 @@ func spawnthunder():
 func update_hp():
 	MAX_HP = MAX_HP + Globalsettings.currentrun_extrahealth
 	$Healthbar.max_value = MAX_HP
+	$Healthbar.visible = false
 	hp = MAX_HP
 
 func continuebouncing():
@@ -200,6 +201,7 @@ func continuebouncing():
 func hurt():
 	m_anim.play("RESET")
 	m_anim.play("hurt")
+	$Healthbar.visible = true
 	$Hit.play()
 
 func kill():

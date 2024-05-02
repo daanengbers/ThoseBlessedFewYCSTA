@@ -203,6 +203,7 @@ rotation = 1.5708
 texture = ExtResource("3_2xgu6")
 
 [node name="Healthbar" type="TextureProgressBar" parent="."]
+visible = false
 offset_left = -5.0
 offset_top = -13.0
 offset_right = 5.0
