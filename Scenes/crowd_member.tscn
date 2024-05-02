@@ -276,7 +276,7 @@ texture = ExtResource("9_istdl")
 shape = SubResource("CircleShape2D_e1ekq")
 
 [node name="DoubleBulletTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.05
 one_shot = true
 
 [node name="CooldownstartTimer" type="Timer" parent="."]
