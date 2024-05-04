@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cuky2bsqeylb0"]
+[gd_scene load_steps=49 format=3 uid="uid://cuky2bsqeylb0"]
 
 [ext_resource type="Script" path="res://Script/mainscene.gd" id="1_3jaey"]
 [ext_resource type="Texture2D" uid="uid://c3eclcaowkgku" path="res://Assets/YCSTA_Oceanlayer01.png" id="1_7w3kv"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://y00856mc6e1o" path="res://Assets/TileSetDeadlands (1).png" id="8_hmjka"]
 [ext_resource type="Texture2D" uid="uid://b8s0sdgrjletg" path="res://Assets/PathTiles.png" id="9_egk3k"]
 [ext_resource type="Texture2D" uid="uid://beqbkd7gxp347" path="res://Assets/BridgeStoneModular.png" id="10_aul4j"]
+[ext_resource type="PackedScene" uid="uid://btq5wm30paoca" path="res://Scenes/death_clouds.tscn" id="13_p7767"]
 [ext_resource type="Texture2D" uid="uid://bxoxbig2xrc6h" path="res://Assets/Tower_Split_Lower.png" id="21_4mpwi"]
 [ext_resource type="PackedScene" uid="uid://bcp1j8ohl53o8" path="res://Scenes/enemy_eyeboss.tscn" id="21_k1ikb"]
 [ext_resource type="PackedScene" uid="uid://cfhu8chdech4a" path="res://Scenes/Decor/decor_skullonstick.tscn" id="22_dby0b"]
@@ -475,6 +476,11 @@ layer_0/tile_data = PackedInt32Array(327641, 262145, 4, 262105, 196608, 1, 19656
 [node name="Outsidedtiles" type="TileMap" parent="Tilesets"]
 format = 2
 
+[node name="DeathClouds" parent="Tilesets" instance=ExtResource("13_p7767")]
+
+[node name="DeathCloud_Tiles" parent="Tilesets/DeathClouds" index="0"]
+layer_0/tile_data = PackedInt32Array(65540, 0, 1, 65541, 65536, 1, 65542, 131072, 1, 131077, 65536, 1, 131076, 0, 1, 131078, 131072, 1, 4, 0, 1, 5, 65536, 1, 6, 131072, 1, 196612, 0, 2, 196613, 65536, 2, 196614, 131072, 2, -65531, 65536, 1, -65530, 131072, 1, -131068, 0, 0, -131067, 65536, 0, -131066, 131072, 0, -65532, 0, 1)
+
 [node name="BG" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
 
@@ -648,7 +654,7 @@ texture = ExtResource("10_aul4j")
 polygon = PackedVector2Array(179, -284, 183, -148, 137, -152, 138, -120, -17, -122, -23, -92, -82, -93, -87, -58, -148, -55, -152, -28, -180, -25, -183, 8, -215, 9, -215, 103, -617, 98, -619, 46, -651, 42, -655, 8, -821, 9, -822, 45, -850, 43, -851, 70, -1198, 69, -1198, -265, -1223, -265, -1229, -309, -1260, -310, -1259, -369, -1291, -373, -1291, -466, -1322, -466, -1324, -680, -1290, -706, -505, -704, -505, -629, -476, -618, -472, -535, -442, -516, -447, -460, -410, -451, -399, -421, -373, -415, -369, -392, -342, -383, -331, -355, -118, -352, -117, -321, -85, -318, -84, -291)
 
 [node name="box2" type="CollisionPolygon2D" parent="Waterareas/Waterpoly"]
-polygon = PackedVector2Array(-1194, 156, -855, 159, -853, 195, -823, 198, -819, 235, -789, 232, -792, 265, -615, 263, -617, 192, -212, 187, -212, 265, -184, 266, -185, 301, -146, 301, -149, 361, 88, 362, 186, 231, 278, 229, 281, 202, 373, 200, 407, 144, 408, 111, 448, 76, 439, -27, 410, -31, 404, -87, 320, -157, 301, -167, 300, -277, 513, -280, 526, -244, 1322, -247, 1373, -305, 1375, -341, 1430, -404, 1469, -483, 1469, -513, 1498, -523, 1501, -794, 1482, -810, 1473, -881, 1361, -983, 1320, -989, 1277, -1028, 1160, -1031, 1129, -1064, 841, -1055, 819, -1030, 580, -1022, 638, -1448, 3296, -985, 1283, 1028, -1124, 936)
+polygon = PackedVector2Array(-1194, 156, -855, 159, -853, 195, -823, 198, -819, 235, -789, 232, -792, 265, -615, 263, -617, 192, -212, 187, -212, 265, -184, 266, -185, 301, -146, 301, -149, 361, 88, 362, 186, 231, 278, 229, 281, 202, 373, 200, 407, 144, 408, 111, 448, 76, 439, -27, 410, -31, 404, -87, 320, -157, 301, -167, 300, -277, 513, -280, 526, -244, 1322, -247, 1373, -305, 1375, -341, 1430, -404, 1469, -483, 1469, -513, 1498, -523, 1501, -794, 1482, -810, 1473, -881, 1361, -983, 1320, -989, 1277, -1028, 1160, -1031, 1133, -1054, 844, -1052, 825, -1023, 582, -1018, 638, -1448, 3296, -985, 1283, 1028, -1124, 936)
 
 [node name="box3" type="CollisionPolygon2D" parent="Waterareas/Waterpoly"]
 polygon = PackedVector2Array(577, -1015, 577, -985, 486, -982, 450, -932, 390, -928, 344, -957, 301, -980, 198, -986, 176, -1012, -247, -1024, -258, -991, -369, -984, -395, -955, -453, -894, -482, -870, -475, -829, -500, -811, -504, -796, -1291, -796, -1293, -978, -1324, -985, -1356, -1022, -1383, -1056, -1450, -1048, -1510, -1115, -1828, -1112, -1849, -1078, -1970, -1082, -1978, -1046, -2191, -1044, -2206, -1015, -2231, -996, -2234, -915, -2267, -894, -2258, -662, -2326, -604, -2401, -580, -2426, -508, -2556, -369, -2555, -342, -2621, -274, -2645, -157, -2689, -62, -2713, -14, -2715, 379, -2692, 394, -2679, 529, -2649, 531, -2654, 620, -2621, 618, -2617, 707, -2437, 875, -2362, 873, -2339, 914, -1995, 905, -1983, 871, -1535, 871, -1528, 843, -1448, 818, -1378, 763, -1341, 697, -1364, 626, -1293, 574, -1255, 474, -1261, 298, -1193, 242, -1183, 558, -1225, 684, -1401, 1302, -3352, 1145, -3092, -1225, 340, -1444)
@@ -682,3 +688,5 @@ shape = SubResource("CapsuleShape2D_qcf3t")
 
 [node name="Bloodexplosion" parent="." instance=ExtResource("29_k5htf")]
 position = Vector2(-20, 214)
+
+[editable path="Tilesets/DeathClouds"]

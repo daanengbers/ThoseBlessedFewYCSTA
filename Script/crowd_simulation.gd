@@ -110,6 +110,8 @@ func displayupgrades():
 	$UI/Text_HPlvl.set_text(str(10 + Globalsettings.currentrun_extrahealth))
 	if Globalsettings.currentrun_minuscooldown >= 80:
 		$UI/Text_CDNlvl.modulate = Color(1,.2,.2)
+	if Globalsettings.currentrun_minuscooldown == 0:
+		$UI/Text_CDNlvl.modulate = Color(1,1,1)
 
 func level_up():
 	level += 1
