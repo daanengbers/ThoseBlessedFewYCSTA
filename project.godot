@@ -24,10 +24,6 @@ config/windows_native_icon="res://Icons/Meebling_Icon_ingame_ICO.ico"
 Globalsettings="*res://Scenes/globalsettings.tscn"
 Onscreenmessages="*res://Scenes/onscreenmessages.tscn"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/size/viewport_width=320

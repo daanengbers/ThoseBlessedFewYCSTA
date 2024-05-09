@@ -14,6 +14,7 @@ _data = [Vector2(0, 0), 0.0, 7.17216, 0, 0, Vector2(0.224719, 1), 0.0, 0.0, 0, 0
 point_count = 3
 
 [node name="Sparkle" type="Node2D"]
+z_index = 21
 texture_filter = 1
 script = ExtResource("1_kigjn")
 

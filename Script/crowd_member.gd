@@ -54,7 +54,7 @@ func _ready():
 	hp = MAX_HP
 	$Healthbar.max_value = MAX_HP
 	m_anim.play("bounce")
-	randomsprite = randi()%6
+	randomsprite = randi()%8
 	random_s = randi()%4096 + 1
 	if random_s == 4096:
 		randomsprite = 8
