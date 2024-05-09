@@ -3,6 +3,8 @@ extends Node2D
 var selectedbutton = 1
 var settingselected = 1
 
+var canpress = true
+
 var page = 1
 
 @onready var pressanim = $Pressableactions/Anim
@@ -25,10 +27,21 @@ func _process(_delta):
 		if selectedbutton == 1:
 			gotoscene()
 		if selectedbutton == 2:
-			$Settingspage.visible = true
-			page = 2
+			if page == 2:
+				$Settingspage.visible = false
+				page = 1
+			else:
+				$Settingspage.visible = true
+				page = 2
 		if selectedbutton == 3:
-			$Creditspage.visible = true
+			if $Creditspage.visible == false && canpress == true:
+				canpress = false
+				$Timers/CanpressTimer.start()
+				$Creditspage.visible = true
+			if $Creditspage.visible == true && canpress == true:
+				canpress = false
+				$Timers/CanpressTimer.start()
+				$Creditspage.visible = false
 
 func selectotherbutton(plusminus):
 	selectedbutton += plusminus
@@ -43,3 +56,6 @@ func selectotherbutton(plusminus):
 func gotoscene():
 	Globalsettings.resetrun()
 	get_tree().change_scene_to_file("res://Scenes/mainscene.tscn")
+
+func _on_canpress_timer_timeout():
+	canpress = true

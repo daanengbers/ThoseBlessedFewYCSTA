@@ -501,3 +501,11 @@ Programming, Art direction"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="CanpressTimer" type="Timer" parent="Timers"]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timers/CanpressTimer" to="." method="_on_canpress_timer_timeout"]
