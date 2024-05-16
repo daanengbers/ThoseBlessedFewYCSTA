@@ -95,22 +95,10 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Credits:visible")
+tracks/2/path = NodePath("Credits:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Credits:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -227,14 +215,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Credits:visible")
+tracks/2/path = NodePath("Credits:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l5exb"]
@@ -277,12 +265,11 @@ text = "THOSE BLESSED FEW"
 horizontal_alignment = 1
 
 [node name="HStext" type="Label" parent="."]
-visible = false
 texture_filter = 1
 offset_left = 1.0
-offset_top = 78.0
+offset_top = 94.0
 offset_right = 320.0
-offset_bottom = 101.0
+offset_bottom = 107.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_y0bsr")
@@ -347,9 +334,9 @@ texture = ExtResource("12_8726h")
 [node name="Start" type="Label" parent="Pressableactions"]
 texture_filter = 1
 offset_left = 1.0
-offset_top = 108.0
+offset_top = 129.0
 offset_right = 320.0
-offset_bottom = 121.0
+offset_bottom = 142.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_y0bsr")
@@ -357,6 +344,7 @@ text = "START RUN"
 horizontal_alignment = 1
 
 [node name="Settings" type="Label" parent="Pressableactions"]
+visible = false
 texture_filter = 1
 offset_left = 1.0
 offset_top = 128.0
@@ -459,7 +447,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="MusicProgress2" type="TextureProgressBar" parent="Settingspage"]
+[node name="SFXProgress2" type="TextureProgressBar" parent="Settingspage"]
 offset_left = 110.0
 offset_top = 107.0
 offset_right = 210.0

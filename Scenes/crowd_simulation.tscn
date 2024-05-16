@@ -508,6 +508,7 @@ text = "All your meeblings have died"
 horizontal_alignment = 1
 
 [node name="EnemiesAliveUI" type="Label" parent="UI"]
+visible = false
 texture_filter = 1
 anchors_preset = -1
 anchor_left = 1.375

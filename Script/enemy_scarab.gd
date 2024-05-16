@@ -2,12 +2,12 @@ extends CharacterBody2D
 
 var EXPORB = preload("res://Scenes/exp_area.tscn")
 
-@export var SPEED = 16
+@export var SPEED = 12
 @export var canflip = false
 
-@onready var e_anim = $Icon/Anim
+@onready var e_anim = $Spritecontainer/Icon/Anim
 
-@export var hp = 32
+@export var hp = 120
 var alive = true
 
 var randomspeedextra = 0
@@ -41,6 +41,11 @@ func update_meeblingsandmovement():
 	dist_to_crowdm = abs(global_position - nearest_crowdm.global_position)
 	
 	$Rot.look_at(nearest_crowdm.global_position)
+	$Spritecontainer/Icon.rotation_degrees = $Rot.rotation_degrees + 90
+	$Spritecontainer/Body.rotation_degrees = $Rot.rotation_degrees + 90
+	$Spritecontainer/Body2.rotation_degrees = $Rot.rotation_degrees + 90
+	$Spritecontainer/Body3.rotation_degrees = $Rot.rotation_degrees + 90
+	$Spritecontainer/Body4.rotation_degrees = $Rot.rotation_degrees + 90
 	
 	if dist_to_crowdm.x > 14 or dist_to_crowdm.y > 14:
 		velocity = Vector2(SPEED + randomspeedextra, 0).rotated($Rot.rotation)

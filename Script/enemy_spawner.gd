@@ -4,6 +4,7 @@ var SKULL = preload("res://Scenes/enemy_skull.tscn")
 var EYEBALL = preload("res://Scenes/enemy_eyeball.tscn")
 var SLIME = preload("res://Scenes/enemy_slime.tscn")
 var GHOST = preload("res://Scenes/enemy_ghost.tscn")
+var SCARAB = preload("res://Scenes/enemy_scarab.tscn")
 
 var level = 1
 
@@ -11,7 +12,7 @@ var secconds = Globalsettings.g_seconds
 var biome = 1
 
 var randomenemyspawn = 1
-var highesttypeenemy = 4
+var highesttypeenemy = 1
 var highestlevelenemy = 1
 
 var randomspawnlocx = 0
@@ -41,10 +42,11 @@ func spawnskullenemy():
 	if randomtoporside == 4:
 		sk.position.x = global_position.x + 360
 		sk.position.y = global_position.y + randomspawnlocy
+	sk.hp += level
 
 func spawneyeenemy():
 	var ey = EYEBALL.instantiate()
-	get_parent().get_parent().add_child.call_deferred(ey)
+	get_parent().get_parent().get_node("Ysorter").add_child.call_deferred(ey)
 	var randomtoporside = randi()%4 + 1
 	if randomtoporside == 1:
 		ey.position.x = global_position.x + randomspawnlocx
@@ -58,10 +60,11 @@ func spawneyeenemy():
 	if randomtoporside == 4:
 		ey.position.x = global_position.x + 360
 		ey.position.y = global_position.y + randomspawnlocy
+	ey.hp += level
 
 func spawnslimeenemy():
 	var sl = SLIME.instantiate()
-	get_parent().get_parent().add_child.call_deferred(sl)
+	get_parent().get_parent().get_node("Ysorter").add_child.call_deferred(sl)
 	var randomtoporside = randi()%4 + 1
 	if randomtoporside == 1:
 		sl.position.x = global_position.x + randomspawnlocx
@@ -75,10 +78,11 @@ func spawnslimeenemy():
 	if randomtoporside == 4:
 		sl.position.x = global_position.x + 360
 		sl.position.y = global_position.y + randomspawnlocy
+	sl.hp += level
 
 func spawnghostenemy():
 	var gh = GHOST.instantiate()
-	get_parent().get_parent().add_child.call_deferred(gh)
+	get_parent().get_parent().get_node("Ysorter").add_child.call_deferred(gh)
 	var randomtoporside = randi()%4 + 1
 	if randomtoporside == 1:
 		gh.position.x = global_position.x + randomspawnlocx
@@ -92,6 +96,25 @@ func spawnghostenemy():
 	if randomtoporside == 4:
 		gh.position.x = global_position.x + 360
 		gh.position.y = global_position.y + randomspawnlocy
+	gh.hp += level
+
+func spawnscarabenemy():
+	var sc = SCARAB.instantiate()
+	get_parent().get_parent().get_node("Ysorter").add_child.call_deferred(sc)
+	var randomtoporside = randi()%4 + 1
+	if randomtoporside == 1:
+		sc.position.x = global_position.x + randomspawnlocx
+		sc.position.y = global_position.y - 40
+	if randomtoporside == 2:
+		sc.position.x = global_position.x + randomspawnlocx
+		sc.position.y = global_position.y + 220
+	if randomtoporside == 3:
+		sc.position.x = global_position.x - 40
+		sc.position.y = global_position.y + randomspawnlocy
+	if randomtoporside == 4:
+		sc.position.x = global_position.x + 360
+		sc.position.y = global_position.y + randomspawnlocy
+	sc.hp += level
 
 func _on_second_timer_timeout():
 	pass
@@ -135,7 +158,9 @@ func _on_spawn_timer_timeout():
 		spawneyeenemy()
 	if randomenemyspawn == 3:
 		spawnslimeenemy()
-	if randomenemyspawn == 3:
+	if randomenemyspawn == 4:
+		spawnghostenemy()
+	if randomenemyspawn == 5:
 		spawnghostenemy()
 	
 	randomspawnlocx = randi()% 320
@@ -149,13 +174,14 @@ func _on_level_timer_timeout():
 		$SpawnTimer.wait_time = 3.5
 	if level == 3:
 		$SpawnTimer.wait_time = 3.3
-		highesttypeenemy += 1 # Eyeball enemies
+		
 	if level == 4:
 		$SpawnTimer.wait_time = 3.1
 	if level == 5:
 		$SpawnTimer.wait_time = 3
 	if level == 6:
 		$SpawnTimer.wait_time = 2.8
+		highesttypeenemy += 1 # Eyeball enemies
 	if level == 8:
 		$SpawnTimer.wait_time = 2.6
 	if level == 10:
@@ -168,13 +194,13 @@ func _on_level_timer_timeout():
 		$SpawnTimer.wait_time = 1.8
 	if level == 18:
 		$SpawnTimer.wait_time = 1.6
-		highesttypeenemy += 1 # Slime enemies
 	if level == 20:
 		$SpawnTimer.wait_time = 1.4
 	if level == 22:
 		$SpawnTimer.wait_time = 1.2
 	if level == 24:
 		$SpawnTimer.wait_time = 1
+		highesttypeenemy += 1 # Slime enemies
 	if level == 26:
 		$SpawnTimer.wait_time = 0.9
 	if level == 28:
@@ -187,13 +213,32 @@ func _on_level_timer_timeout():
 		$SpawnTimer.wait_time = 0.5
 	if level == 36:
 		$SpawnTimer.wait_time = 0.4
+		highesttypeenemy += 1 # Ghost enemies
 	if level == 38:
 		$SpawnTimer.wait_time = 0.3
 	if level == 40:
 		$SpawnTimer.wait_time = 0.2
 	if level == 42:
 		$SpawnTimer.wait_time = 0.1
-	
+	if level == 44:
+		$SpawnTimer.wait_time = 0.09
+	if level == 46:
+		$SpawnTimer.wait_time = 0.08
+	if level == 48:
+		$SpawnTimer.wait_time = 0.07
+	if level == 50:
+		highesttypeenemy += 1 # Scarab enemies
+		$SpawnTimer.wait_time = 0.06
+	if level == 52:
+		$SpawnTimer.wait_time = 0.05
+	if level == 54:
+		$SpawnTimer.wait_time = 0.04
+	if level == 56:
+		$SpawnTimer.wait_time = 0.03
+	if level == 58:
+		$SpawnTimer.wait_time = 0.02
+	if level == 60:
+		$SpawnTimer.wait_time = 0.01
 	
 	
 	$LevelTimer.start()

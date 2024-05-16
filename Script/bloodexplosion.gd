@@ -5,6 +5,7 @@ var damage = 5
 func _ready():
 	$Bloodsplatter.emitting = true
 	$Coloranim.play("fade")
+	$Splat.play()
 
 func _on_area_entered(area):
 	if area.get_parent().is_in_group("crowd_m"):

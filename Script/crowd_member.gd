@@ -47,7 +47,7 @@ var currentextrabullets = 0
 
 func _ready():
 	randomize()
-	randomspeedextra = randi()%60
+	randomspeedextra = randi()%30 # previously 60 (?)
 	randomxplus = randi()%80 - 40
 	randomyplus = randi()%60 - 30
 	randomoffsetspace = randi()%8

@@ -148,6 +148,8 @@ func level_up():
 	get_tree().paused = true
 
 func _on_menu_timer_timeout():
+	if Globalsettings.highscore_xp < Globalsettings.global_total_xp:
+		Globalsettings.highscore_xp = Globalsettings.global_total_xp
 	get_tree().change_scene_to_file("res://Scenes/titlescreen.tscn")
 
 
