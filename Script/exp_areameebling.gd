@@ -11,6 +11,8 @@ func _ready():
 	$Sprite/Anim.play("play")
 	if meeblingsoul == true:
 		$Deathsound.play()
+	$Soulparticles.emitting = true
+	$Glassparticles.emitting = true
 
 func _process(_delta):
 	pass

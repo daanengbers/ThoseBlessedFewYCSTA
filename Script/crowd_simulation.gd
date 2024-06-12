@@ -1,8 +1,15 @@
 extends CharacterBody2D
 
 const SPEED = 80
+const AIMSPEED = 4
+
+@onready var aimring = $AimRing
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var arrownr = 1
+
+var aiming = false
+var lockedin = false
 
 var spell1ability = 0
 var spell2ability = 0
@@ -28,8 +35,12 @@ var crowdm
 var gameover = false
 
 func _ready():
-	$Mainarrow/Anim.play("default")
+	arrownr = Globalsettings.global_arrow
+	$Mainarrow/Anim.play("arrow" + str(arrownr))
 	$UI/SelectLevelupscreen/Blackrect/buttonstopress.play("default")
+	$Mainarrow.flip_h = false
+	if arrownr == 8:
+		movedownsprite(10)
 
 func _physics_process(_delta):
 	
@@ -50,18 +61,45 @@ func _physics_process(_delta):
 	
 	if gameover == false:
 		if Input.is_action_pressed("left") && !Input.is_action_pressed("right"):
-			velocity.x = -SPEED - Globalsettings.currentrun_extraspeed
+			if aiming == false:
+				velocity.x = -SPEED - Globalsettings.currentrun_extraspeed
+			elif aiming == true && $AimRing.position.x > -150:
+				$AimRing.position.x -= AIMSPEED
 		elif Input.is_action_pressed("right") && !Input.is_action_pressed("left"):
-			velocity.x = SPEED + Globalsettings.currentrun_extraspeed
+			if aiming == false:
+				velocity.x = SPEED + Globalsettings.currentrun_extraspeed
+			elif aiming == true && $AimRing.position.x < 150:
+				$AimRing.position.x += AIMSPEED
 		else:
 			velocity.x = 0
 		
-		if Input.is_action_pressed("up")  && !Input.is_action_pressed("down"):# && position.y > 20:
-			velocity.y = -SPEED - Globalsettings.currentrun_extraspeed
-		elif Input.is_action_pressed("down")  && !Input.is_action_pressed("up"):# && position.y < 160:
-			velocity.y = SPEED + Globalsettings.currentrun_extraspeed
+		if Input.is_action_pressed("up")  && !Input.is_action_pressed("down"):
+			if aiming == false:
+				velocity.y = -SPEED - Globalsettings.currentrun_extraspeed
+			elif aiming == true && $AimRing.position.y > -80:
+				$AimRing.position.y -= AIMSPEED * .7
+		elif Input.is_action_pressed("down")  && !Input.is_action_pressed("up"):
+			if aiming == false:
+				velocity.y = SPEED + Globalsettings.currentrun_extraspeed
+			elif aiming == true && $AimRing.position.y < 80:
+				$AimRing.position.y += AIMSPEED * .7
 		else:
 			velocity.y = 0
+	
+	if Input.is_action_just_pressed("aim"):
+		$AimRing/Sprite/Anim.play("RESET")
+		$AimRing/Sprite/Anim.play("aim")
+	if Input.is_action_pressed("aim"):
+		aiming = true
+		$AimRing.visible = true
+		velocity.x = 0
+		velocity.y = 0
+	if !Input.is_action_pressed("aim"):
+		aiming = false
+		lockedin = false
+		$AimRing.visible = false
+		$AimRing.position.x = 0
+		$AimRing.position.y = 0
 	
 	# EXP system
 	
@@ -93,6 +131,15 @@ func _physics_process(_delta):
 	#velocity.x = SPEED
 	
 	move_and_slide()
+
+func movedownsprite(howmuch):
+	$Mainarrow.position.y += howmuch
+
+func lock_in():
+	lockedin = true
+
+func playrotate():
+	$AimRing/Sprite/Anim.play("rotate")
 
 func displayupgrades():
 	if Globalsettings.g_spell1 != 0:
@@ -150,7 +197,7 @@ func level_up():
 func _on_menu_timer_timeout():
 	if Globalsettings.highscore_xp < Globalsettings.global_total_xp:
 		Globalsettings.highscore_xp = Globalsettings.global_total_xp
-	get_tree().change_scene_to_file("res://Scenes/titlescreen.tscn")
+	get_tree().change_scene_to_file("res://Scenes/new_titlescreen.tscn")
 
 
 

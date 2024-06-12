@@ -1,0 +1,759 @@
+[gd_scene load_steps=32 format=3 uid="uid://cvrhpvf2mdox0"]
+
+[ext_resource type="Texture2D" uid="uid://fd6jsqufuyr3" path="res://Assets/YCSTA_soulparticle.png" id="1_ro6c0"]
+[ext_resource type="Script" path="res://Script/new_titlescreen.gd" id="1_rwlk1"]
+[ext_resource type="Texture2D" uid="uid://clekfea7rbiox" path="res://Assets/SplashArt_LettersOnly-2.png" id="2_d5um1"]
+[ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="3_xcbll"]
+[ext_resource type="Texture2D" uid="uid://chkpdkwkhftff" path="res://Assets/YCSTA_XP_new.png" id="4_lq28w"]
+[ext_resource type="Texture2D" uid="uid://dhndfxnjcfqdj" path="res://Assets/Lightshadow.png" id="5_n3f60"]
+[ext_resource type="Texture2D" uid="uid://q6i33hvduc4b" path="res://Assets/YCSTA_Controlsexplanation_Keyboard.png" id="7_klpuk"]
+[ext_resource type="Texture2D" uid="uid://dyxqtvnnr4rbm" path="res://Assets/YCSTA_Controlsexplanation_Controller.png" id="8_bfry4"]
+[ext_resource type="Texture2D" uid="uid://c02rr86yd8vae" path="res://Assets/YCSTA_Arrow (new).png" id="9_5gjck"]
+[ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="9_sexak"]
+
+[sub_resource type="Gradient" id="Gradient_wsc63"]
+offsets = PackedFloat32Array(0, 0.564935, 0.785714, 1)
+colors = PackedColorArray(0, 0.0980392, 0.0980392, 1, 0, 0.544548, 0.330775, 1, 0, 0.862066, 0.496276, 1, 0.491173, 1, 0.69098, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i1xj3"]
+gradient = SubResource("Gradient_wsc63")
+width = 180
+height = 320
+
+[sub_resource type="Gradient" id="Gradient_an3qm"]
+offsets = PackedFloat32Array(0, 0.493333, 1)
+colors = PackedColorArray(0.479251, 1, 0.711938, 1, 0.207739, 0.629404, 0.577414, 1, 8.54321e-07, 0.304491, 0.2737, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_o8258"]
+base_font = ExtResource("3_xcbll")
+spacing_space = -2
+spacing_top = -2
+spacing_bottom = -2
+
+[sub_resource type="Animation" id="Animation_di6d1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_acqnh"]
+resource_name = "flame"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 3, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rciu5"]
+_data = {
+"RESET": SubResource("Animation_di6d1"),
+"flame": SubResource("Animation_acqnh")
+}
+
+[sub_resource type="Animation" id="Animation_rb08h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_aqgu4"]
+resource_name = "arrow1"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_6ua2t"]
+resource_name = "arrow2"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_0r8eg"]
+resource_name = "arrow3"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 17, 19, 20, 21, 16]
+}
+
+[sub_resource type="Animation" id="Animation_t7ns7"]
+resource_name = "arrow4"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27]
+}
+
+[sub_resource type="Animation" id="Animation_6f8if"]
+resource_name = "arrow5"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36, 37, 38, 39]
+}
+
+[sub_resource type="Animation" id="Animation_j8nn6"]
+resource_name = "arrow6"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43, 44, 45, 46, 47]
+}
+
+[sub_resource type="Animation" id="Animation_40chb"]
+resource_name = "arrow7"
+length = 1.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 49, 48, 49, 50, 51, 52, 53, 54, 53, 52, 53, 54, 53, 52, 51]
+}
+
+[sub_resource type="Animation" id="Animation_53pt2"]
+resource_name = "arrow8"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [55, 56, 57, 58, 59, 60, 61, 62, 61, 60, 59, 58, 57, 56, 55]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4075u"]
+_data = {
+"RESET": SubResource("Animation_rb08h"),
+"arrow1": SubResource("Animation_aqgu4"),
+"arrow2": SubResource("Animation_6ua2t"),
+"arrow3": SubResource("Animation_0r8eg"),
+"arrow4": SubResource("Animation_t7ns7"),
+"arrow5": SubResource("Animation_6f8if"),
+"arrow6": SubResource("Animation_j8nn6"),
+"arrow7": SubResource("Animation_40chb"),
+"arrow8": SubResource("Animation_53pt2")
+}
+
+[sub_resource type="Animation" id="Animation_dtxqj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xu8fu"]
+resource_name = "fadein"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xw1sp"]
+resource_name = "fadeout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"enter_next_scene"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_no5ql"]
+_data = {
+"RESET": SubResource("Animation_dtxqj"),
+"fadein": SubResource("Animation_xu8fu"),
+"fadeout": SubResource("Animation_xw1sp")
+}
+
+[node name="new_titlescreen" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_rwlk1")
+
+[node name="Background" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(160, 90)
+rotation = 1.5708
+texture = SubResource("GradientTexture2D_i1xj3")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]
+position = Vector2(160, 187)
+amount = 30
+lifetime = 4.0
+preprocess = 4.0
+texture = ExtResource("1_ro6c0")
+emission_shape = 3
+emission_rect_extents = Vector2(160, 1)
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 14.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 35.0
+initial_velocity_max = 60.0
+scale_amount_max = 1.4
+color_ramp = SubResource("Gradient_an3qm")
+
+[node name="SplashArtLettersOnly" type="Sprite2D" parent="Background"]
+position = Vector2(160, 33)
+texture = ExtResource("2_d5um1")
+
+[node name="Startoptions" type="Node2D" parent="."]
+
+[node name="Gameoptiontext01" type="Label" parent="Startoptions"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 22.0
+offset_top = 66.0
+offset_right = 102.0
+offset_bottom = 79.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "Start run"
+vertical_alignment = 1
+
+[node name="Gameoptiontext02" type="Label" parent="Startoptions"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 22.0
+offset_top = 81.0
+offset_right = 102.0
+offset_bottom = 94.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "Tutorial"
+vertical_alignment = 1
+
+[node name="Gameoptiontext03" type="Label" parent="Startoptions"]
+modulate = Color(0.658824, 0, 0.0705882, 1)
+offset_left = 22.0
+offset_top = 96.0
+offset_right = 102.0
+offset_bottom = 109.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "Customize"
+vertical_alignment = 1
+
+[node name="Gameoptiontext04" type="Label" parent="Startoptions"]
+modulate = Color(0.658824, 0, 0.0705882, 1)
+offset_left = 22.0
+offset_top = 111.0
+offset_right = 102.0
+offset_bottom = 124.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "Settings"
+vertical_alignment = 1
+
+[node name="Gameoptiontext05" type="Label" parent="Startoptions"]
+modulate = Color(0.658824, 0, 0.0705882, 1)
+offset_left = 22.0
+offset_top = 126.0
+offset_right = 102.0
+offset_bottom = 139.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "Credits"
+vertical_alignment = 1
+
+[node name="Selecticon" type="Sprite2D" parent="Startoptions"]
+z_index = 1
+position = Vector2(12, 72)
+texture = ExtResource("4_lq28w")
+hframes = 5
+vframes = 5
+
+[node name="Iconanim" type="AnimationPlayer" parent="Startoptions/Selecticon"]
+libraries = {
+"": SubResource("AnimationLibrary_rciu5")
+}
+
+[node name="Lightshadow" type="Sprite2D" parent="Startoptions/Selecticon"]
+modulate = Color(0, 0, 0, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("5_n3f60")
+
+[node name="Startrun" type="Node2D" parent="."]
+
+[node name="Startruntext01" type="Label" parent="Startrun"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 127.0
+offset_top = 57.0
+offset_right = 320.0
+offset_bottom = 70.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "- Start Run -"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Startruntext02" type="Label" parent="Startrun"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 127.0
+offset_top = 71.0
+offset_right = 320.0
+offset_bottom = 88.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "PREVIOUS SCORE:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Startruntext03" type="Label" parent="Startrun"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 127.0
+offset_top = 89.0
+offset_right = 320.0
+offset_bottom = 105.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "HIGHEST SCORE:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Startruntext04" type="Label" parent="Startrun"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 127.0
+offset_top = 160.0
+offset_right = 320.0
+offset_bottom = 176.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="CE_keyboard" type="Sprite2D" parent="Startrun"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+position = Vector2(222, 130)
+texture = ExtResource("7_klpuk")
+
+[node name="Startruntext05" type="Label" parent="Startrun/CE_keyboard"]
+offset_left = -85.0
+offset_top = 16.0
+offset_right = 27.0
+offset_bottom = 32.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "MOVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Startruntext06" type="Label" parent="Startrun/CE_keyboard"]
+offset_left = 28.0
+offset_top = 16.0
+offset_right = 85.0
+offset_bottom = 32.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "SPELLS"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="CE_Controller" type="Sprite2D" parent="Startrun"]
+visible = false
+modulate = Color(0.658824, 0, 0.0823529, 1)
+position = Vector2(223, 130)
+texture = ExtResource("8_bfry4")
+
+[node name="Startruntext05" type="Label" parent="Startrun/CE_Controller"]
+offset_left = -56.0
+offset_top = 16.0
+offset_right = -1.0
+offset_bottom = 32.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "MOVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Startruntext06" type="Label" parent="Startrun/CE_Controller"]
+offset_left = 1.0
+offset_top = 16.0
+offset_right = 58.0
+offset_bottom = 32.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "SPELLS"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Tutorial" type="Node2D" parent="."]
+visible = false
+
+[node name="Tut01" type="Label" parent="Tutorial"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 127.0
+offset_top = 57.0
+offset_right = 320.0
+offset_bottom = 70.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "- Tutorial -"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tut02" type="Label" parent="Tutorial"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 127.0
+offset_top = 72.0
+offset_right = 320.0
+offset_bottom = 171.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "Press one of the SPELL buttons or ENTER to view Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Customize" type="Node2D" parent="."]
+visible = false
+
+[node name="Customizetext01" type="Label" parent="Customize"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 127.0
+offset_top = 57.0
+offset_right = 320.0
+offset_bottom = 70.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "- Customize -"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Customizetext02" type="Label" parent="Customize"]
+modulate = Color(0.866667, 0.239216, 0.262745, 1)
+offset_left = 127.0
+offset_top = 129.0
+offset_right = 320.0
+offset_bottom = 142.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "Red Arrow"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Customizetext03" type="Label" parent="Customize"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 127.0
+offset_top = 143.0
+offset_right = 320.0
+offset_bottom = 175.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "Press left or right to change arrow."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Arrowshadow" type="Sprite2D" parent="Customize"]
+modulate = Color(1, 1, 1, 0.752941)
+position = Vector2(222, 115)
+texture = ExtResource("9_sexak")
+
+[node name="Arrowskin" type="Sprite2D" parent="Customize"]
+position = Vector2(222, 102)
+texture = ExtResource("9_5gjck")
+hframes = 8
+vframes = 8
+
+[node name="Skinplayer" type="AnimationPlayer" parent="Customize/Arrowskin"]
+libraries = {
+"": SubResource("AnimationLibrary_4075u")
+}
+
+[node name="Credits" type="Node2D" parent="."]
+visible = false
+
+[node name="Credit01" type="Label" parent="Credits"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 127.0
+offset_top = 57.0
+offset_right = 320.0
+offset_bottom = 70.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "- Credits -"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credit02" type="Label" parent="Credits"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 127.0
+offset_top = 72.0
+offset_right = 320.0
+offset_bottom = 171.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "Andreas Ioannou:
+
+Daan Engbers (Kappidaan):
+
+Glenn Kolenbrander (Dreamware):
+
+Wouter van Ham (WeenterMakesGames):
+ "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credit03" type="Label" parent="Credits"]
+modulate = Color(0.866667, 0.239216, 0.262745, 1)
+offset_left = 127.0
+offset_top = 72.0
+offset_right = 320.0
+offset_bottom = 171.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = " 
+Pixel art & Environments
+
+General design, Code & Pixel art
+
+Music & sounds
+
+Code & Art direction"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Blackscreen" type="ColorRect" parent="."]
+z_index = 1
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 0)
+
+[node name="FadeAnim" type="AnimationPlayer" parent="Blackscreen"]
+libraries = {
+"": SubResource("AnimationLibrary_no5ql")
+}

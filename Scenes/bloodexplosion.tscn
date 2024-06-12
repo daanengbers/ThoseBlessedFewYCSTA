@@ -14,7 +14,8 @@ offsets = PackedFloat32Array(0, 0.693333, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_71vyo"]
-colors = PackedColorArray(0.739789, 4.70478e-06, 3.85046e-07, 1, 1, 0.313968, 0.232179, 1)
+offsets = PackedFloat32Array(0.0133333, 0.993333)
+colors = PackedColorArray(0.741176, 0, 0, 1, 1, 0.313726, 0.231373, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1ykm"]
 size = Vector2(44, 24)

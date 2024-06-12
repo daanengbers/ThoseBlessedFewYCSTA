@@ -7,7 +7,7 @@ var EXPORB = preload("res://Scenes/exp_area.tscn")
 
 @onready var e_anim = $Icon/Anim
 
-@export var hp = 24
+@export var hp = 10
 var alive = true
 
 var randomspeedextra = 0

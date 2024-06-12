@@ -10,11 +10,11 @@ script = ExtResource("1_y6v35")
 
 [node name="Normalmusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_mw8is")
-volume_db = -10.0
+volume_db = -8.0
 
 [node name="Bossmusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_s6mgc")
-volume_db = -10.0
+volume_db = -8.0
 
 [node name="Timers" type="Node" parent="."]
 
