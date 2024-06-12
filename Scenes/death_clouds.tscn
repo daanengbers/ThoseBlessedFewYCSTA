@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://btq5wm30paoca"]
+
+[ext_resource type="Script" path="res://Script/death_clouds.gd" id="1_ism4x"]
+[ext_resource type="Texture2D" uid="uid://5766o63fxpay" path="res://Assets/Cloud_Sprite_v1.png" id="1_je02m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4cbpi"]
+texture = ExtResource("1_je02m")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+4:1/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ij3oj"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_4cbpi")
+
+[sub_resource type="Animation" id="Animation_gi745"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u3mj8"]
+resource_name = "danger"
+length = 2.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1, 1.3, 1.7, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, -0.6), Vector2(2, -1.4), Vector2(0, -2), Vector2(-2, -1.4), Vector2(2, -0.6), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.35, 0.45, 0.5, 1, 1.05, 1.15, 1.2, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.843137, 0.843137, 0.647059), Color(1, 1, 1, 0.588235), Color(1, 0.843137, 0.843137, 0.647059), Color(1, 1, 1, 0.588235), Color(1, 0.843137, 0.843137, 0.647059), Color(1, 1, 1, 0.588235), Color(1, 0.843137, 0.843137, 0.647059), Color(1, 1, 1, 0.588235), Color(1, 0.843137, 0.843137, 0.647059), Color(1, 1, 1, 0.647059)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lokjr"]
+_data = {
+"RESET": SubResource("Animation_gi745"),
+"danger": SubResource("Animation_u3mj8")
+}
+
+[node name="DeathClouds" type="Node2D"]
+z_index = 19
+script = ExtResource("1_ism4x")
+
+[node name="DeathCloud_Tiles" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_ij3oj")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 65536, 1)
+
+[node name="CloudAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lokjr")
+}

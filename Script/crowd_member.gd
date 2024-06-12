@@ -47,14 +47,14 @@ var currentextrabullets = 0
 
 func _ready():
 	randomize()
-	randomspeedextra = randi()%60
+	randomspeedextra = randi()%20 + 10 # previously 30 (?)
 	randomxplus = randi()%80 - 40
 	randomyplus = randi()%60 - 30
 	randomoffsetspace = randi()%8
 	hp = MAX_HP
 	$Healthbar.max_value = MAX_HP
 	m_anim.play("bounce")
-	randomsprite = randi()%6
+	randomsprite = randi()%8
 	random_s = randi()%4096 + 1
 	if random_s == 4096:
 		randomsprite = 8
@@ -64,15 +64,6 @@ func _ready():
 func _physics_process(_delta):
 	
 	# find near enemies
-	enemy_members = get_tree().get_nodes_in_group("enemy_m")
-	if enemy_members.size() >= 1:
-		nearest_enemy = enemy_members[0]
-	for mem in enemy_members:
-		if mem.global_position.distance_to(self.global_position) < nearest_enemy.global_position.distance_to(self.global_position):
-			nearest_enemy = mem
-	
-	if enemy_members.size() >= 1:
-		$Rot2.look_at(nearest_enemy.global_position)
 	
 	# find crowd parent
 	crowdparent = get_tree().get_nodes_in_group("crowd_p")
@@ -154,7 +145,24 @@ func _physics_process(_delta):
 
 # All Projectiles
 
+func check_aim_shoot():
+	enemy_members = get_tree().get_nodes_in_group("enemy_m")
+	if enemy_members.size() >= 1:
+		nearest_enemy = enemy_members[0]
+	for mem in enemy_members:
+		if mem.global_position.distance_to(self.global_position) < nearest_enemy.global_position.distance_to(self.global_position):
+			nearest_enemy = mem
+	
+	if enemy_members.size() >= 1:
+		if crowdparent[0].lockedin == false:
+			$Rot2.look_at(nearest_enemy.global_position)
+		else:
+			$Rot2.look_at(crowdparent[0].aimring.global_position)
+		#print(str(crowdparent[0].lockedin))
+
+
 func spawnbullet():
+	check_aim_shoot()
 	$Shoot.play()
 	var bu = BULLETINST.instantiate()
 	get_parent().add_child.call_deferred(bu)
@@ -171,6 +179,7 @@ func spawnsparkle():
 	sp.position = global_position
 
 func spawnfireball():
+	check_aim_shoot()
 	$Bigspell.play()
 	var pr = FIREBALL.instantiate()
 	get_parent().add_child.call_deferred(pr)
@@ -179,13 +188,13 @@ func spawnfireball():
 	pr.rotation = $Rot2.rotation
 
 func spawnthunder():
+	check_aim_shoot()
 	$Bigspell.play()
 	var pr = THUNDERBOLT.instantiate()
 	get_parent().add_child.call_deferred(pr)
 	pr.position = global_position
 	pr.apply_impulse(Vector2(200, 0).rotated($Rot2.rotation))
 	pr.rotation = $Rot2.rotation
-
 
 
 

@@ -15,7 +15,7 @@ var AOE = preload("res://Scenes/enemy_aoe.tscn")
 @export var damage = 3
 var alive = true
 
-@export var chasing = true
+@export var chasing = false
 
 var randomspeedextra = 0
 
@@ -27,20 +27,18 @@ var attacking = false
 
 func _ready():
 	randomize()
-	randomspeedextra = randi()%10
 	#e_anim.play("bounce")
 	#$EffectsAnim.play("default")
 	$UI/Healthbar.max_value = hp
 	$Sprites/Blade/BladePivotpoint/Swordanimation.play("idle")
-	Globalsettings.bossfight_active = true
-	Globalsettings.globalmusic = 2
-	Globalsettings.setmusic()
+	
 
 func _physics_process(_delta):
 	
 	move_and_slide()
 
 func update_meeblingsandmovement():
+	
 	crowd_members = get_tree().get_nodes_in_group("crowd_m")
 	nearest_crowdm = crowd_members[0]
 	
@@ -116,6 +114,13 @@ func hurt():
 	pass
 	#$EffectsAnim.play("hurt")
 	$UI/Healthbar.value = hp
+	if chasing == false:
+		chasing = true
+		Globalsettings.bossfight_active = true
+		Globalsettings.globalmusic = 2
+		Globalsettings.setmusic()
+		$UI.visible = true
+	
 
 func kill():
 	Onscreenmessages.displaymessage("Boss Defeated")
@@ -130,13 +135,12 @@ func spawn_exporb():
 	var ex = EXPORB.instantiate()
 	get_parent().add_child.call_deferred(ex)
 	ex.position = global_position
+	ex.expamount = 500
 
 func spawn_aoe():
 	var ex = AOE.instantiate()
 	get_parent().add_child.call_deferred(ex)
 	ex.position = global_position
-
-
 
 func _on_update_timer_timeout():
 	update_meeblingsandmovement()

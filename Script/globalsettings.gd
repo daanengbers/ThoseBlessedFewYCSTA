@@ -5,6 +5,8 @@ var global_Musicvol = 50
 var global_SFXvol = 50
 var bus_name: String
 var bus_index: int
+var global_controllertype = "Keyboard"
+var global_arrow = 1
 
 var global_xp = 0
 var global_total_xp = 0

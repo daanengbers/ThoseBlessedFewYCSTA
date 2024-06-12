@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://pyowfq0x5pwa"]
+
+[ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="1_veujv"]
+[ext_resource type="Script" path="res://Script/tutorial.gd" id="2_bo7wl"]
+[ext_resource type="Texture2D" uid="uid://e7hlil5cje5w" path="res://Assets/tutorialbargray.png" id="3_p1gv0"]
+[ext_resource type="Texture2D" uid="uid://bbuo2q4wkct30" path="res://Assets/tutorialbar.png" id="4_f6bvb"]
+
+[sub_resource type="FontVariation" id="FontVariation_sht4a"]
+base_font = ExtResource("1_veujv")
+spacing_top = -4
+spacing_bottom = -2
+
+[node name="Tutorial" type="Node2D"]
+texture_filter = 1
+script = ExtResource("2_bo7wl")
+
+[node name="Blackbar1" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 23.0
+color = Color(0, 0, 0, 1)
+
+[node name="Blackbar2" type="ColorRect" parent="."]
+offset_top = 153.0
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 1)
+
+[node name="Explanation" type="Label" parent="."]
+modulate = Color(0.839216, 0, 0.117647, 1)
+offset_left = 4.0
+offset_top = 157.0
+offset_right = 316.0
+offset_bottom = 178.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = SubResource("FontVariation_sht4a")
+text = "This is the tutorial page."
+autowrap_mode = 3
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Expl_progress" type="TextureProgressBar" parent="."]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_top = 19.0
+offset_right = 320.0
+offset_bottom = 21.0
+max_value = 11.0
+texture_under = ExtResource("3_p1gv0")
+texture_progress = ExtResource("4_f6bvb")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://chein4j5hyj4l"]
+[gd_scene load_steps=13 format=3 uid="uid://chein4j5hyj4l"]
 
 [ext_resource type="Script" path="res://Script/exp_areameebling.gd" id="1_lctd2"]
 [ext_resource type="Texture2D" uid="uid://chkpdkwkhftff" path="res://Assets/YCSTA_XP_new.png" id="2_6vt1a"]
 [ext_resource type="Texture2D" uid="uid://dhndfxnjcfqdj" path="res://Assets/Lightshadow.png" id="3_rp7i1"]
 [ext_resource type="AudioStream" uid="uid://b3qee1fus0dfw" path="res://Sounds/meeblingdeath.wav" id="4_4wbkr"]
+[ext_resource type="Texture2D" uid="uid://fd6jsqufuyr3" path="res://Assets/YCSTA_soulparticle.png" id="5_4xf0k"]
+[ext_resource type="Texture2D" uid="uid://dgio7vw52k2u6" path="res://Assets/YCSTA_Glassshard.png" id="6_tkcf4"]
 
 [sub_resource type="Animation" id="Animation_244cs"]
 length = 0.001
@@ -47,7 +49,16 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_x2k04"]
 radius = 8.06226
 
+[sub_resource type="Gradient" id="Gradient_jmymd"]
+offsets = PackedFloat32Array(0, 0.526667, 1)
+colors = PackedColorArray(0.631373, 0.92549, 0.760784, 1, 0.207843, 0.858824, 0.52549, 0.784314, 0.192157, 0.780392, 0.478431, 0)
+
+[sub_resource type="Curve" id="Curve_2cihr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.679775, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.40182, 0.0, 0, 0]
+point_count = 3
+
 [node name="EXP_areameebling" type="Area2D" groups=["EXPorb"]]
+texture_filter = 1
 script = ExtResource("1_lctd2")
 meeblingsoul = true
 
@@ -81,6 +92,40 @@ autostart = true
 
 [node name="Deathsound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_4wbkr")
+
+[node name="Soulparticles" type="CPUParticles2D" parent="."]
+z_index = 10
+emitting = false
+amount = 3
+one_shot = true
+explosiveness = 0.95
+texture = ExtResource("5_4xf0k")
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 15.0
+initial_velocity_max = 35.0
+scale_amount_min = 0.8
+scale_amount_max = 1.2
+color_ramp = SubResource("Gradient_jmymd")
+
+[node name="Glassparticles" type="CPUParticles2D" parent="."]
+z_index = 10
+emitting = false
+amount = 7
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("6_tkcf4")
+direction = Vector2(0, -1)
+gravity = Vector2(0, 98)
+initial_velocity_min = 30.0
+initial_velocity_max = 65.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_2cihr")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

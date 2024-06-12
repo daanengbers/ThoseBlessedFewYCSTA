@@ -74,6 +74,7 @@ func spawn_exporb():
 	var ex = EXPORB.instantiate()
 	get_parent().add_child.call_deferred(ex)
 	ex.position = global_position
+	ex.expamount = 200
 
 func spawn_aoe():
 	var ex = AOE.instantiate()
