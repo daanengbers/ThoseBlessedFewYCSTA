@@ -1,18 +1,12 @@
-[gd_scene load_steps=54 format=3 uid="uid://cuky2bsqeylb0"]
+[gd_scene load_steps=53 format=3 uid="uid://cuky2bsqeylb0"]
 
 [ext_resource type="Script" path="res://Script/mainscene.gd" id="1_3jaey"]
-[ext_resource type="Texture2D" uid="uid://c3eclcaowkgku" path="res://Assets/YCSTA_Oceanlayer01.png" id="1_7w3kv"]
-[ext_resource type="Shader" path="res://Shaders/Deepbluewater.gdshader" id="2_4gbio"]
 [ext_resource type="PackedScene" uid="uid://b46qb74feih7m" path="res://Scenes/crowd_simulation.tscn" id="2_gwj4c"]
 [ext_resource type="Texture2D" uid="uid://becusm8nesdor" path="res://Assets/Cliff_Sprite_v1.png" id="2_id5t6"]
-[ext_resource type="Texture2D" uid="uid://bdgasffw74sxs" path="res://Assets/YCSTA_Oceanlayer02.png" id="2_qby02"]
 [ext_resource type="PackedScene" uid="uid://bl8fy4bkw5rdr" path="res://Scenes/crowd_member.tscn" id="3_3hnlo"]
-[ext_resource type="Texture2D" uid="uid://dte8v2f42bepp" path="res://Assets/YCSTA_Oceanlayer03.png" id="3_u08am"]
 [ext_resource type="Texture2D" uid="uid://v7hwdfua3xtm" path="res://Assets/DeadGrass_Corners_v1s.png" id="4_2igfj"]
 [ext_resource type="Texture2D" uid="uid://5766o63fxpay" path="res://Assets/Cloud_Sprite_v1.png" id="4_75shg"]
-[ext_resource type="Shader" path="res://Shaders/midwater.gdshader" id="4_ci6mu"]
 [ext_resource type="Texture2D" uid="uid://b35lpeblxr4uq" path="res://Assets/WoodenBridge2h.png" id="5_8yoqs"]
-[ext_resource type="Shader" path="res://Shaders/Highwater.gdshader" id="6_abhje"]
 [ext_resource type="Texture2D" uid="uid://c5ynguy5hk02f" path="res://Assets/Grass_Blend_vF.png" id="6_i8tby"]
 [ext_resource type="PackedScene" uid="uid://c46w1oefw787c" path="res://Scenes/enemy_spawner.tscn" id="7_6pyun"]
 [ext_resource type="Texture2D" uid="uid://dacjdr3n88wlv" path="res://Assets/Dungeontiles-1.png" id="7_n2kuw"]
@@ -23,8 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://btq5wm30paoca" path="res://Scenes/death_clouds.tscn" id="13_p7767"]
 [ext_resource type="Texture2D" uid="uid://chx57afuaan4f" path="res://Assets/CastleTileSet.png" id="14_mnntq"]
 [ext_resource type="Texture2D" uid="uid://dhlsmsrn0euh1" path="res://Assets/DungeonDetails.png" id="15_xce56"]
+[ext_resource type="Shader" path="res://Shaders/waveshader.gdshader" id="16_oagg3"]
+[ext_resource type="Texture2D" uid="uid://d10xllb3gvng7" path="res://Assets/YCSTA_water_3.png" id="17_kt38g"]
+[ext_resource type="Texture2D" uid="uid://spyw7i6l8he6" path="res://Assets/YCSTA_water_2.png" id="18_mtk4k"]
 [ext_resource type="Texture2D" uid="uid://bxoxbig2xrc6h" path="res://Assets/Tower_Split_Lower.png" id="21_4mpwi"]
 [ext_resource type="PackedScene" uid="uid://bcp1j8ohl53o8" path="res://Scenes/enemy_eyeboss.tscn" id="21_k1ikb"]
+[ext_resource type="Texture2D" uid="uid://j2ppfh3wk0pk" path="res://Assets/YCSTA_water_1.png" id="21_qqomw"]
 [ext_resource type="PackedScene" uid="uid://cfhu8chdech4a" path="res://Scenes/Decor/decor_skullonstick.tscn" id="22_dby0b"]
 [ext_resource type="Texture2D" uid="uid://d3cveew3vqy0c" path="res://Assets/Tower_Split_Upper.png" id="22_fq5mk"]
 [ext_resource type="PackedScene" uid="uid://x81ykcq4gjl2" path="res://Scenes/meebling_cage.tscn" id="22_n6bcc"]
@@ -863,14 +861,33 @@ physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_b10cb")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ldl2b"]
-shader = ExtResource("2_4gbio")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gv3if"]
+shader = ExtResource("16_oagg3")
+shader_parameter/height = 5.0
+shader_parameter/frequency = 5.0
+shader_parameter/speed = 5.0
+shader_parameter/addedx = 320.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ixuum"]
-shader = ExtResource("4_ci6mu")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ea7c"]
+shader = ExtResource("16_oagg3")
+shader_parameter/height = 1.5
+shader_parameter/frequency = 2.0
+shader_parameter/speed = 3.0
+shader_parameter/addedx = 320.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mafmn"]
-shader = ExtResource("6_abhje")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mqlev"]
+shader = ExtResource("16_oagg3")
+shader_parameter/height = 3.0
+shader_parameter/frequency = 2.0
+shader_parameter/speed = 3.0
+shader_parameter/addedx = 160.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ybl4t"]
+shader = ExtResource("16_oagg3")
+shader_parameter/height = 5.0
+shader_parameter/frequency = 1.0
+shader_parameter/speed = 3.0
+shader_parameter/addedx = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qcf3t"]
 radius = 26.0
@@ -951,40 +968,41 @@ tile_set = SubResource("TileSet_27bk0")
 format = 2
 layer_0/tile_data = PackedInt32Array(-3211249, 0, 1, -3211248, 65536, 1, -3276785, 0, 1, -3276784, 65536, 1, -3342321, 0, 1, -3342320, 65536, 1, -3407857, 0, 1, -3407856, 65536, 1, -3473393, 0, 1, -3473392, 65536, 1, -3473391, 327680, 3, -3407855, 327680, 4, -3342319, 327680, 5, -3473394, 327680, 3, -3407858, 327680, 4, -3342322, 327680, 5, -3670002, 262144, 3, -3604466, 262144, 4, -3538930, 262144, 5, -3669999, 262144, 3, -3604463, 262144, 4, -3538927, 262144, 5, -3866610, 327680, 3, -3801074, 327680, 4, -3735538, 327680, 5, -3866607, 327680, 3, -3801071, 327680, 4, -3735535, 327680, 5, -3538929, 0, 1, -3538928, 65536, 1, -3604465, 0, 1, -3604464, 65536, 1, -3670001, 0, 1, -3670000, 65536, 1, -3735537, 0, 1, -3735536, 65536, 1, -3801073, 0, 1, -3801072, 65536, 1, -3866609, 0, 1, -3866608, 65536, 1, -4063217, 0, 1, -3997681, 0, 1, -4063216, 65536, 1, -3997680, 65536, 1, -3932145, 0, 1, -3932144, 65536, 1, -4259822, 262144, 0, -4194286, 262144, 1, -4128750, 262144, 2, -4259827, 262144, 0, -4194291, 262144, 1, -4128755, 262144, 2, -4259828, 131072, 0, -4194292, 131072, 1, -4128756, 131072, 2, -4259829, 327680, 0, -4194293, 327680, 1, -4128757, 327680, 2, -4259831, 196608, 0, -4194295, 196608, 1, -4128759, 196608, 2, -4259820, 327680, 0, -4194284, 327680, 1, -4128748, 327680, 2, -4259816, 327680, 0, -4194280, 327680, 1, -4128744, 327680, 2, -4259814, 262144, 0, -4194278, 262144, 1, -4128742, 262144, 2, -4259821, 131072, 0, -4194285, 131072, 1, -4128749, 131072, 2, -4259815, 131072, 0, -4194279, 131072, 1, -4128743, 131072, 2, -4259833, 262144, 0, -4194297, 262144, 1, -4128761, 262144, 2, -4259818, 196608, 0, -4194282, 196608, 1, -4128746, 196608, 2, -5308409, 458752, 0, -5242873, 458752, 1, -5177337, 458752, 2, -5308404, 458752, 0, -5242868, 458752, 1, -5177332, 458752, 2, -5308410, 327680, 0, -5242874, 327680, 1, -5177338, 327680, 2, -5308408, 327680, 0, -5242872, 327680, 1, -5177336, 327680, 2, -5308405, 327680, 0, -5242869, 327680, 1, -5177333, 327680, 2, -5308403, 327680, 0, -5242867, 327680, 1, -5177331, 327680, 2, -4128753, 0, 0, -4128752, 65536, 0, -4915168, 262144, 0, -4849632, 262144, 1, -4784096, 262144, 2, -4915164, 262144, 0, -4849628, 262144, 1, -4784092, 262144, 2, -4915166, 196608, 0, -4849630, 196608, 1, -4784094, 196608, 2, -5767151, 262144, 0, -5701615, 262144, 1, -5636079, 262144, 2, -5767145, 262144, 0, -5701609, 262144, 1, -5636073, 262144, 2, -5767139, 262144, 0, -5701603, 262144, 1, -5636067, 262144, 2, -5767148, 131072, 0, -5701612, 131072, 1, -5636076, 131072, 2, -5767142, 131072, 0, -5701606, 131072, 1, -5636070, 131072, 2, -3145713, 0, 1, -3145712, 65536, 1, -3080177, 0, 1, -3080176, 65536, 1, -3014641, 0, 1, -3014640, 65536, 1, -2949105, 0, 1, -2949104, 65536, 1, -2883569, 0, 1, -2883568, 65536, 1, -2818033, 0, 1, -2818032, 65536, 1, -2752497, 0, 1, -2752496, 65536, 1, -2686961, 0, 1, -2686960, 65536, 1, -2621425, 0, 1, -2621424, 65536, 1, -2555889, 0, 1, -2555888, 65536, 1, -2490353, 0, 1, -2490352, 65536, 1, -2424817, 0, 1, -2424816, 65536, 1, -2359281, 0, 1, -2359280, 65536, 1, -2293745, 0, 1, -2293744, 65536, 1, -2228209, 0, 1, -2228208, 65536, 1, -2162673, 0, 1, -2162672, 65536, 1, -2097137, 0, 1, -2097136, 65536, 1, -2031601, 0, 1, -2031600, 65536, 1, -1966065, 0, 1, -1966064, 65536, 1, -1900528, 65536, 2, -1900529, 0, 2)
 
-[node name="BG" type="ParallaxBackground" parent="."]
+[node name="ParallaxBGs" type="Node2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_gv3if")
+
+[node name="BG" type="ParallaxBackground" parent="ParallaxBGs"]
 scroll_ignore_camera_zoom = true
 
-[node name="Deepblue" type="ParallaxLayer" parent="BG"]
-motion_scale = Vector2(0.2, 0.2)
-motion_mirroring = Vector2(384, 256)
+[node name="Deepblue" type="ParallaxLayer" parent="ParallaxBGs/BG"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(320, 180)
 
-[node name="Sprite" type="Sprite2D" parent="BG/Deepblue"]
+[node name="YcstaWater3_01" type="Sprite2D" parent="ParallaxBGs/BG/Deepblue"]
 texture_filter = 1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_ldl2b")
-texture = ExtResource("1_7w3kv")
+material = SubResource("ShaderMaterial_1ea7c")
+texture = ExtResource("17_kt38g")
 centered = false
 
-[node name="Midwater" type="ParallaxLayer" parent="BG"]
+[node name="Midwater" type="ParallaxLayer" parent="ParallaxBGs/BG"]
 motion_scale = Vector2(0.4, 0.4)
-motion_mirroring = Vector2(384, 256)
+motion_mirroring = Vector2(320, 180)
 
-[node name="Sprite" type="Sprite2D" parent="BG/Midwater"]
+[node name="YcstaWater1" type="Sprite2D" parent="ParallaxBGs/BG/Midwater"]
 texture_filter = 1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_ixuum")
-texture = ExtResource("2_qby02")
+material = SubResource("ShaderMaterial_mqlev")
+texture = ExtResource("18_mtk4k")
 centered = false
 
-[node name="Highwater" type="ParallaxLayer" parent="BG"]
+[node name="Highwater" type="ParallaxLayer" parent="ParallaxBGs/BG"]
 motion_scale = Vector2(0.5, 0.5)
-motion_mirroring = Vector2(384, 256)
+motion_mirroring = Vector2(320, 180)
 
-[node name="Sprite" type="Sprite2D" parent="BG/Highwater"]
+[node name="YcstaWater1_01" type="Sprite2D" parent="ParallaxBGs/BG/Highwater"]
 texture_filter = 1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_mafmn")
-texture = ExtResource("3_u08am")
+material = SubResource("ShaderMaterial_ybl4t")
+texture = ExtResource("21_qqomw")
 centered = false
 
 [node name="Ysorter" type="Node2D" parent="."]
@@ -1124,10 +1142,10 @@ texture = ExtResource("10_aul4j")
 [node name="Waterpoly" type="Area2D" parent="Waterareas" groups=["Drownwater"]]
 
 [node name="box" type="CollisionPolygon2D" parent="Waterareas/Waterpoly" groups=["Drownwater"]]
-polygon = PackedVector2Array(179, -284, 183, -148, 137, -152, 138, -120, -17, -122, -23, -92, -82, -93, -87, -58, -148, -55, -152, -28, -180, -25, -183, 8, -215, 9, -215, 99, -617, 98, -619, 46, -651, 42, -655, 8, -821, 9, -822, 45, -850, 43, -851, 67, -1198, 67, -1198, -265, -1223, -265, -1229, -309, -1260, -310, -1259, -369, -1291, -373, -1291, -466, -1322, -466, -1324, -680, -1290, -706, -505, -704, -505, -629, -476, -618, -472, -535, -442, -516, -447, -460, -410, -451, -399, -421, -373, -415, -369, -392, -342, -383, -331, -355, -118, -352, -117, -321, -85, -318, -84, -291)
+polygon = PackedVector2Array(183, -284, 183, -153, 138, -153, 138, -122, -22, -122, -23, -92, -86, -92, -86, -59, -151, -59, -152, -28, -182, -28, -182, 9, -215, 9, -215, 99, -617, 98, -617, 44, -653, 44, -653, 8, -822, 8, -822, 45, -851, 45, -851, 67, -1200, 67, -1200, -218, -1228, -218, -1229, -309, -1260, -310, -1259, -369, -1291, -373, -1291, -466, -1322, -466, -1324, -680, -1290, -706, -505, -704, -505, -629, -476, -618, -472, -535, -442, -516, -447, -460, -410, -451, -399, -421, -373, -415, -369, -392, -342, -383, -331, -355, -118, -352, -117, -321, -85, -318, -84, -291)
 
 [node name="box2" type="CollisionPolygon2D" parent="Waterareas/Waterpoly"]
-polygon = PackedVector2Array(-1194, 156, -855, 159, -853, 195, -823, 198, -819, 235, -789, 232, -792, 265, -615, 263, -617, 192, -212, 187, -212, 265, -184, 266, -185, 301, -146, 301, -149, 361, 88, 362, 186, 231, 278, 229, 281, 202, 373, 200, 407, 144, 408, 111, 448, 76, 439, -27, 410, -31, 405, -84, 377, -98, 322, -154, 298, -155, 300, -277, 513, -280, 526, -244, 1322, -247, 1373, -305, 1375, -341, 1430, -404, 1469, -483, 1469, -513, 1498, -523, 1501, -794, 1482, -810, 1473, -881, 1361, -983, 1320, -989, 1277, -1028, 1160, -1031, 1133, -1054, 844, -1052, 825, -1023, 582, -1018, 579, -1469, 1942, -1256, 1283, 1028, -1158, 1014)
+polygon = PackedVector2Array(-1194, 156, -855, 159, -853, 195, -823, 198, -819, 235, -789, 232, -792, 265, -615, 263, -617, 192, -212, 187, -212, 265, -184, 266, -185, 301, -146, 301, -147, 338, 84, 338, 186, 231, 278, 229, 281, 202, 373, 200, 407, 144, 408, 111, 448, 76, 439, -27, 410, -31, 405, -84, 377, -98, 322, -154, 298, -155, 300, -277, 513, -280, 526, -244, 1322, -247, 1373, -305, 1375, -341, 1430, -404, 1469, -483, 1469, -513, 1498, -523, 1501, -794, 1482, -810, 1473, -881, 1361, -983, 1320, -989, 1277, -1028, 1160, -1031, 1133, -1054, 844, -1052, 825, -1023, 582, -1018, 579, -1469, 1942, -1256, 1279, 1000, -1176, 1001)
 
 [node name="box3" type="CollisionPolygon2D" parent="Waterareas/Waterpoly"]
 polygon = PackedVector2Array(445, -1034, 446, -1011, 448, -986, 450, -932, 390, -928, 344, -957, 301, -980, 198, -986, 176, -1012, -247, -1024, -258, -991, -369, -984, -395, -955, -453, -894, -482, -870, -475, -829, -500, -811, -504, -796, -1291, -796, -1293, -978, -1324, -985, -1356, -1022, -1383, -1056, -1450, -1048, -1510, -1115, -1828, -1112, -1849, -1078, -1970, -1082, -1978, -1046, -2191, -1044, -2206, -1015, -2231, -996, -2234, -915, -2267, -894, -2258, -662, -2326, -604, -2401, -580, -2426, -508, -2556, -369, -2555, -342, -2621, -274, -2645, -157, -2689, -62, -2713, -14, -2715, 379, -2692, 394, -2679, 529, -2649, 531, -2654, 620, -2621, 618, -2617, 707, -2437, 875, -2362, 873, -2339, 914, -1995, 905, -1983, 871, -1535, 871, -1528, 843, -1448, 818, -1378, 763, -1341, 697, -1364, 626, -1293, 574, -1255, 474, -1261, 298, -1193, 242, -1176, 1124, -3068, 1145, -3092, -1225, 442, -1468)
