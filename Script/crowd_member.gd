@@ -26,8 +26,8 @@ var spellnumber = 0
 
 var randomsprite = 0
 var random_s = 0
-var randomxplus = 0
-var randomyplus = 0
+@export var randomxplus = 0
+@export var randomyplus = 0
 var randomspeedextra = 0
 var randomoffsetspace = 0
 
@@ -48,8 +48,10 @@ var currentextrabullets = 0
 func _ready():
 	randomize()
 	randomspeedextra = randi()%20 + 10 # previously 30 (?)
-	randomxplus = randi()%80 - 40
-	randomyplus = randi()%60 - 30
+	if randomxplus == 0:
+		randomxplus = randi()%70 - 35
+	if randomyplus == 0:
+		randomyplus = randi()%50 - 25
 	randomoffsetspace = randi()%8
 	hp = MAX_HP
 	$Healthbar.max_value = MAX_HP

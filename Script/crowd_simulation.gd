@@ -21,6 +21,9 @@ var spell2cooldown = 0
 var spell3cooldown = 0
 var spell4cooldown = 0
 
+var movespeedx = 0
+var movespeedy = 0
+
 var secconds = 0
 var minutes = 0
 
@@ -62,29 +65,31 @@ func _physics_process(_delta):
 	if gameover == false:
 		if Input.is_action_pressed("left") && !Input.is_action_pressed("right"):
 			if aiming == false:
-				velocity.x = -SPEED - Globalsettings.currentrun_extraspeed
+				movespeedx = -SPEED - Globalsettings.currentrun_extraspeed
 			elif aiming == true && $AimRing.position.x > -150:
 				$AimRing.position.x -= AIMSPEED
 		elif Input.is_action_pressed("right") && !Input.is_action_pressed("left"):
 			if aiming == false:
-				velocity.x = SPEED + Globalsettings.currentrun_extraspeed
+				movespeedx = SPEED + Globalsettings.currentrun_extraspeed
 			elif aiming == true && $AimRing.position.x < 150:
 				$AimRing.position.x += AIMSPEED
 		else:
-			velocity.x = 0
+			movespeedx = 0
 		
 		if Input.is_action_pressed("up")  && !Input.is_action_pressed("down"):
 			if aiming == false:
-				velocity.y = -SPEED - Globalsettings.currentrun_extraspeed
+				movespeedy = -SPEED - Globalsettings.currentrun_extraspeed
 			elif aiming == true && $AimRing.position.y > -80:
 				$AimRing.position.y -= AIMSPEED * .7
 		elif Input.is_action_pressed("down")  && !Input.is_action_pressed("up"):
 			if aiming == false:
-				velocity.y = SPEED + Globalsettings.currentrun_extraspeed
+				movespeedy = SPEED + Globalsettings.currentrun_extraspeed
 			elif aiming == true && $AimRing.position.y < 80:
 				$AimRing.position.y += AIMSPEED * .7
 		else:
-			velocity.y = 0
+			movespeedy = 0
+	
+	velocity = Vector2(movespeedx, movespeedy).normalized() * 60
 	
 	if Input.is_action_just_pressed("aim"):
 		$AimRing/Sprite/Anim.play("RESET")
