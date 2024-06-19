@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://befm77q2ygqmu"]
+[gd_scene load_steps=35 format=3 uid="uid://befm77q2ygqmu"]
 
 [ext_resource type="Texture2D" uid="uid://becusm8nesdor" path="res://Assets/Cliff_Sprite_v1.png" id="1_15qfu"]
+[ext_resource type="PackedScene" uid="uid://bb8bwc5ht3nc2" path="res://Scenes/rippletiles.tscn" id="1_vfjjl"]
 [ext_resource type="Texture2D" uid="uid://b35lpeblxr4uq" path="res://Assets/WoodenBridge2h.png" id="2_a1yrb"]
 [ext_resource type="Texture2D" uid="uid://y00856mc6e1o" path="res://Assets/TileSetDeadlands (1).png" id="3_m8siw"]
 [ext_resource type="Texture2D" uid="uid://v7hwdfua3xtm" path="res://Assets/DeadGrass_Corners_v1s.png" id="4_f6ewy"]
@@ -614,11 +615,16 @@ shader_parameter/addedx = 0.0
 [node name="Tilesets" type="Node2D" parent="."]
 texture_filter = 1
 
+[node name="Rippletiles" parent="Tilesets" instance=ExtResource("1_vfjjl")]
+z_index = -1
+position = Vector2(0, -16)
+layer_0/tile_data = PackedInt32Array(524297, 0, 5, 524296, 0, 2, 524295, 0, 3, 524293, 0, 3, 524291, 0, 3, 524290, 0, 2, 524289, 0, 4, 524287, 0, 4, 458750, 0, 4, 458762, 0, 5, 327691, 0, 5)
+
 [node name="CliffTiles" type="TileMap" parent="Tilesets"]
 z_index = -1
 tile_set = SubResource("TileSet_42y4h")
 format = 2
-layer_0/tile_data = PackedInt32Array(458754, 65536, 0, 458755, 65536, 0, 458756, 65536, 0, 458757, 65536, 0, 458758, 65536, 0, 458759, 65536, 0, 458760, 65536, 0, 458761, 131072, 0, 458753, 0, 0, 393217, 65536, 1, 393225, 0, 1, 393216, 65536, 0, 458751, 0, 0, 393214, 0, 0, 393226, 131072, 0, 262155, 131072, 0, 262154, 0, 1, 393215, 65536, 1)
+layer_0/tile_data = PackedInt32Array(458754, 65536, 0, 458755, 65536, 0, 458756, 65536, 0, 458757, 65536, 0, 458758, 65536, 0, 458759, 65536, 0, 458760, 65536, 0, 458761, 131072, 0, 458753, 0, 0, 393217, 65536, 1, 393225, 0, 1, 393216, 65536, 0, 458751, 0, 0, 393214, 0, 0, 393226, 131072, 0, 262155, 131072, 0, 262154, 0, 1, 393215, 65536, 1, -458752, 65536, 0, -458751, 65536, 0, -458750, 65536, 1, -458745, 0, 1, -458744, 65536, 0, -458743, 65536, 0, -393217, 0, 0, -458758, 0, 0, -524300, 0, 0, -589837, 0, 0, -458742, 131072, 0, -786421, 131072, 0, -786422, 0, 1, -458753, 65536, 1, -524294, 65536, 1, -589836, 65536, 1, -524299, 65536, 0, -524298, 65536, 0, -524297, 65536, 0, -524296, 65536, 0, -524295, 65536, 0, -458756, 65536, 0, -458755, 65536, 0, -458754, 65536, 0, -458757, 65536, 0)
 
 [node name="DirtTiles" type="TileMap" parent="Tilesets"]
 z_index = -1

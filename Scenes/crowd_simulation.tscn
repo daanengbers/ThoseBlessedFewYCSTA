@@ -1,8 +1,8 @@
-[gd_scene load_steps=43 format=3 uid="uid://b46qb74feih7m"]
+[gd_scene load_steps=44 format=3 uid="uid://b46qb74feih7m"]
 
 [ext_resource type="Script" path="res://Script/crowd_simulation.gd" id="1_hyuob"]
+[ext_resource type="Texture2D" uid="uid://c6jst7dmu385" path="res://Assets/YCSTA_UIboxes-2.png" id="2_sox0p"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="3_gjq7j"]
-[ext_resource type="Texture2D" uid="uid://deqsdtpq6bt6s" path="res://Assets/YCSTA_UIboxes-1.png" id="3_rhqmm"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="4_h7cj8"]
 [ext_resource type="Texture2D" uid="uid://siyq5k5htydp" path="res://Assets/UpgradeIcons.png" id="4_w0fu6"]
 [ext_resource type="Texture2D" uid="uid://digsb5q5shm5s" path="res://Assets/blacktile28.png" id="5_be4lt"]
@@ -17,6 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://c02rr86yd8vae" path="res://Assets/YCSTA_Arrow (new).png" id="14_7qeql"]
 [ext_resource type="AudioStream" uid="uid://bad6nr05h2axn" path="res://Sounds/lvlup1.wav" id="16_nlck6"]
 [ext_resource type="Texture2D" uid="uid://clio7b0ifxo4" path="res://Assets/Aimicon.png" id="17_qerbj"]
+
+[sub_resource type="FontVariation" id="FontVariation_0hjnx"]
+base_font = ExtResource("3_gjq7j")
+spacing_space = -4
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j74bb"]
 atlas = ExtResource("11_g741n")
@@ -417,6 +421,7 @@ _data = {
 [node name="Crowd_Simulation" type="CharacterBody2D" groups=["crowd_p"]]
 z_index = 20
 texture_filter = 1
+motion_mode = 1
 script = ExtResource("1_hyuob")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -425,8 +430,8 @@ script = ExtResource("1_hyuob")
 
 [node name="Box01" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(269, 17)
-texture = ExtResource("3_rhqmm")
+position = Vector2(271, 17)
+texture = ExtResource("2_sox0p")
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box01"]
 texture_filter = 1
@@ -445,10 +450,25 @@ value = 100.0
 fill_mode = 3
 texture_progress = ExtResource("5_be4lt")
 
+[node name="Label" type="Label" parent="UI/Box01"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = -14.0
+offset_top = -10.0
+offset_right = 14.0
+offset_bottom = 13.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_0hjnx")
+text = "lvl 1"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="Box02" type="Sprite2D" parent="UI"]
 texture_filter = 1
 position = Vector2(302, 17)
-texture = ExtResource("3_rhqmm")
+texture = ExtResource("2_sox0p")
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box02"]
 texture_filter = 1
@@ -469,8 +489,8 @@ texture_progress = ExtResource("5_be4lt")
 
 [node name="Box03" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(269, 48)
-texture = ExtResource("3_rhqmm")
+position = Vector2(271, 48)
+texture = ExtResource("2_sox0p")
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box03"]
 texture_filter = 1
@@ -492,7 +512,7 @@ texture_progress = ExtResource("5_be4lt")
 [node name="Box04" type="Sprite2D" parent="UI"]
 texture_filter = 1
 position = Vector2(302, 48)
-texture = ExtResource("3_rhqmm")
+texture = ExtResource("2_sox0p")
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box04"]
 texture_filter = 1
@@ -513,9 +533,9 @@ texture_progress = ExtResource("5_be4lt")
 
 [node name="Activateletter01" type="Label" parent="UI"]
 texture_filter = 1
-offset_left = 256.0
+offset_left = 258.0
 offset_top = 24.0
-offset_right = 282.0
+offset_right = 284.0
 offset_bottom = 37.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -537,9 +557,9 @@ horizontal_alignment = 1
 
 [node name="Activateletter03" type="Label" parent="UI"]
 texture_filter = 1
-offset_left = 256.0
+offset_left = 258.0
 offset_top = 55.0
-offset_right = 282.0
+offset_right = 284.0
 offset_bottom = 68.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -644,13 +664,17 @@ texture_under = ExtResource("6_tn3wl")
 texture_progress = ExtResource("7_hj0fj")
 
 [node name="LVLtext" type="Label" parent="UI"]
+modulate = Color(0.807843, 0, 0.211765, 1)
 texture_filter = 1
 offset_left = 60.0
 offset_top = 159.0
 offset_right = 260.0
 offset_bottom = 172.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("3_gjq7j")
 text = "Level 1"
 horizontal_alignment = 1

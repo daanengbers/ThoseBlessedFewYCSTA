@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 80
+const SPEED = 60
 const AIMSPEED = 4
 
 @onready var aimring = $AimRing
@@ -21,8 +21,8 @@ var spell2cooldown = 0
 var spell3cooldown = 0
 var spell4cooldown = 0
 
-var movespeedx = 0
-var movespeedy = 0
+var moving_xaxis = 1
+var moving_yaxis = 1
 
 var secconds = 0
 var minutes = 0
@@ -45,7 +45,7 @@ func _ready():
 	if arrownr == 8:
 		movedownsprite(10)
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	
 	$UI/GameTimerUI.set_text(str(Globalsettings.g_uiminutes) + ":" + str(Globalsettings.g_uisecconds))
 	$UI/EnemiesAliveUI.set_text(str(Globalsettings.g_enemiesAlive))
@@ -65,31 +65,37 @@ func _physics_process(_delta):
 	if gameover == false:
 		if Input.is_action_pressed("left") && !Input.is_action_pressed("right"):
 			if aiming == false:
-				movespeedx = -SPEED - Globalsettings.currentrun_extraspeed
+				velocity.x = (-SPEED - Globalsettings.currentrun_extraspeed) * moving_yaxis
+				moving_xaxis = 0.707
 			elif aiming == true && $AimRing.position.x > -150:
 				$AimRing.position.x -= AIMSPEED
 		elif Input.is_action_pressed("right") && !Input.is_action_pressed("left"):
 			if aiming == false:
-				movespeedx = SPEED + Globalsettings.currentrun_extraspeed
+				velocity.x = (SPEED + Globalsettings.currentrun_extraspeed) * moving_yaxis
+				moving_xaxis = 0.707
 			elif aiming == true && $AimRing.position.x < 150:
 				$AimRing.position.x += AIMSPEED
 		else:
-			movespeedx = 0
+			velocity.x = 0
+			moving_xaxis = 1
 		
 		if Input.is_action_pressed("up")  && !Input.is_action_pressed("down"):
 			if aiming == false:
-				movespeedy = -SPEED - Globalsettings.currentrun_extraspeed
+				velocity.y = (-SPEED - Globalsettings.currentrun_extraspeed) * moving_xaxis
+				moving_yaxis = 0.707
 			elif aiming == true && $AimRing.position.y > -80:
 				$AimRing.position.y -= AIMSPEED * .7
 		elif Input.is_action_pressed("down")  && !Input.is_action_pressed("up"):
 			if aiming == false:
-				movespeedy = SPEED + Globalsettings.currentrun_extraspeed
+				velocity.y = (SPEED + Globalsettings.currentrun_extraspeed) * moving_xaxis
+				moving_yaxis = 0.707
 			elif aiming == true && $AimRing.position.y < 80:
 				$AimRing.position.y += AIMSPEED * .7
 		else:
-			movespeedy = 0
+			velocity.y = 0
+			moving_yaxis = 1
 	
-	velocity = Vector2(movespeedx, movespeedy).normalized() * 60
+	#velocity = Vector2(movespeedx, movespeedy).normalized() * 60
 	
 	if Input.is_action_just_pressed("aim"):
 		$AimRing/Sprite/Anim.play("RESET")

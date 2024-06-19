@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb8bwc5ht3nc2"]
+
+[ext_resource type="Texture2D" uid="uid://cyuloouupwrh5" path="res://Assets/YCSTA_Ripples_Sprite.png" id="1_lk17a"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fs3xx"]
+texture = ExtResource("1_lk17a")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_frame_0/duration = 0.15
+0:0/animation_frame_1/duration = 0.15
+0:0/animation_frame_2/duration = 0.15
+0:0/animation_frame_3/duration = 0.15
+0:0/animation_frame_4/duration = 0.15
+0:0/animation_frame_5/duration = 0.15
+0:0/0 = 0
+0:1/animation_frame_0/duration = 0.15
+0:1/animation_frame_1/duration = 0.15
+0:1/animation_frame_2/duration = 0.15
+0:1/animation_frame_3/duration = 0.15
+0:1/animation_frame_4/duration = 0.15
+0:1/animation_frame_5/duration = 0.15
+0:1/0 = 0
+0:2/animation_frame_0/duration = 0.15
+0:2/animation_frame_1/duration = 0.15
+0:2/animation_frame_2/duration = 0.15
+0:2/animation_frame_3/duration = 0.15
+0:2/animation_frame_4/duration = 0.15
+0:2/animation_frame_5/duration = 0.15
+0:2/0 = 0
+0:3/animation_frame_0/duration = 0.15
+0:3/animation_frame_1/duration = 0.15
+0:3/animation_frame_2/duration = 0.15
+0:3/animation_frame_3/duration = 0.15
+0:3/animation_frame_4/duration = 0.15
+0:3/animation_frame_5/duration = 0.15
+0:3/0 = 0
+0:4/animation_frame_0/duration = 0.15
+0:4/animation_frame_1/duration = 0.15
+0:4/animation_frame_2/duration = 0.15
+0:4/animation_frame_3/duration = 0.15
+0:4/animation_frame_4/duration = 0.15
+0:4/animation_frame_5/duration = 0.15
+0:4/0 = 0
+0:5/animation_frame_0/duration = 0.15
+0:5/animation_frame_1/duration = 0.15
+0:5/animation_frame_2/duration = 0.15
+0:5/animation_frame_3/duration = 0.15
+0:5/animation_frame_4/duration = 0.15
+0:5/animation_frame_5/duration = 0.15
+0:5/0 = 0
+0:6/animation_frame_0/duration = 0.15
+0:6/animation_frame_1/duration = 0.15
+0:6/animation_frame_2/duration = 0.15
+0:6/animation_frame_3/duration = 0.15
+0:6/animation_frame_4/duration = 0.15
+0:6/animation_frame_5/duration = 0.15
+0:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_535uf"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_fs3xx")
+
+[node name="Rippletiles" type="TileMap"]
+tile_set = SubResource("TileSet_535uf")
+format = 2
