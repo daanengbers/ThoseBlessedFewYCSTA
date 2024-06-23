@@ -317,6 +317,7 @@ script = ExtResource("1_rwlk1")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
+z_index = -2
 position = Vector2(160, 90)
 rotation = 1.5708
 texture = SubResource("GradientTexture2D_i1xj3")
@@ -340,6 +341,50 @@ color_ramp = SubResource("Gradient_an3qm")
 
 [node name="SplashArtLettersOnly" type="Sprite2D" parent="Background"]
 position = Vector2(160, 33)
+texture = ExtResource("2_d5um1")
+
+[node name="Node2D" type="Node2D" parent="Background"]
+visible = false
+z_index = -1
+
+[node name="SplashArtLettersOnly2" type="Sprite2D" parent="Background/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(159, 33)
+texture = ExtResource("2_d5um1")
+
+[node name="SplashArtLettersOnly3" type="Sprite2D" parent="Background/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(161, 33)
+texture = ExtResource("2_d5um1")
+
+[node name="SplashArtLettersOnly4" type="Sprite2D" parent="Background/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(160, 32)
+texture = ExtResource("2_d5um1")
+
+[node name="SplashArtLettersOnly5" type="Sprite2D" parent="Background/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(160, 34)
+texture = ExtResource("2_d5um1")
+
+[node name="SplashArtLettersOnly6" type="Sprite2D" parent="Background/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(159, 34)
+texture = ExtResource("2_d5um1")
+
+[node name="SplashArtLettersOnly7" type="Sprite2D" parent="Background/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(161, 34)
+texture = ExtResource("2_d5um1")
+
+[node name="SplashArtLettersOnly8" type="Sprite2D" parent="Background/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(161, 32)
+texture = ExtResource("2_d5um1")
+
+[node name="SplashArtLettersOnly9" type="Sprite2D" parent="Background/Node2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(159, 32)
 texture = ExtResource("2_d5um1")
 
 [node name="Startoptions" type="Node2D" parent="."]
@@ -752,6 +797,8 @@ z_index = 1
 offset_right = 320.0
 offset_bottom = 180.0
 color = Color(0, 0, 0, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="FadeAnim" type="AnimationPlayer" parent="Blackscreen"]
 libraries = {

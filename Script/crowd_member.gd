@@ -4,6 +4,7 @@ var BULLETINST = preload("res://Scenes/bullet_fromcrowd.tscn")
 var SPARKLE = preload("res://Scenes/sparkle.tscn")
 var FIREBALL = preload("res://Scenes/bullet_fromcrowd_fireball.tscn")
 var THUNDERBOLT = preload("res://Scenes/bullet_fromcrowd_thunderbolt.tscn")
+var POISON = preload("res://Scenes/bullet_fromcrowd_poisonsmoke.tscn")
 
 var DEADMEEBLY = preload("res://Scenes/exp_areameebling.tscn")
 
@@ -95,6 +96,9 @@ func _physics_process(_delta):
 		if Globalsettings.g_spell1 == 2:
 			spawnthunder()
 			$CooldownstartTimer.start()
+		if Globalsettings.g_spell1 == 3:
+			spawnpoison()
+			$CooldownstartTimer.start()
 	
 	if Input.is_action_just_pressed("spell2") && crowdparent[0].spell2cooldown <= 0:
 		spellnumber = 2
@@ -105,6 +109,9 @@ func _physics_process(_delta):
 			$CooldownstartTimer.start()
 		if Globalsettings.g_spell2 == 2:
 			spawnthunder()
+			$CooldownstartTimer.start()
+		if Globalsettings.g_spell2 == 3:
+			spawnpoison()
 			$CooldownstartTimer.start()
 	
 	if Input.is_action_just_pressed("spell3") && crowdparent[0].spell3cooldown <= 0:
@@ -117,6 +124,9 @@ func _physics_process(_delta):
 		if Globalsettings.g_spell3 == 2:
 			spawnthunder()
 			$CooldownstartTimer.start()
+		if Globalsettings.g_spell3 == 3:
+			spawnpoison()
+			$CooldownstartTimer.start()
 	
 	if Input.is_action_just_pressed("spell4") && crowdparent[0].spell4cooldown <= 0:
 		spellnumber = 4
@@ -127,6 +137,9 @@ func _physics_process(_delta):
 			$CooldownstartTimer.start()
 		if Globalsettings.g_spell4 == 2:
 			spawnthunder()
+			$CooldownstartTimer.start()
+		if Globalsettings.g_spell4 == 3:
+			spawnpoison()
 			$CooldownstartTimer.start()
 	
 		#spawnbullet()
@@ -198,7 +211,12 @@ func spawnthunder():
 	pr.apply_impulse(Vector2(200, 0).rotated($Rot2.rotation))
 	pr.rotation = $Rot2.rotation
 
-
+func spawnpoison():
+	check_aim_shoot()
+	$Bigspell.play()
+	var pr = POISON.instantiate()
+	get_parent().add_child.call_deferred(pr)
+	pr.position = global_position
 
 func update_hp():
 	MAX_HP = MAX_HP + Globalsettings.currentrun_extrahealth

@@ -4,11 +4,11 @@ var cardnr = 1
 
 func _ready():
 	randomize()
-	cardnr = randi()%9 + 1
+	cardnr = randi()%11 + 1
 	setcardstats()
 
 func rerandomizecard():
-	cardnr = randi()%9 + 1
+	cardnr = randi()%11 + 1
 
 func setcardstats():
 	# Common spells
@@ -39,13 +39,13 @@ func setcardstats():
 		actuallysetstats(0,"Impenetrable Soul","+3 Max HP",4)
 	if cardnr == 10:
 		actuallysetstats(0,"Summon Meebling","Add another Meebling to the party",13)
-	# Rare spells
 	if cardnr == 11:
-		actuallysetstats(0,"Hard-Hitting Souls","+2 Attack",0)
+		actuallysetstats(1,"Poison Cloud","lingering cloud",7)
+	# Rare spells
 	if cardnr == 12:
-		actuallysetstats(0,"Supersonic Souls","+10 Speed",1)
+		actuallysetstats(0,"Hard-Hitting Souls","+2 Attack",0)
 	if cardnr == 13:
-		actuallysetstats(0,"","",1)
+		actuallysetstats(0,"Supersonic Souls","+10 Speed",1)
 	if cardnr == 14:
 		actuallysetstats(0,"","",1)
 	if cardnr == 15:
@@ -92,7 +92,17 @@ func selectcard(s_button):
 		addstats(0,0,4,0,0)
 	if cardnr == 9:
 		addstats(0,0,0,0,3)
-	
+	if cardnr == 10:
+		pass
+	if cardnr == 11:
+		if s_button == 1:
+			Globalsettings.g_spell1 = 3
+		if s_button == 2:
+			Globalsettings.g_spell2 = 3
+		if s_button == 3:
+			Globalsettings.g_spell3 = 3
+		if s_button == 4:
+			Globalsettings.g_spell4 = 3
 	
 	
 	if cardnr == 50:

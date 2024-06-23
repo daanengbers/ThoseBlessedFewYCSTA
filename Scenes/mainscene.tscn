@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cuky2bsqeylb0"]
+[gd_scene load_steps=54 format=3 uid="uid://cuky2bsqeylb0"]
 
 [ext_resource type="Script" path="res://Script/mainscene.gd" id="1_3jaey"]
 [ext_resource type="PackedScene" uid="uid://b46qb74feih7m" path="res://Scenes/crowd_simulation.tscn" id="2_gwj4c"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://x81ykcq4gjl2" path="res://Scenes/meebling_cage.tscn" id="22_n6bcc"]
 [ext_resource type="PackedScene" uid="uid://di5jjqqiofweh" path="res://Scenes/enemy_boss_sludgeknight.tscn" id="25_b8cmb"]
 [ext_resource type="Texture2D" uid="uid://d1tfpy0c0luuh" path="res://Assets/CampDecorations-3.png" id="28_cfgnc"]
+[ext_resource type="PackedScene" uid="uid://di6fiw303vk2t" path="res://Scenes/bullet_fromcrowd_poisonsmoke.tscn" id="29_pm6te"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ec5ca"]
 texture = ExtResource("2_id5t6")
@@ -1176,5 +1177,8 @@ texture = ExtResource("22_fq5mk")
 position = Vector2(0, 4)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_qcf3t")
+
+[node name="bullet_fromcrowd_fireball" parent="." instance=ExtResource("29_pm6te")]
+position = Vector2(154, 109)
 
 [editable path="Tilesets/DeathClouds"]

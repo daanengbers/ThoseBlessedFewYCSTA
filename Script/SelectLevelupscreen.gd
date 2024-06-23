@@ -67,8 +67,7 @@ func _process(_delta):
 			if cardselected == 3:
 				card3.selectcard(4)
 			$UnpauseTimer.start()
-		
-		
+
 
 func setselectarrow():
 	if cardselected == 1:
