@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3xvjkeusvj11"
-path="res://.godot/imported/placeholderlvlbar-2.png-19d71260ceb14cb4abd583a5ae922409.ctex"
+uid="uid://d21gc6pesq6l3"
+path="res://.godot/imported/GameOver.png-b2af411af6389951b545fa2ef91115e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/placeholderlvlbar-2.png"
-dest_files=["res://.godot/imported/placeholderlvlbar-2.png-19d71260ceb14cb4abd583a5ae922409.ctex"]
+source_file="res://Assets/GameOver.png"
+dest_files=["res://.godot/imported/GameOver.png-b2af411af6389951b545fa2ef91115e4.ctex"]
 
 [params]
 

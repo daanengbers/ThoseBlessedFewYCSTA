@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o2u0ww6hg008"
-path="res://.godot/imported/meebling_menuicon.png-5e1f1b1f9200a0467272cccd5908dcaf.ctex"
+uid="uid://dl70st0bdxukg"
+path="res://.godot/imported/Spellcards2.png-0f8e139db9e12e38b25aad464396a0e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/meebling_menuicon.png"
-dest_files=["res://.godot/imported/meebling_menuicon.png-5e1f1b1f9200a0467272cccd5908dcaf.ctex"]
+source_file="res://Assets/Spellcards2.png"
+dest_files=["res://.godot/imported/Spellcards2.png-0f8e139db9e12e38b25aad464396a0e5.ctex"]
 
 [params]
 

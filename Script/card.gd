@@ -38,9 +38,9 @@ func setcardstats():
 	if cardnr == 9:
 		actuallysetstats(0,"Impenetrable Soul","+3 Max HP",4)
 	if cardnr == 10:
-		actuallysetstats(0,"Summon Meebling","Add another Meebling to the party",13)
+		actuallysetstats(2,"Birth of a soul","+1 Meebling",13)
 	if cardnr == 11:
-		actuallysetstats(1,"Poison Cloud","lingering cloud",7)
+		actuallysetstats(1,"Poison Cloud","lingering cloud of damage",7)
 	# Rare spells
 	if cardnr == 12:
 		actuallysetstats(0,"Hard-Hitting Souls","+2 Attack",0)

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://ddk4sj2wey0g6"]
 
 [ext_resource type="Script" path="res://Script/card.gd" id="1_hmyi1"]
+[ext_resource type="Texture2D" uid="uid://dl70st0bdxukg" path="res://Assets/Spellcards2.png" id="2_hecq0"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="3_6plav"]
 [ext_resource type="Texture2D" uid="uid://siyq5k5htydp" path="res://Assets/UpgradeIcons.png" id="4_6nhxx"]
-[ext_resource type="Texture2D" uid="uid://c06r1ivxwugfu" path="res://Assets/Spellcards.png" id="4_vnyd0"]
 [ext_resource type="AudioStream" uid="uid://3c7qv37m47tq" path="res://Sounds/cardnoise1.wav" id="5_cuntc"]
 
 [sub_resource type="Animation" id="Animation_rgsj7"]
@@ -135,7 +135,7 @@ texture_filter = 1
 
 [node name="Spellcards" type="Sprite2D" parent="eh"]
 texture_filter = 1
-texture = ExtResource("4_vnyd0")
+texture = ExtResource("2_hecq0")
 hframes = 3
 
 [node name="Cardname" type="Label" parent="eh"]
@@ -175,7 +175,7 @@ libraries = {
 }
 
 [node name="UpgradeIcons" type="Sprite2D" parent="eh"]
-position = Vector2(-9, -19)
+position = Vector2(-6, -19)
 texture = ExtResource("4_6nhxx")
 hframes = 4
 vframes = 4

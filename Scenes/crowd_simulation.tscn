@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b46qb74feih7m"]
+[gd_scene load_steps=47 format=3 uid="uid://b46qb74feih7m"]
 
 [ext_resource type="Script" path="res://Script/crowd_simulation.gd" id="1_hyuob"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="3_gjq7j"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cgakxi0t1lwe7" path="res://Assets/Staticons.png" id="11_q0y8a"]
 [ext_resource type="Texture2D" uid="uid://dsh5841pjc8i5" path="res://Assets/YCSTA_Souldparticles.png" id="13_nqnof"]
 [ext_resource type="Texture2D" uid="uid://c02rr86yd8vae" path="res://Assets/YCSTA_Arrow (new).png" id="14_7qeql"]
+[ext_resource type="Texture2D" uid="uid://d21gc6pesq6l3" path="res://Assets/GameOver.png" id="16_3ytvi"]
 [ext_resource type="AudioStream" uid="uid://bad6nr05h2axn" path="res://Sounds/lvlup1.wav" id="16_nlck6"]
 [ext_resource type="Texture2D" uid="uid://clio7b0ifxo4" path="res://Assets/Aimicon.png" id="17_qerbj"]
 
@@ -63,8 +64,18 @@ animations = [{
 "texture": SubResource("AtlasTexture_8v688")
 }],
 "loop": true,
-"name": &"default",
+"name": &"arcade",
 "speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"controller",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"keyboard",
+"speed": 5.0
 }]
 
 [sub_resource type="Animation" id="Animation_yqass"]
@@ -432,7 +443,7 @@ script = ExtResource("1_hyuob")
 
 [node name="Box01" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(259, 18)
+position = Vector2(269, 18)
 texture = ExtResource("3_rhqmm")
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box01"]
@@ -479,7 +490,7 @@ vertical_alignment = 2
 
 [node name="Box02" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(292, 18)
+position = Vector2(302, 18)
 texture = ExtResource("3_rhqmm")
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box02"]
@@ -510,7 +521,7 @@ texture_progress = ExtResource("7_qp7we")
 
 [node name="Box03" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(268, 51)
+position = Vector2(262, 51)
 texture = ExtResource("3_rhqmm")
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box03"]
@@ -541,7 +552,7 @@ texture_progress = ExtResource("7_qp7we")
 
 [node name="Box04" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(301, 51)
+position = Vector2(295, 51)
 texture = ExtResource("3_rhqmm")
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box04"]
@@ -572,9 +583,9 @@ texture_progress = ExtResource("7_qp7we")
 
 [node name="Activateletter01" type="Label" parent="UI"]
 texture_filter = 1
-offset_left = 246.0
+offset_left = 256.0
 offset_top = 26.0
-offset_right = 272.0
+offset_right = 282.0
 offset_bottom = 39.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -584,9 +595,9 @@ horizontal_alignment = 1
 
 [node name="Activateletter02" type="Label" parent="UI"]
 texture_filter = 1
-offset_left = 279.0
+offset_left = 289.0
 offset_top = 26.0
-offset_right = 305.0
+offset_right = 315.0
 offset_bottom = 39.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -596,9 +607,9 @@ horizontal_alignment = 1
 
 [node name="Activateletter03" type="Label" parent="UI"]
 texture_filter = 1
-offset_left = 255.0
+offset_left = 249.0
 offset_top = 59.0
-offset_right = 281.0
+offset_right = 275.0
 offset_bottom = 72.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -608,9 +619,9 @@ horizontal_alignment = 1
 
 [node name="Activateletter04" type="Label" parent="UI"]
 texture_filter = 1
-offset_left = 288.0
+offset_left = 282.0
 offset_top = 59.0
-offset_right = 314.0
+offset_right = 308.0
 offset_bottom = 72.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -738,7 +749,7 @@ color = Color(0, 0, 0, 0.784314)
 texture_filter = 1
 position = Vector2(284, 154)
 sprite_frames = SubResource("SpriteFrames_pd6dk")
-frame_progress = 0.811403
+animation = &"keyboard"
 
 [node name="Text1" type="Label" parent="UI/SelectLevelupscreen"]
 texture_filter = 1
@@ -806,13 +817,19 @@ color_initial_ramp = SubResource("Gradient_ge54m")
 
 [node name="Deathscreen" type="Node2D" parent="UI"]
 visible = false
+texture_filter = 1
 
 [node name="ColorRect" type="ColorRect" parent="UI/Deathscreen"]
 offset_right = 320.0
 offset_bottom = 180.0
 color = Color(0, 0, 0, 0.501961)
 
+[node name="GameOver" type="Sprite2D" parent="UI/Deathscreen"]
+position = Vector2(160, 66)
+texture = ExtResource("16_3ytvi")
+
 [node name="Gameover" type="Label" parent="UI/Deathscreen"]
+visible = false
 modulate = Color(1, 0.529412, 0.443137, 1)
 texture_filter = 1
 offset_top = 51.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://befm77q2ygqmu"]
+[gd_scene load_steps=36 format=3 uid="uid://befm77q2ygqmu"]
 
 [ext_resource type="Texture2D" uid="uid://becusm8nesdor" path="res://Assets/Cliff_Sprite_v1.png" id="1_15qfu"]
 [ext_resource type="PackedScene" uid="uid://bb8bwc5ht3nc2" path="res://Scenes/rippletiles.tscn" id="1_vfjjl"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://d10xllb3gvng7" path="res://Assets/YCSTA_water_3.png" id="13_nr3vf"]
 [ext_resource type="Texture2D" uid="uid://spyw7i6l8he6" path="res://Assets/YCSTA_water_2.png" id="14_1keet"]
 [ext_resource type="Texture2D" uid="uid://j2ppfh3wk0pk" path="res://Assets/YCSTA_water_1.png" id="15_vferp"]
+[ext_resource type="Texture2D" uid="uid://cyuloouupwrh5" path="res://Assets/YCSTA_Ripples_Sprite.png" id="17_s44vc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ec5ca"]
 texture = ExtResource("1_15qfu")
@@ -711,5 +712,9 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_olm8p")
 texture = ExtResource("15_vferp")
 centered = false
+
+[node name="YcstaRipplesSprite" type="Sprite2D" parent="."]
+position = Vector2(-338, 281)
+texture = ExtResource("17_s44vc")
 
 [editable path="Tilesets/DeathClouds"]

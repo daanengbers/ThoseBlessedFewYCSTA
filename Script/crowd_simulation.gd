@@ -40,7 +40,7 @@ var gameover = false
 func _ready():
 	arrownr = Globalsettings.global_arrow
 	$Mainarrow/Anim.play("arrow" + str(arrownr))
-	$UI/SelectLevelupscreen/Blackrect/buttonstopress.play("default")
+	$UI/SelectLevelupscreen/Blackrect/buttonstopress.play("arcade")
 	$Mainarrow.flip_h = false
 	if arrownr == 8:
 		movedownsprite(10)
