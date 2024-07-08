@@ -96,7 +96,6 @@ func spawnghostenemy():
 	if randomtoporside == 4:
 		gh.position.x = global_position.x + 360
 		gh.position.y = global_position.y + randomspawnlocy
-	gh.hp += level
 
 func spawnscarabenemy():
 	var sc = SCARAB.instantiate()
@@ -161,7 +160,7 @@ func _on_spawn_timer_timeout():
 	if randomenemyspawn == 4:
 		spawnghostenemy()
 	if randomenemyspawn == 5:
-		spawnghostenemy()
+		spawnscarabenemy()
 	
 	randomspawnlocx = randi()% 320
 	randomspawnlocy = randi()% 180

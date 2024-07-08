@@ -61,6 +61,10 @@ func hurt():
 	$EffectsAnim.play("hurt")
 	$UI/Healthbar.value = hp
 
+func apply_freeze():
+	SPEED = 20
+	$Icon.self_modulate = Color(0,1,1)
+
 func kill():
 	Onscreenmessages.displaymessage("Boss Defeated")
 	Globalsettings.bossfight_active = false

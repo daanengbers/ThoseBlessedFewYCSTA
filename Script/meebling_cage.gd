@@ -22,6 +22,9 @@ func hurt():
 	$Healthbar.visible = true
 	$Healthbar.value = hp
 
+func apply_freeze():
+	pass
+
 func spawnmeebling():
 	var me = MEEBLING.instantiate()
 	get_parent().add_child.call_deferred(me)

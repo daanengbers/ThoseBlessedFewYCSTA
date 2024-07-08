@@ -120,7 +120,10 @@ func hurt():
 		Globalsettings.globalmusic = 2
 		Globalsettings.setmusic()
 		$UI.visible = true
-	
+
+func apply_freeze():
+	SPEED = 10
+	$Icon.self_modulate = Color(0,1,1)
 
 func kill():
 	Onscreenmessages.displaymessage("Boss Defeated")

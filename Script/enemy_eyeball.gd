@@ -82,6 +82,10 @@ func hurt():
 	$Healthbar.visible = true
 	$Healthbar.value = hp
 
+func apply_freeze():
+	SPEED = 10
+	$Icon.self_modulate = Color(0,1,1)
+
 func kill():
 	alive = false
 	spawn_exporb()
