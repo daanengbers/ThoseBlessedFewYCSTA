@@ -5,6 +5,8 @@ const AIMSPEED = 4
 
 @onready var aimring = $AimRing
 
+var BIRTH = preload("res://Scenes/meebling_birth.tscn")
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var arrownr = 1
 
@@ -142,6 +144,11 @@ func _physics_process(delta):
 	#velocity.x = SPEED
 	
 	move_and_slide()
+
+func spawnbirth():
+	var bi = BIRTH.instantiate()
+	get_parent().add_child.call_deferred(bi)
+	bi.position = global_position
 
 func movedownsprite(howmuch):
 	$Mainarrow.position.y += howmuch

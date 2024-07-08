@@ -95,7 +95,7 @@ func selectcard(s_button):
 	if cardnr == 9:
 		addstats(0,0,0,0,3)
 	if cardnr == 10:
-		pass
+		get_tree().call_group("crowd_p", "spawnbirth")
 	if cardnr == 11:
 		if s_button == 1:
 			Globalsettings.g_spell1 = 3
@@ -139,8 +139,6 @@ func addstats(atk,spd,cdn,amt,hp):
 	Globalsettings.currentrun_extrahealth += hp
 	if hp >= 1:
 		get_tree().call_group("crowd_m", "update_hp")
-	
-	
 
 func actuallysetstats(cardcolor,cardname,carddescription,cardimg):
 	$eh/Spellcards.frame = cardcolor

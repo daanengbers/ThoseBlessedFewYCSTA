@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-var EXPORB = preload("res://Scenes/exp_area.tscn")
+var MEEB = preload("res://Scenes/crowd_member.tscn")
 
-@export var SPEED = 12
+@export var SPEED = 10
 @export var canflip = false
 
-@onready var e_anim = $Spritecontainer/Icon/Anim
+@onready var e_anim = $Icon/Anim
 
-@export var hp = 120
+@export var hp = 140
 var alive = true
 
 var randomspeedextra = 0
@@ -41,11 +41,6 @@ func update_meeblingsandmovement():
 	dist_to_crowdm = abs(global_position - nearest_crowdm.global_position)
 	
 	$Rot.look_at(nearest_crowdm.global_position)
-	$Spritecontainer/Icon.rotation_degrees = $Rot.rotation_degrees + 90
-	$Spritecontainer/Body.rotation_degrees = $Rot.rotation_degrees + 90
-	$Spritecontainer/Body2.rotation_degrees = $Rot.rotation_degrees + 90
-	$Spritecontainer/Body3.rotation_degrees = $Rot.rotation_degrees + 90
-	$Spritecontainer/Body4.rotation_degrees = $Rot.rotation_degrees + 90
 	
 	if dist_to_crowdm.x > 14 or dist_to_crowdm.y > 14:
 		velocity = Vector2(SPEED + randomspeedextra, 0).rotated($Rot.rotation)
@@ -68,11 +63,8 @@ func hurt():
 	$Healthbar.visible = true
 
 func apply_freeze():
-	SPEED = 6
-	$Spritecontainer/Body.self_modulate = Color(0,1,1)
-	$Spritecontainer/Body2.self_modulate = Color(0,1,1)
-	$Spritecontainer/Body3.self_modulate = Color(0,1,1)
-	$Spritecontainer/Body4.self_modulate = Color(0,1,1)
+	SPEED = 5
+	$Icon.self_modulate = Color(0,1,1)
 
 func kill():
 	alive = false
@@ -80,9 +72,9 @@ func kill():
 	queue_free()
 
 func spawn_exporb():
-	var ex = EXPORB.instantiate()
-	get_parent().add_child.call_deferred(ex)
-	ex.position = global_position
+	var me = MEEB.instantiate()
+	get_parent().add_child.call_deferred(me)
+	me.position = global_position
 
 func _on_update_timer_timeout():
 	update_meeblingsandmovement()

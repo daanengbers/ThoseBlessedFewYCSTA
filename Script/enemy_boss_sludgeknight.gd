@@ -123,7 +123,8 @@ func hurt():
 
 func apply_freeze():
 	SPEED = 10
-	$Icon.self_modulate = Color(0,1,1)
+	$Sprites/Body.self_modulate = Color(0,1,1)
+	$Sprites/Helmet.self_modulate = Color(0,1,1)
 
 func kill():
 	Onscreenmessages.displaymessage("Boss Defeated")

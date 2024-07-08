@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckrnq6ofvhkml"
-path="res://.godot/imported/grassfield_YCSTA.png-88400a24e0376041384907b7bc82fcab.ctex"
+uid="uid://beqcri3xxoul"
+path="res://.godot/imported/YCSTA_lightpoint.png-773fb8c736cbac94eed556a34b594384.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/grassfield_YCSTA.png"
-dest_files=["res://.godot/imported/grassfield_YCSTA.png-88400a24e0376041384907b7bc82fcab.ctex"]
+source_file="res://Assets/YCSTA_lightpoint.png"
+dest_files=["res://.godot/imported/YCSTA_lightpoint.png-773fb8c736cbac94eed556a34b594384.ctex"]
 
 [params]
 
