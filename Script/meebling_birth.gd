@@ -8,7 +8,8 @@ func _ready():
 
 func spawnmeebling():
 	var me = MEEB.instantiate()
-	get_parent().add_child.call_deferred(me)
+	#get_parent().add_child.call_deferred(me)
+	get_parent().get_node("Ysorter").add_child.call_deferred(me)
 	me.position = global_position
 	$Particles.emitting = false
 	$Spawnsound.play()

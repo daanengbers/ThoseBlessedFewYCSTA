@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://pyowfq0x5pwa"]
+[gd_scene load_steps=9 format=3 uid="uid://pyowfq0x5pwa"]
 
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="1_veujv"]
 [ext_resource type="Script" path="res://Script/tutorial.gd" id="2_bo7wl"]
 [ext_resource type="Texture2D" uid="uid://e7hlil5cje5w" path="res://Assets/tutorialbargray.png" id="3_p1gv0"]
 [ext_resource type="Texture2D" uid="uid://bbuo2q4wkct30" path="res://Assets/tutorialbar.png" id="4_f6bvb"]
+[ext_resource type="Texture2D" uid="uid://dvav5qp6ypv2b" path="res://Assets/YCSTA_Meeblings-Spritesheet.png" id="5_hlyvi"]
+[ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="6_v8kxp"]
+[ext_resource type="Texture2D" uid="uid://c02rr86yd8vae" path="res://Assets/YCSTA_Arrow (new).png" id="7_y7uwk"]
 
 [sub_resource type="FontVariation" id="FontVariation_sht4a"]
 base_font = ExtResource("1_veujv")
@@ -49,3 +52,121 @@ offset_bottom = 21.0
 max_value = 11.0
 texture_under = ExtResource("3_p1gv0")
 texture_progress = ExtResource("4_f6bvb")
+
+[node name="Pages" type="Node2D" parent="."]
+
+[node name="Page01" type="Node2D" parent="Pages"]
+visible = false
+
+[node name="Page02" type="Node2D" parent="Pages"]
+visible = false
+
+[node name="Meeb01" type="Sprite2D" parent="Pages/Page02"]
+position = Vector2(150, 98)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page02/Meeb01"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb02" type="Sprite2D" parent="Pages/Page02"]
+position = Vector2(175, 92)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 1
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page02/Meeb02"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb03" type="Sprite2D" parent="Pages/Page02"]
+position = Vector2(130, 85)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 2
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page02/Meeb03"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb04" type="Sprite2D" parent="Pages/Page02"]
+position = Vector2(105, 100)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 3
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page02/Meeb04"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb05" type="Sprite2D" parent="Pages/Page02"]
+position = Vector2(186, 103)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 4
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page02/Meeb05"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb06" type="Sprite2D" parent="Pages/Page02"]
+position = Vector2(157, 78)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 5
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page02/Meeb06"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb07" type="Sprite2D" parent="Pages/Page02"]
+position = Vector2(130, 114)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 7
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page02/Meeb07"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaArrow(new)" type="Sprite2D" parent="Pages/Page02"]
+position = Vector2(219, 86)
+texture = ExtResource("7_y7uwk")
+hframes = 8
+vframes = 8
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page02/YcstaArrow(new)"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 13)
+texture = ExtResource("6_v8kxp")

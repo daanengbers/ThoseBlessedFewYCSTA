@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://befm77q2ygqmu"]
+[gd_scene load_steps=45 format=3 uid="uid://befm77q2ygqmu"]
 
 [ext_resource type="Texture2D" uid="uid://becusm8nesdor" path="res://Assets/Cliff_Sprite_v1.png" id="1_15qfu"]
 [ext_resource type="PackedScene" uid="uid://bb8bwc5ht3nc2" path="res://Scenes/rippletiles.tscn" id="1_vfjjl"]
@@ -1012,6 +1012,9 @@ shader_parameter/frequency = 1.0
 shader_parameter/speed = 3.0
 shader_parameter/addedx = 0.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjldu"]
+size = Vector2(582, 3.99994)
+
 [node name="Level1" type="Node2D"]
 
 [node name="Tilesets" type="Node2D" parent="."]
@@ -1132,5 +1135,25 @@ position = Vector2(-338, 281)
 texture = ExtResource("17_s44vc")
 
 [node name="DetailsForNow" type="Node2D" parent="."]
+
+[node name="Cliffsall" type="Node2D" parent="."]
+
+[node name="Cliffarea" type="Area2D" parent="Cliffsall" groups=["Cliff"]]
+
+[node name="box" type="CollisionPolygon2D" parent="Cliffsall/Cliffarea"]
+position = Vector2(0, 3.87946)
+scale = Vector2(1, 1.00893)
+polygon = PackedVector2Array(99, -403.279, 99, -299.208, 681, -298.217, 682, -403.279)
+
+[node name="Cliffsunderside" type="StaticBody2D" parent="Cliffsall"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="box_01" type="CollisionShape2D" parent="Cliffsall/Cliffsunderside"]
+position = Vector2(390, -296)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_jjldu")
+one_way_collision = true
+one_way_collision_margin = 2.0
 
 [editable path="Tilesets/DeathClouds"]

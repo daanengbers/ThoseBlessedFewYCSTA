@@ -435,7 +435,7 @@ text = "Customize"
 vertical_alignment = 1
 
 [node name="Gameoptiontext04" type="Label" parent="Startoptions"]
-modulate = Color(0.658824, 0, 0.0705882, 1)
+modulate = Color(0.658824, 0, 0.0705882, 0.588235)
 offset_left = 22.0
 offset_top = 111.0
 offset_right = 102.0
@@ -464,6 +464,21 @@ theme_override_font_sizes/font_size = 16
 text = "Credits"
 vertical_alignment = 1
 
+[node name="Gameoptiontext06" type="Label" parent="Startoptions"]
+modulate = Color(0.658824, 0, 0.0705882, 1)
+offset_left = 22.0
+offset_top = 140.0
+offset_right = 102.0
+offset_bottom = 153.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "Feedback"
+vertical_alignment = 1
+
 [node name="Selecticon" type="Sprite2D" parent="Startoptions"]
 z_index = 1
 position = Vector2(12, 72)
@@ -483,6 +498,7 @@ position = Vector2(0, 7)
 texture = ExtResource("5_n3f60")
 
 [node name="Startrun" type="Node2D" parent="."]
+visible = false
 
 [node name="Startruntext01" type="Label" parent="Startrun"]
 modulate = Color(0.658824, 0, 0.0823529, 1)
@@ -791,6 +807,42 @@ Music & sounds
 Code & Art direction"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Feedback" type="Node2D" parent="."]
+visible = false
+
+[node name="Credit01" type="Label" parent="Feedback"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 127.0
+offset_top = 57.0
+offset_right = 320.0
+offset_bottom = 70.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "- Feedback -"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credit02" type="Label" parent="Feedback"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 127.0
+offset_top = 72.0
+offset_right = 320.0
+offset_bottom = 171.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "Press ENTER to let us know any bugs or issues you would like to see changed."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Blackscreen" type="ColorRect" parent="."]
 z_index = 1
