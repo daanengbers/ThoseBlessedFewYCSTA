@@ -21,7 +21,7 @@ func _ready():
 func _process(_delta):
 	
 	if Input.is_action_just_pressed("down"):
-		if menuselected == 0 && menu_main_selected < 5:
+		if menuselected == 0 && menu_main_selected < 6:
 			changemenuselect_main(1)
 	if Input.is_action_just_pressed("up"):
 		if menuselected == 0 && menu_main_selected > 1:
@@ -56,6 +56,8 @@ func _process(_delta):
 			Go_to_other_scene(1)
 		if menu_main_selected == 2:
 			Go_to_other_scene(2)
+		if menu_main_selected == 6:
+			OS.shell_open("https://forms.gle/8HK2TkKNP3kmGMYR8")
 
 func changemenuselect_main(add_move):
 	menu_main_selected += add_move
@@ -80,6 +82,11 @@ func changemenuselect_main(add_move):
 	if menu_main_selected == 5:
 		$Startoptions/Selecticon.position.y = 132
 		$Credits.visible = true
+		$Feedback.visible = false
+	if menu_main_selected == 6:
+		$Startoptions/Selecticon.position.y = 147
+		$Credits.visible = false
+		$Feedback.visible = true
 
 func change_arrow():
 	$Customize/Arrowskin.flip_h = false

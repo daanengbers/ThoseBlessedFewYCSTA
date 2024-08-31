@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bl8fy4bkw5rdr"]
+[gd_scene load_steps=22 format=3 uid="uid://bl8fy4bkw5rdr"]
 
 [ext_resource type="Script" path="res://Script/crowd_member.gd" id="1_2m8q3"]
 [ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/rotatingarrow.png" id="4_5tbgb"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dsfcd8ewbeh2s" path="res://Sounds/fireball.wav" id="10_v16go"]
 [ext_resource type="AudioStream" uid="uid://byqt1itgmqt6n" path="res://Sounds/meeblinghit.wav" id="11_4i7mk"]
 [ext_resource type="AudioStream" uid="uid://c66u7y8neairl" path="res://Sounds/spell1.wav" id="12_meu6k"]
+[ext_resource type="AudioStream" uid="uid://c2bt7kbawpevd" path="res://Sounds/whiffMid.wav" id="13_x2qys"]
 
 [sub_resource type="Animation" id="Animation_tci6r"]
 length = 0.001
@@ -263,7 +264,7 @@ libraries = {
 "": SubResource("AnimationLibrary_cy1gn")
 }
 
-[node name="Arrowshadow" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
 z_index = -1
 texture_filter = 1
@@ -310,11 +311,15 @@ stream = ExtResource("11_4i7mk")
 [node name="Bigspell" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_meu6k")
 
+[node name="Fall" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_x2qys")
+
 [node name="SplashTimer" type="Timer" parent="."]
 wait_time = 0.8
 one_shot = true
 
 [connection signal="area_entered" from="HURTbox_crowd" to="." method="_on_hur_tbox_crowd_area_entered"]
+[connection signal="area_exited" from="HURTbox_crowd" to="." method="_on_hur_tbox_crowd_area_exited"]
 [connection signal="timeout" from="DoubleBulletTimer" to="." method="_on_double_bullet_timer_timeout"]
 [connection signal="timeout" from="CooldownstartTimer" to="." method="_on_cooldownstart_timer_timeout"]
 [connection signal="timeout" from="QueueTimer" to="." method="_on_queue_timer_timeout"]

@@ -13,7 +13,6 @@ var DEADMEEBLY = preload("res://Scenes/exp_areameebling.tscn")
 
 const SPEED = 30
 
-
 var extradamage = 1
 var extraspeed = 0
 
@@ -22,6 +21,8 @@ var MAX_HP = 10 + Globalsettings.currentrun_extrahealth
 
 var hp = 10
 var alive = true
+var falling = false
+var fallingframes = 0
 
 # THE NUMBER OF THE SPELL WHICH WILL RESET
 var spellnumber = 0
@@ -155,19 +156,21 @@ func _physics_process(_delta):
 			spawnsnowflake()
 			$CooldownstartTimer.start()
 	
-		#spawnbullet()
-	
 	# Large spells
 	
 	$Rot.look_at(crowdp_pos)
 	$Healthbar.value = hp
 	
-	if alive == true:
+	if alive == true && falling == false:
 		if dist_to_crowdp.x > 12 + randomoffsetspace or dist_to_crowdp.y > 12 + randomoffsetspace:
 			velocity = Vector2(SPEED + randomspeedextra + Globalsettings.currentrun_extraspeed, 0).rotated($Rot.rotation)
 		else:
 			velocity.x = 0
 			velocity.y = 0
+	
+	if falling == true:
+		velocity.y += 20
+		fallingframes += 1
 	
 	move_and_slide()
 
@@ -279,11 +282,42 @@ func spawndeadbody():
 func _on_hur_tbox_crowd_area_entered(area):
 	if area.is_in_group("EXPorb"):
 		$EXPpickup.play()
-		#Globalsettings.global_xp += area.expamount
-		#area.queue_free()
+	if area.is_in_group("Cliff"):
+		falling = true
+		$Shadow.visible = false
+		$Fall.play()
+		velocity.x = 0
+		velocity.y = 0
 	if area.is_in_group("Drownwater"):
 		drown()
 
+func _on_hur_tbox_crowd_area_exited(area):
+	if area.is_in_group("Cliff"):
+		falling = false
+		$Shadow.visible = true
+		if fallingframes >= 20 && fallingframes < 40:
+			hp -= 1
+			hurt()
+		if fallingframes >= 40 && fallingframes < 60:
+			hp -= 2
+			hurt()
+		if fallingframes >= 60 && fallingframes < 80:
+			hp -= 4
+			hurt()
+		if fallingframes >= 80 && fallingframes < 100:
+			hp -= 8
+			hurt()
+		if fallingframes >= 100 && fallingframes < 120:
+			hp -= 16
+			hurt()
+		if fallingframes >= 120 && fallingframes < 140:
+			hp -= 32
+			hurt()
+		if fallingframes >= 140:
+			kill()
+		if hp <= 0 && alive == true:
+			kill()
+		fallingframes = 0
 
 func _on_double_bullet_timer_timeout():
 	spawnbullet()
@@ -307,3 +341,6 @@ func _on_queue_timer_timeout():
 
 func _on_splash_timer_timeout():
 	$Splash.play()
+
+
+

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://m5pf6hiil1qy"]
+
+[ext_resource type="Script" path="res://Script/beginningmessage.gd" id="1_o8nb7"]
+[ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="1_tfkhr"]
+
+[node name="Beginningmessage" type="Node2D"]
+script = ExtResource("1_o8nb7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Text" type="Label" parent="."]
+texture_filter = 1
+offset_left = 8.0
+offset_right = 313.0
+offset_bottom = 180.0
+theme_override_constants/line_spacing = -1
+theme_override_fonts/font = ExtResource("1_tfkhr")
+text = "This is a demo of our game. We are still working on level- and enemy design.
+
+Let us know any feedback on the feedback page.
+
+Press ENTER to start."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
