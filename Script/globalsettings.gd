@@ -1,10 +1,10 @@
 extends Node
 
 var globalmusic = 1
-var global_Musicvol = 50
-var global_SFXvol = 50
-var bus_name: String
-var bus_index: int
+var global_Musicvol = 1
+var global_SFXvol = 1
+#var bus_name: String
+#var bus_index: int
 var global_controllertype = "Keyboard"
 var global_arrow = 1
 var global_showfps = false
@@ -36,7 +36,7 @@ var bossfight_active = false
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	bus_index = AudioServer.get_bus_index(bus_name)
+	#bus_index = AudioServer.get_bus_index(bus_name)
 
 func _process(_delta):
 	

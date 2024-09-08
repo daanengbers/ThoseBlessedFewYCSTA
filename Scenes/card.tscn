@@ -183,3 +183,4 @@ frame = 14
 
 [node name="Select" type="AudioStreamPlayer" parent="eh"]
 stream = ExtResource("5_cuntc")
+bus = &"SFX"

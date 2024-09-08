@@ -128,6 +128,8 @@ libraries = {
 
 [node name="ChipSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_s73dh")
+bus = &"SFX"
 
 [node name="BreakSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_bb7yo")
+bus = &"SFX"

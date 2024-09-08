@@ -13,8 +13,6 @@ var settingselected = 1
 var local_sfx_volume = 100
 var local_music_volume = 100
 
-
-
 func _ready():
 	$Startoptions/Selecticon/Iconanim.play("flame")
 	$Blackscreen/FadeAnim.play("fadein")
@@ -23,25 +21,36 @@ func _ready():
 	arrowselected = Globalsettings.global_arrow
 	change_arrow()
 	$Customize/Arrowskin/Skinplayer.play("arrow" + str(arrowselected))
+	if Globalsettings.global_showfps == true:
+		$Settings/Setting04.set_text("Show FPS: ON >")
+	elif Globalsettings.global_showfps == false:
+		$Settings/Setting04.set_text("Show FPS: < OFF")
 	if Globalsettings.global_fullscreen == true:
 		$Settings/Setting05.set_text("Full Screen: ON >")
 	elif Globalsettings.global_fullscreen == false:
 		$Settings/Setting05.set_text("Full Screen: < OFF")
+	$Settings/SFXbar.value = Globalsettings.global_SFXvol
+	$Settings/Musicbar.value = Globalsettings.global_Musicvol
+	
 
 func _process(_delta):
 	
 	if Input.is_action_just_pressed("down"):
 		if menuselected == 0 && menu_main_selected < 6:
 			changemenuselect_main(1)
+			$Sounds/move.play()
 		if menuselected == 2 && settingselected < 5:
 			settingselected += 1
 			change_setting()
+			$Sounds/move.play()
 	if Input.is_action_just_pressed("up"):
 		if menuselected == 0 && menu_main_selected > 1:
 			changemenuselect_main(-1)
+			$Sounds/move.play()
 		if menuselected == 2 && settingselected > 1:
 			settingselected -= 1
 			change_setting()
+			$Sounds/move.play()
 	
 	if Input.is_action_just_pressed("left"):
 		if menuselected == 0 && menu_main_selected == 3:
@@ -49,6 +58,19 @@ func _process(_delta):
 				arrowselected -= 1
 				$Customize/Arrowskin/Skinplayer.play("arrow" + str(arrowselected))
 				change_arrow()
+				$Sounds/move.play()
+		if menuselected == 2 && settingselected == 1 && Globalsettings.global_SFXvol > 0:
+			Globalsettings.global_SFXvol -= 0.05
+			$Settings/SFXbar.value = Globalsettings.global_SFXvol
+			$Sounds/move.play()
+		if menuselected == 2 && settingselected == 2 && Globalsettings.global_Musicvol > 0:
+			Globalsettings.global_Musicvol -= 0.05
+			$Settings/Musicbar.value = Globalsettings.global_Musicvol
+			$Sounds/move.play()
+		if menuselected == 2 && settingselected == 3:
+			if Globalsettings.global_showfps == false:
+				Globalsettings.global_showfps = true
+				$Settings/Setting04.set_text("Show FPS: ON >")
 		if menuselected == 2 && settingselected == 4:
 			if Globalsettings.global_fullscreen == false:
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -60,6 +82,19 @@ func _process(_delta):
 				arrowselected += 1
 				$Customize/Arrowskin/Skinplayer.play("arrow" + str(arrowselected))
 				change_arrow()
+				$Sounds/move.play()
+		if menuselected == 2 && settingselected == 1 && Globalsettings.global_SFXvol < 1:
+			Globalsettings.global_SFXvol += 0.05
+			$Settings/SFXbar.value = Globalsettings.global_SFXvol
+			$Sounds/move.play()
+		if menuselected == 2 && settingselected == 2 && Globalsettings.global_Musicvol < 1:
+			Globalsettings.global_Musicvol += 0.05
+			$Settings/Musicbar.value = Globalsettings.global_Musicvol
+			$Sounds/move.play()
+		if menuselected == 2 && settingselected == 3:
+			if Globalsettings.global_showfps == true:
+				Globalsettings.global_showfps = false
+				$Settings/Setting04.set_text("Show FPS: < OFF>")
 		if menuselected == 2 && settingselected == 4:
 			if Globalsettings.global_fullscreen == true:
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -82,14 +117,20 @@ func _process(_delta):
 	if Input.is_action_just_pressed("spell1") or Input.is_action_just_pressed("spell2") or Input.is_action_just_pressed("spell3") or Input.is_action_just_pressed("spell4") or Input.is_action_just_pressed("enter"):
 		if menu_main_selected == 1:
 			Go_to_other_scene(1)
+			$Sounds/select.play()
 		if menu_main_selected == 2:
 			Go_to_other_scene(2)
+			$Sounds/select.play()
 		if menu_main_selected == 4 && menuselected == 0:
 			go_to_settings()
+			$Sounds/select.play()
 		if menu_main_selected == 6:
+			$Feedback/Feedback02.set_text("A tab with a feedback questionaire should have opened in your browser. Please check your browser.")
 			OS.shell_open("https://forms.gle/8HK2TkKNP3kmGMYR8")
+			$Sounds/select.play()
 		if menuselected == 2 && settingselected == 5:
 			back_to_mainmenu()
+			$Sounds/back.play()
 
 func changemenuselect_main(add_move):
 	menu_main_selected += add_move
@@ -164,8 +205,6 @@ func change_setting():
 		$Startoptions/Selecticon.position.y = 129
 	if settingselected == 5: # Back option
 		$Startoptions/Selecticon.position.y = 151
-	
-	
 
 func Go_to_other_scene(scenenr):
 	menuselected = -1
@@ -179,3 +218,11 @@ func enter_next_scene():
 		get_tree().change_scene_to_file("res://Scenes/mainscene.tscn")
 	if nextscene == 2:
 		get_tree().change_scene_to_file("res://Scenes/tutorial.tscn")
+
+func _on_sf_xbar_value_changed(value):
+	AudioServer.set_bus_volume_db(2,linear_to_db(value))
+	Globalsettings.global_SFXvol = value
+
+func _on_musicbar_value_changed(value):
+	AudioServer.set_bus_volume_db(1,linear_to_db(value))
+	Globalsettings.global_Musicvol = value

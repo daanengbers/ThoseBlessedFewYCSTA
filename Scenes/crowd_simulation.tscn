@@ -443,7 +443,7 @@ script = ExtResource("1_hyuob")
 
 [node name="Box01" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(269, 18)
+position = Vector2(270, 17)
 texture = ExtResource("3_rhqmm")
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box01"]
@@ -490,7 +490,7 @@ vertical_alignment = 2
 
 [node name="Box02" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(302, 18)
+position = Vector2(303, 17)
 texture = ExtResource("3_rhqmm")
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box02"]
@@ -521,7 +521,7 @@ texture_progress = ExtResource("7_qp7we")
 
 [node name="Box03" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(262, 51)
+position = Vector2(270, 50)
 texture = ExtResource("3_rhqmm")
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box03"]
@@ -552,7 +552,7 @@ texture_progress = ExtResource("7_qp7we")
 
 [node name="Box04" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(295, 51)
+position = Vector2(303, 50)
 texture = ExtResource("3_rhqmm")
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box04"]
@@ -583,10 +583,10 @@ texture_progress = ExtResource("7_qp7we")
 
 [node name="Activateletter01" type="Label" parent="UI"]
 texture_filter = 1
-offset_left = 256.0
-offset_top = 26.0
-offset_right = 282.0
-offset_bottom = 39.0
+offset_left = 257.0
+offset_top = 25.0
+offset_right = 283.0
+offset_bottom = 38.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_gjq7j")
@@ -595,10 +595,10 @@ horizontal_alignment = 1
 
 [node name="Activateletter02" type="Label" parent="UI"]
 texture_filter = 1
-offset_left = 289.0
-offset_top = 26.0
-offset_right = 315.0
-offset_bottom = 39.0
+offset_left = 290.0
+offset_top = 25.0
+offset_right = 316.0
+offset_bottom = 38.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_gjq7j")
@@ -607,10 +607,10 @@ horizontal_alignment = 1
 
 [node name="Activateletter03" type="Label" parent="UI"]
 texture_filter = 1
-offset_left = 249.0
-offset_top = 59.0
-offset_right = 275.0
-offset_bottom = 72.0
+offset_left = 257.0
+offset_top = 58.0
+offset_right = 283.0
+offset_bottom = 71.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_gjq7j")
@@ -619,10 +619,10 @@ horizontal_alignment = 1
 
 [node name="Activateletter04" type="Label" parent="UI"]
 texture_filter = 1
-offset_left = 282.0
-offset_top = 59.0
-offset_right = 308.0
-offset_bottom = 72.0
+offset_left = 290.0
+offset_top = 58.0
+offset_right = 316.0
+offset_bottom = 71.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_gjq7j")
@@ -896,6 +896,19 @@ text = "0"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="Showfps" type="Label" parent="UI"]
+visible = false
+texture_filter = 1
+offset_left = 263.0
+offset_top = 164.0
+offset_right = 318.0
+offset_bottom = 177.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "FPS: 0"
+horizontal_alignment = 2
+
 [node name="Mainarrow" type="Sprite2D" parent="."]
 z_index = 5
 texture_filter = 1
@@ -919,11 +932,16 @@ texture = ExtResource("4_h7cj8")
 process_mode = 3
 stream = ExtResource("16_nlck6")
 volume_db = 10.0
+bus = &"SFX"
 
 [node name="Timers" type="Node" parent="."]
 
 [node name="MenuTimer" type="Timer" parent="Timers"]
 wait_time = 6.0
+one_shot = true
+
+[node name="CheckFPSTimer" type="Timer" parent="Timers"]
+wait_time = 0.5
 one_shot = true
 
 [node name="AimRing" type="Node2D" parent="." groups=["priorityaim"]]
@@ -941,3 +959,4 @@ libraries = {
 [connection signal="timeout" from="UI/SelectLevelupscreen/UnpauseTimer" to="UI/SelectLevelupscreen" method="_on_unpause_timer_timeout"]
 [connection signal="timeout" from="UI/SelectLevelupscreen/CanpressTimer" to="UI/SelectLevelupscreen" method="_on_canpress_timer_timeout"]
 [connection signal="timeout" from="Timers/MenuTimer" to="." method="_on_menu_timer_timeout"]
+[connection signal="timeout" from="Timers/CheckFPSTimer" to="." method="_on_check_fps_timer_timeout"]

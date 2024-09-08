@@ -46,6 +46,9 @@ func _ready():
 	$Mainarrow.flip_h = false
 	if arrownr == 8:
 		movedownsprite(10)
+	if Globalsettings.global_showfps == true:
+		$UI/Showfps.visible = true
+		$Timers/CheckFPSTimer.start()
 
 func _physics_process(delta):
 	
@@ -219,3 +222,8 @@ func _on_menu_timer_timeout():
 
 
 
+
+
+func _on_check_fps_timer_timeout():
+	$Timers/CheckFPSTimer.start()
+	$UI/Showfps.set_text("FPS: " + str(Engine.get_frames_per_second()))
