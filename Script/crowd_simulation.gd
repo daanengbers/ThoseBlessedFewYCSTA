@@ -50,6 +50,10 @@ func _ready():
 		$UI/Showfps.visible = true
 		$UI/Enemycount.visible = true
 		$Timers/CheckFPSTimer.start()
+	if Globalsettings.global_controllertype == "Keyboard":
+		Keyboard_Formation()
+	if Globalsettings.global_controllertype == "Gamepad":
+		Gamepad_Formation()
 
 func _physics_process(delta):
 	
@@ -148,6 +152,21 @@ func _physics_process(delta):
 	#velocity.x = SPEED
 	
 	move_and_slide()
+
+func Keyboard_Formation():
+	$UI/Box01.position = Vector2(270,17)
+	$UI/Box02.position = Vector2(303,17)
+	$UI/Box03.position = Vector2(270,50)
+	$UI/Box04.position = Vector2(303,50)
+	$UI/Letters.visible = true
+
+func Gamepad_Formation():
+	$UI/Box01.position = Vector2(245,35)
+	$UI/Box02.position = Vector2(274,17)
+	$UI/Box03.position = Vector2(274,54)
+	$UI/Box04.position = Vector2(303,35)
+	$UI/Buttons.visible = true
+
 
 func spawnbirth():
 	var bi = BIRTH.instantiate()

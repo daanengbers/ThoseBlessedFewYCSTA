@@ -1,35 +1,202 @@
-[gd_scene load_steps=9 format=3 uid="uid://pyowfq0x5pwa"]
+[gd_scene load_steps=38 format=3 uid="uid://pyowfq0x5pwa"]
 
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="1_veujv"]
 [ext_resource type="Script" path="res://Script/tutorial.gd" id="2_bo7wl"]
 [ext_resource type="Texture2D" uid="uid://e7hlil5cje5w" path="res://Assets/tutorialbargray.png" id="3_p1gv0"]
 [ext_resource type="Texture2D" uid="uid://bbuo2q4wkct30" path="res://Assets/tutorialbar.png" id="4_f6bvb"]
+[ext_resource type="Texture2D" uid="uid://j2ppfh3wk0pk" path="res://Assets/YCSTA_water_1.png" id="5_2mbrj"]
 [ext_resource type="Texture2D" uid="uid://dvav5qp6ypv2b" path="res://Assets/YCSTA_Meeblings-Spritesheet.png" id="5_hlyvi"]
+[ext_resource type="Texture2D" uid="uid://spyw7i6l8he6" path="res://Assets/YCSTA_water_2.png" id="6_pa6ra"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="6_v8kxp"]
+[ext_resource type="Texture2D" uid="uid://d10xllb3gvng7" path="res://Assets/YCSTA_water_3.png" id="7_4tqul"]
 [ext_resource type="Texture2D" uid="uid://c02rr86yd8vae" path="res://Assets/YCSTA_Arrow (new).png" id="7_y7uwk"]
+[ext_resource type="Texture2D" uid="uid://y00856mc6e1o" path="res://Assets/TileSetDeadlands (1).png" id="8_8qbow"]
+[ext_resource type="Texture2D" uid="uid://c5ynguy5hk02f" path="res://Assets/Grass_Blend_vF.png" id="9_cgvmw"]
+[ext_resource type="Texture2D" uid="uid://c8n6la6da160q" path="res://Assets/Tilesets/Cliff_Sprite_v3.png" id="10_dscva"]
+[ext_resource type="Texture2D" uid="uid://cyuloouupwrh5" path="res://Assets/YCSTA_Ripples_Sprite.png" id="11_iktnr"]
+[ext_resource type="Texture2D" uid="uid://cwmeqfovr3d0e" path="res://Assets/Cage_New_Backbones.png" id="12_axtsm"]
+[ext_resource type="Texture2D" uid="uid://ckg51a0nne2w" path="res://Assets/Cage_New_Base.png" id="13_aqroh"]
+[ext_resource type="Texture2D" uid="uid://bcxisre43usjl" path="res://Assets/Cage_New_Done.png" id="14_5y5kx"]
+[ext_resource type="Texture2D" uid="uid://bmx1qmkj1cy3r" path="res://Assets/YCSTA_Bullets-1.png" id="15_0342e"]
+[ext_resource type="Texture2D" uid="uid://d4isrqfs5uqyt" path="res://Assets/YCSTA_Enemies-2.png" id="15_mq718"]
+[ext_resource type="Texture2D" uid="uid://blxj1s22wdk50" path="res://Assets/YCSTA_Enemies-1.png" id="16_ojfkg"]
+[ext_resource type="Texture2D" uid="uid://dcqqw175nsbbw" path="res://Assets/lvlbar_empty.png" id="16_vlj5r"]
+[ext_resource type="Texture2D" uid="uid://cxmshi48066ak" path="res://Assets/lvlbar_full.png" id="17_rfhxu"]
+[ext_resource type="Texture2D" uid="uid://bc4wd2u4nb0i6" path="res://Assets/YCSTA_XP.png" id="20_mv6sc"]
+[ext_resource type="FontFile" uid="uid://b85f1e3h4hl2q" path="res://Fonts/Retro Gaming.ttf" id="24_jqrmf"]
+[ext_resource type="Texture2D" uid="uid://dl70st0bdxukg" path="res://Assets/Spellcards2.png" id="25_sruad"]
+[ext_resource type="Texture2D" uid="uid://siyq5k5htydp" path="res://Assets/UpgradeIcons.png" id="26_0unkw"]
+[ext_resource type="Texture2D" uid="uid://cgakxi0t1lwe7" path="res://Assets/Staticons.png" id="27_l830p"]
+[ext_resource type="Texture2D" uid="uid://cytptuuf0v3e5" path="res://Assets/bigfireball.png" id="28_yk41p"]
+[ext_resource type="Texture2D" uid="uid://deqsdtpq6bt6s" path="res://Assets/YCSTA_UIboxes-1.png" id="29_85k3k"]
+[ext_resource type="Texture2D" uid="uid://c5yw41i5s8ra" path="res://Assets/Meeblingbuttons.png" id="30_wlctj"]
+[ext_resource type="Texture2D" uid="uid://b35lpeblxr4uq" path="res://Assets/WoodenBridge2h.png" id="31_u2bba"]
 
 [sub_resource type="FontVariation" id="FontVariation_sht4a"]
 base_font = ExtResource("1_veujv")
 spacing_top = -4
 spacing_bottom = -2
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nhbda"]
+texture = ExtResource("8_8qbow")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+4:4/0 = 0
+3:4/0 = 0
+2:4/0 = 0
+1:4/0 = 0
+0:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eo0ks"]
+texture = ExtResource("9_cgvmw")
+texture_region_size = Vector2i(32, 32)
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kplgn"]
+texture = ExtResource("10_dscva")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+4:1/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+5:3/0 = 0
+4:3/0 = 0
+3:3/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+5:5/0 = 0
+4:5/0 = 0
+3:5/0 = 0
+3:6/0 = 0
+2:6/0 = 0
+1:5/0 = 0
+0:5/0 = 0
+2:5/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+1:6/0 = 0
+0:6/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20m26"]
+texture = ExtResource("11_iktnr")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_a2krx"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_nhbda")
+sources/1 = SubResource("TileSetAtlasSource_eo0ks")
+sources/2 = SubResource("TileSetAtlasSource_kplgn")
+sources/3 = SubResource("TileSetAtlasSource_20m26")
+
 [node name="Tutorial" type="Node2D"]
 texture_filter = 1
 script = ExtResource("2_bo7wl")
 
 [node name="Blackbar1" type="ColorRect" parent="."]
+z_index = 1
 offset_right = 320.0
 offset_bottom = 23.0
 color = Color(0, 0, 0, 1)
 
 [node name="Blackbar2" type="ColorRect" parent="."]
+z_index = 1
 offset_top = 153.0
 offset_right = 320.0
 offset_bottom = 180.0
 color = Color(0, 0, 0, 1)
 
 [node name="Explanation" type="Label" parent="."]
-modulate = Color(0.839216, 0, 0.117647, 1)
+modulate = Color(0.937255, 0, 0.137255, 1)
+z_index = 1
 offset_left = 4.0
 offset_top = 157.0
 offset_right = 316.0
@@ -45,7 +212,8 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="Expl_progress" type="TextureProgressBar" parent="."]
-modulate = Color(0.658824, 0, 0.0823529, 1)
+modulate = Color(0.882353, 0, 0, 1)
+z_index = 1
 offset_top = 19.0
 offset_right = 320.0
 offset_bottom = 21.0
@@ -55,14 +223,409 @@ texture_progress = ExtResource("4_f6bvb")
 
 [node name="Pages" type="Node2D" parent="."]
 
+[node name="Water" type="Node2D" parent="Pages"]
+z_index = -10
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="YcstaWater3" type="Sprite2D" parent="Pages/Water"]
+position = Vector2(160, 102)
+texture = ExtResource("7_4tqul")
+
+[node name="YcstaWater2" type="Sprite2D" parent="Pages/Water"]
+position = Vector2(160, 102)
+texture = ExtResource("6_pa6ra")
+
+[node name="YcstaWater1" type="Sprite2D" parent="Pages/Water"]
+position = Vector2(160, 102)
+texture = ExtResource("5_2mbrj")
+
 [node name="Page01" type="Node2D" parent="Pages"]
 visible = false
+
+[node name="Tiles" type="TileMap" parent="Pages/Page01"]
+z_index = -2
+tile_set = SubResource("TileSet_a2krx")
+format = 2
+layer_0/name = "Cliffs"
+layer_1/name = "Sand"
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Grass"
+layer_2/tile_data = PackedInt32Array(262144, 65537, 1, 262145, 262145, 0, 262146, 65537, 1, 262147, 262145, 0, 262148, 65537, 1, 262149, 262145, 1, 131081, 262145, 1, 65545, 262145, 0, 8, 262145, 1, 65543, 262145, 0, 65542, 262145, 0, 65541, 65537, 1, 5, 262145, 1, 4, 262145, 1, 3, 262145, 0, 2, 262145, 0, 1, 65537, 1, 0, 262145, 0, 6, 262145, 1, 7, 65537, 1, 65544, 262145, 1, 131080, 262145, 1, 196613, 262145, 0, 196612, 262145, 1, 196611, 65537, 1, 196610, 262145, 1, 196609, 262145, 1, 196608, 262145, 1, 131072, 262145, 0, 65536, 262145, 1, 65537, 262145, 0, 65538, 262145, 0, 65539, 65537, 1, 65540, 262145, 0, 131078, 262145, 0, 131077, 65537, 1, 131076, 65537, 1, 131075, 262145, 1, 131074, 262145, 1, 131073, 262145, 1, 131079, 262145, 1, 262150, 262145, 1, 196614, 262145, 1, 262151, 65537, 1, 262152, 262145, 0, 262153, 65537, 1, 196617, 65537, 1, 196616, 65537, 1, 196615, 262145, 0, 9, 262145, 1)
+
+[node name="Meeb04" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(133, 87)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/Meeb04"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb05" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(165, 85)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 7
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/Meeb05"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb06" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(183, 74)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 2
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/Meeb06"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb01" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(160, 97)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/Meeb01"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb02" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(183, 104)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 1
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/Meeb02"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb03" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(142, 100)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 4
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/Meeb03"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-7" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(262, 116)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-7"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-8" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(282, 76)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-8"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-9" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(258, 44)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-9"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-10" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(291, 138)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-10"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-11" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(305, 123)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-11"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-12" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(299, 42)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-12"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-13" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(112, 37)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-13"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-14" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(146, 24)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-14"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-15" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(70, 96)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-15"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-16" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(102, 143)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-16"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-17" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(123, 149)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-17"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-18" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(49, 129)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-18"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-19" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(33, 60)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-19"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-20" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(17, 32)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-20"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-21" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(12, 85)
+texture = ExtResource("15_mq718")
+flip_h = true
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-21"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-22" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(22, 132)
+texture = ExtResource("15_mq718")
+flip_h = true
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-22"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-23" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(56, 35)
+texture = ExtResource("15_mq718")
+flip_h = true
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-23"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-24" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(221, 35)
+texture = ExtResource("15_mq718")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-24"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-25" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(280, 30)
+texture = ExtResource("15_mq718")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-25"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-26" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(303, 92)
+texture = ExtResource("15_mq718")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-26"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-27" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(256, 137)
+texture = ExtResource("15_mq718")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-27"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-28" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(228, 68)
+texture = ExtResource("15_mq718")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-28"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-29" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(322, 71)
+texture = ExtResource("15_mq718")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page01/YcstaEnemies-29"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaBullets-1" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(211, 113)
+rotation = 0.0711694
+texture = ExtResource("15_0342e")
+
+[node name="YcstaBullets-2" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(206, 73)
+rotation = -0.0363536
+texture = ExtResource("15_0342e")
+
+[node name="YcstaBullets-3" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(123, 123)
+rotation = 2.33685
+texture = ExtResource("15_0342e")
+
+[node name="YcstaBullets-4" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(105, 95)
+rotation = 3.0722
+texture = ExtResource("15_0342e")
+
+[node name="YcstaBullets-5" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(135, 58)
+rotation = -2.25233
+texture = ExtResource("15_0342e")
+
+[node name="YcstaBullets-6" type="Sprite2D" parent="Pages/Page01"]
+position = Vector2(162, 116)
+rotation = 1.51704
+texture = ExtResource("15_0342e")
 
 [node name="Page02" type="Node2D" parent="Pages"]
 visible = false
 
 [node name="Meeb01" type="Sprite2D" parent="Pages/Page02"]
-position = Vector2(150, 98)
+position = Vector2(95, 98)
 texture = ExtResource("5_hlyvi")
 hframes = 3
 vframes = 3
@@ -75,7 +638,7 @@ position = Vector2(0, 8)
 texture = ExtResource("6_v8kxp")
 
 [node name="Meeb02" type="Sprite2D" parent="Pages/Page02"]
-position = Vector2(175, 92)
+position = Vector2(120, 92)
 texture = ExtResource("5_hlyvi")
 hframes = 3
 vframes = 3
@@ -89,7 +652,7 @@ position = Vector2(0, 8)
 texture = ExtResource("6_v8kxp")
 
 [node name="Meeb03" type="Sprite2D" parent="Pages/Page02"]
-position = Vector2(130, 85)
+position = Vector2(75, 85)
 texture = ExtResource("5_hlyvi")
 hframes = 3
 vframes = 3
@@ -103,7 +666,7 @@ position = Vector2(0, 8)
 texture = ExtResource("6_v8kxp")
 
 [node name="Meeb04" type="Sprite2D" parent="Pages/Page02"]
-position = Vector2(105, 100)
+position = Vector2(50, 100)
 texture = ExtResource("5_hlyvi")
 hframes = 3
 vframes = 3
@@ -117,7 +680,7 @@ position = Vector2(0, 8)
 texture = ExtResource("6_v8kxp")
 
 [node name="Meeb05" type="Sprite2D" parent="Pages/Page02"]
-position = Vector2(186, 103)
+position = Vector2(131, 103)
 texture = ExtResource("5_hlyvi")
 hframes = 3
 vframes = 3
@@ -131,7 +694,7 @@ position = Vector2(0, 8)
 texture = ExtResource("6_v8kxp")
 
 [node name="Meeb06" type="Sprite2D" parent="Pages/Page02"]
-position = Vector2(157, 78)
+position = Vector2(102, 78)
 texture = ExtResource("5_hlyvi")
 hframes = 3
 vframes = 3
@@ -145,7 +708,7 @@ position = Vector2(0, 8)
 texture = ExtResource("6_v8kxp")
 
 [node name="Meeb07" type="Sprite2D" parent="Pages/Page02"]
-position = Vector2(130, 114)
+position = Vector2(75, 114)
 texture = ExtResource("5_hlyvi")
 hframes = 3
 vframes = 3
@@ -159,13 +722,888 @@ position = Vector2(0, 8)
 texture = ExtResource("6_v8kxp")
 
 [node name="YcstaArrow(new)" type="Sprite2D" parent="Pages/Page02"]
-position = Vector2(219, 86)
+position = Vector2(164, 86)
 texture = ExtResource("7_y7uwk")
 hframes = 8
 vframes = 8
 metadata/_edit_group_ = true
 
 [node name="Arrowshadow" type="Sprite2D" parent="Pages/Page02/YcstaArrow(new)"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 13)
+texture = ExtResource("6_v8kxp")
+
+[node name="Tiles" type="TileMap" parent="Pages/Page02"]
+z_index = -2
+tile_set = SubResource("TileSet_a2krx")
+format = 2
+layer_0/name = "Cliffs"
+layer_0/tile_data = PackedInt32Array(196615, 3, 6, 196617, 3, 1, 196614, 3, 0, 196616, 3, 2, 262150, 3, 5)
+layer_1/name = "Sand"
+layer_1/tile_data = PackedInt32Array(131078, 2, 1, 131079, 65538, 0, 131080, 65538, 0, 131081, 65538, 0, 196616, 196610, 1, 262151, 262146, 1)
+layer_2/name = "Grass"
+layer_2/tile_data = PackedInt32Array(262144, 262145, 1, 262145, 65537, 1, 262146, 65537, 1, 262147, 262145, 0, 262148, 262145, 0, 262149, 262145, 1, 262150, 131073, 1, 131081, 65537, 2, 65545, 65537, 1, 9, 65537, 1, 8, 65537, 1, 65543, 65537, 1, 65542, 262145, 0, 65541, 65537, 1, 5, 65537, 1, 4, 262145, 1, 3, 65537, 1, 2, 262145, 0, 1, 262145, 0, 0, 65537, 1, 6, 262145, 1, 7, 262145, 0, 65544, 65537, 1, 131080, 65537, 2, 196614, 131073, 1, 196613, 262145, 0, 196612, 262145, 0, 196611, 65537, 1, 196610, 65537, 1, 196609, 65537, 1, 196608, 65537, 1, 131072, 262145, 1, 65536, 65537, 1, 65537, 262145, 0, 65538, 262145, 0, 65539, 262145, 1, 65540, 262145, 0, 131078, 196609, 0, 131077, 262145, 0, 131076, 262145, 0, 131075, 65537, 1, 131074, 65537, 1, 131073, 262145, 1, 131079, 65537, 2)
+
+[node name="Page03" type="Node2D" parent="Pages"]
+visible = false
+
+[node name="Meeb01" type="Sprite2D" parent="Pages/Page03"]
+position = Vector2(145, 110)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page03/Meeb01"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb02" type="Sprite2D" parent="Pages/Page03"]
+position = Vector2(117, 99)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 3
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page03/Meeb02"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Tiles" type="TileMap" parent="Pages/Page03"]
+z_index = -2
+tile_set = SubResource("TileSet_a2krx")
+format = 2
+layer_0/name = "Cliffs"
+layer_1/name = "Sand"
+layer_1/tile_data = PackedInt32Array(65541, 2, 0, 65540, 3, 805306370, 65539, 3, 805306371, 65538, 3, 805306371, 65537, 3, 805306371, 65536, 3, 805306371)
+layer_2/name = "Grass"
+layer_2/tile_data = PackedInt32Array(262144, 262145, 1, 262145, 262145, 0, 262146, 262145, 0, 262147, 262145, 1, 262148, 262145, 0, 262149, 65537, 1, 262150, 262145, 0, 262151, 65537, 1, 262152, 65537, 1, 262153, 65537, 1, 196617, 65537, 1, 131081, 262145, 1, 65545, 262145, 1, 65536, 65537, 0, 131072, 262145, 1, 196608, 262145, 1, 65537, 65537, 0, 65538, 65537, 0, 65539, 65537, 0, 65540, 65537, 0, 65541, 327681, 1, 65542, 262145, 0, 65543, 262145, 0, 65544, 262145, 1, 131080, 65537, 1, 196616, 262145, 1, 131079, 262145, 1, 131078, 262145, 1, 131077, 262145, 0, 131076, 65537, 1, 131075, 262145, 0, 131074, 262145, 0, 196610, 65537, 1, 196609, 262145, 0, 131073, 262145, 1, 196611, 262145, 1, 196612, 262145, 1, 196613, 65537, 1, 196614, 262145, 0, 196615, 65537, 1, 5, 1, 0, 6, 65537, 0, 7, 65537, 0, 8, 65537, 0, 9, 65537, 0)
+
+[node name="CageNewBackbones" type="Sprite2D" parent="Pages/Page03"]
+position = Vector2(211, 81)
+texture = ExtResource("12_axtsm")
+
+[node name="CageNewBase" type="Sprite2D" parent="Pages/Page03"]
+position = Vector2(211, 81)
+texture = ExtResource("13_aqroh")
+
+[node name="YcstaMeeblings-spritesheet" type="Sprite2D" parent="Pages/Page03"]
+position = Vector2(213, 85)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 2
+
+[node name="CageNewDone" type="Sprite2D" parent="Pages/Page03"]
+position = Vector2(211, 81)
+texture = ExtResource("14_5y5kx")
+
+[node name="YcstaBullets-1" type="Sprite2D" parent="Pages/Page03"]
+position = Vector2(173, 104)
+rotation = -0.157753
+texture = ExtResource("15_0342e")
+
+[node name="YcstaBullets-2" type="Sprite2D" parent="Pages/Page03"]
+position = Vector2(152, 96)
+rotation = -0.0727942
+scale = Vector2(1, 1)
+texture = ExtResource("15_0342e")
+
+[node name="Page04" type="Node2D" parent="Pages"]
+visible = false
+
+[node name="Meeb01" type="Sprite2D" parent="Pages/Page04"]
+position = Vector2(158, 102)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page04/Meeb01"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb02" type="Sprite2D" parent="Pages/Page04"]
+position = Vector2(137, 86)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 3
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page04/Meeb02"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb03" type="Sprite2D" parent="Pages/Page04"]
+position = Vector2(176, 90)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 2
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page04/Meeb03"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Tiles" type="TileMap" parent="Pages/Page04"]
+z_index = -2
+tile_set = SubResource("TileSet_a2krx")
+format = 2
+layer_0/name = "Cliffs"
+layer_1/name = "Sand"
+layer_1/tile_data = PackedInt32Array(65544, 131074, 0, 262153, 3, 1610612739, 131081, 3, 5, 196617, 3, 1610612739, 8, 3, 1610612739, 65545, 262147, 805306369)
+layer_2/name = "Grass"
+layer_2/tile_data = PackedInt32Array(262144, 262145, 1, 262145, 262145, 0, 262146, 262145, 0, 262147, 262145, 1, 262148, 262145, 0, 262149, 65537, 1, 262150, 262145, 0, 262151, 65537, 1, 262152, 65537, 1, 262153, 131073, 1, 196617, 131073, 1, 131081, 131073, 1, 65536, 65537, 1, 131072, 262145, 1, 196608, 262145, 1, 65537, 262145, 1, 65538, 262145, 0, 65539, 65537, 1, 65540, 65537, 1, 65541, 262145, 1, 65542, 262145, 0, 65543, 262145, 0, 65544, 196609, 1, 131080, 65537, 1, 196616, 262145, 1, 131079, 262145, 1, 131078, 262145, 1, 131077, 262145, 0, 131076, 65537, 1, 131075, 262145, 0, 131074, 262145, 0, 196610, 65537, 1, 196609, 262145, 0, 131073, 262145, 1, 196611, 262145, 1, 196612, 262145, 1, 196613, 65537, 1, 196614, 262145, 0, 196615, 65537, 1, 5, 65537, 1, 6, 262145, 0, 7, 262145, 0, 8, 131073, 1, 0, 262145, 0, 1, 262145, 0, 2, 65537, 1, 3, 65537, 1, 4, 65537, 1, 65545, 131073, 0)
+
+[node name="YcstaBullets-1" type="Sprite2D" parent="Pages/Page04"]
+position = Vector2(180, 112)
+rotation = 0.319007
+texture = ExtResource("15_0342e")
+
+[node name="YcstaBullets-2" type="Sprite2D" parent="Pages/Page04"]
+position = Vector2(206, 105)
+rotation = 0.447975
+texture = ExtResource("15_0342e")
+
+[node name="YcstaBullets-3" type="Sprite2D" parent="Pages/Page04"]
+position = Vector2(154, 90)
+rotation = 0.391265
+texture = ExtResource("15_0342e")
+
+[node name="YcstaEnemies-1" type="Sprite2D" parent="Pages/Page04"]
+position = Vector2(240, 118)
+texture = ExtResource("16_ojfkg")
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page04/YcstaEnemies-1"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-2" type="Sprite2D" parent="Pages/Page04"]
+position = Vector2(36, 39)
+texture = ExtResource("16_ojfkg")
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page04/YcstaEnemies-2"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-3" type="Sprite2D" parent="Pages/Page04"]
+position = Vector2(19, 61)
+texture = ExtResource("16_ojfkg")
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page04/YcstaEnemies-3"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-4" type="Sprite2D" parent="Pages/Page04"]
+position = Vector2(24, 79)
+texture = ExtResource("16_ojfkg")
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page04/YcstaEnemies-4"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-5" type="Sprite2D" parent="Pages/Page04"]
+position = Vector2(14, 108)
+texture = ExtResource("16_ojfkg")
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page04/YcstaEnemies-5"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-6" type="Sprite2D" parent="Pages/Page04"]
+position = Vector2(14, 108)
+texture = ExtResource("16_ojfkg")
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page04/YcstaEnemies-6"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="Page05" type="Node2D" parent="Pages"]
+visible = false
+
+[node name="YcstaEnemies-1" type="Sprite2D" parent="Pages/Page05"]
+position = Vector2(120, 84)
+scale = Vector2(2, 2)
+texture = ExtResource("16_ojfkg")
+
+[node name="YcstaEnemies-2" type="Sprite2D" parent="Pages/Page05"]
+modulate = Color(0.392157, 0.392157, 0.392157, 0.580392)
+position = Vector2(200, 84)
+scale = Vector2(2, 2)
+texture = ExtResource("16_ojfkg")
+
+[node name="YcstaXp" type="Sprite2D" parent="Pages/Page05"]
+position = Vector2(200, 84)
+scale = Vector2(2, 2)
+texture = ExtResource("20_mv6sc")
+hframes = 3
+vframes = 2
+
+[node name="XPbar" type="TextureProgressBar" parent="Pages/Page05"]
+offset_left = 60.0
+offset_top = 143.0
+offset_right = 260.0
+offset_bottom = 149.0
+value = 85.0
+texture_under = ExtResource("16_vlj5r")
+texture_progress = ExtResource("17_rfhxu")
+
+[node name="ColorRect" type="ColorRect" parent="Pages/Page05"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+offset_left = 59.0
+offset_top = 142.0
+offset_right = 261.0
+offset_bottom = 150.0
+
+[node name="Label" type="Label" parent="Pages/Page05"]
+offset_left = 60.0
+offset_top = 133.0
+offset_right = 260.0
+offset_bottom = 146.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "Level 1"
+horizontal_alignment = 1
+
+[node name="Page06" type="Node2D" parent="Pages"]
+visible = false
+
+[node name="Spellcards01" type="Sprite2D" parent="Pages/Page06"]
+position = Vector2(94, 99)
+texture = ExtResource("25_sruad")
+hframes = 3
+
+[node name="UpgradeIcons" type="Sprite2D" parent="Pages/Page06/Spellcards01"]
+position = Vector2(-6, -19)
+texture = ExtResource("26_0unkw")
+hframes = 4
+vframes = 4
+
+[node name="Cardname" type="Label" parent="Pages/Page06/Spellcards01"]
+offset_left = -30.0
+offset_top = -57.0
+offset_right = 30.0
+offset_bottom = -35.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "Strong Soul"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Cardtext" type="Label" parent="Pages/Page06/Spellcards01"]
+offset_left = -29.0
+offset_top = -4.0
+offset_right = 29.0
+offset_bottom = 37.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "+1 Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Spellcards02" type="Sprite2D" parent="Pages/Page06"]
+position = Vector2(160, 99)
+texture = ExtResource("25_sruad")
+hframes = 3
+frame = 2
+
+[node name="UpgradeIcons" type="Sprite2D" parent="Pages/Page06/Spellcards02"]
+position = Vector2(-6, -19)
+texture = ExtResource("26_0unkw")
+hframes = 4
+vframes = 4
+frame = 13
+
+[node name="Cardname" type="Label" parent="Pages/Page06/Spellcards02"]
+offset_left = -29.0
+offset_top = -57.0
+offset_right = 29.0
+offset_bottom = -35.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "Birth of a Soul"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Cardtext" type="Label" parent="Pages/Page06/Spellcards02"]
+offset_left = -29.0
+offset_top = -4.0
+offset_right = 29.0
+offset_bottom = 37.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "+1 Meebling"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Spellcards03" type="Sprite2D" parent="Pages/Page06"]
+position = Vector2(226, 99)
+texture = ExtResource("25_sruad")
+hframes = 3
+frame = 1
+
+[node name="UpgradeIcons" type="Sprite2D" parent="Pages/Page06/Spellcards03"]
+position = Vector2(-6, -19)
+texture = ExtResource("26_0unkw")
+hframes = 4
+vframes = 4
+frame = 5
+
+[node name="Cardname" type="Label" parent="Pages/Page06/Spellcards03"]
+offset_left = -29.0
+offset_top = -57.0
+offset_right = 29.0
+offset_bottom = -35.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "Fireball"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Cardtext" type="Label" parent="Pages/Page06/Spellcards03"]
+offset_left = -29.0
+offset_top = -4.0
+offset_right = 29.0
+offset_bottom = 37.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "Strong and fast projectile"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="XPbar" type="TextureProgressBar" parent="Pages/Page06"]
+offset_left = 60.0
+offset_top = 143.0
+offset_right = 260.0
+offset_bottom = 149.0
+value = 100.0
+texture_under = ExtResource("16_vlj5r")
+texture_progress = ExtResource("17_rfhxu")
+
+[node name="ColorRect" type="ColorRect" parent="Pages/Page06"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+offset_left = 59.0
+offset_top = 142.0
+offset_right = 261.0
+offset_bottom = 150.0
+
+[node name="Label" type="Label" parent="Pages/Page06"]
+offset_left = 60.0
+offset_top = 133.0
+offset_right = 260.0
+offset_bottom = 146.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "Level 2"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Pages/Page06"]
+offset_left = 60.0
+offset_top = 21.0
+offset_right = 260.0
+offset_bottom = 49.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("24_jqrmf")
+theme_override_font_sizes/font_size = 22
+text = "LEVEL UP!"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Pages/Page06"]
+modulate = Color(0, 0, 0, 0.498039)
+z_index = -1
+offset_right = 320.0
+offset_bottom = 180.0
+metadata/_edit_lock_ = true
+
+[node name="Page07" type="Node2D" parent="Pages"]
+visible = false
+
+[node name="ColorRect2" type="ColorRect" parent="Pages/Page07"]
+modulate = Color(0, 0, 0, 0.498039)
+z_index = -1
+offset_right = 320.0
+offset_bottom = 180.0
+metadata/_edit_lock_ = true
+
+[node name="Staticons" type="Sprite2D" parent="Pages/Page07"]
+position = Vector2(163, 92)
+texture = ExtResource("27_l830p")
+
+[node name="Label" type="Label" parent="Pages/Page07"]
+modulate = Color(0.647059, 0.647059, 0.647059, 1)
+offset_top = 65.0
+offset_right = 155.0
+offset_bottom = 122.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "Attack
+Speed
+Cooldown Reduction (CDR)
+Amount
+Health"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="Pages/Page07"]
+offset_left = 172.0
+offset_top = 65.0
+offset_right = 320.0
+offset_bottom = 122.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "5
+30
+0
+1
+10"
+
+[node name="Page08" type="Node2D" parent="Pages"]
+visible = false
+
+[node name="ColorRect2" type="ColorRect" parent="Pages/Page08"]
+modulate = Color(0, 0, 0, 0.498039)
+z_index = -2
+offset_right = 129.0
+offset_bottom = 180.0
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="Pages/Page08"]
+modulate = Color(1, 1, 0.607843, 1)
+z_index = 1
+offset_left = 201.0
+offset_top = 61.0
+offset_right = 286.0
+offset_bottom = 74.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "MASSIVE DAMAGE!"
+
+[node name="Spellcards04" type="Sprite2D" parent="Pages/Page08"]
+position = Vector2(63, 89)
+texture = ExtResource("25_sruad")
+hframes = 3
+frame = 1
+metadata/_edit_group_ = true
+
+[node name="UpgradeIcons" type="Sprite2D" parent="Pages/Page08/Spellcards04"]
+position = Vector2(-6, -19)
+texture = ExtResource("26_0unkw")
+hframes = 4
+vframes = 4
+frame = 5
+
+[node name="Cardname" type="Label" parent="Pages/Page08/Spellcards04"]
+offset_left = -29.0
+offset_top = -57.0
+offset_right = 29.0
+offset_bottom = -35.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "Fireball"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Cardtext" type="Label" parent="Pages/Page08/Spellcards04"]
+offset_left = -29.0
+offset_top = -4.0
+offset_right = 29.0
+offset_bottom = 37.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "Strong and fast projectile"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Pages/Page08"]
+offset_left = 125.0
+offset_right = 131.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 1)
+
+[node name="Tiles2" type="TileMap" parent="Pages/Page08"]
+z_index = -2
+tile_set = SubResource("TileSet_a2krx")
+format = 2
+layer_0/name = "Cliffs"
+layer_1/name = "Sand"
+layer_1/tile_data = PackedInt32Array(65544, 131074, 0, 262153, 3, 1610612739, 131081, 3, 5, 196617, 3, 1610612739, 8, 3, 1610612739, 65545, 262147, 805306369)
+layer_2/name = "Grass"
+layer_2/tile_data = PackedInt32Array(262148, 262145, 0, 262149, 65537, 1, 262150, 262145, 0, 262151, 65537, 1, 262152, 65537, 1, 262153, 131073, 1, 196617, 131073, 1, 131081, 131073, 1, 65540, 65537, 1, 65541, 262145, 1, 65542, 262145, 0, 65543, 262145, 0, 65544, 196609, 1, 131080, 65537, 1, 196616, 262145, 1, 131079, 262145, 1, 131078, 262145, 1, 131077, 262145, 0, 131076, 65537, 1, 196612, 262145, 1, 196613, 65537, 1, 196614, 262145, 0, 196615, 65537, 1, 5, 65537, 1, 6, 262145, 0, 7, 262145, 0, 8, 131073, 1, 4, 65537, 1, 65545, 131073, 0)
+
+[node name="Meeb04" type="Sprite2D" parent="Pages/Page08"]
+position = Vector2(190, 109)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page08/Meeb04"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Bigfireball" type="Sprite2D" parent="Pages/Page08"]
+position = Vector2(218, 99)
+rotation = -0.417227
+texture = ExtResource("28_yk41p")
+
+[node name="YcstaEnemies-7" type="Sprite2D" parent="Pages/Page08"]
+modulate = Color(1, 0.545098, 0.521569, 1)
+position = Vector2(242, 85)
+texture = ExtResource("16_ojfkg")
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page08/YcstaEnemies-7"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="UpgradeIcons" type="Sprite2D" parent="Pages/Page08"]
+position = Vector2(148, 40)
+texture = ExtResource("26_0unkw")
+hframes = 4
+vframes = 4
+frame = 5
+
+[node name="YcstaUIboxes-1" type="Sprite2D" parent="Pages/Page08"]
+position = Vector2(148, 40)
+texture = ExtResource("29_85k3k")
+
+[node name="ColorRect3" type="ColorRect" parent="Pages/Page08"]
+offset_left = 135.0
+offset_top = 34.0
+offset_right = 161.0
+offset_bottom = 53.0
+color = Color(0, 0, 0, 0.784314)
+
+[node name="Page09" type="Node2D" parent="Pages"]
+visible = false
+
+[node name="ColorRect2" type="ColorRect" parent="Pages/Page09"]
+modulate = Color(0, 0, 0, 0.498039)
+z_index = -2
+offset_right = 320.0
+offset_bottom = 180.0
+metadata/_edit_lock_ = true
+
+[node name="UpgradeIcons" type="Sprite2D" parent="Pages/Page09"]
+position = Vector2(143, 74)
+texture = ExtResource("26_0unkw")
+hframes = 4
+vframes = 4
+frame = 5
+metadata/_edit_group_ = true
+
+[node name="YcstaUIboxes-1" type="Sprite2D" parent="Pages/Page09/UpgradeIcons"]
+texture = ExtResource("29_85k3k")
+
+[node name="UpgradeIcons2" type="Sprite2D" parent="Pages/Page09"]
+position = Vector2(176, 74)
+texture = ExtResource("26_0unkw")
+hframes = 4
+vframes = 4
+frame = 6
+metadata/_edit_group_ = true
+
+[node name="YcstaUIboxes-1" type="Sprite2D" parent="Pages/Page09/UpgradeIcons2"]
+texture = ExtResource("29_85k3k")
+
+[node name="UpgradeIcons3" type="Sprite2D" parent="Pages/Page09"]
+position = Vector2(143, 107)
+texture = ExtResource("26_0unkw")
+hframes = 4
+vframes = 4
+frame = 8
+metadata/_edit_group_ = true
+
+[node name="YcstaUIboxes-1" type="Sprite2D" parent="Pages/Page09/UpgradeIcons3"]
+texture = ExtResource("29_85k3k")
+
+[node name="UpgradeIcons4" type="Sprite2D" parent="Pages/Page09"]
+position = Vector2(176, 107)
+texture = ExtResource("26_0unkw")
+hframes = 4
+vframes = 4
+frame = 7
+metadata/_edit_group_ = true
+
+[node name="YcstaUIboxes-1" type="Sprite2D" parent="Pages/Page09/UpgradeIcons4"]
+texture = ExtResource("29_85k3k")
+
+[node name="Keyboard" type="Node2D" parent="Pages/Page09"]
+visible = false
+
+[node name="Letter01" type="Label" parent="Pages/Page09/Keyboard"]
+z_index = 1
+offset_left = 129.0
+offset_top = 80.0
+offset_right = 157.0
+offset_bottom = 93.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "G"
+horizontal_alignment = 1
+
+[node name="Letter02" type="Label" parent="Pages/Page09/Keyboard"]
+z_index = 1
+offset_left = 162.0
+offset_top = 80.0
+offset_right = 190.0
+offset_bottom = 93.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "H"
+horizontal_alignment = 1
+
+[node name="Letter03" type="Label" parent="Pages/Page09/Keyboard"]
+z_index = 1
+offset_left = 129.0
+offset_top = 113.0
+offset_right = 157.0
+offset_bottom = 126.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "V"
+horizontal_alignment = 1
+
+[node name="Letter04" type="Label" parent="Pages/Page09/Keyboard"]
+z_index = 1
+offset_left = 162.0
+offset_top = 113.0
+offset_right = 190.0
+offset_bottom = 126.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("1_veujv")
+text = "B"
+horizontal_alignment = 1
+
+[node name="Gamepad" type="Node2D" parent="Pages/Page09"]
+visible = false
+
+[node name="Meeblingbuttons" type="Sprite2D" parent="Pages/Page09/Gamepad"]
+position = Vector2(143, 89)
+texture = ExtResource("30_wlctj")
+hframes = 2
+vframes = 2
+
+[node name="Meeblingbuttons2" type="Sprite2D" parent="Pages/Page09/Gamepad"]
+position = Vector2(176, 89)
+texture = ExtResource("30_wlctj")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Meeblingbuttons3" type="Sprite2D" parent="Pages/Page09/Gamepad"]
+position = Vector2(143, 122)
+texture = ExtResource("30_wlctj")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Meeblingbuttons4" type="Sprite2D" parent="Pages/Page09/Gamepad"]
+position = Vector2(176, 122)
+texture = ExtResource("30_wlctj")
+hframes = 2
+vframes = 2
+frame = 3
+
+[node name="Page10" type="Node2D" parent="Pages"]
+visible = false
+
+[node name="Meeb01" type="Sprite2D" parent="Pages/Page10"]
+position = Vector2(188, 99)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page10/Meeb01"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb02" type="Sprite2D" parent="Pages/Page10"]
+position = Vector2(185, 115)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 3
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page10/Meeb02"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Meeb03" type="Sprite2D" parent="Pages/Page10"]
+position = Vector2(216, 120)
+texture = ExtResource("5_hlyvi")
+hframes = 3
+vframes = 3
+frame = 2
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page10/Meeb03"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 8)
+texture = ExtResource("6_v8kxp")
+
+[node name="Tiles" type="TileMap" parent="Pages/Page10"]
+z_index = -2
+tile_set = SubResource("TileSet_a2krx")
+format = 2
+layer_0/name = "Cliffs"
+layer_1/name = "Sand"
+layer_1/tile_data = PackedInt32Array(131075, 2, 0, 196615, 131074, 0, 131079, 131074, 0, 196611, 2, 0, 262147, 2, 0, 262144, 65538, 0, 262145, 65538, 0, 262146, 131074, 0, 196610, 131074, 0, 131074, 131074, 0, 65538, 131074, 0, 2, 131074, 0)
+layer_2/name = "Grass"
+layer_2/tile_data = PackedInt32Array(196615, 196609, 1, 262153, 65537, 1, 262152, 262145, 1, 262151, 262145, 0, 262150, 262145, 0, 262149, 262145, 0, 262148, 262145, 0, 196612, 262145, 0, 131076, 262145, 1, 131077, 262145, 1, 131078, 262145, 1, 196614, 65537, 1, 196613, 262145, 1, 196616, 65537, 0, 196617, 65537, 0, 65542, 65537, 0, 65541, 65537, 0, 65540, 65537, 0, 65539, 1, 0, 65543, 131073, 0, 131079, 131073, 1, 131075, 1, 1, 196611, 1, 1, 262147, 1, 1, 131073, 65537, 1, 196609, 65537, 1, 196608, 65537, 1, 131072, 65537, 1, 196610, 131073, 1, 131074, 131073, 1, 65538, 131073, 1, 2, 131073, 1, 65537, 262145, 0, 1, 65537, 1, 0, 65537, 1, 65536, 262145, 1, 262144, 65537, 2, 262145, 65537, 2, 262146, 131073, 2)
+
+[node name="YcstaEnemies-1" type="Sprite2D" parent="Pages/Page10"]
+position = Vector2(260, 123)
+texture = ExtResource("15_mq718")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page10/YcstaEnemies-1"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-2" type="Sprite2D" parent="Pages/Page10"]
+position = Vector2(42, 38)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page10/YcstaEnemies-2"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-3" type="Sprite2D" parent="Pages/Page10"]
+position = Vector2(14, 50)
+texture = ExtResource("15_mq718")
+flip_h = true
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page10/YcstaEnemies-3"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-4" type="Sprite2D" parent="Pages/Page10"]
+position = Vector2(307, 134)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page10/YcstaEnemies-4"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="YcstaEnemies-5" type="Sprite2D" parent="Pages/Page10"]
+position = Vector2(27, 117)
+texture = ExtResource("16_ojfkg")
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page10/YcstaEnemies-5"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("6_v8kxp")
+
+[node name="WoodenBridge2h" type="Sprite2D" parent="Pages/Page10"]
+position = Vector2(96, 96)
+texture = ExtResource("31_u2bba")
+
+[node name="WoodenBridge2h2" type="Sprite2D" parent="Pages/Page10"]
+modulate = Color(0, 0, 0, 0.501961)
+z_index = -3
+position = Vector2(96, 114)
+texture = ExtResource("31_u2bba")
+
+[node name="YcstaArrow(new)2" type="Sprite2D" parent="Pages/Page10"]
+position = Vector2(164, 86)
+texture = ExtResource("7_y7uwk")
+hframes = 8
+vframes = 8
+metadata/_edit_group_ = true
+
+[node name="Arrowshadow" type="Sprite2D" parent="Pages/Page10/YcstaArrow(new)2"]
 modulate = Color(1, 1, 1, 0.501961)
 z_index = -1
 position = Vector2(0, 13)

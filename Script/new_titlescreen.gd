@@ -5,6 +5,7 @@ var controllertype = ""
 var nextscene = 1
 
 var menuselected = 0
+var canpress = false
 
 var menu_main_selected = 1
 var arrowselected = 1
@@ -35,7 +36,7 @@ func _ready():
 
 func _process(_delta):
 	
-	if Input.is_action_just_pressed("down"):
+	if Input.is_action_just_pressed("down") && canpress == true:
 		if menuselected == 0 && menu_main_selected < 6:
 			changemenuselect_main(1)
 			$Sounds/move.play()
@@ -114,7 +115,7 @@ func _process(_delta):
 		$Startrun/CE_keyboard.visible = false
 		$Startrun/CE_Controller.visible = true
 	
-	if Input.is_action_just_pressed("spell1") or Input.is_action_just_pressed("spell2") or Input.is_action_just_pressed("spell3") or Input.is_action_just_pressed("spell4") or Input.is_action_just_pressed("enter"):
+	if (Input.is_action_just_pressed("spell1") or Input.is_action_just_pressed("spell2") or Input.is_action_just_pressed("spell3") or Input.is_action_just_pressed("spell4") or Input.is_action_just_pressed("enter")) && canpress == true:
 		if menu_main_selected == 1:
 			Go_to_other_scene(1)
 			$Sounds/select.play()
@@ -207,11 +208,13 @@ func change_setting():
 		$Startoptions/Selecticon.position.y = 151
 
 func Go_to_other_scene(scenenr):
+	canpress = false
 	menuselected = -1
 	nextscene = scenenr
 	$Blackscreen/FadeAnim.play("fadeout")
 
 func enter_next_scene():
+	canpress = false
 	if nextscene == 1:
 		Globalsettings.global_arrow = arrowselected
 		Globalsettings.resetrun()
@@ -226,3 +229,6 @@ func _on_sf_xbar_value_changed(value):
 func _on_musicbar_value_changed(value):
 	AudioServer.set_bus_volume_db(1,linear_to_db(value))
 	Globalsettings.global_Musicvol = value
+
+func _on_canpress_timer_timeout():
+	canpress = true

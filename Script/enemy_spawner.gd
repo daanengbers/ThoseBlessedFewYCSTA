@@ -152,7 +152,7 @@ func _on_second_timer_timeout():
 func _on_spawn_timer_timeout():
 	randomenemyspawn = randi()% highesttypeenemy + 1
 	if get_tree().get_nodes_in_group("enemy_m").size() < max_enemies:
-		if randomenemyspawn ==1:
+		if randomenemyspawn == 1:
 			spawnskullenemy()
 		if randomenemyspawn == 2:
 			spawneyeenemy()
@@ -174,7 +174,6 @@ func _on_level_timer_timeout():
 		$SpawnTimer.wait_time = 3.5
 	if level == 3:
 		$SpawnTimer.wait_time = 3.3
-		
 	if level == 4:
 		$SpawnTimer.wait_time = 3.1
 	if level == 5:
