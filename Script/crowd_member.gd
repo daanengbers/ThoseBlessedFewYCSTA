@@ -270,7 +270,7 @@ func drown():
 	m_anim.play("drown")
 	alive = false
 	$SplashTimer.start()
-	$Arrowshadow.visible = false
+	$Shadow.visible = false
 	$Break.play()
 	$QueueTimer.start()
 

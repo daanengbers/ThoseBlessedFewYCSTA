@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cvrhpvf2mdox0"]
+[gd_scene load_steps=34 format=3 uid="uid://cvrhpvf2mdox0"]
 
 [ext_resource type="Texture2D" uid="uid://fd6jsqufuyr3" path="res://Assets/YCSTA_soulparticle.png" id="1_ro6c0"]
 [ext_resource type="Script" path="res://Script/new_titlescreen.gd" id="1_rwlk1"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dyxqtvnnr4rbm" path="res://Assets/YCSTA_Controlsexplanation_Controller.png" id="8_bfry4"]
 [ext_resource type="Texture2D" uid="uid://c02rr86yd8vae" path="res://Assets/YCSTA_Arrow (new).png" id="9_5gjck"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="9_sexak"]
+[ext_resource type="Texture2D" uid="uid://l1tpjrkrk83" path="res://Assets/Meeblings_UIbar-empty.png" id="11_5dgrv"]
+[ext_resource type="Texture2D" uid="uid://b210huiwl524u" path="res://Assets/Meeblings_UIbar-full.png" id="12_w0k5m"]
 
 [sub_resource type="Gradient" id="Gradient_wsc63"]
 offsets = PackedFloat32Array(0, 0.564935, 0.785714, 1)
@@ -315,6 +317,7 @@ script = ExtResource("1_rwlk1")
 
 [node name="Background" type="Node2D" parent="."]
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
 z_index = -2
@@ -435,7 +438,7 @@ text = "Customize"
 vertical_alignment = 1
 
 [node name="Gameoptiontext04" type="Label" parent="Startoptions"]
-modulate = Color(0.658824, 0, 0.0705882, 0.588235)
+modulate = Color(0.658824, 0, 0.0705882, 1)
 offset_left = 22.0
 offset_top = 111.0
 offset_right = 102.0
@@ -498,7 +501,6 @@ position = Vector2(0, 7)
 texture = ExtResource("5_n3f60")
 
 [node name="Startrun" type="Node2D" parent="."]
-visible = false
 
 [node name="Startruntext01" type="Label" parent="Startrun"]
 modulate = Color(0.658824, 0, 0.0823529, 1)
@@ -742,6 +744,113 @@ vframes = 8
 libraries = {
 "": SubResource("AnimationLibrary_4075u")
 }
+
+[node name="Settings" type="Node2D" parent="."]
+visible = false
+
+[node name="Setting01" type="Label" parent="Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 127.0
+offset_top = 57.0
+offset_right = 320.0
+offset_bottom = 70.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "- Settings -"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Setting02" type="Label" parent="Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 182.0
+offset_top = 72.0
+offset_right = 375.0
+offset_bottom = 81.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "SFX volume:"
+
+[node name="SFXbar" type="TextureProgressBar" parent="Settings"]
+offset_left = 182.0
+offset_top = 85.0
+offset_right = 262.0
+offset_bottom = 91.0
+value = 100.0
+texture_under = ExtResource("11_5dgrv")
+texture_progress = ExtResource("12_w0k5m")
+
+[node name="Setting03" type="Label" parent="Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 182.0
+offset_top = 92.0
+offset_right = 375.0
+offset_bottom = 101.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "Music volume:"
+
+[node name="Musicbar" type="TextureProgressBar" parent="Settings"]
+offset_left = 182.0
+offset_top = 105.0
+offset_right = 262.0
+offset_bottom = 111.0
+value = 100.0
+texture_under = ExtResource("11_5dgrv")
+texture_progress = ExtResource("12_w0k5m")
+
+[node name="Setting04" type="Label" parent="Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 182.0
+offset_top = 113.0
+offset_right = 375.0
+offset_bottom = 122.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "Show FPS: < OFF"
+
+[node name="Setting05" type="Label" parent="Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 182.0
+offset_top = 125.0
+offset_right = 375.0
+offset_bottom = 134.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "Full Screen: ON >"
+
+[node name="Back" type="Label" parent="Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 182.0
+offset_top = 147.0
+offset_right = 375.0
+offset_bottom = 156.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_o8258")
+theme_override_font_sizes/font_size = 16
+text = "BACK"
 
 [node name="Credits" type="Node2D" parent="."]
 visible = false
