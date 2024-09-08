@@ -18,7 +18,7 @@ var highestlevelenemy = 1
 var randomspawnlocx = 0
 var randomspawnlocy = 0
 
-
+var max_enemies = 300
 
 func _ready():
 	randomize()
@@ -151,16 +151,17 @@ func _on_second_timer_timeout():
 
 func _on_spawn_timer_timeout():
 	randomenemyspawn = randi()% highesttypeenemy + 1
-	if randomenemyspawn ==1:
-		spawnskullenemy()
-	if randomenemyspawn == 2:
-		spawneyeenemy()
-	if randomenemyspawn == 3:
-		spawnslimeenemy()
-	if randomenemyspawn == 4:
-		spawnghostenemy()
-	if randomenemyspawn == 5:
-		spawnscarabenemy()
+	if get_tree().get_nodes_in_group("enemy_m").size() < max_enemies:
+		if randomenemyspawn ==1:
+			spawnskullenemy()
+		if randomenemyspawn == 2:
+			spawneyeenemy()
+		if randomenemyspawn == 3:
+			spawnslimeenemy()
+		if randomenemyspawn == 4:
+			spawnghostenemy()
+		if randomenemyspawn == 5:
+			spawnscarabenemy()
 	
 	randomspawnlocx = randi()% 320
 	randomspawnlocy = randi()% 180

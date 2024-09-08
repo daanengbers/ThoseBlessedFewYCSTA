@@ -41,7 +41,7 @@ func _ready():
 func _process(_delta):
 	
 	# Gray this out before release:
-	g_enemiesAlive = get_tree().get_nodes_in_group("enemy_m").size()
+	#g_enemiesAlive = get_tree().get_nodes_in_group("enemy_m").size()
 	
 	if globalmusic == 1:
 		if $Normalmusic.playing == false:
