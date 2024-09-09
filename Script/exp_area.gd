@@ -3,6 +3,7 @@ extends Area2D
 var stageuntildespawn = 10
 var randomid = 0
 @export var expamount = 1
+var pickedup = false
 
 func _ready():
 	randomize()
@@ -38,7 +39,16 @@ func _on_area_entered(area):
 				area.queue_free()
 			else:
 				pass
-		
+		if expamount < 5:
+			$Sprite/Anim.play("level_1")
+		if expamount >= 5 && expamount < 20:
+			$Sprite/Anim.play("level_2")
+		if expamount >= 20 && expamount < 100:
+			$Sprite/Anim.play("level_3")
+		if expamount >= 100 && expamount < 500:
+			$Sprite/Anim.play("level_4")
+		if expamount >= 500:
+			$Sprite/Anim.play("level_5")
 		#if expamount < area.expamount:
 		#	area.expamount += expamount
 		#	area.stageuntildespawn = 10
@@ -50,17 +60,16 @@ func _on_area_entered(area):
 		#		queue_free()
 		#	else:
 		#		pass
-	if area.get_parent().is_in_group("crowd_m"):
-		Globalsettings.global_xp += expamount
-		Globalsettings.global_total_xp += expamount
-		queue_free()
-	if expamount < 5:
-		$Sprite/Anim.play("level_1")
-	if expamount >= 5 && expamount < 20:
-		$Sprite/Anim.play("level_2")
-	if expamount >= 20 && expamount < 100:
-		$Sprite/Anim.play("level_3")
-	if expamount >= 100 && expamount < 500:
-		$Sprite/Anim.play("level_4")
-	if expamount >= 500:
-		$Sprite/Anim.play("level_5")
+	if area.get_parent().is_in_group("crowd_m") && pickedup == false:
+		pickedup = true
+		$Sprite/Anim.play("pickup")
+		$box.set_deferred("disabled", true)
+		$XPTimer.start()
+		
+	
+
+
+func _on_xp_timer_timeout():
+	Globalsettings.global_xp += expamount
+	Globalsettings.global_total_xp += expamount
+	queue_free()

@@ -7,7 +7,7 @@ func _process(delta):
 	if vischars < 160:
 		vischars += 1
 		$Explanation.visible_characters = vischars
-	if Input.is_action_just_pressed("spell1") or Input.is_action_just_pressed("spell2") or Input.is_action_just_pressed("spell3") or Input.is_action_just_pressed("spell4"):
+	if Input.is_action_just_pressed("spell1") or Input.is_action_just_pressed("spell2") or Input.is_action_just_pressed("spell3") or Input.is_action_just_pressed("spell4") or Input.is_action_just_pressed("enter"):
 		vischars = 0
 		$Explanation.visible_characters = vischars
 		advance_text()
