@@ -20,6 +20,9 @@ func _ready():
 	$Startrun/Startruntext02.set_text("PREVIOUS SCORE: " + str(0))
 	$Startrun/Startruntext03.set_text("HIGHEST SCORE: " + str(Globalsettings.highscore_xp))
 	arrowselected = Globalsettings.global_arrow
+	Globalsettings.bossfight_active = false
+	Globalsettings.setmusic()
+	Globalsettings.globalmusic = 1
 	change_arrow()
 	$Customize/Arrowskin/Skinplayer.play("arrow" + str(arrowselected))
 	if Globalsettings.global_showfps == true:

@@ -1147,6 +1147,10 @@ polygon = PackedVector2Array(445, -1034, 446, -1011, 448, -986, 450, -932, 390, 
 z_index = 14
 position = Vector2(1034, -901)
 
+[node name="Enemy_Eyeboss3" parent="." instance=ExtResource("21_k1ikb")]
+z_index = 14
+position = Vector2(242, -535)
+
 [node name="Enemy_Eyeboss2" parent="." instance=ExtResource("21_k1ikb")]
 position = Vector2(-1936, 118)
 
