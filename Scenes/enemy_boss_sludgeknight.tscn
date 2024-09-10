@@ -1,14 +1,14 @@
 [gd_scene load_steps=16 format=3 uid="uid://di5jjqqiofweh"]
 
 [ext_resource type="Script" path="res://Script/enemy_boss_sludgeknight.gd" id="1_pw6be"]
-[ext_resource type="Texture2D" uid="uid://bb421vdm7lu2" path="res://Assets/Bosshealthbar-empty.png" id="2_vslwl"]
-[ext_resource type="Texture2D" uid="uid://d2cvcawr3bnjv" path="res://Assets/Bosshealthbar-full.png" id="3_gv25d"]
+[ext_resource type="Texture2D" uid="uid://bb421vdm7lu2" path="res://Assets/UI/Bosshealthbar-empty.png" id="2_vslwl"]
+[ext_resource type="Texture2D" uid="uid://d2cvcawr3bnjv" path="res://Assets/UI/Bosshealthbar-full.png" id="3_gv25d"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="4_qxga1"]
-[ext_resource type="Texture2D" uid="uid://bpt5xouk1ltxv" path="res://Assets/Bigprojsprites-bigcircle.png" id="5_5o48w"]
-[ext_resource type="Texture2D" uid="uid://fbcd0hykq1ho" path="res://Assets/SludgeKnight_Helmet.png" id="7_mhbmh"]
-[ext_resource type="Texture2D" uid="uid://dn6qvorb6l4b2" path="res://Assets/Sludgeknight_Body.png" id="7_x75rx"]
-[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/rotatingarrow.png" id="7_yaphl"]
-[ext_resource type="Texture2D" uid="uid://bgky1tcemyfw2" path="res://Assets/SludgeKnight_Blade.png" id="9_4hid5"]
+[ext_resource type="Texture2D" uid="uid://bpt5xouk1ltxv" path="res://Assets/Particle_Sprites/Bigprojsprites-bigcircle.png" id="5_5o48w"]
+[ext_resource type="Texture2D" uid="uid://fbcd0hykq1ho" path="res://Assets/Enemy_Sprites/SludgeKnight_Helmet.png" id="7_mhbmh"]
+[ext_resource type="Texture2D" uid="uid://dn6qvorb6l4b2" path="res://Assets/Enemy_Sprites/Sludgeknight_Body.png" id="7_x75rx"]
+[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="7_yaphl"]
+[ext_resource type="Texture2D" uid="uid://bgky1tcemyfw2" path="res://Assets/Enemy_Sprites/SludgeKnight_Blade.png" id="9_4hid5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5q1n"]
 size = Vector2(16, 65)

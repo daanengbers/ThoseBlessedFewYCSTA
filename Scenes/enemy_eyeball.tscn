@@ -1,12 +1,12 @@
 [gd_scene load_steps=20 format=3 uid="uid://cfhwts8gifvnh"]
 
 [ext_resource type="Script" path="res://Script/enemy_eyeball.gd" id="1_hw3wt"]
-[ext_resource type="Texture2D" uid="uid://d4isrqfs5uqyt" path="res://Assets/YCSTA_Enemies-2.png" id="2_wlhta"]
-[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/rotatingarrow.png" id="3_2xgu6"]
-[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/YCSTA_healthbar-1.png" id="5_yvede"]
-[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/YCSTA_healthbar-2.png" id="6_pkd1g"]
+[ext_resource type="Texture2D" uid="uid://d4isrqfs5uqyt" path="res://Assets/Enemy_Sprites/YCSTA_Enemies-2.png" id="2_wlhta"]
+[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="3_2xgu6"]
+[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/UI/YCSTA_healthbar-1.png" id="5_yvede"]
+[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/UI/YCSTA_healthbar-2.png" id="6_pkd1g"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="7_534tw"]
-[ext_resource type="Texture2D" uid="uid://clcwajmp8hby7" path="res://Assets/YCSTA_Bullets-2.png" id="8_2eflv"]
+[ext_resource type="Texture2D" uid="uid://clcwajmp8hby7" path="res://Assets/Particle_Sprites/YCSTA_Bullets-2.png" id="8_2eflv"]
 [ext_resource type="AudioStream" uid="uid://bg2xrdk3npnsa" path="res://Sounds/spellshort1.wav" id="9_p1vp3"]
 
 [sub_resource type="Animation" id="Animation_roeck"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=3 uid="uid://dwu3txoisc4li"]
 
 [ext_resource type="Script" path="res://Script/enemy_ghost.gd" id="1_kgfma"]
-[ext_resource type="Texture2D" uid="uid://de837mctonww" path="res://Assets/Ghost_enemy.png" id="2_orck3"]
-[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/rotatingarrow.png" id="3_vthqn"]
-[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/YCSTA_healthbar-1.png" id="4_dbjs7"]
-[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/YCSTA_healthbar-2.png" id="5_rmxtk"]
+[ext_resource type="Texture2D" uid="uid://de837mctonww" path="res://Assets/Enemy_Sprites/Ghost_enemy.png" id="2_orck3"]
+[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="3_vthqn"]
+[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/UI/YCSTA_healthbar-1.png" id="4_dbjs7"]
+[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/UI/YCSTA_healthbar-2.png" id="5_rmxtk"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="6_xjtwg"]
 [ext_resource type="AudioStream" uid="uid://bg2xrdk3npnsa" path="res://Sounds/spellshort1.wav" id="7_74glg"]
 

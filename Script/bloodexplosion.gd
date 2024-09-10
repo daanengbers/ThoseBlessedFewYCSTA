@@ -1,11 +1,17 @@
 extends Area2D
 
+# Script for blood explosion that spawns once an eyeball enemy has exploded.
+# Weenter Approved (Great Cleanup, 10-9-24)
+
 var damage = 5
 
 func _ready():
+	# Start animations and sound
 	$Bloodsplatter.emitting = true
 	$Coloranim.play("fade")
 	$Splat.play()
+
+# Signals -----
 
 func _on_area_entered(area):
 	if area.get_parent().is_in_group("crowd_m"):

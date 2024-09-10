@@ -2,35 +2,35 @@
 
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="1_veujv"]
 [ext_resource type="Script" path="res://Script/tutorial.gd" id="2_bo7wl"]
-[ext_resource type="Texture2D" uid="uid://e7hlil5cje5w" path="res://Assets/tutorialbargray.png" id="3_p1gv0"]
-[ext_resource type="Texture2D" uid="uid://bbuo2q4wkct30" path="res://Assets/tutorialbar.png" id="4_f6bvb"]
-[ext_resource type="Texture2D" uid="uid://j2ppfh3wk0pk" path="res://Assets/YCSTA_water_1.png" id="5_2mbrj"]
+[ext_resource type="Texture2D" uid="uid://e7hlil5cje5w" path="res://Assets/UI/tutorialbargray.png" id="3_p1gv0"]
+[ext_resource type="Texture2D" uid="uid://bbuo2q4wkct30" path="res://Assets/UI/tutorialbar.png" id="4_f6bvb"]
+[ext_resource type="Texture2D" uid="uid://j2ppfh3wk0pk" path="res://Assets/Environment_Sprites/YCSTA_water_1.png" id="5_2mbrj"]
 [ext_resource type="Texture2D" uid="uid://dvav5qp6ypv2b" path="res://Assets/YCSTA_Meeblings-Spritesheet.png" id="5_hlyvi"]
-[ext_resource type="Texture2D" uid="uid://spyw7i6l8he6" path="res://Assets/YCSTA_water_2.png" id="6_pa6ra"]
+[ext_resource type="Texture2D" uid="uid://spyw7i6l8he6" path="res://Assets/Environment_Sprites/YCSTA_water_2.png" id="6_pa6ra"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="6_v8kxp"]
-[ext_resource type="Texture2D" uid="uid://d10xllb3gvng7" path="res://Assets/YCSTA_water_3.png" id="7_4tqul"]
+[ext_resource type="Texture2D" uid="uid://d10xllb3gvng7" path="res://Assets/Environment_Sprites/YCSTA_water_3.png" id="7_4tqul"]
 [ext_resource type="Texture2D" uid="uid://c02rr86yd8vae" path="res://Assets/YCSTA_Arrow (new).png" id="7_y7uwk"]
-[ext_resource type="Texture2D" uid="uid://y00856mc6e1o" path="res://Assets/TileSetDeadlands (1).png" id="8_8qbow"]
-[ext_resource type="Texture2D" uid="uid://c5ynguy5hk02f" path="res://Assets/Grass_Blend_vF.png" id="9_cgvmw"]
+[ext_resource type="Texture2D" uid="uid://y00856mc6e1o" path="res://Assets/Tilesets/TileSetDeadlands (1).png" id="8_8qbow"]
+[ext_resource type="Texture2D" uid="uid://c5ynguy5hk02f" path="res://Assets/Tilesets/Grass_Blend_vF.png" id="9_cgvmw"]
 [ext_resource type="Texture2D" uid="uid://c8n6la6da160q" path="res://Assets/Tilesets/Cliff_Sprite_v3.png" id="10_dscva"]
-[ext_resource type="Texture2D" uid="uid://cyuloouupwrh5" path="res://Assets/YCSTA_Ripples_Sprite.png" id="11_iktnr"]
-[ext_resource type="Texture2D" uid="uid://cwmeqfovr3d0e" path="res://Assets/Cage_New_Backbones.png" id="12_axtsm"]
-[ext_resource type="Texture2D" uid="uid://ckg51a0nne2w" path="res://Assets/Cage_New_Base.png" id="13_aqroh"]
-[ext_resource type="Texture2D" uid="uid://bcxisre43usjl" path="res://Assets/Cage_New_Done.png" id="14_5y5kx"]
-[ext_resource type="Texture2D" uid="uid://bmx1qmkj1cy3r" path="res://Assets/YCSTA_Bullets-1.png" id="15_0342e"]
-[ext_resource type="Texture2D" uid="uid://d4isrqfs5uqyt" path="res://Assets/YCSTA_Enemies-2.png" id="15_mq718"]
-[ext_resource type="Texture2D" uid="uid://blxj1s22wdk50" path="res://Assets/YCSTA_Enemies-1.png" id="16_ojfkg"]
-[ext_resource type="Texture2D" uid="uid://dcqqw175nsbbw" path="res://Assets/lvlbar_empty.png" id="16_vlj5r"]
-[ext_resource type="Texture2D" uid="uid://cxmshi48066ak" path="res://Assets/lvlbar_full.png" id="17_rfhxu"]
-[ext_resource type="Texture2D" uid="uid://bc4wd2u4nb0i6" path="res://Assets/YCSTA_XP.png" id="20_mv6sc"]
+[ext_resource type="Texture2D" uid="uid://cyuloouupwrh5" path="res://Assets/Tilesets/YCSTA_Ripples_Sprite.png" id="11_iktnr"]
+[ext_resource type="Texture2D" uid="uid://cwmeqfovr3d0e" path="res://Assets/Environment_Sprites/Cage_New_Backbones.png" id="12_axtsm"]
+[ext_resource type="Texture2D" uid="uid://ckg51a0nne2w" path="res://Assets/Environment_Sprites/Cage_New_Base.png" id="13_aqroh"]
+[ext_resource type="Texture2D" uid="uid://bcxisre43usjl" path="res://Assets/Environment_Sprites/Cage_New_Done.png" id="14_5y5kx"]
+[ext_resource type="Texture2D" uid="uid://bmx1qmkj1cy3r" path="res://Assets/Particle_Sprites/YCSTA_Bullets-1.png" id="15_0342e"]
+[ext_resource type="Texture2D" uid="uid://d4isrqfs5uqyt" path="res://Assets/Enemy_Sprites/YCSTA_Enemies-2.png" id="15_mq718"]
+[ext_resource type="Texture2D" uid="uid://blxj1s22wdk50" path="res://Assets/Enemy_Sprites/YCSTA_Enemies-1.png" id="16_ojfkg"]
+[ext_resource type="Texture2D" uid="uid://dcqqw175nsbbw" path="res://Assets/UI/lvlbar_empty.png" id="16_vlj5r"]
+[ext_resource type="Texture2D" uid="uid://cxmshi48066ak" path="res://Assets/UI/lvlbar_full.png" id="17_rfhxu"]
+[ext_resource type="Texture2D" uid="uid://chkpdkwkhftff" path="res://Assets/YCSTA_XP_new.png" id="21_kgfqt"]
 [ext_resource type="FontFile" uid="uid://b85f1e3h4hl2q" path="res://Fonts/Retro Gaming.ttf" id="24_jqrmf"]
-[ext_resource type="Texture2D" uid="uid://dl70st0bdxukg" path="res://Assets/Spellcards2.png" id="25_sruad"]
-[ext_resource type="Texture2D" uid="uid://siyq5k5htydp" path="res://Assets/UpgradeIcons.png" id="26_0unkw"]
-[ext_resource type="Texture2D" uid="uid://cgakxi0t1lwe7" path="res://Assets/Staticons.png" id="27_l830p"]
-[ext_resource type="Texture2D" uid="uid://cytptuuf0v3e5" path="res://Assets/bigfireball.png" id="28_yk41p"]
-[ext_resource type="Texture2D" uid="uid://deqsdtpq6bt6s" path="res://Assets/YCSTA_UIboxes-1.png" id="29_85k3k"]
-[ext_resource type="Texture2D" uid="uid://c5yw41i5s8ra" path="res://Assets/Meeblingbuttons.png" id="30_wlctj"]
-[ext_resource type="Texture2D" uid="uid://b35lpeblxr4uq" path="res://Assets/WoodenBridge2h.png" id="31_u2bba"]
+[ext_resource type="Texture2D" uid="uid://dl70st0bdxukg" path="res://Assets/UI/Spellcards2.png" id="25_sruad"]
+[ext_resource type="Texture2D" uid="uid://siyq5k5htydp" path="res://Assets/UI/UpgradeIcons.png" id="26_0unkw"]
+[ext_resource type="Texture2D" uid="uid://cgakxi0t1lwe7" path="res://Assets/UI/Staticons.png" id="27_l830p"]
+[ext_resource type="Texture2D" uid="uid://cytptuuf0v3e5" path="res://Assets/Particle_Sprites/bigfireball.png" id="28_yk41p"]
+[ext_resource type="Texture2D" uid="uid://deqsdtpq6bt6s" path="res://Assets/UI/YCSTA_UIboxes-1.png" id="29_85k3k"]
+[ext_resource type="Texture2D" uid="uid://c5yw41i5s8ra" path="res://Assets/UI/Meeblingbuttons.png" id="30_wlctj"]
+[ext_resource type="Texture2D" uid="uid://b35lpeblxr4uq" path="res://Assets/Environment_Sprites/WoodenBridge2h.png" id="31_u2bba"]
 
 [sub_resource type="FontVariation" id="FontVariation_sht4a"]
 base_font = ExtResource("1_veujv")
@@ -812,7 +812,6 @@ texture = ExtResource("15_0342e")
 [node name="YcstaBullets-2" type="Sprite2D" parent="Pages/Page03"]
 position = Vector2(152, 96)
 rotation = -0.0727942
-scale = Vector2(1, 1)
 texture = ExtResource("15_0342e")
 
 [node name="Page04" type="Node2D" parent="Pages"]
@@ -961,9 +960,10 @@ texture = ExtResource("16_ojfkg")
 [node name="YcstaXp" type="Sprite2D" parent="Pages/Page05"]
 position = Vector2(200, 84)
 scale = Vector2(2, 2)
-texture = ExtResource("20_mv6sc")
-hframes = 3
-vframes = 2
+texture = ExtResource("21_kgfqt")
+hframes = 5
+vframes = 5
+frame = 3
 
 [node name="XPbar" type="TextureProgressBar" parent="Pages/Page05"]
 offset_left = 60.0

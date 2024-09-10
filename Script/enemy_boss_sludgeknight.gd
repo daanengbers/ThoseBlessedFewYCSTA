@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 var EXPORB = preload("res://Scenes/exp_area.tscn")
-var AOE = preload("res://Scenes/enemy_aoe.tscn")
 
 @export var SPEED = 20
 @export var canflip = false
@@ -31,7 +30,6 @@ func _ready():
 	#$EffectsAnim.play("default")
 	$UI/Healthbar.max_value = hp
 	$Sprites/Blade/BladePivotpoint/Swordanimation.play("idle")
-	
 
 func _physics_process(_delta):
 	
@@ -140,11 +138,6 @@ func spawn_exporb():
 	get_parent().add_child.call_deferred(ex)
 	ex.position = global_position
 	ex.expamount = 500
-
-func spawn_aoe():
-	var ex = AOE.instantiate()
-	get_parent().add_child.call_deferred(ex)
-	ex.position = global_position
 
 func _on_update_timer_timeout():
 	update_meeblingsandmovement()

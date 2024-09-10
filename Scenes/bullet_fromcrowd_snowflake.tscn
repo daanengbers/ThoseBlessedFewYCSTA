@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cuat3yklkupyd"]
 
 [ext_resource type="Script" path="res://Script/bullet_fromcrowd_snowflake.gd" id="1_h6tfe"]
-[ext_resource type="Texture2D" uid="uid://bryx15jfsyu32" path="res://Assets/Snowflake_proj.png" id="2_1aorm"]
+[ext_resource type="Texture2D" uid="uid://bryx15jfsyu32" path="res://Assets/Particle_Sprites/Snowflake_proj.png" id="2_1aorm"]
 
 [sub_resource type="Curve" id="Curve_oy50o"]
 _data = [Vector2(0, 0.78022), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.53689, 0.0, 0, 0]
@@ -42,10 +42,10 @@ wait_time = 4.0
 one_shot = true
 autostart = true
 
-[node name="HITbox_BULLET" type="Area2D" parent="."]
+[node name="Hitbox_BULLET" type="Area2D" parent="."]
 
-[node name="box" type="CollisionShape2D" parent="HITbox_BULLET"]
+[node name="box" type="CollisionShape2D" parent="Hitbox_BULLET"]
 shape = SubResource("CircleShape2D_146p2")
 
 [connection signal="timeout" from="QueueTimer" to="." method="_on_queue_timer_timeout"]
-[connection signal="area_entered" from="HITbox_BULLET" to="." method="_on_hi_tbox_bullet_area_entered"]
+[connection signal="area_entered" from="Hitbox_BULLET" to="." method="_on_hitbox_bullet_area_entered"]

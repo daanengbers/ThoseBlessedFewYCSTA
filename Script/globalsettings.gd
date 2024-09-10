@@ -3,8 +3,6 @@ extends Node
 var globalmusic = 1
 var global_Musicvol = 1
 var global_SFXvol = 1
-#var bus_name: String
-#var bus_index: int
 var global_controllertype = "Keyboard"
 var global_arrow = 1
 var global_showfps = false

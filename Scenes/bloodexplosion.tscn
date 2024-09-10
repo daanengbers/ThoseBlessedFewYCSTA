@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://cb4wvyqgsjpu2"]
 
 [ext_resource type="Script" path="res://Script/bloodexplosion.gd" id="1_0ecay"]
-[ext_resource type="Texture2D" uid="uid://c07teyxn2rj2r" path="res://Assets/Bloodsprite-1.png" id="1_6q6bs"]
-[ext_resource type="Texture2D" uid="uid://clcwajmp8hby7" path="res://Assets/YCSTA_Bullets-2.png" id="3_t0gwp"]
+[ext_resource type="Texture2D" uid="uid://c07teyxn2rj2r" path="res://Assets/Enemy_Sprites/Bloodsprite-1.png" id="1_6q6bs"]
+[ext_resource type="Texture2D" uid="uid://clcwajmp8hby7" path="res://Assets/Particle_Sprites/YCSTA_Bullets-2.png" id="3_t0gwp"]
 [ext_resource type="AudioStream" uid="uid://cyuf1h7m6fgr2" path="res://Sounds/splat_(FoolBoyMedia).wav" id="4_norhk"]
 
 [sub_resource type="Curve" id="Curve_rqiic"]

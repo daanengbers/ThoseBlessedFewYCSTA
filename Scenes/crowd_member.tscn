@@ -1,9 +1,9 @@
 [gd_scene load_steps=22 format=3 uid="uid://bl8fy4bkw5rdr"]
 
 [ext_resource type="Script" path="res://Script/crowd_member.gd" id="1_2m8q3"]
-[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/rotatingarrow.png" id="4_5tbgb"]
-[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/YCSTA_healthbar-1.png" id="6_233ds"]
-[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/YCSTA_healthbar-2.png" id="7_0nmkx"]
+[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="2_xp8fy"]
+[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/UI/YCSTA_healthbar-1.png" id="6_233ds"]
+[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/UI/YCSTA_healthbar-2.png" id="7_0nmkx"]
 [ext_resource type="AudioStream" uid="uid://c3c2eau8lpm7v" path="res://Sounds/exppickup1.wav" id="7_v01ic"]
 [ext_resource type="Texture2D" uid="uid://dvav5qp6ypv2b" path="res://Assets/YCSTA_Meeblings-Spritesheet.png" id="8_b8lae"]
 [ext_resource type="AudioStream" uid="uid://b3qee1fus0dfw" path="res://Sounds/meeblingdeath.wav" id="8_p3mta"]
@@ -200,7 +200,7 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"continuebouncing"
+"method": &"continueBouncing"
 }]
 }
 
@@ -230,7 +230,7 @@ visible = false
 [node name="Rotatingarrow" type="Sprite2D" parent="Rot"]
 texture_filter = 1
 rotation = 1.5708
-texture = ExtResource("4_5tbgb")
+texture = ExtResource("2_xp8fy")
 
 [node name="Rot2" type="Node2D" parent="."]
 visible = false
@@ -238,7 +238,7 @@ visible = false
 [node name="Rotatingarrow" type="Sprite2D" parent="Rot2"]
 texture_filter = 1
 rotation = 1.5708
-texture = ExtResource("4_5tbgb")
+texture = ExtResource("2_xp8fy")
 
 [node name="Healthbar" type="TextureProgressBar" parent="."]
 visible = false
@@ -271,63 +271,67 @@ texture_filter = 1
 position = Vector2(0, 7)
 texture = ExtResource("9_istdl")
 
-[node name="HURTbox_crowd" type="Area2D" parent="."]
+[node name="Hurtbox_crowd" type="Area2D" parent="."]
 
-[node name="box" type="CollisionShape2D" parent="HURTbox_crowd"]
+[node name="box" type="CollisionShape2D" parent="Hurtbox_crowd"]
 shape = SubResource("CircleShape2D_e1ekq")
-
-[node name="DoubleBulletTimer" type="Timer" parent="."]
-wait_time = 0.05
-one_shot = true
-
-[node name="CooldownstartTimer" type="Timer" parent="."]
-wait_time = 0.05
-one_shot = true
 
 [node name="Colbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yq8a6")
 
-[node name="QueueTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
+[node name="Sounds" type="Node2D" parent="."]
 
-[node name="EXPpickup" type="AudioStreamPlayer2D" parent="."]
+[node name="EXPpickup" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("7_v01ic")
 bus = &"SFX"
 
-[node name="Break" type="AudioStreamPlayer2D" parent="."]
+[node name="Break" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("8_p3mta")
 volume_db = 5.0
 bus = &"SFX"
 
-[node name="Splash" type="AudioStreamPlayer2D" parent="."]
+[node name="Splash" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("9_7blra")
 bus = &"SFX"
 
-[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="Shoot" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("10_v16go")
 volume_db = -16.0
 bus = &"SFX"
 
-[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+[node name="Hit" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("11_4i7mk")
 bus = &"SFX"
 
-[node name="Bigspell" type="AudioStreamPlayer2D" parent="."]
+[node name="Bigspell" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("12_meu6k")
 bus = &"SFX"
 
-[node name="Fall" type="AudioStreamPlayer2D" parent="."]
+[node name="Fall" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("13_x2qys")
 bus = &"SFX"
 
-[node name="SplashTimer" type="Timer" parent="."]
+[node name="Timers" type="Node" parent="."]
+
+[node name="DoubleBulletTimer" type="Timer" parent="Timers"]
+wait_time = 0.05
+one_shot = true
+
+[node name="CooldownstartTimer" type="Timer" parent="Timers"]
+wait_time = 0.05
+one_shot = true
+
+[node name="QueueTimer" type="Timer" parent="Timers"]
+wait_time = 2.0
+one_shot = true
+
+[node name="SplashTimer" type="Timer" parent="Timers"]
 wait_time = 0.8
 one_shot = true
 
-[connection signal="area_entered" from="HURTbox_crowd" to="." method="_on_hur_tbox_crowd_area_entered"]
-[connection signal="area_exited" from="HURTbox_crowd" to="." method="_on_hur_tbox_crowd_area_exited"]
-[connection signal="timeout" from="DoubleBulletTimer" to="." method="_on_double_bullet_timer_timeout"]
-[connection signal="timeout" from="CooldownstartTimer" to="." method="_on_cooldownstart_timer_timeout"]
-[connection signal="timeout" from="QueueTimer" to="." method="_on_queue_timer_timeout"]
-[connection signal="timeout" from="SplashTimer" to="." method="_on_splash_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox_crowd" to="." method="_on_hurtbox_crowd_area_entered"]
+[connection signal="area_exited" from="Hurtbox_crowd" to="." method="_on_hurtbox_crowd_area_exited"]
+[connection signal="timeout" from="Timers/DoubleBulletTimer" to="." method="_on_double_bullet_timer_timeout"]
+[connection signal="timeout" from="Timers/CooldownstartTimer" to="." method="_on_cooldownstart_timer_timeout"]
+[connection signal="timeout" from="Timers/QueueTimer" to="." method="_on_queue_timer_timeout"]
+[connection signal="timeout" from="Timers/SplashTimer" to="." method="_on_splash_timer_timeout"]

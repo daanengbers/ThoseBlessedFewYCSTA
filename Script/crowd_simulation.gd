@@ -55,7 +55,7 @@ func _ready():
 	if Globalsettings.global_controllertype == "Gamepad":
 		Gamepad_Formation()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	$UI/GameTimerUI.set_text(str(Globalsettings.g_uiminutes) + ":" + str(Globalsettings.g_uisecconds))
 	$UI/EnemiesAliveUI.set_text(str(Globalsettings.g_enemiesAlive))

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cfhu8chdech4a"]
 
-[ext_resource type="Texture2D" uid="uid://cod6rfqjed54s" path="res://Assets/CampDecorations-1.png" id="1_thf2q"]
+[ext_resource type="Texture2D" uid="uid://cod6rfqjed54s" path="res://Assets/Environment_Sprites/CampDecorations-1.png" id="1_thf2q"]
 
 [node name="Decor_Skullonstick" type="Node2D"]
 z_index = 1

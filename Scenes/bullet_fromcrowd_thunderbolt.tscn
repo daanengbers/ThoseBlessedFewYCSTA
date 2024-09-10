@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://crg7f6gkmd33i"]
 
 [ext_resource type="Script" path="res://Script/bullet_fromcrowd.gd" id="1_f6atg"]
-[ext_resource type="Texture2D" uid="uid://d3kc5rmd2m011" path="res://Assets/YCSTA_thunderbolt.png" id="2_7g18b"]
-[ext_resource type="Texture2D" uid="uid://dp4umjagy7dv3" path="res://Assets/YCSTA_Bullets-4.png" id="3_13duv"]
+[ext_resource type="Texture2D" uid="uid://d3kc5rmd2m011" path="res://Assets/Particle_Sprites/YCSTA_thunderbolt.png" id="2_7g18b"]
+[ext_resource type="Texture2D" uid="uid://dp4umjagy7dv3" path="res://Assets/Particle_Sprites/YCSTA_Bullets-4.png" id="3_13duv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_146p2"]
 radius = 3.0
@@ -34,10 +34,10 @@ wait_time = 2.0
 one_shot = true
 autostart = true
 
-[node name="HITbox_BULLET" type="Area2D" parent="."]
+[node name="Hitbox_BULLET" type="Area2D" parent="."]
 
-[node name="box" type="CollisionShape2D" parent="HITbox_BULLET"]
+[node name="box" type="CollisionShape2D" parent="Hitbox_BULLET"]
 shape = SubResource("CircleShape2D_146p2")
 
 [connection signal="timeout" from="QueueTimer" to="." method="_on_queue_timer_timeout"]
-[connection signal="area_entered" from="HITbox_BULLET" to="." method="_on_hi_tbox_bullet_area_entered"]
+[connection signal="area_entered" from="Hitbox_BULLET" to="." method="_on_hitbox_bullet_area_entered"]

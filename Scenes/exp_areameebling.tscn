@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://chkpdkwkhftff" path="res://Assets/YCSTA_XP_new.png" id="2_6vt1a"]
 [ext_resource type="Texture2D" uid="uid://dhndfxnjcfqdj" path="res://Assets/Lightshadow.png" id="3_rp7i1"]
 [ext_resource type="AudioStream" uid="uid://b3qee1fus0dfw" path="res://Sounds/meeblingdeath.wav" id="4_4wbkr"]
-[ext_resource type="Texture2D" uid="uid://fd6jsqufuyr3" path="res://Assets/YCSTA_soulparticle.png" id="5_4xf0k"]
-[ext_resource type="Texture2D" uid="uid://dgio7vw52k2u6" path="res://Assets/YCSTA_Glassshard.png" id="6_tkcf4"]
+[ext_resource type="Texture2D" uid="uid://fd6jsqufuyr3" path="res://Assets/Particle_Sprites/YCSTA_soulparticle.png" id="5_4xf0k"]
+[ext_resource type="Texture2D" uid="uid://dgio7vw52k2u6" path="res://Assets/Particle_Sprites/YCSTA_Glassshard.png" id="6_tkcf4"]
 
 [sub_resource type="Animation" id="Animation_244cs"]
 length = 0.001

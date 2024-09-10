@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://btq5wm30paoca"]
 
 [ext_resource type="Script" path="res://Script/death_clouds.gd" id="1_ism4x"]
-[ext_resource type="Texture2D" uid="uid://5766o63fxpay" path="res://Assets/Cloud_Sprite_v1.png" id="1_je02m"]
+[ext_resource type="Texture2D" uid="uid://5766o63fxpay" path="res://Assets/Tilesets/Cloud_Sprite_v1.png" id="1_je02m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4cbpi"]
 texture = ExtResource("1_je02m")
