@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cuky2bsqeylb0"]
+[gd_scene load_steps=50 format=3 uid="uid://cuky2bsqeylb0"]
 
 [ext_resource type="Script" path="res://Script/mainscene.gd" id="1_3jaey"]
 [ext_resource type="PackedScene" uid="uid://b46qb74feih7m" path="res://Scenes/crowd_simulation.tscn" id="2_gwj4c"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dacjdr3n88wlv" path="res://Assets/Dungeontiles-1.png" id="7_n2kuw"]
 [ext_resource type="Texture2D" uid="uid://douok3lf12150" path="res://Assets/Dungeontiles-outside.png" id="8_16gpw"]
 [ext_resource type="Texture2D" uid="uid://y00856mc6e1o" path="res://Assets/TileSetDeadlands (1).png" id="8_hmjka"]
-[ext_resource type="Texture2D" uid="uid://b8s0sdgrjletg" path="res://Assets/PathTiles.png" id="9_egk3k"]
 [ext_resource type="Texture2D" uid="uid://beqbkd7gxp347" path="res://Assets/BridgeStoneModular.png" id="10_aul4j"]
 [ext_resource type="Texture2D" uid="uid://bq3yleuxtaaog" path="res://Assets/CastleTileSet.png" id="14_mnntq"]
 [ext_resource type="Texture2D" uid="uid://cbtqbwxcwnacc" path="res://Assets/DungeonDetails.png" id="15_xce56"]
@@ -127,17 +126,8 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_t30br")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2o4kj"]
-texture = ExtResource("9_egk3k")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/0 = 0
-1:1/0 = 0
-0:1/0 = 0
-
 [sub_resource type="TileSet" id="TileSet_3le1j"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_2o4kj")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w67wa"]
 texture = ExtResource("4_75shg")

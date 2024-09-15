@@ -249,3 +249,16 @@ func _on_check_fps_timer_timeout():
 	$UI/Showfps.set_text("FPS: " + str(Engine.get_frames_per_second()))
 	var Enemyamount = get_tree().get_nodes_in_group("enemy_m").size()
 	$UI/Enemycount.set_text(str(Enemyamount) + " NMys")
+
+
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Fog"):
+		$"../FogEffect/ParallaxLayer/ColorRect/AnimationPlayer".play("FadeIn")
+	pass # Replace with function body.
+
+func _on_area_2d_area_exited(area):
+	if area.is_in_group("Fog"):
+		$"../FogEffect/ParallaxLayer/ColorRect/AnimationPlayer".play("FadeOut")
+	pass # Replace with function body.
