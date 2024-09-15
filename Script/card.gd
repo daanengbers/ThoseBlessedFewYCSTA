@@ -1,16 +1,25 @@
 extends Node2D
 
+# Script for choosable card when leveling up
+# Weenter In-Progess (Great Cleanup, 10-9-24) - Change function names
+
+# Issues:
+# Some changes in other scripts need to be made first before function names can be changed without breaking the game
+
 var cardnr = 1
 
 func _ready():
+	# Randomize card
 	randomize()
 	cardnr = randi()%12 + 1
-	setcardstats()
+	setCardStats()
+
+# Functions -----
 
 func rerandomizecard():
 	cardnr = randi()%12 + 1
 
-func setcardstats():
+func setCardStats():
 	# Common spells
 	if cardnr == 1:
 		actuallysetstats(0,"Strong Soul","+1 Attack",0)
@@ -57,7 +66,6 @@ func setcardstats():
 	
 	if cardnr == 50:
 		actuallysetstats(2,"Develish Deal","Reset Cooldown. +1 bullet",14)
-	
 
 func selectcard(s_button):
 	$eh/Anim.play("select")
@@ -119,14 +127,13 @@ func selectcard(s_button):
 		Globalsettings.currentrun_minuscooldown = 0
 		addstats(0,0,0,1,0)
 	
+	# THIS IS BLANK SPACE FOR WHEN NEW CARDS GET ADDED
+	# -----
 	
 	
 	
 	
-	
-	
-	
-	
+	# -----
 
 func addstats(atk,spd,cdn,amt,hp):
 	Globalsettings.currentrun_extraattack += atk
@@ -138,7 +145,7 @@ func addstats(atk,spd,cdn,amt,hp):
 	Globalsettings.currentrun_extrabullets += amt
 	Globalsettings.currentrun_extrahealth += hp
 	if hp >= 1:
-		get_tree().call_group("crowd_m", "update_hp")
+		get_tree().call_group("crowd_m", "updateHp")
 
 func actuallysetstats(cardcolor,cardname,carddescription,cardimg):
 	$eh/Spellcards.frame = cardcolor

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://ddk4sj2wey0g6"]
 
 [ext_resource type="Script" path="res://Script/card.gd" id="1_hmyi1"]
-[ext_resource type="Texture2D" uid="uid://dl70st0bdxukg" path="res://Assets/Spellcards2.png" id="2_hecq0"]
+[ext_resource type="Texture2D" uid="uid://dl70st0bdxukg" path="res://Assets/UI/Spellcards2.png" id="2_hecq0"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="3_6plav"]
-[ext_resource type="Texture2D" uid="uid://siyq5k5htydp" path="res://Assets/UpgradeIcons.png" id="4_6nhxx"]
+[ext_resource type="Texture2D" uid="uid://siyq5k5htydp" path="res://Assets/UI/UpgradeIcons.png" id="4_6nhxx"]
 [ext_resource type="AudioStream" uid="uid://3c7qv37m47tq" path="res://Sounds/cardnoise1.wav" id="5_cuntc"]
 
 [sub_resource type="Animation" id="Animation_rgsj7"]

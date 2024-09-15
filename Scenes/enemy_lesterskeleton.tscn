@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=3 uid="uid://woynnvejwgxd"]
 
 [ext_resource type="Script" path="res://Script/enemy_lesterskeleton.gd" id="1_pswjw"]
-[ext_resource type="Texture2D" uid="uid://pystlas62qi8" path="res://Assets/LesterTheSkeleton.png" id="2_bjtli"]
-[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/rotatingarrow.png" id="3_c6po1"]
-[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/YCSTA_healthbar-1.png" id="4_wplur"]
-[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/YCSTA_healthbar-2.png" id="5_5kp3w"]
+[ext_resource type="Texture2D" uid="uid://pystlas62qi8" path="res://Assets/Enemy_Sprites/LesterTheSkeleton.png" id="2_bjtli"]
+[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="3_c6po1"]
+[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/UI/YCSTA_healthbar-1.png" id="4_wplur"]
+[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/UI/YCSTA_healthbar-2.png" id="5_5kp3w"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="6_53tf4"]
 [ext_resource type="AudioStream" uid="uid://bg2xrdk3npnsa" path="res://Sounds/spellshort1.wav" id="7_6xe6p"]
 

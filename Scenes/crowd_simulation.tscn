@@ -2,48 +2,48 @@
 
 [ext_resource type="Script" path="res://Script/crowd_simulation.gd" id="1_hyuob"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="3_gjq7j"]
-[ext_resource type="Texture2D" uid="uid://deqsdtpq6bt6s" path="res://Assets/YCSTA_UIboxes-1.png" id="3_rhqmm"]
+[ext_resource type="Texture2D" uid="uid://deqsdtpq6bt6s" path="res://Assets/UI/YCSTA_UIboxes-1.png" id="3_rhqmm"]
+[ext_resource type="Texture2D" uid="uid://siyq5k5htydp" path="res://Assets/UI/UpgradeIcons.png" id="3_rmdml"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="4_h7cj8"]
-[ext_resource type="Texture2D" uid="uid://siyq5k5htydp" path="res://Assets/UpgradeIcons.png" id="4_w0fu6"]
-[ext_resource type="Texture2D" uid="uid://digsb5q5shm5s" path="res://Assets/blacktile28.png" id="5_be4lt"]
-[ext_resource type="Texture2D" uid="uid://232oadf56her" path="res://Assets/YCSTA_UIboxupgradelevel_empty.png" id="6_mt283"]
-[ext_resource type="Texture2D" uid="uid://ci72mnj78p5om" path="res://Assets/YCSTA_UIboxupgradelevel_full.png" id="7_qp7we"]
-[ext_resource type="Texture2D" uid="uid://c5yw41i5s8ra" path="res://Assets/Meeblingbuttons.png" id="8_rohor"]
+[ext_resource type="Texture2D" uid="uid://digsb5q5shm5s" path="res://Assets/UI/blacktile28.png" id="5_be4lt"]
+[ext_resource type="Texture2D" uid="uid://232oadf56her" path="res://Assets/UI/YCSTA_UIboxupgradelevel_empty.png" id="6_mt283"]
+[ext_resource type="Texture2D" uid="uid://ci72mnj78p5om" path="res://Assets/UI/YCSTA_UIboxupgradelevel_full.png" id="7_qp7we"]
+[ext_resource type="Texture2D" uid="uid://c5yw41i5s8ra" path="res://Assets/UI/Meeblingbuttons.png" id="8_rohor"]
 [ext_resource type="FontFile" uid="uid://b85f1e3h4hl2q" path="res://Fonts/Retro Gaming.ttf" id="8_wwr2p"]
-[ext_resource type="Texture2D" uid="uid://dcqqw175nsbbw" path="res://Assets/lvlbar_empty.png" id="9_hlga0"]
+[ext_resource type="Texture2D" uid="uid://dcqqw175nsbbw" path="res://Assets/UI/lvlbar_empty.png" id="9_hlga0"]
+[ext_resource type="Texture2D" uid="uid://cgakxi0t1lwe7" path="res://Assets/UI/Staticons.png" id="9_ifqvn"]
 [ext_resource type="Script" path="res://Script/SelectLevelupscreen.gd" id="9_v754b"]
-[ext_resource type="Texture2D" uid="uid://cxmshi48066ak" path="res://Assets/lvlbar_full.png" id="10_gf5as"]
-[ext_resource type="Texture2D" uid="uid://bc65frbmttbad" path="res://Assets/Selectcardarrow.png" id="11_41qpt"]
-[ext_resource type="Texture2D" uid="uid://cg180gfaancl0" path="res://Assets/Buttonshowcase.png" id="11_g741n"]
-[ext_resource type="Texture2D" uid="uid://cgakxi0t1lwe7" path="res://Assets/Staticons.png" id="11_q0y8a"]
-[ext_resource type="Texture2D" uid="uid://dsh5841pjc8i5" path="res://Assets/YCSTA_Souldparticles.png" id="13_nqnof"]
+[ext_resource type="Texture2D" uid="uid://cxmshi48066ak" path="res://Assets/UI/lvlbar_full.png" id="10_gf5as"]
+[ext_resource type="Texture2D" uid="uid://cg180gfaancl0" path="res://Assets/UI/Buttonshowcase.png" id="13_0j5gc"]
+[ext_resource type="Texture2D" uid="uid://dsh5841pjc8i5" path="res://Assets/Particle_Sprites/YCSTA_Souldparticles.png" id="13_nqnof"]
 [ext_resource type="Texture2D" uid="uid://c02rr86yd8vae" path="res://Assets/YCSTA_Arrow (new).png" id="14_7qeql"]
-[ext_resource type="Texture2D" uid="uid://d21gc6pesq6l3" path="res://Assets/GameOver.png" id="16_3ytvi"]
+[ext_resource type="Texture2D" uid="uid://bc65frbmttbad" path="res://Assets/UI/Selectcardarrow.png" id="15_o6n48"]
+[ext_resource type="Texture2D" uid="uid://d21gc6pesq6l3" path="res://Assets/UI/GameOver.png" id="16_3ytvi"]
 [ext_resource type="AudioStream" uid="uid://bad6nr05h2axn" path="res://Sounds/lvlup1.wav" id="16_nlck6"]
-[ext_resource type="Texture2D" uid="uid://clio7b0ifxo4" path="res://Assets/Aimicon.png" id="17_qerbj"]
+[ext_resource type="Texture2D" uid="uid://clio7b0ifxo4" path="res://Assets/UI/Aimicon.png" id="17_qerbj"]
 
 [sub_resource type="FontVariation" id="FontVariation_0hjnx"]
 base_font = ExtResource("3_gjq7j")
 spacing_space = -4
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j74bb"]
-atlas = ExtResource("11_g741n")
+atlas = ExtResource("13_0j5gc")
 region = Rect2(0, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g64dw"]
-atlas = ExtResource("11_g741n")
+atlas = ExtResource("13_0j5gc")
 region = Rect2(64, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tm4gb"]
-atlas = ExtResource("11_g741n")
+atlas = ExtResource("13_0j5gc")
 region = Rect2(0, 32, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3r4j"]
-atlas = ExtResource("11_g741n")
+atlas = ExtResource("13_0j5gc")
 region = Rect2(64, 32, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8v688"]
-atlas = ExtResource("11_g741n")
+atlas = ExtResource("13_0j5gc")
 region = Rect2(0, 64, 64, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pd6dk"]
@@ -450,7 +450,7 @@ metadata/_edit_group_ = true
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box02"]
 texture_filter = 1
-texture = ExtResource("4_w0fu6")
+texture = ExtResource("3_rmdml")
 hframes = 4
 vframes = 4
 frame = 15
@@ -482,7 +482,7 @@ metadata/_edit_group_ = true
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box01"]
 texture_filter = 1
-texture = ExtResource("4_w0fu6")
+texture = ExtResource("3_rmdml")
 hframes = 4
 vframes = 4
 frame = 15
@@ -530,7 +530,7 @@ metadata/_edit_group_ = true
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box04"]
 texture_filter = 1
-texture = ExtResource("4_w0fu6")
+texture = ExtResource("3_rmdml")
 hframes = 4
 vframes = 4
 frame = 15
@@ -562,7 +562,7 @@ metadata/_edit_group_ = true
 
 [node name="UpgradeIcons" type="Sprite2D" parent="UI/Box03"]
 texture_filter = 1
-texture = ExtResource("4_w0fu6")
+texture = ExtResource("3_rmdml")
 hframes = 4
 vframes = 4
 frame = 15
@@ -674,7 +674,7 @@ vframes = 2
 [node name="Staticons" type="Sprite2D" parent="UI"]
 texture_filter = 1
 position = Vector2(8, 39)
-texture = ExtResource("11_q0y8a")
+texture = ExtResource("9_ifqvn")
 
 [node name="Text_ATKlvl" type="Label" parent="UI"]
 texture_filter = 1
@@ -809,7 +809,7 @@ horizontal_alignment = 1
 z_index = 1
 texture_filter = 1
 position = Vector2(90, 144)
-texture = ExtResource("11_41qpt")
+texture = ExtResource("15_o6n48")
 hframes = 2
 vframes = 2
 

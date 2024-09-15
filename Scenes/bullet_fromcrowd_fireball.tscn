@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cvb13qe15fxun"]
 
 [ext_resource type="Script" path="res://Script/bullet_fromcrowd.gd" id="1_kuipr"]
-[ext_resource type="Texture2D" uid="uid://cytptuuf0v3e5" path="res://Assets/bigfireball.png" id="2_vtojf"]
-[ext_resource type="Texture2D" uid="uid://clcwajmp8hby7" path="res://Assets/YCSTA_Bullets-2.png" id="3_d748p"]
+[ext_resource type="Texture2D" uid="uid://cytptuuf0v3e5" path="res://Assets/Particle_Sprites/bigfireball.png" id="2_yq000"]
+[ext_resource type="Texture2D" uid="uid://clcwajmp8hby7" path="res://Assets/Particle_Sprites/YCSTA_Bullets-2.png" id="3_x5bjt"]
 
 [sub_resource type="Curve" id="Curve_oy50o"]
 _data = [Vector2(0, 0.78022), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.53689, 0.0, 0, 0]
@@ -23,13 +23,13 @@ damage = 25
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_vtojf")
+texture = ExtResource("2_yq000")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 z_index = -1
 texture_filter = 1
 lifetime = 0.6
-texture = ExtResource("3_d748p")
+texture = ExtResource("3_x5bjt")
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 4.0
@@ -43,10 +43,10 @@ wait_time = 4.0
 one_shot = true
 autostart = true
 
-[node name="HITbox_BULLET" type="Area2D" parent="."]
+[node name="Hitbox_BULLET" type="Area2D" parent="."]
 
-[node name="box" type="CollisionShape2D" parent="HITbox_BULLET"]
+[node name="box" type="CollisionShape2D" parent="Hitbox_BULLET"]
 shape = SubResource("CircleShape2D_146p2")
 
 [connection signal="timeout" from="QueueTimer" to="." method="_on_queue_timer_timeout"]
-[connection signal="area_entered" from="HITbox_BULLET" to="." method="_on_hi_tbox_bullet_area_entered"]
+[connection signal="area_entered" from="Hitbox_BULLET" to="." method="_on_hitbox_bullet_area_entered"]

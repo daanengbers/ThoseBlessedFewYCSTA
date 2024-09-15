@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=3 uid="uid://c2fxesfd424fa"]
 
 [ext_resource type="Script" path="res://Script/enemy_member.gd" id="1_27jjo"]
-[ext_resource type="Texture2D" uid="uid://xjft5bfbaqpp" path="res://Assets/Daanslime-1.png" id="2_qo07c"]
-[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/rotatingarrow.png" id="3_hctt1"]
-[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/YCSTA_healthbar-1.png" id="5_m10tn"]
-[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/YCSTA_healthbar-2.png" id="6_db5yi"]
+[ext_resource type="Texture2D" uid="uid://xjft5bfbaqpp" path="res://Assets/Enemy_Sprites/Daanslime-1.png" id="2_qo07c"]
+[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="3_hctt1"]
+[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/UI/YCSTA_healthbar-1.png" id="5_m10tn"]
+[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/UI/YCSTA_healthbar-2.png" id="6_db5yi"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="7_kh61y"]
 [ext_resource type="AudioStream" uid="uid://bg2xrdk3npnsa" path="res://Sounds/spellshort1.wav" id="9_k1fgi"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://di6fiw303vk2t"]
 
 [ext_resource type="Script" path="res://Script/bullet_fromcrowd_poisonsmoke.gd" id="1_iltu7"]
-[ext_resource type="Texture2D" uid="uid://dg73l8fgpdajl" path="res://Assets/Ghostcloud.png" id="2_kilay"]
+[ext_resource type="Texture2D" uid="uid://dg73l8fgpdajl" path="res://Assets/Particle_Sprites/Ghostcloud.png" id="2_kilay"]
 
 [sub_resource type="Curve" id="Curve_oy50o"]
 _data = [Vector2(0, 0.78022), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.53689, 0.0, 0, 0]
@@ -59,7 +59,7 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"stopemitting"
+"method": &"stopEmitting"
 }]
 }
 
@@ -96,16 +96,16 @@ wait_time = 4.0
 one_shot = true
 autostart = true
 
-[node name="HITbox_BULLET" type="Area2D" parent="."]
+[node name="Hitbox_BULLET" type="Area2D" parent="."]
 
-[node name="box" type="CollisionShape2D" parent="HITbox_BULLET"]
+[node name="box" type="CollisionShape2D" parent="Hitbox_BULLET"]
 shape = SubResource("CircleShape2D_146p2")
 disabled = true
 
-[node name="Anim" type="AnimationPlayer" parent="HITbox_BULLET"]
+[node name="Anim" type="AnimationPlayer" parent="Hitbox_BULLET"]
 libraries = {
 "": SubResource("AnimationLibrary_evgjb")
 }
 
 [connection signal="timeout" from="QueueTimer" to="." method="_on_queue_timer_timeout"]
-[connection signal="area_entered" from="HITbox_BULLET" to="." method="_on_hi_tbox_bullet_area_entered"]
+[connection signal="area_entered" from="Hitbox_BULLET" to="." method="_on_hitbox_bullet_area_entered"]

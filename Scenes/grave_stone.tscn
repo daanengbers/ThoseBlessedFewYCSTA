@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dq6q1k1apculs"]
 
-[ext_resource type="Texture2D" uid="uid://cc47o43w7r2i0" path="res://Assets/Gravestones.png" id="1_ebiry"]
+[ext_resource type="Texture2D" uid="uid://cc47o43w7r2i0" path="res://Assets/Tilesets/Gravestones.png" id="1_ebiry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4h2l"]
 size = Vector2(28, 18)

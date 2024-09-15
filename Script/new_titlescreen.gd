@@ -1,5 +1,8 @@
 extends Node2D
 
+# Script for title screen after the game-jam.
+# Weenter Approved (Great Cleanup, 9-9-24)
+
 var pressed_nextscene = false
 var controllertype = ""
 var nextscene = 1
@@ -15,16 +18,30 @@ var local_sfx_volume = 100
 var local_music_volume = 100
 
 func _ready():
+	
+	# Set up default animations
+	
 	$Startoptions/Selecticon/Iconanim.play("flame")
 	$Blackscreen/FadeAnim.play("fadein")
+	
+	# Display score
+	
 	$Startrun/Startruntext02.set_text("PREVIOUS SCORE: " + str(0))
 	$Startrun/Startruntext03.set_text("HIGHEST SCORE: " + str(Globalsettings.highscore_xp))
-	arrowselected = Globalsettings.global_arrow
+	
+	# Set local variables to global variables
+	
+	# ----- Set music to main theme
 	Globalsettings.bossfight_active = false
 	Globalsettings.setmusic()
 	Globalsettings.globalmusic = 1
-	change_arrow()
+	
+	# ----- Set arrow to global arrow
+	arrowselected = Globalsettings.global_arrow
 	$Customize/Arrowskin/Skinplayer.play("arrow" + str(arrowselected))
+	changeArrow()
+	
+	# ----- Set settings/settings display to global settings
 	if Globalsettings.global_showfps == true:
 		$Settings/Setting04.set_text("Show FPS: ON >")
 	elif Globalsettings.global_showfps == false:
@@ -33,43 +50,46 @@ func _ready():
 		$Settings/Setting05.set_text("Full Screen: ON >")
 	elif Globalsettings.global_fullscreen == false:
 		$Settings/Setting05.set_text("Full Screen: < OFF")
-	$Settings/SFXbar.value = Globalsettings.global_SFXvol
-	$Settings/Musicbar.value = Globalsettings.global_Musicvol
-	
+	$Settings/SFX_bar.value = Globalsettings.global_SFXvol
+	$Settings/Music_bar.value = Globalsettings.global_Musicvol
 
 func _process(_delta):
 	
+	# Up and down inputs
+	
 	if Input.is_action_just_pressed("down") && canpress == true:
 		if menuselected == 0 && menu_main_selected < 6:
-			changemenuselect_main(1)
+			changeMenuSelectMain(1)
 			$Sounds/move.play()
 		if menuselected == 2 && settingselected < 5:
 			settingselected += 1
-			change_setting()
+			changeSetting()
 			$Sounds/move.play()
 	if Input.is_action_just_pressed("up"):
 		if menuselected == 0 && menu_main_selected > 1:
-			changemenuselect_main(-1)
+			changeMenuSelectMain(-1)
 			$Sounds/move.play()
 		if menuselected == 2 && settingselected > 1:
 			settingselected -= 1
-			change_setting()
+			changeSetting()
 			$Sounds/move.play()
+	
+	# Left and right inputs
 	
 	if Input.is_action_just_pressed("left"):
 		if menuselected == 0 && menu_main_selected == 3:
 			if arrowselected > 1:
 				arrowselected -= 1
 				$Customize/Arrowskin/Skinplayer.play("arrow" + str(arrowselected))
-				change_arrow()
+				changeArrow()
 				$Sounds/move.play()
 		if menuselected == 2 && settingselected == 1 && Globalsettings.global_SFXvol > 0:
 			Globalsettings.global_SFXvol -= 0.05
-			$Settings/SFXbar.value = Globalsettings.global_SFXvol
+			$Settings/SFX_bar.value = Globalsettings.global_SFXvol
 			$Sounds/move.play()
 		if menuselected == 2 && settingselected == 2 && Globalsettings.global_Musicvol > 0:
 			Globalsettings.global_Musicvol -= 0.05
-			$Settings/Musicbar.value = Globalsettings.global_Musicvol
+			$Settings/Music_bar.value = Globalsettings.global_Musicvol
 			$Sounds/move.play()
 		if menuselected == 2 && settingselected == 3:
 			if Globalsettings.global_showfps == false:
@@ -85,15 +105,15 @@ func _process(_delta):
 			if arrowselected < 8:
 				arrowselected += 1
 				$Customize/Arrowskin/Skinplayer.play("arrow" + str(arrowselected))
-				change_arrow()
+				changeArrow()
 				$Sounds/move.play()
 		if menuselected == 2 && settingselected == 1 && Globalsettings.global_SFXvol < 1:
 			Globalsettings.global_SFXvol += 0.05
-			$Settings/SFXbar.value = Globalsettings.global_SFXvol
+			$Settings/SFX_bar.value = Globalsettings.global_SFXvol
 			$Sounds/move.play()
 		if menuselected == 2 && settingselected == 2 && Globalsettings.global_Musicvol < 1:
 			Globalsettings.global_Musicvol += 0.05
-			$Settings/Musicbar.value = Globalsettings.global_Musicvol
+			$Settings/Music_bar.value = Globalsettings.global_Musicvol
 			$Sounds/move.play()
 		if menuselected == 2 && settingselected == 3:
 			if Globalsettings.global_showfps == true:
@@ -105,7 +125,7 @@ func _process(_delta):
 				Globalsettings.global_fullscreen = false
 				$Settings/Setting05.set_text("Full Screen: < OFF")
 	
-	
+	# Check controller type and change settings accordingly
 	
 	if Input.is_action_just_pressed("any_keyboard"):
 		Globalsettings.global_controllertype = "Keyboard"
@@ -118,25 +138,29 @@ func _process(_delta):
 		$Startrun/CE_keyboard.visible = false
 		$Startrun/CE_Controller.visible = true
 	
+	# Enter inputs
+	
 	if (Input.is_action_just_pressed("spell1") or Input.is_action_just_pressed("spell2") or Input.is_action_just_pressed("spell3") or Input.is_action_just_pressed("spell4") or Input.is_action_just_pressed("enter")) && canpress == true:
 		if menu_main_selected == 1:
-			Go_to_other_scene(1)
+			goToOtherScene(1)
 			$Sounds/select.play()
 		if menu_main_selected == 2:
-			Go_to_other_scene(2)
+			goToOtherScene(2)
 			$Sounds/select.play()
 		if menu_main_selected == 4 && menuselected == 0:
-			go_to_settings()
+			goToSettings()
 			$Sounds/select.play()
 		if menu_main_selected == 6:
 			$Feedback/Feedback02.set_text("A tab with a feedback questionaire should have opened in your browser. Please check your browser.")
 			OS.shell_open("https://forms.gle/8HK2TkKNP3kmGMYR8")
 			$Sounds/select.play()
 		if menuselected == 2 && settingselected == 5:
-			back_to_mainmenu()
+			backToMainMenu()
 			$Sounds/back.play()
 
-func changemenuselect_main(add_move):
+# Functions -----
+
+func changeMenuSelectMain(add_move):
 	menu_main_selected += add_move
 	$Startoptions/Selecticon.position.x = 12
 	if menu_main_selected == 1:
@@ -168,7 +192,7 @@ func changemenuselect_main(add_move):
 		$Credits.visible = false
 		$Feedback.visible = true
 
-func change_arrow():
+func changeArrow():
 	$Customize/Arrowskin.flip_h = false
 	if arrowselected == 1:
 		$Customize/Customizetext02.set_text("Red Arrow")
@@ -187,18 +211,18 @@ func change_arrow():
 	if arrowselected == 8:
 		$Customize/Customizetext02.set_text("quack")
 
-func go_to_settings():
+func goToSettings():
 	menuselected = 2
 	$Startoptions/Selecticon.position.x = 172
 	settingselected = 1
-	change_setting()
+	changeSetting()
 
-func back_to_mainmenu():
+func backToMainMenu():
 	menuselected = 0
 	settingselected = 1
-	changemenuselect_main(0)
+	changeMenuSelectMain(0)
 
-func change_setting():
+func changeSetting():
 	if settingselected == 1:
 		$Startoptions/Selecticon.position.y = 76
 	if settingselected == 2:
@@ -210,13 +234,13 @@ func change_setting():
 	if settingselected == 5: # Back option
 		$Startoptions/Selecticon.position.y = 151
 
-func Go_to_other_scene(scenenr):
+func goToOtherScene(scenenr):
 	canpress = false
 	menuselected = -1
 	nextscene = scenenr
 	$Blackscreen/FadeAnim.play("fadeout")
 
-func enter_next_scene():
+func enterNextScene():
 	canpress = false
 	if nextscene == 1:
 		Globalsettings.global_arrow = arrowselected
@@ -225,11 +249,13 @@ func enter_next_scene():
 	if nextscene == 2:
 		get_tree().change_scene_to_file("res://Scenes/tutorial.tscn")
 
-func _on_sf_xbar_value_changed(value):
+# Signals -----
+
+func _on_sfx_bar_value_changed(value):
 	AudioServer.set_bus_volume_db(2,linear_to_db(value))
 	Globalsettings.global_SFXvol = value
 
-func _on_musicbar_value_changed(value):
+func _on_music_bar_value_changed(value):
 	AudioServer.set_bus_volume_db(1,linear_to_db(value))
 	Globalsettings.global_Musicvol = value
 

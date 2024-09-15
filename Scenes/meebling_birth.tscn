@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://b1grftv0icr5o"]
 
-[ext_resource type="Texture2D" uid="uid://beqcri3xxoul" path="res://Assets/YCSTA_lightpoint.png" id="1_42kdf"]
+[ext_resource type="Texture2D" uid="uid://beqcri3xxoul" path="res://Assets/Particle_Sprites/YCSTA_lightpoint.png" id="1_42kdf"]
 [ext_resource type="Script" path="res://Script/meebling_birth.gd" id="1_omn0s"]
 [ext_resource type="Texture2D" uid="uid://dvav5qp6ypv2b" path="res://Assets/YCSTA_Meeblings-Spritesheet.png" id="2_fko0a"]
-[ext_resource type="Texture2D" uid="uid://clcwajmp8hby7" path="res://Assets/YCSTA_Bullets-2.png" id="4_urw6b"]
+[ext_resource type="Texture2D" uid="uid://clcwajmp8hby7" path="res://Assets/Particle_Sprites/YCSTA_Bullets-2.png" id="4_urw6b"]
 [ext_resource type="AudioStream" uid="uid://bad6nr05h2axn" path="res://Sounds/lvlup1.wav" id="5_5g700"]
 
 [sub_resource type="Animation" id="Animation_604b2"]

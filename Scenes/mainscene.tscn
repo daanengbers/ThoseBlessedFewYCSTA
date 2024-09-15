@@ -1,31 +1,33 @@
-[gd_scene load_steps=50 format=3 uid="uid://cuky2bsqeylb0"]
+[gd_scene load_steps=53 format=3 uid="uid://cuky2bsqeylb0"]
 
 [ext_resource type="Script" path="res://Script/mainscene.gd" id="1_3jaey"]
 [ext_resource type="PackedScene" uid="uid://b46qb74feih7m" path="res://Scenes/crowd_simulation.tscn" id="2_gwj4c"]
-[ext_resource type="Texture2D" uid="uid://becusm8nesdor" path="res://Assets/Cliff_Sprite_v1.png" id="2_id5t6"]
+[ext_resource type="Texture2D" uid="uid://becusm8nesdor" path="res://Assets/Tilesets/Cliff_Sprite_v1.png" id="2_id5t6"]
 [ext_resource type="PackedScene" uid="uid://bl8fy4bkw5rdr" path="res://Scenes/crowd_member.tscn" id="3_3hnlo"]
-[ext_resource type="Texture2D" uid="uid://v7hwdfua3xtm" path="res://Assets/DeadGrass_Corners_v1s.png" id="4_2igfj"]
-[ext_resource type="Texture2D" uid="uid://5766o63fxpay" path="res://Assets/Cloud_Sprite_v1.png" id="4_75shg"]
-[ext_resource type="Texture2D" uid="uid://b35lpeblxr4uq" path="res://Assets/WoodenBridge2h.png" id="5_8yoqs"]
-[ext_resource type="Texture2D" uid="uid://c5ynguy5hk02f" path="res://Assets/Grass_Blend_vF.png" id="6_i8tby"]
+[ext_resource type="Texture2D" uid="uid://v7hwdfua3xtm" path="res://Assets/Tilesets/DeadGrass_Corners_v1s.png" id="4_2igfj"]
+[ext_resource type="Texture2D" uid="uid://5766o63fxpay" path="res://Assets/Tilesets/Cloud_Sprite_v1.png" id="4_75shg"]
+[ext_resource type="Texture2D" uid="uid://b35lpeblxr4uq" path="res://Assets/Environment_Sprites/WoodenBridge2h.png" id="5_8yoqs"]
+[ext_resource type="Texture2D" uid="uid://c5ynguy5hk02f" path="res://Assets/Tilesets/Grass_Blend_vF.png" id="6_i8tby"]
 [ext_resource type="PackedScene" uid="uid://c46w1oefw787c" path="res://Scenes/enemy_spawner.tscn" id="7_6pyun"]
-[ext_resource type="Texture2D" uid="uid://dacjdr3n88wlv" path="res://Assets/Dungeontiles-1.png" id="7_n2kuw"]
-[ext_resource type="Texture2D" uid="uid://douok3lf12150" path="res://Assets/Dungeontiles-outside.png" id="8_16gpw"]
-[ext_resource type="Texture2D" uid="uid://y00856mc6e1o" path="res://Assets/TileSetDeadlands (1).png" id="8_hmjka"]
-[ext_resource type="Texture2D" uid="uid://beqbkd7gxp347" path="res://Assets/BridgeStoneModular.png" id="10_aul4j"]
-[ext_resource type="Texture2D" uid="uid://bq3yleuxtaaog" path="res://Assets/CastleTileSet.png" id="14_mnntq"]
-[ext_resource type="Texture2D" uid="uid://cbtqbwxcwnacc" path="res://Assets/DungeonDetails.png" id="15_xce56"]
+[ext_resource type="Texture2D" uid="uid://dacjdr3n88wlv" path="res://Assets/Tilesets/Dungeontiles-1.png" id="7_n2kuw"]
+[ext_resource type="Texture2D" uid="uid://douok3lf12150" path="res://Assets/Tilesets/Dungeontiles-outside.png" id="8_16gpw"]
+[ext_resource type="Texture2D" uid="uid://y00856mc6e1o" path="res://Assets/Tilesets/TileSetDeadlands (1).png" id="8_hmjka"]
+[ext_resource type="Texture2D" uid="uid://b8s0sdgrjletg" path="res://Assets/Tilesets/PathTiles.png" id="9_egk3k"]
+[ext_resource type="Texture2D" uid="uid://beqbkd7gxp347" path="res://Assets/Environment_Sprites/BridgeStoneModular.png" id="10_aul4j"]
+[ext_resource type="Texture2D" uid="uid://bq3yleuxtaaog" path="res://Assets/Tilesets/CastleTileSet.png" id="14_mnntq"]
+[ext_resource type="Texture2D" uid="uid://cbtqbwxcwnacc" path="res://Assets/Tilesets/DungeonDetails.png" id="15_xce56"]
 [ext_resource type="Shader" path="res://Shaders/waveshader.gdshader" id="16_oagg3"]
-[ext_resource type="Texture2D" uid="uid://d10xllb3gvng7" path="res://Assets/YCSTA_water_3.png" id="17_kt38g"]
-[ext_resource type="Texture2D" uid="uid://spyw7i6l8he6" path="res://Assets/YCSTA_water_2.png" id="18_mtk4k"]
-[ext_resource type="Texture2D" uid="uid://bxoxbig2xrc6h" path="res://Assets/Tower_Split_Lower.png" id="21_4mpwi"]
-[ext_resource type="PackedScene" uid="uid://bcp1j8ohl53o8" path="res://Scenes/enemy_eyeboss.tscn" id="21_k1ikb"]
-[ext_resource type="Texture2D" uid="uid://j2ppfh3wk0pk" path="res://Assets/YCSTA_water_1.png" id="21_qqomw"]
+[ext_resource type="Texture2D" uid="uid://d10xllb3gvng7" path="res://Assets/Environment_Sprites/YCSTA_water_3.png" id="17_kt38g"]
+[ext_resource type="Texture2D" uid="uid://spyw7i6l8he6" path="res://Assets/Environment_Sprites/YCSTA_water_2.png" id="18_mtk4k"]
+[ext_resource type="Texture2D" uid="uid://bxoxbig2xrc6h" path="res://Assets/Environment_Sprites/Tower_Split_Lower.png" id="21_4mpwi"]
+[ext_resource type="PackedScene" uid="uid://bcp1j8ohl53o8" path="res://Scenes/enemy_CrimsonWatcher.tscn" id="21_k1ikb"]
+[ext_resource type="Texture2D" uid="uid://j2ppfh3wk0pk" path="res://Assets/Environment_Sprites/YCSTA_water_1.png" id="21_qqomw"]
 [ext_resource type="PackedScene" uid="uid://cfhu8chdech4a" path="res://Scenes/Decor/decor_skullonstick.tscn" id="22_dby0b"]
-[ext_resource type="Texture2D" uid="uid://d3cveew3vqy0c" path="res://Assets/Tower_Split_Upper.png" id="22_fq5mk"]
+[ext_resource type="Texture2D" uid="uid://d3cveew3vqy0c" path="res://Assets/Environment_Sprites/Tower_Split_Upper.png" id="22_fq5mk"]
 [ext_resource type="PackedScene" uid="uid://x81ykcq4gjl2" path="res://Scenes/meebling_cage.tscn" id="22_n6bcc"]
 [ext_resource type="PackedScene" uid="uid://di5jjqqiofweh" path="res://Scenes/enemy_boss_sludgeknight.tscn" id="25_b8cmb"]
-[ext_resource type="Texture2D" uid="uid://d1tfpy0c0luuh" path="res://Assets/CampDecorations-3.png" id="28_cfgnc"]
+[ext_resource type="PackedScene" uid="uid://qcnugi4u6sup" path="res://Scenes/exp_area.tscn" id="28_632pq"]
+[ext_resource type="Texture2D" uid="uid://d1tfpy0c0luuh" path="res://Assets/Environment_Sprites/CampDecorations-3.png" id="28_cfgnc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ec5ca"]
 texture = ExtResource("2_id5t6")
@@ -126,8 +128,17 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_t30br")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2o4kj"]
+texture = ExtResource("9_egk3k")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_3le1j"]
 tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_2o4kj")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w67wa"]
 texture = ExtResource("4_75shg")
@@ -1137,10 +1148,6 @@ polygon = PackedVector2Array(445, -1034, 446, -1011, 448, -986, 450, -932, 390, 
 z_index = 14
 position = Vector2(1034, -901)
 
-[node name="Enemy_Eyeboss3" parent="." instance=ExtResource("21_k1ikb")]
-z_index = 14
-position = Vector2(242, -535)
-
 [node name="Enemy_Eyeboss2" parent="." instance=ExtResource("21_k1ikb")]
 position = Vector2(-1936, 118)
 
@@ -1163,3 +1170,7 @@ texture = ExtResource("22_fq5mk")
 position = Vector2(0, 4)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_qcf3t")
+
+[node name="EXP_area" parent="." instance=ExtResource("28_632pq")]
+position = Vector2(98, 55)
+expamount = 100

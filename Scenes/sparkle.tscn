@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://csdd0fbvi0dop"]
 
 [ext_resource type="Script" path="res://Script/sparkle.gd" id="1_kigjn"]
-[ext_resource type="Texture2D" uid="uid://dhlmlnchmo2yo" path="res://Assets/Sparkle1.png" id="2_ono76"]
-[ext_resource type="Texture2D" uid="uid://b3uxttb7alddf" path="res://Assets/Sparkle2.png" id="2_peno5"]
+[ext_resource type="Texture2D" uid="uid://dhlmlnchmo2yo" path="res://Assets/Particle_Sprites/Sparkle1.png" id="2_ono76"]
+[ext_resource type="Texture2D" uid="uid://b3uxttb7alddf" path="res://Assets/Particle_Sprites/Sparkle2.png" id="2_peno5"]
 [ext_resource type="AudioStream" uid="uid://bw56ci8al1bwb" path="res://Sounds/fastsparkle.wav" id="4_76yvn"]
 
 [sub_resource type="Curve" id="Curve_nhuni"]
