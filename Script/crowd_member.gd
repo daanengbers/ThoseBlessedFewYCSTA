@@ -354,4 +354,4 @@ func _on_queue_timer_timeout():
 	queue_free()
 
 func _on_splash_timer_timeout():
-	$SoundsSplash.play()
+	$Sounds/Splash.play()

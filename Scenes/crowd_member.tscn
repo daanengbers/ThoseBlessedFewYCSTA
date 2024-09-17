@@ -311,6 +311,9 @@ bus = &"SFX"
 stream = ExtResource("13_x2qys")
 bus = &"SFX"
 
+[node name="SoundsSplash" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("9_7blra")
+
 [node name="Timers" type="Node" parent="."]
 
 [node name="DoubleBulletTimer" type="Timer" parent="Timers"]

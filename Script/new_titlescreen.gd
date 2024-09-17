@@ -245,7 +245,7 @@ func enterNextScene():
 	if nextscene == 1:
 		Globalsettings.global_arrow = arrowselected
 		Globalsettings.resetrun()
-		get_tree().change_scene_to_file("res://Scenes/mainscene.tscn")
+		get_tree().change_scene_to_file("res://Scenes/level_1.tscn")
 	if nextscene == 2:
 		get_tree().change_scene_to_file("res://Scenes/tutorial.tscn")
 
