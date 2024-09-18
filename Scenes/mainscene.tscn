@@ -26,8 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://d3cveew3vqy0c" path="res://Assets/Environment_Sprites/Tower_Split_Upper.png" id="22_fq5mk"]
 [ext_resource type="PackedScene" uid="uid://x81ykcq4gjl2" path="res://Scenes/meebling_cage.tscn" id="22_n6bcc"]
 [ext_resource type="PackedScene" uid="uid://di5jjqqiofweh" path="res://Scenes/enemy_boss_sludgeknight.tscn" id="25_b8cmb"]
-[ext_resource type="PackedScene" uid="uid://qcnugi4u6sup" path="res://Scenes/exp_area.tscn" id="28_632pq"]
 [ext_resource type="Texture2D" uid="uid://d1tfpy0c0luuh" path="res://Assets/Environment_Sprites/CampDecorations-3.png" id="28_cfgnc"]
+[ext_resource type="PackedScene" uid="uid://dp7mp2oc8at6y" path="res://Scenes/enemy_Treeboss.tscn" id="29_yarbo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ec5ca"]
 texture = ExtResource("2_id5t6")
@@ -1107,6 +1107,9 @@ position = Vector2(118, 4)
 [node name="Enemy_Sludgeknight" parent="Ysorter" instance=ExtResource("25_b8cmb")]
 position = Vector2(1723, -2314)
 
+[node name="Enemy_Treeboss" parent="Ysorter" instance=ExtResource("29_yarbo")]
+position = Vector2(161, 45)
+
 [node name="NonsortedDecor" type="Node2D" parent="."]
 
 [node name="CampDecorations-3" type="Sprite2D" parent="NonsortedDecor"]
@@ -1170,7 +1173,3 @@ texture = ExtResource("22_fq5mk")
 position = Vector2(0, 4)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_qcf3t")
-
-[node name="EXP_area" parent="." instance=ExtResource("28_632pq")]
-position = Vector2(98, 55)
-expamount = 100

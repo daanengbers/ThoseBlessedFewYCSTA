@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var EXPORB = preload("res://Scenes/exp_area.tscn")
 
-@export var SPEED = 40
+@export var SPEED = 16
 @export var hp = 2000
 var damage = 3
 
@@ -10,22 +10,25 @@ var damage = 3
 
 var alive = true
 
-var chasestate = "sleeping"
+var chasestate = "chasing"
 
 
 
-# var dist_to_crowdm # !!!!! IRELLEVANT CODE
+var dist_to_crowdm # !!!!! IRELLEVANT CODE
 var crowd_members
 var nearest_crowdm
 var withinreach = false
 
 func _ready():
 	# Set default animations and values
-	e_anim.play("sleep")
+	#e_anim.play("sleep")
+	startchasing()
 	$EffectsAnim.play("default")
 	$UI/Healthbar.max_value = hp
 
 func _physics_process(_delta):
+	
+	$Label.set_text(str(chasestate))
 	
 	move_and_slide()
 
@@ -39,22 +42,22 @@ func updateMeeblingsAndMovement():
 		if mem.global_position.distance_to(self.global_position) < nearest_crowdm.global_position.distance_to(self.global_position):
 			nearest_crowdm = mem
 	
-	# dist_to_crowdm = abs(global_position - nearest_crowdm.global_position) # !!!!! IRELLEVANT CODE
+	dist_to_crowdm = abs(global_position - nearest_crowdm.global_position)
 	
 	$Rot.look_at(nearest_crowdm.global_position)
 	
-	#if dist_to_crowdm.x > 20 or dist_to_crowdm.y > 20: # !!!!! IRELLEVANT CODE
-	if chasestate == "chasing":
-		velocity = Vector2(SPEED, 0).rotated($Rot.rotation)
-	#withinreach = false 								# !!!!! IRELLEVANT CODE
-	#else: 												# !!!!! IRELLEVANT CODE
-	#	velocity.x = 0 									# !!!!! IRELLEVANT CODE
-	#	velocity.y = 0 									# !!!!! IRELLEVANT CODE
-	#	withinreach = true 								# !!!!! IRELLEVANT CODE
+	if dist_to_crowdm.x > 20 or dist_to_crowdm.y > 20:
+		if chasestate == "chasing":
+			velocity = Vector2(SPEED, 0).rotated($Rot.rotation)
+		withinreach = false
+	else:
+		velocity.x = 0
+		velocity.y = 0
+		withinreach = true
 
-func wakeup():
-	chasestate = "waking"
-	$Icon/Anim.play("wake")
+#func wakeup():
+#	chasestate = "waking"
+#	#$Icon/Anim.play("wake")
 
 func startbossfight():
 	$UI.visible = true
@@ -64,22 +67,14 @@ func startbossfight():
 
 func startchasing():
 	chasestate = "chasing"
-	$Icon/Anim.play("bounce")
-
-func activateshurikens():
-	$RotateHitboxes/Anim.play("start")
-	$RotateHitboxes/HurtAREA01/Sprite/Anim.play("spin")
-	$RotateHitboxes/HurtAREA02/Sprite/Anim.play("spin")
-
-func rotateshurikens():
-	$RotateHitboxes/Anim.play("rotate")
+	#$Icon/Anim.play("bounce")
 
 func hurt():
 	$EffectsAnim.play("hurt")
 	$UI/Healthbar.value = hp
 
 func apply_freeze():
-	SPEED = 20
+	SPEED = 8
 	$Icon.self_modulate = Color(0,1,1)
 
 func kill():
@@ -98,12 +93,10 @@ func spawn_exporb():
 	ex.expamount = 200
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
-	if Globalsettings.bossfight_active == false:
-		wakeup()
+	pass
+	#if Globalsettings.bossfight_active == false:
+	#	wakeup()
 
-func _on_hurt_area_01_area_entered(area):
-	if area.get_parent().is_in_group("crowd_m"):
-		area.get_parent().hp -= damage
-		area.get_parent().hurt()
-		if area.get_parent().hp <= 0:
-			area.get_parent().kill()
+func _on_update_timer_timeout():
+	updateMeeblingsAndMovement()
+	$Timers/UpdateTimer.start()
