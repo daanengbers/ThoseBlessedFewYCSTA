@@ -3,33 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dnn1emulxbmpv" path="res://Assets/Tilesets/TentTest2.png" id="1_0af6e"]
 [ext_resource type="Script" path="res://Scenes/Tents.gd" id="2_25tx6"]
 
-[sub_resource type="Animation" id="Animation_6cenu"]
-resource_name = "TentOpen"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.945, 0.875), Vector2(1.05, 1.015), Vector2(0.945, 0.875), Vector2(1.296, 1.253)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("1_0af6e"), null]
-}
-
 [sub_resource type="Animation" id="Animation_lwo6n"]
 length = 0.001
 tracks/0/type = "value"
@@ -55,6 +28,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("1_0af6e")]
+}
+
+[sub_resource type="Animation" id="Animation_6cenu"]
+resource_name = "TentOpen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.945, 0.875), Vector2(1.05, 1.015), Vector2(0.945, 0.875), Vector2(1.296, 1.253)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_0af6e"), null]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v3jjb"]

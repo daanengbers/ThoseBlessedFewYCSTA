@@ -42,7 +42,8 @@ func spawnskullenemy():
 	if randomtoporside == 4:
 		sk.position.x = global_position.x + 360
 		sk.position.y = global_position.y + randomspawnlocy
-	sk.hp += level
+	sk.hp = sk.hp + (level/4)
+	sk.SPEED = sk.SPEED + (level/5)
 
 func spawneyeenemy():
 	var ey = EYEBALL.instantiate()
@@ -60,7 +61,8 @@ func spawneyeenemy():
 	if randomtoporside == 4:
 		ey.position.x = global_position.x + 360
 		ey.position.y = global_position.y + randomspawnlocy
-	ey.hp += level
+	ey.hp = ey.hp + (level/2)
+	ey.SPEED = ey.SPEED + (level/5)
 
 func spawnslimeenemy():
 	var sl = SLIME.instantiate()
@@ -78,7 +80,8 @@ func spawnslimeenemy():
 	if randomtoporside == 4:
 		sl.position.x = global_position.x + 360
 		sl.position.y = global_position.y + randomspawnlocy
-	sl.hp += level
+	sl.hp = sl.hp + (level/2)
+	sl.SPEED = sl.SPEED + (level/7)
 
 func spawnghostenemy():
 	var gh = GHOST.instantiate()
