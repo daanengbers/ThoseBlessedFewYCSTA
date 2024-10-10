@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://0fu4d4djospk"]
+
+[ext_resource type="PackedScene" uid="uid://52u1j222qmmn" path="res://Scenes/SacDoorArea.tscn" id="1_2g7ih"]
+
+[node name="SacDoor" type="Node2D"]
+
+[node name="Area2D" parent="." instance=ExtResource("1_2g7ih")]

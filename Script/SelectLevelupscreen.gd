@@ -13,11 +13,11 @@ var card3
 
 func _ready():
 	$CardArrow/Anim.play("play")
+	pass
 
 
 
 func _process(_delta):
-	
 	if inmenu == true:
 		if Input.is_action_just_pressed("right") && cardselected < 3 && pressed == false:
 			cardselected += 1
@@ -34,6 +34,7 @@ func _process(_delta):
 				card1.selectcard(1)
 			if cardselected == 2:
 				card2.selectcard(1)
+				
 			if cardselected == 3:
 				card3.selectcard(1)
 			$UnpauseTimer.start()

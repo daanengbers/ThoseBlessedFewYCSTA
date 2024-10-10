@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://b46qb74feih7m"]
+[gd_scene load_steps=49 format=3 uid="uid://b46qb74feih7m"]
 
 [ext_resource type="Script" path="res://Script/crowd_simulation.gd" id="1_hyuob"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="3_gjq7j"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bc65frbmttbad" path="res://Assets/UI/Selectcardarrow.png" id="15_o6n48"]
 [ext_resource type="Texture2D" uid="uid://d21gc6pesq6l3" path="res://Assets/UI/GameOver.png" id="16_3ytvi"]
 [ext_resource type="AudioStream" uid="uid://bad6nr05h2axn" path="res://Sounds/lvlup1.wav" id="16_nlck6"]
+[ext_resource type="Script" path="res://Scenes/SacrificeMeeblingScreen.gd" id="17_238em"]
 [ext_resource type="Texture2D" uid="uid://clio7b0ifxo4" path="res://Assets/UI/Aimicon.png" id="17_qerbj"]
 
 [sub_resource type="FontVariation" id="FontVariation_0hjnx"]
@@ -857,6 +858,74 @@ scale_amount_max = 1.4
 color_ramp = SubResource("Gradient_bue6w")
 color_initial_ramp = SubResource("Gradient_ge54m")
 
+[node name="SacrificeMeeblingScreen" type="Node2D" parent="UI"]
+process_mode = 3
+visible = false
+script = ExtResource("17_238em")
+
+[node name="ConfettiSac" type="CPUParticles2D" parent="UI/SacrificeMeeblingScreen"]
+texture_filter = 1
+position = Vector2(160, 188)
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.9
+texture = ExtResource("13_nqnof")
+emission_shape = 3
+emission_rect_extents = Vector2(160, 8)
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, -98)
+initial_velocity_min = 100.0
+initial_velocity_max = 160.0
+scale_amount_max = 1.4
+color_ramp = SubResource("Gradient_bue6w")
+color_initial_ramp = SubResource("Gradient_ge54m")
+
+[node name="Blackrect2" type="ColorRect" parent="UI/SacrificeMeeblingScreen"]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 0.784314)
+
+[node name="buttonstopress" type="AnimatedSprite2D" parent="UI/SacrificeMeeblingScreen/Blackrect2"]
+texture_filter = 1
+position = Vector2(284, 154)
+sprite_frames = SubResource("SpriteFrames_pd6dk")
+animation = &"keyboard"
+
+[node name="SacText" type="Label" parent="UI/SacrificeMeeblingScreen"]
+texture_filter = 1
+offset_right = 320.0
+offset_bottom = 59.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("8_wwr2p")
+theme_override_font_sizes/font_size = 22
+text = "Sacrifice 2 Meeblings
+ to open the way?"
+horizontal_alignment = 1
+
+[node name="CardArrowSac" type="Sprite2D" parent="UI/SacrificeMeeblingScreen"]
+z_index = 1
+texture_filter = 1
+position = Vector2(90, 144)
+texture = ExtResource("15_o6n48")
+hframes = 2
+vframes = 2
+
+[node name="Anim" type="AnimationPlayer" parent="UI/SacrificeMeeblingScreen/CardArrowSac"]
+libraries = {
+"": SubResource("AnimationLibrary_v57cf")
+}
+
+[node name="UnpauseTimerSac" type="Timer" parent="UI/SacrificeMeeblingScreen"]
+wait_time = 1.2
+one_shot = true
+
+[node name="CanpressTimerSac" type="Timer" parent="UI/SacrificeMeeblingScreen"]
+wait_time = 0.4
+one_shot = true
+
 [node name="Deathscreen" type="Node2D" parent="UI"]
 visible = false
 texture_filter = 1
@@ -1012,5 +1081,7 @@ libraries = {
 
 [connection signal="timeout" from="UI/SelectLevelupscreen/UnpauseTimer" to="UI/SelectLevelupscreen" method="_on_unpause_timer_timeout"]
 [connection signal="timeout" from="UI/SelectLevelupscreen/CanpressTimer" to="UI/SelectLevelupscreen" method="_on_canpress_timer_timeout"]
+[connection signal="timeout" from="UI/SacrificeMeeblingScreen/UnpauseTimerSac" to="UI/SacrificeMeeblingScreen" method="_on_unpause_timer_sac_timeout"]
+[connection signal="timeout" from="UI/SacrificeMeeblingScreen/CanpressTimerSac" to="UI/SacrificeMeeblingScreen" method="_on_canpress_timer_sac_timeout"]
 [connection signal="timeout" from="Timers/MenuTimer" to="." method="_on_menu_timer_timeout"]
 [connection signal="timeout" from="Timers/CheckFPSTimer" to="." method="_on_check_fps_timer_timeout"]

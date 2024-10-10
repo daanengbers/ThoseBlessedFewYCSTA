@@ -37,6 +37,12 @@ var xpuntilnextlvl = 5
 
 var crowdm
 
+var sacAmount
+var canSac = false
+var isSacing = false
+var hasSaced = false
+var currentSacDoor
+
 var gameover = false
 
 func _ready():
@@ -253,12 +259,76 @@ func _on_check_fps_timer_timeout():
 
 
 
-func _on_area_2d_area_entered(area):
-	if area.is_in_group("Fog"):
+func _on_area_2d_area_entered(SacDoor):
+	if SacDoor.is_in_group("Fog"):
 		$"../FogEffect/ParallaxLayer/ColorRect/AnimationPlayer".play("FadeIn")
+	if SacDoor.is_in_group("SacOption") && isSacing == false:
+		isSacing = true
+		currentSacDoor = SacDoor
+		## This activates the option to sac meeblings
+		$UI/SacrificeMeeblingScreen/SacText.set_text("Sacrifice " + str(SacDoor.amountToSac) + " Meeblings
+ to open the way?")
+		
+		sacAmount = SacDoor.amountToSac
+		if sacAmount < crowdm.size():
+			$UI/SacrificeMeeblingScreen.spawncards(110,1,1)
+			$UI/SacrificeMeeblingScreen.spawncards(210,2,2)
+			
+			$UI/SacrificeMeeblingScreen.visible = true
+			$UI/SacrificeMeeblingScreen.inmenu = true
+			$UI/SacrificeMeeblingScreen.pressed = false
+			
+			canSac = true
+			
+			get_tree().paused = true
+			#here we should spawn a yes and no card
+		if sacAmount >= crowdm.size():
+			$UI/SacrificeMeeblingScreen.spawncards(160,3,3)
+			
+			$UI/SacrificeMeeblingScreen.visible = true
+			$UI/SacrificeMeeblingScreen.inmenu = true
+			$UI/SacrificeMeeblingScreen.pressed = false
+			
+			canSac = false
+			get_tree().paused = true
+			#here we should spawn a no card
+		pass
 	pass # Replace with function body.
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("Fog"):
 		$"../FogEffect/ParallaxLayer/ColorRect/AnimationPlayer".play("FadeOut")
+	if area.is_in_group("SacOption") && isSacing == true:
+		isSacing = false
 	pass # Replace with function body.
+
+
+func _on_unpause_timer_sac_timeout():
+	pass # Replace with function body.
+	
+func SacMeeblings():
+	currentSacDoor.isCleared = true
+	hasSaced = true
+	if sacAmount == 1:
+		crowdm[0].kill()
+	if sacAmount == 2:
+		crowdm[0].kill()
+		crowdm[1].kill()
+	if sacAmount == 3:
+		crowdm[0].kill()
+		crowdm[1].kill()
+		crowdm[2].kill()
+	if sacAmount == 4:
+		crowdm[0].kill()
+		crowdm[1].kill()
+		crowdm[2].kill()
+		crowdm[3].kill()
+	if sacAmount == 5:
+		crowdm[0].kill()
+		crowdm[1].kill()
+		crowdm[2].kill()
+		crowdm[3].kill()
+		crowdm[4].kill()
+	pass
+	
+
