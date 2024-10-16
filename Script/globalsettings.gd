@@ -30,6 +30,8 @@ var g_spell2 = 0
 var g_spell3 = 0
 var g_spell4 = 0
 
+var NotLevelCard = false
+
 var inFogArea = false
 
 var bossfight_active = false

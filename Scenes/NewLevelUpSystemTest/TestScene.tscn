@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf44crncqath0"]
+
+[ext_resource type="Script" path="res://Script/TestLevelUp.gd" id="1_s7dhm"]
+[ext_resource type="PackedScene" uid="uid://umuceabk58pi" path="res://Scenes/NewLevelUpSystemTest/HP_Stat.tscn" id="2_puf0d"]
+[ext_resource type="PackedScene" uid="uid://b8ronf8wgljmk" path="res://Scenes/NewLevelUpSystemTest/ATTACK_Stat.tscn" id="3_i013f"]
+
+[node name="TestScene" type="Node2D"]
+script = ExtResource("1_s7dhm")
+
+[node name="HpStat" parent="." instance=ExtResource("2_puf0d")]
+
+[node name="ATTACKStat" parent="." instance=ExtResource("3_i013f")]

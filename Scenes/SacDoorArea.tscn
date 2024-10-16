@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://52u1j222qmmn"]
+
+[ext_resource type="Script" path="res://Scenes/SacDoor.gd" id="1_idf88"]
+[ext_resource type="Texture2D" uid="uid://c7rjkwf6sl2ms" path="res://Assets/Tilesets/TestSacWallFront.png" id="2_f62mc"]
+
+[node name="Area2D" type="Area2D" groups=["SacOption"]]
+script = ExtResource("1_idf88")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-48, 16, -22, 16, -10, 33, 13, 33, 24, 16, 48, 16, 48, -40, -48, -40)
+
+[node name="TestSacWallFront" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_f62mc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-48, 23, -21, 23, -13, 38, 13, 38, 23, 23, 48, 23, 48, -36, -48, -36)

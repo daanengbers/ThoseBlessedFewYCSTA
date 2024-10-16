@@ -1,0 +1,208 @@
+[gd_scene load_steps=20 format=3 uid="uid://dyp6v0myo4e02"]
+
+[ext_resource type="Script" path="res://Scenes/SacrificeMeeblingDoors.gd" id="1_2fe4r"]
+[ext_resource type="Texture2D" uid="uid://b3boyxesmw3fu" path="res://Assets/Tilesets/SuperduperTestDoor.png" id="2_gst51"]
+[ext_resource type="Script" path="res://Script/SelectLevelupscreen.gd" id="3_ti3dj"]
+[ext_resource type="Texture2D" uid="uid://cg180gfaancl0" path="res://Assets/UI/Buttonshowcase.png" id="4_sexqi"]
+[ext_resource type="FontFile" uid="uid://b85f1e3h4hl2q" path="res://Fonts/Retro Gaming.ttf" id="5_p0ehg"]
+[ext_resource type="Texture2D" uid="uid://bc65frbmttbad" path="res://Assets/UI/Selectcardarrow.png" id="6_upghn"]
+[ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="7_onp5k"]
+[ext_resource type="Texture2D" uid="uid://dsh5841pjc8i5" path="res://Assets/Particle_Sprites/YCSTA_Souldparticles.png" id="8_alk8h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j74bb"]
+atlas = ExtResource("4_sexqi")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g64dw"]
+atlas = ExtResource("4_sexqi")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tm4gb"]
+atlas = ExtResource("4_sexqi")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3r4j"]
+atlas = ExtResource("4_sexqi")
+region = Rect2(64, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v688"]
+atlas = ExtResource("4_sexqi")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i5t2e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j74bb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g64dw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tm4gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3r4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v688")
+}],
+"loop": true,
+"name": &"arcade",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"controller",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"keyboard",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_yqass"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kxa56"]
+resource_name = "play"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v57cf"]
+_data = {
+"RESET": SubResource("Animation_yqass"),
+"play": SubResource("Animation_kxa56")
+}
+
+[sub_resource type="Gradient" id="Gradient_l40dj"]
+offsets = PackedFloat32Array(0, 0.486667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_i4elt"]
+offsets = PackedFloat32Array(0, 0.313333, 0.686667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.431865, 1, 0.400656, 1, 0.431373, 1, 0.858824, 1, 1, 1, 1, 1)
+
+[node name="SacrificeMeeblingDoors" type="Node2D" groups=["SacOption"]]
+script = ExtResource("1_2fe4r")
+
+[node name="ActivateOptions" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ActivateOptions"]
+polygon = PackedVector2Array(-13, 16, 14, 16, 14, -14, -13, -14)
+
+[node name="SuperduperTestDoor" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_gst51")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="SacrificeMeeblingScreen" type="Node2D" parent="CanvasLayer"]
+process_mode = 3
+script = ExtResource("3_ti3dj")
+
+[node name="Blackrect" type="ColorRect" parent="CanvasLayer/SacrificeMeeblingScreen"]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 0.784314)
+
+[node name="buttonstopress" type="AnimatedSprite2D" parent="CanvasLayer/SacrificeMeeblingScreen/Blackrect"]
+texture_filter = 1
+position = Vector2(284, 154)
+sprite_frames = SubResource("SpriteFrames_i5t2e")
+animation = &"keyboard"
+
+[node name="MeeblingSacText" type="Label" parent="CanvasLayer/SacrificeMeeblingScreen"]
+texture_filter = 1
+offset_top = 4.0
+offset_right = 320.0
+offset_bottom = 32.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_p0ehg")
+theme_override_font_sizes/font_size = 22
+text = "Sacrifice"
+horizontal_alignment = 1
+
+[node name="CardArrow" type="Sprite2D" parent="CanvasLayer/SacrificeMeeblingScreen"]
+z_index = 1
+texture_filter = 1
+position = Vector2(90, 144)
+texture = ExtResource("6_upghn")
+hframes = 2
+vframes = 2
+
+[node name="Anim" type="AnimationPlayer" parent="CanvasLayer/SacrificeMeeblingScreen/CardArrow"]
+libraries = {
+"": SubResource("AnimationLibrary_v57cf")
+}
+
+[node name="UnpauseTimer1" type="Timer" parent="CanvasLayer/SacrificeMeeblingScreen"]
+wait_time = 1.2
+one_shot = true
+
+[node name="CanpressTimer1" type="Timer" parent="CanvasLayer/SacrificeMeeblingScreen"]
+wait_time = 0.4
+one_shot = true
+
+[node name="Tut" type="Label" parent="CanvasLayer/SacrificeMeeblingScreen"]
+visible = false
+texture_filter = 1
+offset_left = 4.0
+offset_top = 147.0
+offset_right = 257.0
+offset_bottom = 160.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("7_onp5k")
+text = "Press with the button you want to assign it to"
+horizontal_alignment = 1
+
+[node name="Confetti" type="CPUParticles2D" parent="CanvasLayer/SacrificeMeeblingScreen"]
+texture_filter = 1
+position = Vector2(160, 188)
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.9
+texture = ExtResource("8_alk8h")
+emission_shape = 3
+emission_rect_extents = Vector2(160, 8)
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, -98)
+initial_velocity_min = 100.0
+initial_velocity_max = 160.0
+scale_amount_max = 1.4
+color_ramp = SubResource("Gradient_l40dj")
+color_initial_ramp = SubResource("Gradient_i4elt")
+
+[connection signal="area_entered" from="ActivateOptions" to="." method="_on_activate_options_area_entered"]
+[connection signal="timeout" from="CanvasLayer/SacrificeMeeblingScreen/UnpauseTimer1" to="CanvasLayer/SacrificeMeeblingScreen" method="_on_unpause_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/SacrificeMeeblingScreen/CanpressTimer1" to="CanvasLayer/SacrificeMeeblingScreen" method="_on_canpress_timer_timeout"]
