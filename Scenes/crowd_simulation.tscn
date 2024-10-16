@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://b46qb74feih7m"]
+[gd_scene load_steps=50 format=3 uid="uid://b46qb74feih7m"]
 
 [ext_resource type="Script" path="res://Script/crowd_simulation.gd" id="1_hyuob"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="3_gjq7j"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://bad6nr05h2axn" path="res://Sounds/lvlup1.wav" id="16_nlck6"]
 [ext_resource type="Script" path="res://Scenes/SacrificeMeeblingScreen.gd" id="17_238em"]
 [ext_resource type="Texture2D" uid="uid://clio7b0ifxo4" path="res://Assets/UI/Aimicon.png" id="17_qerbj"]
+[ext_resource type="PackedScene" uid="uid://c6eexehntobs7" path="res://Scenes/NewLevelUpSystemTest/StatHolder.tscn" id="23_qdspg"]
 
 [sub_resource type="FontVariation" id="FontVariation_0hjnx"]
 base_font = ExtResource("3_gjq7j")
@@ -1030,6 +1031,8 @@ theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("3_gjq7j")
 text = "0 NMys"
 
+[node name="StatHolder" parent="UI" instance=ExtResource("23_qdspg")]
+
 [node name="Mainarrow" type="Sprite2D" parent="."]
 z_index = 5
 texture_filter = 1
@@ -1077,6 +1080,8 @@ texture = ExtResource("17_qerbj")
 libraries = {
 "": SubResource("AnimationLibrary_pib35")
 }
+
+[node name="TestNodeLevelUp" type="Node2D" parent="."]
 
 [connection signal="timeout" from="UI/SelectLevelupscreen/UnpauseTimer" to="UI/SelectLevelupscreen" method="_on_unpause_timer_timeout"]
 [connection signal="timeout" from="UI/SelectLevelupscreen/CanpressTimer" to="UI/SelectLevelupscreen" method="_on_canpress_timer_timeout"]
