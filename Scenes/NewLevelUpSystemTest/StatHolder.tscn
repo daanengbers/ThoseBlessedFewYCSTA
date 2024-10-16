@@ -1,0 +1,403 @@
+[gd_scene load_steps=19 format=3 uid="uid://c6eexehntobs7"]
+
+[ext_resource type="PackedScene" uid="uid://umuceabk58pi" path="res://Scenes/NewLevelUpSystemTest/HP_Stat.tscn" id="1_lt1ma"]
+[ext_resource type="Script" path="res://Scenes/LevelUp.gd" id="1_u64b8"]
+[ext_resource type="PackedScene" uid="uid://b8ronf8wgljmk" path="res://Scenes/NewLevelUpSystemTest/ATTACK_Stat.tscn" id="2_3cs6b"]
+[ext_resource type="Script" path="res://Scenes/NewLevelUpSystemTest/LevelUpStats.gd" id="3_6j8wa"]
+[ext_resource type="Texture2D" uid="uid://bo4g2mvwd5gpt" path="res://Assets/UI/LockedStatUIBox.png" id="3_amp03"]
+[ext_resource type="Script" path="res://Scenes/NewLevelUpSystemTest/LockedStatUI.gd" id="4_85s6u"]
+[ext_resource type="Texture2D" uid="uid://bc65frbmttbad" path="res://Assets/UI/Selectcardarrow.png" id="5_q2ag7"]
+[ext_resource type="Texture2D" uid="uid://232oadf56her" path="res://Assets/UI/YCSTA_UIboxupgradelevel_empty.png" id="6_mx60g"]
+[ext_resource type="Texture2D" uid="uid://ci72mnj78p5om" path="res://Assets/UI/YCSTA_UIboxupgradelevel_full.png" id="7_vuowb"]
+[ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="8_v6pp2"]
+[ext_resource type="FontFile" uid="uid://b85f1e3h4hl2q" path="res://Fonts/Retro Gaming.ttf" id="8_wghw4"]
+[ext_resource type="Texture2D" uid="uid://dsh5841pjc8i5" path="res://Assets/Particle_Sprites/YCSTA_Souldparticles.png" id="12_podm3"]
+
+[sub_resource type="Animation" id="Animation_yqass"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kxa56"]
+resource_name = "play"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v57cf"]
+_data = {
+"RESET": SubResource("Animation_yqass"),
+"play": SubResource("Animation_kxa56")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_qhd2n"]
+base_font = ExtResource("8_v6pp2")
+spacing_space = -4
+
+[sub_resource type="Gradient" id="Gradient_j6cyr"]
+offsets = PackedFloat32Array(0, 0.486667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_f8f7v"]
+offsets = PackedFloat32Array(0, 0.313333, 0.686667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.431865, 1, 0.400656, 1, 0.431373, 1, 0.858824, 1, 1, 1, 1, 1)
+
+[node name="StatHolder" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_u64b8")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="LevelUpUI" type="Node2D" parent="UI"]
+process_mode = 3
+visible = false
+
+[node name="CardArrow" type="Sprite2D" parent="UI/LevelUpUI"]
+z_index = 1
+texture_filter = 1
+position = Vector2(90, 144)
+texture = ExtResource("5_q2ag7")
+hframes = 2
+vframes = 2
+
+[node name="Anim" type="AnimationPlayer" parent="UI/LevelUpUI/CardArrow"]
+libraries = {
+"": SubResource("AnimationLibrary_v57cf")
+}
+
+[node name="ColorRect" type="ColorRect" parent="UI/LevelUpUI"]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.188235, 0.188235, 0.188235, 0.662745)
+
+[node name="Label" type="Label" parent="UI/LevelUpUI"]
+offset_top = 24.0
+offset_right = 320.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("8_wghw4")
+theme_override_font_sizes/font_size = 22
+text = "Level up!"
+horizontal_alignment = 1
+
+[node name="LockedStat1" type="Sprite2D" parent="UI"]
+process_mode = 3
+texture_filter = 1
+position = Vector2(45, 12)
+texture = ExtResource("3_amp03")
+script = ExtResource("4_85s6u")
+metadata/_edit_group_ = true
+
+[node name="Levelprogress" type="TextureProgressBar" parent="UI/LockedStat1"]
+visible = false
+offset_left = -14.0
+offset_top = 13.0
+offset_right = 14.0
+offset_bottom = 15.0
+max_value = 10.0
+texture_under = ExtResource("6_mx60g")
+texture_progress = ExtResource("7_vuowb")
+
+[node name="LVLText" type="Label" parent="UI/LockedStat1"]
+visible = false
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = -14.0
+offset_top = -3.0
+offset_right = 14.0
+offset_bottom = 20.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_qhd2n")
+text = "LVL 1"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="StatText" type="Label" parent="UI/LockedStat1"]
+visible = false
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 10.0
+offset_bottom = 5.0
+theme_override_colors/font_color = Color(0.756863, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("8_v6pp2")
+text = "HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockedStat2" type="Sprite2D" parent="UI"]
+process_mode = 3
+texture_filter = 1
+position = Vector2(69, 12)
+texture = ExtResource("3_amp03")
+script = ExtResource("4_85s6u")
+metadata/_edit_group_ = true
+
+[node name="Levelprogress" type="TextureProgressBar" parent="UI/LockedStat2"]
+visible = false
+offset_left = -14.0
+offset_top = 13.0
+offset_right = 14.0
+offset_bottom = 15.0
+max_value = 10.0
+texture_under = ExtResource("6_mx60g")
+texture_progress = ExtResource("7_vuowb")
+
+[node name="LVLText" type="Label" parent="UI/LockedStat2"]
+visible = false
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = -14.0
+offset_top = -3.0
+offset_right = 14.0
+offset_bottom = 20.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_qhd2n")
+text = "LVL 1"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="StatText" type="Label" parent="UI/LockedStat2"]
+visible = false
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 10.0
+offset_bottom = 5.0
+theme_override_colors/font_color = Color(0.756863, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("8_v6pp2")
+text = "HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockedStat3" type="Sprite2D" parent="UI"]
+process_mode = 3
+texture_filter = 1
+position = Vector2(93, 12)
+texture = ExtResource("3_amp03")
+script = ExtResource("4_85s6u")
+metadata/_edit_group_ = true
+
+[node name="Levelprogress" type="TextureProgressBar" parent="UI/LockedStat3"]
+visible = false
+offset_left = -14.0
+offset_top = 13.0
+offset_right = 14.0
+offset_bottom = 15.0
+max_value = 10.0
+texture_under = ExtResource("6_mx60g")
+texture_progress = ExtResource("7_vuowb")
+
+[node name="LVLText" type="Label" parent="UI/LockedStat3"]
+visible = false
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = -14.0
+offset_top = -3.0
+offset_right = 14.0
+offset_bottom = 20.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_qhd2n")
+text = "LVL 1"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="StatText" type="Label" parent="UI/LockedStat3"]
+visible = false
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 10.0
+offset_bottom = 5.0
+theme_override_colors/font_color = Color(0.756863, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("8_v6pp2")
+text = "HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockedStat4" type="Sprite2D" parent="UI"]
+process_mode = 3
+texture_filter = 1
+position = Vector2(117, 12)
+texture = ExtResource("3_amp03")
+script = ExtResource("4_85s6u")
+metadata/_edit_group_ = true
+
+[node name="Levelprogress" type="TextureProgressBar" parent="UI/LockedStat4"]
+visible = false
+offset_left = -14.0
+offset_top = 13.0
+offset_right = 14.0
+offset_bottom = 15.0
+max_value = 10.0
+texture_under = ExtResource("6_mx60g")
+texture_progress = ExtResource("7_vuowb")
+
+[node name="LVLText" type="Label" parent="UI/LockedStat4"]
+visible = false
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = -14.0
+offset_top = -3.0
+offset_right = 14.0
+offset_bottom = 20.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_qhd2n")
+text = "LVL 1"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="StatText" type="Label" parent="UI/LockedStat4"]
+visible = false
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 10.0
+offset_bottom = 5.0
+theme_override_colors/font_color = Color(0.756863, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("8_v6pp2")
+text = "HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HPStat" parent="." instance=ExtResource("1_lt1ma")]
+process_mode = 3
+UI_level1AmountToIncreaseDecrease = "+3"
+
+[node name="ATTACKStat" parent="." instance=ExtResource("2_3cs6b")]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "ATTACK"
+UI_Title = "Attack"
+UI_TitleSmall = "AT"
+maxLevel = 6
+level1AmountToIncreaseDecrease = 2
+UI_level1AmountToIncreaseDecrease = "+2"
+level2AmountToIncreaseDecrease = 3
+UI_level2AmountToIncreaseDecrease = "+3"
+level3AmountToIncrease = 6
+UI_level3AmountToIncreaseDecrease = "+6"
+level4AmountToIncreaseDecrease = 10
+UI_level4AmountToIncreaseDecrease = "+10"
+level5AmountToIncrease = 1
+UI_level5AmountToIncreaseDecrease = "+1"
+level6AmountToIncreaseDecrease = 1
+UI_level6AmountToIncreaseDecrease = "+1"
+
+[node name="SPEEDStat" type="Node2D" parent="."]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "SPEED"
+UI_Title = "Speed"
+UI_TitleSmall = "SP"
+level1AmountToIncreaseDecrease = 5
+UI_level1AmountToIncreaseDecrease = "+5"
+level2AmountToIncreaseDecrease = 10
+UI_level2AmountToIncreaseDecrease = "+10"
+level3AmountToIncrease = 14
+UI_level3AmountToIncreaseDecrease = "+14"
+level4AmountToIncreaseDecrease = 20
+UI_level4AmountToIncreaseDecrease = "+20"
+
+[node name="COOLDOWNStat" type="Node2D" parent="."]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "COOLDOWN"
+UI_Title = "Cooldown"
+UI_TitleSmall = "CD"
+level1AmountToIncreaseDecrease = 4
+UI_level1AmountToIncreaseDecrease = "-4%"
+level2AmountToIncreaseDecrease = 6
+UI_level2AmountToIncreaseDecrease = "-6%"
+level3AmountToIncrease = 10
+UI_level3AmountToIncreaseDecrease = "-10%"
+level4AmountToIncreaseDecrease = 14
+UI_level4AmountToIncreaseDecrease = "-14%"
+
+[node name="AMOUNTStat" type="Node2D" parent="."]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "AMOUNT"
+UI_Title = "Amount"
+UI_TitleSmall = "Am"
+
+[node name="MAXEDStat" type="Node2D" parent="."]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "MAXED"
+UI_Title = "Health recover"
+UI_TitleSmall = "Am"
+
+[node name="UnpauseTimerLevelUp" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+
+[node name="CanpressTimerLevelUp" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="ConfettiLevelUp" type="CPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(160, 188)
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.9
+texture = ExtResource("12_podm3")
+emission_shape = 3
+emission_rect_extents = Vector2(160, 8)
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, -98)
+initial_velocity_min = 100.0
+initial_velocity_max = 160.0
+scale_amount_max = 1.4
+color_ramp = SubResource("Gradient_j6cyr")
+color_initial_ramp = SubResource("Gradient_f8f7v")
+
+[connection signal="timeout" from="UnpauseTimerLevelUp" to="." method="_on_unpause_timer_level_up_timeout"]
+[connection signal="timeout" from="CanpressTimerLevelUp" to="." method="_on_canpress_timer_level_up_timeout"]

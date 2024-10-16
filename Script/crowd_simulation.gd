@@ -232,13 +232,16 @@ func level_up():
 	$UI/LVLbar.value = Globalsettings.global_xp
 	$UI/LVLtext.set_text("Level: " + str(level))
 	
-	$UI/SelectLevelupscreen.spawncards(90)
-	$UI/SelectLevelupscreen.spawncards(160)
-	$UI/SelectLevelupscreen.spawncards(230)
+	##$UI/SelectLevelupscreen.spawncards(90)
+	##$UI/SelectLevelupscreen.spawncards(160)
+	##$UI/SelectLevelupscreen.spawncards(230)
 	
-	$UI/SelectLevelupscreen.visible = true
-	$UI/SelectLevelupscreen.inmenu = true
-	$UI/SelectLevelupscreen.pressed = false
+	##$UI/SelectLevelupscreen.visible = true
+	##$UI/SelectLevelupscreen.inmenu = true
+	##$UI/SelectLevelupscreen.pressed = false
+	
+	$UI/StatHolder.levelUpInit()
+	
 	get_tree().paused = true
 
 func _on_menu_timer_timeout():

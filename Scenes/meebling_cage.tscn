@@ -85,6 +85,7 @@ size = Vector2(34, 14)
 z_index = 1
 texture_filter = 1
 script = ExtResource("1_do8tn")
+hp = 40
 
 [node name="HURTbox_Enemy" type="Area2D" parent="."]
 
