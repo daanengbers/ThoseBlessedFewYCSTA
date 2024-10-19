@@ -306,12 +306,14 @@ vertical_alignment = 1
 
 [node name="HPStat" parent="." instance=ExtResource("1_lt1ma")]
 process_mode = 3
+isAbility = false
 UI_level1AmountToIncreaseDecrease = "+3"
 
 [node name="ATTACKStat" parent="." instance=ExtResource("2_3cs6b")]
 process_mode = 3
 script = ExtResource("3_6j8wa")
 statID = "ATTACK"
+isAbility = false
 UI_Title = "Attack"
 UI_TitleSmall = "AT"
 maxLevel = 6
@@ -332,6 +334,7 @@ UI_level6AmountToIncreaseDecrease = "+1"
 process_mode = 3
 script = ExtResource("3_6j8wa")
 statID = "SPEED"
+isAbility = false
 UI_Title = "Speed"
 UI_TitleSmall = "SP"
 level1AmountToIncreaseDecrease = 5
@@ -347,6 +350,7 @@ UI_level4AmountToIncreaseDecrease = "+20"
 process_mode = 3
 script = ExtResource("3_6j8wa")
 statID = "COOLDOWN"
+isAbility = false
 UI_Title = "Cooldown"
 UI_TitleSmall = "CD"
 level1AmountToIncreaseDecrease = 4
@@ -362,6 +366,7 @@ UI_level4AmountToIncreaseDecrease = "-14%"
 process_mode = 3
 script = ExtResource("3_6j8wa")
 statID = "AMOUNT"
+isAbility = false
 UI_Title = "Amount"
 UI_TitleSmall = "Am"
 
@@ -369,6 +374,7 @@ UI_TitleSmall = "Am"
 process_mode = 3
 script = ExtResource("3_6j8wa")
 statID = "MAXED"
+isAbility = false
 UI_Title = "Health recover"
 UI_TitleSmall = "Am"
 
@@ -398,6 +404,15 @@ initial_velocity_max = 160.0
 scale_amount_max = 1.4
 color_ramp = SubResource("Gradient_j6cyr")
 color_initial_ramp = SubResource("Gradient_f8f7v")
+
+[node name="Abilities" type="Node2D" parent="."]
+
+[node name="FIREBALLAbility" type="Node2D" parent="Abilities"]
+script = ExtResource("3_6j8wa")
+statID = "FIREBALL"
+UI_Title = "Fireball"
+UI_TitleSmall = "FB"
+UI_level1AmountToIncreaseDecrease = "Shoot ball"
 
 [connection signal="timeout" from="UnpauseTimerLevelUp" to="." method="_on_unpause_timer_level_up_timeout"]
 [connection signal="timeout" from="CanpressTimerLevelUp" to="." method="_on_canpress_timer_level_up_timeout"]

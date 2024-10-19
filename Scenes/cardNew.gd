@@ -17,3 +17,8 @@ func UpdateCardUI(Title,Level,AmountToIncreaseDecrease):
 	$eh/Carddescription.set_text(str(AmountToIncreaseDecrease))
 	##$eh/UpgradeIcons.frame = cardimg
 	pass
+	
+
+func selectcardAnim():
+	$eh/Anim.play("select")
+	$eh/Select.play()
