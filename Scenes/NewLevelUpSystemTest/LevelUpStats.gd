@@ -5,6 +5,7 @@ extends Node2D
 @export var isAbility = true
 @export var UI_Title = "HP"
 @export var UI_TitleSmall = "HP"
+@export var UI_ImageNmr = 0
 @export var maxLevel = 6
 
 ##internal var keeping the level of the stat and the level for the UI stat
@@ -119,7 +120,7 @@ func updateSpells(spellToSetNumber):
 					Globalsettings.g_spell3 = 1
 				4:
 					Globalsettings.g_spell4 = 1
-		"lIGHTING":
+		"LIGHTNING":
 			match spellToSetNumber:
 				1:
 					Globalsettings.g_spell1 = 2

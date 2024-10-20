@@ -44,13 +44,16 @@ func _ready():
 	##Here we initialise all the stats that can be chosen
 	$UI/LevelUpUI/CardArrow/Anim.play("play")
 	
-	var HPStat = $HPStat
-	var ATTACKStat = $ATTACKStat
-	var COOLDOWNStat = $COOLDOWNStat
-	var SPEEDStat = $SPEEDStat
-	var AMOUNTStat = $AMOUNTStat
+	var HP_Stat = $Stats/HP_Stat
+	var ATTACK_Stat = $Stats/ATTACK_Stat
+	var COOLDOWN_Stat = $Stats/COOLDOWN_Stat
+	var SPEED_Stat = $Stats/SPEED_Stat
+	var AMOUNT_Stat = $Stats/AMOUNT_Stat
 	
-	var FIREBALLAbility = $Abilities/FIREBALLAbility
+	var FIREBALL_Ability = $Abilities/FIREBALL_Ability
+	var LIGHTNING_Ability = $Abilities/LIGHTNING_Abiltiy
+	var POISON_Ability = $Abilities/POISON_Ability
+	var ICE_Ability = $Abilities/ICE_Ability
 	
 	var UI_LockedStat1 = $UI/LockedStat1
 	var UI_LockedStat2 = $UI/LockedStat2
@@ -58,7 +61,7 @@ func _ready():
 	var UI_LockedStat4 = $UI/LockedStat4
 	
 	##Here we add the stats to an array
-	StatArray = [HPStat, ATTACKStat, COOLDOWNStat, SPEEDStat, AMOUNTStat, FIREBALLAbility]
+	StatArray = [HP_Stat, ATTACK_Stat, COOLDOWN_Stat, SPEED_Stat, AMOUNT_Stat, FIREBALL_Ability, LIGHTNING_Ability, POISON_Ability, ICE_Ability]
 	
 	##Here we add the UI stat slots to an array
 	LockedUIArray = [UI_LockedStat1, UI_LockedStat2, UI_LockedStat3, UI_LockedStat4]
@@ -305,7 +308,7 @@ func spawncards(xpos, stat):
 	$CanpressTimerLevelUp.start()
 	$ConfettiLevelUp.emitting = true
 	var ca = CARD.instantiate()
-	ca.UpdateCardUI(stat.UI_Title,stat.UI_CardLevel,stat.UI_AmountToIncreaseDecrease)
+	ca.UpdateCardUI(stat.UI_Title,stat.UI_CardLevel,stat.UI_AmountToIncreaseDecrease, stat.UI_ImageNmr)
 	##add_child.call_deferred(ca)
 	$UI/LevelUpUI.add_child(ca)
 	ca.position.x = xpos

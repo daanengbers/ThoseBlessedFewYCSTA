@@ -193,7 +193,7 @@ position = Vector2(-6, -19)
 texture = ExtResource("4_nmt8m")
 hframes = 4
 vframes = 4
-frame = 14
+frame = 4
 
 [node name="Select" type="AudioStreamPlayer" parent="eh"]
 stream = ExtResource("5_hcb1n")

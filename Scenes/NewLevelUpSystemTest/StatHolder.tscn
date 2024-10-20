@@ -304,80 +304,6 @@ text = "HP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HPStat" parent="." instance=ExtResource("1_lt1ma")]
-process_mode = 3
-isAbility = false
-UI_level1AmountToIncreaseDecrease = "+3"
-
-[node name="ATTACKStat" parent="." instance=ExtResource("2_3cs6b")]
-process_mode = 3
-script = ExtResource("3_6j8wa")
-statID = "ATTACK"
-isAbility = false
-UI_Title = "Attack"
-UI_TitleSmall = "AT"
-maxLevel = 6
-level1AmountToIncreaseDecrease = 2
-UI_level1AmountToIncreaseDecrease = "+2"
-level2AmountToIncreaseDecrease = 3
-UI_level2AmountToIncreaseDecrease = "+3"
-level3AmountToIncrease = 6
-UI_level3AmountToIncreaseDecrease = "+6"
-level4AmountToIncreaseDecrease = 10
-UI_level4AmountToIncreaseDecrease = "+10"
-level5AmountToIncrease = 1
-UI_level5AmountToIncreaseDecrease = "+1"
-level6AmountToIncreaseDecrease = 1
-UI_level6AmountToIncreaseDecrease = "+1"
-
-[node name="SPEEDStat" type="Node2D" parent="."]
-process_mode = 3
-script = ExtResource("3_6j8wa")
-statID = "SPEED"
-isAbility = false
-UI_Title = "Speed"
-UI_TitleSmall = "SP"
-level1AmountToIncreaseDecrease = 5
-UI_level1AmountToIncreaseDecrease = "+5"
-level2AmountToIncreaseDecrease = 10
-UI_level2AmountToIncreaseDecrease = "+10"
-level3AmountToIncrease = 14
-UI_level3AmountToIncreaseDecrease = "+14"
-level4AmountToIncreaseDecrease = 20
-UI_level4AmountToIncreaseDecrease = "+20"
-
-[node name="COOLDOWNStat" type="Node2D" parent="."]
-process_mode = 3
-script = ExtResource("3_6j8wa")
-statID = "COOLDOWN"
-isAbility = false
-UI_Title = "Cooldown"
-UI_TitleSmall = "CD"
-level1AmountToIncreaseDecrease = 4
-UI_level1AmountToIncreaseDecrease = "-4%"
-level2AmountToIncreaseDecrease = 6
-UI_level2AmountToIncreaseDecrease = "-6%"
-level3AmountToIncrease = 10
-UI_level3AmountToIncreaseDecrease = "-10%"
-level4AmountToIncreaseDecrease = 14
-UI_level4AmountToIncreaseDecrease = "-14%"
-
-[node name="AMOUNTStat" type="Node2D" parent="."]
-process_mode = 3
-script = ExtResource("3_6j8wa")
-statID = "AMOUNT"
-isAbility = false
-UI_Title = "Amount"
-UI_TitleSmall = "Am"
-
-[node name="MAXEDStat" type="Node2D" parent="."]
-process_mode = 3
-script = ExtResource("3_6j8wa")
-statID = "MAXED"
-isAbility = false
-UI_Title = "Health recover"
-UI_TitleSmall = "Am"
-
 [node name="UnpauseTimerLevelUp" type="Timer" parent="."]
 wait_time = 1.2
 one_shot = true
@@ -407,12 +333,118 @@ color_initial_ramp = SubResource("Gradient_f8f7v")
 
 [node name="Abilities" type="Node2D" parent="."]
 
-[node name="FIREBALLAbility" type="Node2D" parent="Abilities"]
+[node name="FIREBALL_Ability" type="Node2D" parent="Abilities"]
 script = ExtResource("3_6j8wa")
 statID = "FIREBALL"
 UI_Title = "Fireball"
 UI_TitleSmall = "FB"
+UI_ImageNmr = 5
 UI_level1AmountToIncreaseDecrease = "Shoot ball"
+
+[node name="LIGHTNING_Abiltiy" type="Node2D" parent="Abilities"]
+script = ExtResource("3_6j8wa")
+statID = "LIGHTNING"
+UI_Title = "Lightning"
+UI_TitleSmall = "FB"
+UI_ImageNmr = 6
+UI_level1AmountToIncreaseDecrease = "Shoot ball"
+
+[node name="POISON_Ability" type="Node2D" parent="Abilities"]
+script = ExtResource("3_6j8wa")
+statID = "POISON"
+UI_Title = "Poison"
+UI_TitleSmall = "FB"
+UI_ImageNmr = 7
+UI_level1AmountToIncreaseDecrease = "Shoot ball"
+
+[node name="ICE_Ability" type="Node2D" parent="Abilities"]
+script = ExtResource("3_6j8wa")
+statID = "ICE"
+UI_Title = "Ice"
+UI_TitleSmall = "FB"
+UI_ImageNmr = 8
+UI_level1AmountToIncreaseDecrease = "Shoot ball"
+
+[node name="Stats" type="Node2D" parent="."]
+
+[node name="HP_Stat" parent="Stats" instance=ExtResource("1_lt1ma")]
+process_mode = 3
+isAbility = false
+UI_ImageNmr = 4
+UI_level1AmountToIncreaseDecrease = "+3"
+
+[node name="ATTACK_Stat" parent="Stats" instance=ExtResource("2_3cs6b")]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "ATTACK"
+isAbility = false
+UI_Title = "Attack"
+UI_TitleSmall = "AT"
+UI_ImageNmr = 0
+maxLevel = 6
+level1AmountToIncreaseDecrease = 2
+UI_level1AmountToIncreaseDecrease = "+2"
+level2AmountToIncreaseDecrease = 3
+UI_level2AmountToIncreaseDecrease = "+3"
+level3AmountToIncrease = 6
+UI_level3AmountToIncreaseDecrease = "+6"
+level4AmountToIncreaseDecrease = 10
+UI_level4AmountToIncreaseDecrease = "+10"
+level5AmountToIncrease = 1
+UI_level5AmountToIncreaseDecrease = "+1"
+level6AmountToIncreaseDecrease = 1
+UI_level6AmountToIncreaseDecrease = "+1"
+
+[node name="SPEED_Stat" type="Node2D" parent="Stats"]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "SPEED"
+isAbility = false
+UI_Title = "Speed"
+UI_TitleSmall = "SP"
+UI_ImageNmr = 1
+level1AmountToIncreaseDecrease = 5
+UI_level1AmountToIncreaseDecrease = "+5"
+level2AmountToIncreaseDecrease = 10
+UI_level2AmountToIncreaseDecrease = "+10"
+level3AmountToIncrease = 14
+UI_level3AmountToIncreaseDecrease = "+14"
+level4AmountToIncreaseDecrease = 20
+UI_level4AmountToIncreaseDecrease = "+20"
+
+[node name="COOLDOWN_Stat" type="Node2D" parent="Stats"]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "COOLDOWN"
+isAbility = false
+UI_Title = "Cooldown"
+UI_TitleSmall = "CD"
+UI_ImageNmr = 2
+level1AmountToIncreaseDecrease = 4
+UI_level1AmountToIncreaseDecrease = "-4%"
+level2AmountToIncreaseDecrease = 6
+UI_level2AmountToIncreaseDecrease = "-6%"
+level3AmountToIncrease = 10
+UI_level3AmountToIncreaseDecrease = "-10%"
+level4AmountToIncreaseDecrease = 14
+UI_level4AmountToIncreaseDecrease = "-14%"
+
+[node name="AMOUNT_Stat" type="Node2D" parent="Stats"]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "AMOUNT"
+isAbility = false
+UI_Title = "Amount"
+UI_TitleSmall = "Am"
+UI_ImageNmr = 3
+
+[node name="MAXED_Stat" type="Node2D" parent="Stats"]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "MAXED"
+isAbility = false
+UI_Title = "Health recover"
+UI_TitleSmall = "Am"
 
 [connection signal="timeout" from="UnpauseTimerLevelUp" to="." method="_on_unpause_timer_level_up_timeout"]
 [connection signal="timeout" from="CanpressTimerLevelUp" to="." method="_on_canpress_timer_level_up_timeout"]
