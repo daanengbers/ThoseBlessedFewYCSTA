@@ -64,18 +64,8 @@ func _ready():
 	StatArray = [HP_Stat, ATTACK_Stat, COOLDOWN_Stat, SPEED_Stat, AMOUNT_Stat, FIREBALL_Ability, LIGHTNING_Ability, POISON_Ability, ICE_Ability]
 	
 	##Here we add the UI stat slots to an array
-	LockedUIArray = [UI_LockedStat1, UI_LockedStat2, UI_LockedStat3, UI_LockedStat4]
+	LockedUIArray = [UI_LockedStat1, UI_LockedStat2, UI_LockedStat3, UI_LockedStat4, FIREBALL_Ability, LIGHTNING_Ability, ICE_Ability, POISON_Ability]
 	
-	##CHECK IF ALL STATS ARE LOCKED, IF YES ALLOW ONLY THE LOCKED STATS IF NO ALLOW ALL - done
-	##CHECK IF STAT IS MAX LEVEL, IF YES REMOVE FROM LIST, IF NO DO NOTHING - done
-	##RANDOM PICK STATS - done
-	##READ RANDOM PICKED STATS - done
-	##SPAWN CARDS WITH THE READ DATA - done
-	##GIVE CHOISE TO PLAYER - done
-	##ALLOW TO PICK - done
-	##ASSIGN AND LOCK STAT - done
-	##CHANGE STATS - done
-	##CHANGE UI FOR THE NEXT CARDS - done
 
 func _process(delta):
 	
@@ -108,11 +98,11 @@ func _process(delta):
 				stat2.levelUp(1)
 				card2.selectcardAnim()
 				##If the stat is already locked, we search for the slot it is assigned to and update its UI
-				if stat2.isAssigned == true:
+				if stat2.isAssigned == true && stat2.isAbility == false:
 					LockedUIArray[stat2.numberAssigned - 1].UpdateUI(stat2.UI_level, stat2.UI_TitleSmall)
 					
 				##If the chosen stat is not assigned yet it runs a function to assign it to the right slot
-				if stat2.isAssigned == false:
+				if stat2.isAssigned == false && stat2.isAbility == false:
 					assignStatToSlot(stat2)
 					
 			if cardselected == 3:
@@ -120,11 +110,11 @@ func _process(delta):
 				stat3.levelUp(1)
 				card3.selectcardAnim()
 				##If the stat is already locked, we search for the slot it is assigned to and update its UI
-				if stat3.isAssigned == true:
+				if stat3.isAssigned == true && stat3.isAbility == false:
 					LockedUIArray[stat3.numberAssigned - 1].UpdateUI(stat3.UI_level, stat3.UI_TitleSmall)
 				
 				##If the chosen stat is not assigned yet it runs a function to assign it to the right slot
-				if stat3.isAssigned == false:
+				if stat3.isAssigned == false && stat3.isAbility == false:
 					assignStatToSlot(stat3)
 			$UnpauseTimerLevelUp.start()
 			
@@ -147,11 +137,11 @@ func _process(delta):
 				stat2.levelUp(2)
 				card2.selectcardAnim()
 				##If the stat is already locked, we search for the slot it is assigned to and update its UI
-				if stat2.isAssigned == true:
+				if stat2.isAssigned == true && stat2.isAbility == false:
 					LockedUIArray[stat2.numberAssigned - 1].UpdateUI(stat2.UI_level, stat2.UI_TitleSmall)
 					
 				##If the chosen stat is not assigned yet it runs a function to assign it to the right slot
-				if stat2.isAssigned == false:
+				if stat2.isAssigned == false && stat2.isAbility == false:
 					assignStatToSlot(stat2)
 					
 			if cardselected == 3:
@@ -159,11 +149,11 @@ func _process(delta):
 				stat3.levelUp(2)
 				card3.selectcardAnim()
 				##If the stat is already locked, we search for the slot it is assigned to and update its UI
-				if stat3.isAssigned == true:
+				if stat3.isAssigned == true && stat3.isAbility == false:
 					LockedUIArray[stat3.numberAssigned - 1].UpdateUI(stat3.UI_level, stat3.UI_TitleSmall)
 				
 				##If the chosen stat is not assigned yet it runs a function to assign it to the right slot
-				if stat3.isAssigned == false:
+				if stat3.isAssigned == false && stat3.isAbility == false:
 					assignStatToSlot(stat3)
 			$UnpauseTimerLevelUp.start()
 			
@@ -186,11 +176,11 @@ func _process(delta):
 				stat2.levelUp(3)
 				card2.selectcardAnim()
 				##If the stat is already locked, we search for the slot it is assigned to and update its UI
-				if stat2.isAssigned == true:
+				if stat2.isAssigned == true && stat2.isAbility == false:
 					LockedUIArray[stat2.numberAssigned - 1].UpdateUI(stat2.UI_level, stat2.UI_TitleSmall)
 					
 				##If the chosen stat is not assigned yet it runs a function to assign it to the right slot
-				if stat2.isAssigned == false:
+				if stat2.isAssigned == false && stat2.isAbility == false:
 					assignStatToSlot(stat2)
 					
 			if cardselected == 3:
@@ -198,11 +188,11 @@ func _process(delta):
 				stat3.levelUp(3)
 				card3.selectcardAnim()
 				##If the stat is already locked, we search for the slot it is assigned to and update its UI
-				if stat3.isAssigned == true:
+				if stat3.isAssigned == true && stat3.isAbility == false:
 					LockedUIArray[stat3.numberAssigned - 1].UpdateUI(stat3.UI_level, stat3.UI_TitleSmall)
 				
 				##If the chosen stat is not assigned yet it runs a function to assign it to the right slot
-				if stat3.isAssigned == false:
+				if stat3.isAssigned == false && stat3.isAbility == false:
 					assignStatToSlot(stat3)
 			$UnpauseTimerLevelUp.start()
 			
@@ -225,11 +215,11 @@ func _process(delta):
 				stat2.levelUp(4)
 				card2.selectcardAnim()
 				##If the stat is already locked, we search for the slot it is assigned to and update its UI
-				if stat2.isAssigned == true:
+				if stat2.isAssigned == true && stat2.isAbility == false:
 					LockedUIArray[stat2.numberAssigned - 1].UpdateUI(stat2.UI_level, stat2.UI_TitleSmall)
 					
 				##If the chosen stat is not assigned yet it runs a function to assign it to the right slot
-				if stat2.isAssigned == false:
+				if stat2.isAssigned == false && stat2.isAbility == false:
 					assignStatToSlot(stat2)
 					
 			if cardselected == 3:
@@ -237,11 +227,11 @@ func _process(delta):
 				stat3.levelUp(4)
 				card3.selectcardAnim()
 				##If the stat is already locked, we search for the slot it is assigned to and update its UI
-				if stat3.isAssigned == true:
+				if stat3.isAssigned == true && stat3.isAbility == false:
 					LockedUIArray[stat3.numberAssigned - 1].UpdateUI(stat3.UI_level, stat3.UI_TitleSmall)
 				
 				##If the chosen stat is not assigned yet it runs a function to assign it to the right slot
-				if stat3.isAssigned == false:
+				if stat3.isAssigned == false && stat3.isAbility == false:
 					assignStatToSlot(stat3)
 			$UnpauseTimerLevelUp.start()
 
