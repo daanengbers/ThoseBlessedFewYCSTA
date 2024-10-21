@@ -5,6 +5,7 @@ extends Node2D
 @export var isAbility = true
 @export var UI_Title = "HP"
 @export var UI_TitleSmall = "HP"
+@export var UI_IconSmall = 0
 @export var UI_ImageNmr = 0
 @export var maxLevel = 6
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6eexehntobs7"]
+[gd_scene load_steps=20 format=3 uid="uid://c6eexehntobs7"]
 
 [ext_resource type="PackedScene" uid="uid://umuceabk58pi" path="res://Scenes/NewLevelUpSystemTest/HP_Stat.tscn" id="1_lt1ma"]
 [ext_resource type="Script" path="res://Scenes/LevelUp.gd" id="1_u64b8"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ci72mnj78p5om" path="res://Assets/UI/YCSTA_UIboxupgradelevel_full.png" id="7_vuowb"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="8_v6pp2"]
 [ext_resource type="FontFile" uid="uid://b85f1e3h4hl2q" path="res://Fonts/Retro Gaming.ttf" id="8_wghw4"]
+[ext_resource type="Texture2D" uid="uid://cgakxi0t1lwe7" path="res://Assets/UI/Staticons.png" id="9_73unb"]
 [ext_resource type="Texture2D" uid="uid://dsh5841pjc8i5" path="res://Assets/Particle_Sprites/YCSTA_Souldparticles.png" id="12_podm3"]
 
 [sub_resource type="Animation" id="Animation_yqass"]
@@ -103,7 +104,7 @@ horizontal_alignment = 1
 [node name="LockedStat1" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(45, 12)
+position = Vector2(125, 150)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -151,10 +152,15 @@ text = "HP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Icon" type="Sprite2D" parent="UI/LockedStat1"]
+visible = false
+texture = ExtResource("9_73unb")
+vframes = 5
+
 [node name="LockedStat2" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(69, 12)
+position = Vector2(149, 150)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -202,10 +208,16 @@ text = "HP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Icon" type="Sprite2D" parent="UI/LockedStat2"]
+visible = false
+texture = ExtResource("9_73unb")
+vframes = 5
+frame = 4
+
 [node name="LockedStat3" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(93, 12)
+position = Vector2(173, 150)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -253,10 +265,16 @@ text = "HP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Icon" type="Sprite2D" parent="UI/LockedStat3"]
+visible = false
+texture = ExtResource("9_73unb")
+vframes = 5
+frame = 2
+
 [node name="LockedStat4" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(117, 12)
+position = Vector2(197, 150)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -303,6 +321,12 @@ theme_override_fonts/font = ExtResource("8_v6pp2")
 text = "HP"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Icon" type="Sprite2D" parent="UI/LockedStat4"]
+visible = false
+texture = ExtResource("9_73unb")
+vframes = 5
+frame = 3
 
 [node name="UnpauseTimerLevelUp" type="Timer" parent="."]
 wait_time = 1.2
@@ -370,6 +394,7 @@ UI_level1AmountToIncreaseDecrease = "Shoot ball"
 [node name="HP_Stat" parent="Stats" instance=ExtResource("1_lt1ma")]
 process_mode = 3
 isAbility = false
+UI_IconSmall = 4
 UI_ImageNmr = 4
 UI_level1AmountToIncreaseDecrease = "+3"
 
@@ -380,6 +405,7 @@ statID = "ATTACK"
 isAbility = false
 UI_Title = "Attack"
 UI_TitleSmall = "AT"
+UI_IconSmall = 0
 UI_ImageNmr = 0
 maxLevel = 6
 level1AmountToIncreaseDecrease = 2
@@ -402,6 +428,7 @@ statID = "SPEED"
 isAbility = false
 UI_Title = "Speed"
 UI_TitleSmall = "SP"
+UI_IconSmall = 1
 UI_ImageNmr = 1
 level1AmountToIncreaseDecrease = 5
 UI_level1AmountToIncreaseDecrease = "+5"
@@ -419,6 +446,7 @@ statID = "COOLDOWN"
 isAbility = false
 UI_Title = "Cooldown"
 UI_TitleSmall = "CD"
+UI_IconSmall = 2
 UI_ImageNmr = 2
 level1AmountToIncreaseDecrease = 4
 UI_level1AmountToIncreaseDecrease = "-4%"
@@ -436,6 +464,7 @@ statID = "AMOUNT"
 isAbility = false
 UI_Title = "Amount"
 UI_TitleSmall = "Am"
+UI_IconSmall = 3
 UI_ImageNmr = 3
 
 [node name="MAXED_Stat" type="Node2D" parent="Stats"]
