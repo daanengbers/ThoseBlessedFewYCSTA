@@ -1,7 +1,8 @@
-[gd_scene load_steps=55 format=3 uid="uid://b46qb74feih7m"]
+[gd_scene load_steps=56 format=3 uid="uid://b46qb74feih7m"]
 
 [ext_resource type="Script" path="res://Script/crowd_simulation.gd" id="1_hyuob"]
 [ext_resource type="Texture2D" uid="uid://8wpofymgaama" path="res://Assets/Tilesets/TestMenuOptions.png" id="2_5e03h"]
+[ext_resource type="Script" path="res://Scenes/PauseMenu.gd" id="2_vcxch"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="3_gjq7j"]
 [ext_resource type="Texture2D" uid="uid://deqsdtpq6bt6s" path="res://Assets/UI/YCSTA_UIboxes-1.png" id="3_rhqmm"]
 [ext_resource type="Texture2D" uid="uid://siyq5k5htydp" path="res://Assets/UI/UpgradeIcons.png" id="3_rmdml"]
@@ -27,6 +28,44 @@
 [ext_resource type="Script" path="res://Scenes/SacrificeMeeblingScreen.gd" id="17_238em"]
 [ext_resource type="Texture2D" uid="uid://clio7b0ifxo4" path="res://Assets/UI/Aimicon.png" id="17_qerbj"]
 [ext_resource type="PackedScene" uid="uid://c6eexehntobs7" path="res://Scenes/NewLevelUpSystemTest/StatHolder.tscn" id="23_qdspg"]
+
+[sub_resource type="Animation" id="Animation_yqass"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kxa56"]
+resource_name = "play"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v57cf"]
+_data = {
+"RESET": SubResource("Animation_yqass"),
+"play": SubResource("Animation_kxa56")
+}
 
 [sub_resource type="Gradient" id="Gradient_63pq8"]
 offsets = PackedFloat32Array(0, 0.493333, 1)
@@ -88,44 +127,6 @@ animations = [{
 "name": &"keyboard",
 "speed": 5.0
 }]
-
-[sub_resource type="Animation" id="Animation_yqass"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_kxa56"]
-resource_name = "play"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 2, 1]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_v57cf"]
-_data = {
-"RESET": SubResource("Animation_yqass"),
-"play": SubResource("Animation_kxa56")
-}
 
 [sub_resource type="Gradient" id="Gradient_bue6w"]
 offsets = PackedFloat32Array(0, 0.486667, 1)
@@ -453,8 +454,28 @@ script = ExtResource("1_hyuob")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" type="Node2D" parent="UI"]
+process_mode = 3
+visible = false
+script = ExtResource("2_vcxch")
+
+[node name="UnpauseTimer" type="Timer" parent="UI/PauseMenu"]
+wait_time = 0.05
 
 [node name="OptionButtons" type="Node2D" parent="UI/PauseMenu"]
+
+[node name="OptionsArrow" type="Sprite2D" parent="UI/PauseMenu/OptionButtons"]
+z_index = 2
+texture_filter = 1
+position = Vector2(27, 103)
+rotation = 1.5708
+texture = ExtResource("15_o6n48")
+hframes = 2
+vframes = 2
+
+[node name="Anim" type="AnimationPlayer" parent="UI/PauseMenu/OptionButtons/OptionsArrow"]
+libraries = {
+"": SubResource("AnimationLibrary_v57cf")
+}
 
 [node name="Continue" type="Sprite2D" parent="UI/PauseMenu/OptionButtons"]
 z_index = 2
@@ -891,11 +912,13 @@ hframes = 2
 vframes = 2
 
 [node name="Staticons" type="Sprite2D" parent="UI"]
+visible = false
 texture_filter = 1
 position = Vector2(8, 39)
 texture = ExtResource("9_ifqvn")
 
 [node name="Text_ATKlvl" type="Label" parent="UI"]
+visible = false
 texture_filter = 1
 offset_left = 17.0
 offset_top = 12.0
@@ -910,6 +933,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Text_SPDlvl" type="Label" parent="UI"]
+visible = false
 texture_filter = 1
 offset_left = 17.0
 offset_top = 22.0
@@ -924,6 +948,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Text_CDNlvl" type="Label" parent="UI"]
+visible = false
 texture_filter = 1
 offset_left = 17.0
 offset_top = 32.0
@@ -938,6 +963,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Text_AMTlvl" type="Label" parent="UI"]
+visible = false
 texture_filter = 1
 offset_left = 17.0
 offset_top = 42.0
@@ -952,6 +978,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Text_HPlvl" type="Label" parent="UI"]
+visible = false
 texture_filter = 1
 offset_left = 17.0
 offset_top = 52.0
@@ -1215,9 +1242,9 @@ metadata/_edit_use_anchors_ = true
 [node name="GameTimerUI" type="Label" parent="UI"]
 texture_filter = 1
 offset_left = 4.0
-offset_top = 1.0
+offset_top = 8.0
 offset_right = 44.0
-offset_bottom = 14.0
+offset_bottom = 21.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_gjq7j")
@@ -1301,6 +1328,7 @@ libraries = {
 
 [node name="TestNodeLevelUp" type="Node2D" parent="."]
 
+[connection signal="timeout" from="UI/PauseMenu/UnpauseTimer" to="UI/PauseMenu" method="_on_unpause_timer_timeout"]
 [connection signal="timeout" from="UI/SelectLevelupscreen/UnpauseTimer" to="UI/SelectLevelupscreen" method="_on_unpause_timer_timeout"]
 [connection signal="timeout" from="UI/SelectLevelupscreen/CanpressTimer" to="UI/SelectLevelupscreen" method="_on_canpress_timer_timeout"]
 [connection signal="timeout" from="UI/SacrificeMeeblingScreen/UnpauseTimerSac" to="UI/SacrificeMeeblingScreen" method="_on_unpause_timer_sac_timeout"]

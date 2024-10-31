@@ -38,6 +38,8 @@ var isMaxLevel = false
 var isAssigned = false
 var numberAssigned = 0 
 
+@export var AmountToIncrease = ["Test1", "Test2"]
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

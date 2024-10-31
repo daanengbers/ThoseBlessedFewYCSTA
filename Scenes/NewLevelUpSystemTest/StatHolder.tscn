@@ -104,7 +104,7 @@ horizontal_alignment = 1
 [node name="LockedStat1" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(125, 150)
+position = Vector2(39, 14)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -160,7 +160,7 @@ vframes = 5
 [node name="LockedStat2" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(149, 150)
+position = Vector2(62, 14)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -217,7 +217,7 @@ frame = 4
 [node name="LockedStat3" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(173, 150)
+position = Vector2(85, 14)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -274,7 +274,7 @@ frame = 2
 [node name="LockedStat4" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(197, 150)
+position = Vector2(108, 14)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -397,6 +397,7 @@ isAbility = false
 UI_IconSmall = 4
 UI_ImageNmr = 4
 UI_level1AmountToIncreaseDecrease = "+3"
+AmountToIncrease = ["Test1", "Test2", ""]
 
 [node name="ATTACK_Stat" parent="Stats" instance=ExtResource("2_3cs6b")]
 process_mode = 3
@@ -420,6 +421,7 @@ level5AmountToIncrease = 1
 UI_level5AmountToIncreaseDecrease = "+1"
 level6AmountToIncreaseDecrease = 1
 UI_level6AmountToIncreaseDecrease = "+1"
+AmountToIncrease = ["Test1", "Test2"]
 
 [node name="SPEED_Stat" type="Node2D" parent="Stats"]
 process_mode = 3

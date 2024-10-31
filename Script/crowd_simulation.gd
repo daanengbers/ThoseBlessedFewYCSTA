@@ -110,7 +110,9 @@ func _physics_process(_delta):
 		else:
 			velocity.y = 0
 			moving_yaxis = 1
-	
+		
+		if Input.is_action_just_pressed("Pause"):
+			$UI/PauseMenu.pauseGame()
 	#velocity = Vector2(movespeedx, movespeedy).normalized() * 60
 	
 	if Input.is_action_just_pressed("aim"):
@@ -197,15 +199,15 @@ func displayupgrades():
 		$UI/Box03/UpgradeIcons.frame = Globalsettings.g_spell3 + 4
 	if Globalsettings.g_spell4 != 0:
 		$UI/Box04/UpgradeIcons.frame = Globalsettings.g_spell4 + 4
-	$UI/Text_ATKlvl.set_text(str(5 + Globalsettings.currentrun_extraattack))
-	$UI/Text_SPDlvl.set_text(str(30 + Globalsettings.currentrun_extraspeed))
-	$UI/Text_CDNlvl.set_text(str(-0 + Globalsettings.currentrun_minuscooldown))
-	$UI/Text_AMTlvl.set_text(str(1 + Globalsettings.currentrun_extrabullets))
-	$UI/Text_HPlvl.set_text(str(10 + Globalsettings.currentrun_extrahealth))
+	$UI/PauseMenu/StatSheet/Text_ATKlvl.set_text(str(5 + Globalsettings.currentrun_extraattack))
+	$UI/PauseMenu/StatSheet/Text_SPDlvl.set_text(str(30 + Globalsettings.currentrun_extraspeed))
+	$UI/PauseMenu/StatSheet/Text_CDNlvl.set_text(str(-0 + Globalsettings.currentrun_minuscooldown))
+	$UI/PauseMenu/StatSheet/Text_AMTlvl.set_text(str(1 + Globalsettings.currentrun_extrabullets))
+	$UI/PauseMenu/StatSheet/Text_HPlvl.set_text(str(10 + Globalsettings.currentrun_extrahealth))
 	if Globalsettings.currentrun_minuscooldown >= 80:
-		$UI/Text_CDNlvl.modulate = Color(1,.2,.2)
+		$UI/PauseMenu/StatSheet/Text_CDNlvl.modulate = Color(1,.2,.2)
 	if Globalsettings.currentrun_minuscooldown == 0:
-		$UI/Text_CDNlvl.modulate = Color(1,1,1)
+		$UI/PauseMenu/StatSheet/Text_CDNlvl.modulate = Color(1,1,1)
 
 func level_up():
 	level += 1
@@ -249,18 +251,11 @@ func _on_menu_timer_timeout():
 		Globalsettings.highscore_xp = Globalsettings.global_total_xp
 	get_tree().change_scene_to_file("res://Scenes/new_titlescreen.tscn")
 
-
-
-
-
 func _on_check_fps_timer_timeout():
 	$Timers/CheckFPSTimer.start()
 	$UI/Showfps.set_text("FPS: " + str(Engine.get_frames_per_second()))
 	var Enemyamount = get_tree().get_nodes_in_group("enemy_m").size()
 	$UI/Enemycount.set_text(str(Enemyamount) + " NMys")
-
-
-
 
 func _on_area_2d_area_entered(SacDoor):
 	if SacDoor.is_in_group("Fog"):
@@ -304,7 +299,6 @@ func _on_area_2d_area_exited(area):
 	if area.is_in_group("SacOption") && isSacing == true:
 		isSacing = false
 	pass # Replace with function body.
-
 
 func _on_unpause_timer_sac_timeout():
 	pass # Replace with function body.
