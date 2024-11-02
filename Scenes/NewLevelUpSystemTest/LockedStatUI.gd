@@ -26,5 +26,6 @@ func UpdateUI(lvl, FrameNmr):
 		statIcon.set_frame(FrameNmr)
 		firstTimeCalled = false
 	else:
+		lvlText.set_text(lvl)
 		lvlText.visible = true
 	pass

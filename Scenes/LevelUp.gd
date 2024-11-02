@@ -40,6 +40,7 @@ var FirstTimeAllLocked = true
 ##This array is used to set the correct UI for the locked stats
 var LockedUIArray
 
+
 func _ready():
 	##Here we initialise all the stats that can be chosen
 	$UI/LevelUpUI/CardArrow/Anim.play("play")
@@ -54,6 +55,8 @@ func _ready():
 	var LIGHTNING_Ability = $Abilities/LIGHTNING_Abiltiy
 	var POISON_Ability = $Abilities/POISON_Ability
 	var ICE_Ability = $Abilities/ICE_Ability
+	
+	var MAX_Stat = $Stats/MAXED_Stat
 	
 	var UI_LockedStat1 = $UI/LockedStat1
 	var UI_LockedStat2 = $UI/LockedStat2
@@ -246,7 +249,7 @@ func levelUpInit():
 		##Loop through the stats and remove the ones that are fully leveled
 		for i in StatArray.size():
 			if StatArray[i].isMaxLevel == true:
-				StatArray.remove(i)
+				StatArray.remove_at(i-1)
 		
 		##randomise stats in array
 		StatArray.shuffle()
@@ -274,8 +277,8 @@ func levelUpInit():
 		##This loops through the array of the locked stats, if one of them is maxed out, it removes them and replaces them with a maxed out card
 		for i in lockedStatArray.size():
 			if lockedStatArray[i].isMaxLevel == true:
-				lockedStatArray.remove(i)
-				lockedStatArray.assign(maxLevelReachedCard)
+				lockedStatArray.remove_at(i-1)
+				lockedStatArray.assign()
 		
 		##randomise stats in locked array
 		lockedStatArray.shuffle()

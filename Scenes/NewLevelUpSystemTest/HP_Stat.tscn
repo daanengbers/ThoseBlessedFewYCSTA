@@ -5,8 +5,3 @@
 [node name="HpStat" type="Node2D"]
 script = ExtResource("1_4a1li")
 level1AmountToIncreaseDecrease = 3
-level2AmountToIncreaseDecrease = 6
-level3AmountToIncrease = 8
-level4AmountToIncreaseDecrease = 14
-level5AmountToIncrease = 16
-level6AmountToIncreaseDecrease = 24
