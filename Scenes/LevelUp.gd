@@ -40,6 +40,8 @@ var FirstTimeAllLocked = true
 ##This array is used to set the correct UI for the locked stats
 var LockedUIArray
 
+var statToRemove
+
 
 func _ready():
 	##Here we initialise all the stats that can be chosen
@@ -247,9 +249,11 @@ func levelUpInit():
 	##Checks if all stat slots are locked
 	if allSlotLocked == false:
 		##Loop through the stats and remove the ones that are fully leveled
-		for i in StatArray.size():
-			if StatArray[i].isMaxLevel == true:
-				StatArray.remove_at(i-1)
+		for Stati in StatArray.size():
+			if StatArray[Stati].isMaxLevel == true:
+				statToRemove = Stati
+		if statToRemove != null && StatArray[statToRemove].isMaxLevel == true:
+			StatArray.remove_at(statToRemove)
 		
 		##randomise stats in array
 		StatArray.shuffle()
@@ -277,7 +281,7 @@ func levelUpInit():
 		##This loops through the array of the locked stats, if one of them is maxed out, it removes them and replaces them with a maxed out card
 		for i in lockedStatArray.size():
 			if lockedStatArray[i].isMaxLevel == true:
-				lockedStatArray.remove_at(i-1)
+				lockedStatArray.remove_at(i)
 				lockedStatArray.assign()
 		
 		##randomise stats in locked array
