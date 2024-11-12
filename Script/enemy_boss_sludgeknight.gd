@@ -115,6 +115,7 @@ func hurt():
 	if chasing == false:
 		chasing = true
 		Globalsettings.bossfight_active = true
+		Globalsettings.bossfight_number = 1
 		Globalsettings.globalmusic = 2
 		Globalsettings.setmusic()
 		$UI.visible = true
@@ -127,6 +128,7 @@ func apply_freeze():
 func kill():
 	Onscreenmessages.displaymessage("Boss Defeated")
 	Globalsettings.bossfight_active = false
+	Globalsettings.bossfight_number = 0
 	Globalsettings.globalmusic = 1
 	Globalsettings.setmusic()
 	alive = false

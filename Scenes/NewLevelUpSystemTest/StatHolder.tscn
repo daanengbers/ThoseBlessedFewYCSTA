@@ -363,7 +363,7 @@ statID = "FIREBALL"
 UI_Title = "Fireball"
 UI_TitleSmall = "FB"
 UI_ImageNmr = 5
-UI_level1AmountToIncreaseDecrease = "Shoot ball"
+UI_level1AmountToIncreaseDecrease = ""
 
 [node name="LIGHTNING_Abiltiy" type="Node2D" parent="Abilities"]
 script = ExtResource("3_6j8wa")
@@ -371,7 +371,7 @@ statID = "LIGHTNING"
 UI_Title = "Lightning"
 UI_TitleSmall = "FB"
 UI_ImageNmr = 6
-UI_level1AmountToIncreaseDecrease = "Shoot ball"
+UI_level1AmountToIncreaseDecrease = ""
 
 [node name="POISON_Ability" type="Node2D" parent="Abilities"]
 script = ExtResource("3_6j8wa")
@@ -379,7 +379,7 @@ statID = "POISON"
 UI_Title = "Poison"
 UI_TitleSmall = "FB"
 UI_ImageNmr = 7
-UI_level1AmountToIncreaseDecrease = "Shoot ball"
+UI_level1AmountToIncreaseDecrease = ""
 
 [node name="ICE_Ability" type="Node2D" parent="Abilities"]
 script = ExtResource("3_6j8wa")
@@ -387,7 +387,7 @@ statID = "ICE"
 UI_Title = "Ice"
 UI_TitleSmall = "FB"
 UI_ImageNmr = 8
-UI_level1AmountToIncreaseDecrease = "Shoot ball"
+UI_level1AmountToIncreaseDecrease = ""
 
 [node name="Stats" type="Node2D" parent="."]
 
@@ -454,8 +454,9 @@ process_mode = 3
 script = ExtResource("3_6j8wa")
 statID = "MAXED"
 isAbility = false
-UI_Title = "Health recover"
+UI_Title = "Max Stat"
 UI_TitleSmall = "Am"
+UI_level1AmountToIncreaseDecrease = "Recover Health"
 
 [connection signal="timeout" from="UnpauseTimerLevelUp" to="." method="_on_unpause_timer_level_up_timeout"]
 [connection signal="timeout" from="CanpressTimerLevelUp" to="." method="_on_canpress_timer_level_up_timeout"]

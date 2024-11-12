@@ -7,6 +7,9 @@ const AIMSPEED = 4
 
 var BIRTH = preload("res://Scenes/meebling_birth.tscn")
 
+var BarrierLeft = preload("res://Scenes/boss_barrier_left.tscn")
+var BarrierRight = preload("res://Scenes/boss_barrier_right.tscn")
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var arrownr = 1
 
@@ -45,6 +48,8 @@ var currentSacDoor
 
 var gameover = false
 
+var isInBossRoom = false
+
 func _ready():
 	arrownr = Globalsettings.global_arrow
 	$Mainarrow/Anim.play("arrow" + str(arrownr))
@@ -60,6 +65,8 @@ func _ready():
 		Keyboard_Formation()
 	if Globalsettings.global_controllertype == "Gamepad":
 		Gamepad_Formation()
+		
+	
 
 func _physics_process(_delta):
 	
@@ -151,7 +158,17 @@ func _physics_process(_delta):
 	$UI/Box03/CDB.value = spell3cooldown
 	$UI/Box04/CDB.value = spell4cooldown
 	
-	
+	if isInBossRoom == true:
+		var hasHappened = false
+		if Globalsettings.bossfight_active == true && Globalsettings.bossfight_number == 1 && hasHappened == false:
+			var LeftDoor = BarrierLeft.instantiate()
+			var RightDoor = BarrierRight.instantiate()
+			get_parent().add_child(LeftDoor)
+			get_parent().add_child(RightDoor)
+			RightDoor.position = Vector2(-5088,-7424)
+			LeftDoor.position = Vector2(-4320,-7424)
+			hasHappened = true
+		
 	# Stat showcase system
 	
 	
@@ -258,6 +275,11 @@ func _on_check_fps_timer_timeout():
 	$UI/Enemycount.set_text(str(Enemyamount) + " NMys")
 
 func _on_area_2d_area_entered(SacDoor):
+	if SacDoor.is_in_group("BossRoom"):
+		isInBossRoom = true
+		pass
+	if SacDoor.is_in_group("CastleDoor"):
+		$"../Ysorter/CastleDoorArea/CastleDoor/AnimationPlayer".play("Open")
 	if SacDoor.is_in_group("Fog"):
 		$"../FogEffect/ParallaxLayer/ColorRect/AnimationPlayer".play("FadeIn")
 	if SacDoor.is_in_group("SacOption") && isSacing == false:
@@ -298,6 +320,9 @@ func _on_area_2d_area_exited(area):
 		$"../FogEffect/ParallaxLayer/ColorRect/AnimationPlayer".play("FadeOut")
 	if area.is_in_group("SacOption") && isSacing == true:
 		isSacing = false
+	if area.is_in_group("BossRoom"):
+		isInBossRoom = false
+		pass
 	pass # Replace with function body.
 
 func _on_unpause_timer_sac_timeout():

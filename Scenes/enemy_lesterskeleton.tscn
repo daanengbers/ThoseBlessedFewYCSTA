@@ -126,7 +126,7 @@ _data = {
 }
 
 [node name="Enemy_lesterskeleton" type="CharacterBody2D" groups=["enemy_m"]]
-z_index = 1
+z_index = 5
 script = ExtResource("1_pswjw")
 
 [node name="Icon" type="Sprite2D" parent="."]

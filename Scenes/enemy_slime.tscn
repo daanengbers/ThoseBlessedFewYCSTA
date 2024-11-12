@@ -129,7 +129,7 @@ _data = {
 [node name="Enemy_slime" type="CharacterBody2D" groups=["enemy_m"]]
 z_index = 1
 script = ExtResource("1_27jjo")
-SPEED = 30
+SPEED = 35
 hp = 40
 
 [node name="Icon" type="Sprite2D" parent="."]
