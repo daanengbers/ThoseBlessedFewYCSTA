@@ -3,6 +3,7 @@ extends CharacterBody2D
 var EXPORB = preload("res://Scenes/exp_area.tscn")
 
 @export var SPEED = 16
+var SpeedBoostOfScreen = 0
 @export var hp = 2000
 var damage = 3
 
@@ -55,6 +56,15 @@ func updateMeeblingsAndMovement():
 		velocity.x = 0
 		velocity.y = 0
 		withinreach = true
+	speedboost()
+
+func speedboost():
+	var crowd_simulator = get_tree().get_nodes_in_group("crowd_p")
+	var dist_to_crowdsim = abs(global_position - crowd_simulator[0].global_position)
+	if dist_to_crowdsim.x > 380 or dist_to_crowdsim.y > 180:
+		SpeedBoostOfScreen = 200
+	else: 
+		SpeedBoostOfScreen = 0
 
 #func wakeup():
 #	chasestate = "waking"

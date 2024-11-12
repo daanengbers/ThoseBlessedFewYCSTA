@@ -4,6 +4,7 @@ var EXPORB = preload("res://Scenes/exp_area.tscn")
 var EXPLOSION = preload("res://Scenes/bloodexplosion.tscn")
 
 @export var SPEED = 20
+var SpeedBoostOfScreen = 0
 @export var canflip = false
 
 @onready var e_anim = $Icon/Anim
@@ -66,6 +67,15 @@ func update_meeblingsandmovement():
 		#nearest_crowdm.hurt()
 		#if nearest_crowdm.hp <= 0:
 		#	nearest_crowdm.kill()
+	speedboost()
+
+func speedboost():
+	var crowd_simulator = get_tree().get_nodes_in_group("crowd_p")
+	var dist_to_crowdsim = abs(global_position - crowd_simulator[0].global_position)
+	if dist_to_crowdsim.x > 380 or dist_to_crowdsim.y > 180:
+		SpeedBoostOfScreen = 200
+	else: 
+		SpeedBoostOfScreen = 0
 
 func startexploding():
 	startedexploding = true

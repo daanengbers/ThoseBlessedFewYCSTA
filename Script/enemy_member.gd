@@ -14,9 +14,9 @@ var alive = true
 var randomspeedextra = 0
 
 var dist_to_crowdm
-var dist_to_crodsim
+#var dist_to_crowdsim # !!!!!!!!!!! THIS LINE MIGHT CAUSE BUGS
 var crowd_members
-var crowd_simulator
+#var crowd_simulator # !!!!!!!!!!! THIS LINE MIGHT CAUSE BUGS
 var nearest_crowdm
 var withinreach = false
 
@@ -30,16 +30,6 @@ func _ready():
 	update_meeblingsandmovement()
 
 func _physics_process(_delta):
-	
-	
-	crowd_simulator = get_tree().get_nodes_in_group("crowd_p")
-	dist_to_crodsim = abs(global_position - crowd_simulator[0].global_position)
-	if dist_to_crodsim.x > 380 or dist_to_crodsim.y > 180:
-		SpeedBoostOfScreen = 200
-	else: 
-		SpeedBoostOfScreen = 0
-	
-	
 	
 	move_and_slide()
 
@@ -69,6 +59,15 @@ func update_meeblingsandmovement():
 		nearest_crowdm.hurt()
 		if nearest_crowdm.hp <= 0:
 			nearest_crowdm.kill()
+	speedboost()
+
+func speedboost():
+	var crowd_simulator = get_tree().get_nodes_in_group("crowd_p")
+	var dist_to_crowdsim = abs(global_position - crowd_simulator[0].global_position)
+	if dist_to_crowdsim.x > 380 or dist_to_crowdsim.y > 180:
+		SpeedBoostOfScreen = 200
+	else: 
+		SpeedBoostOfScreen = 0
 
 func hurt():
 	$EffectsAnim.play("hurt")
