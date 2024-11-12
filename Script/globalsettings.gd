@@ -35,6 +35,7 @@ var NotLevelCard = false
 var inFogArea = false
 
 var bossfight_active = false
+var bossfight_number = 0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

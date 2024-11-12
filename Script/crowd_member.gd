@@ -54,6 +54,7 @@ var nearest_enemy
 var withinreach = false
 var currentextrabullets = 0
 
+
 func _ready():
 	
 	# Randomize stats, sprites & shininess

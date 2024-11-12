@@ -3,6 +3,7 @@ extends CharacterBody2D
 var EXPORB = preload("res://Scenes/exp_area.tscn")
 
 @export var SPEED = 55
+var SpeedBoostOfScreen = 0
 @export var canflip = false
 
 @onready var e_anim = $Icon/Anim
@@ -13,7 +14,9 @@ var alive = true
 var randomspeedextra = 0
 
 var dist_to_crowdm
+var dist_to_crodsim
 var crowd_members
+var crowd_simulator
 var nearest_crowdm
 var withinreach = false
 
@@ -27,7 +30,14 @@ func _ready():
 	update_meeblingsandmovement()
 
 func _physics_process(_delta):
-	
+	crowd_simulator = get_tree().get_nodes_in_group("crowd_p")
+	dist_to_crodsim = abs(global_position - crowd_simulator[0].global_position)
+	print(dist_to_crodsim)
+	##380,180
+	if dist_to_crodsim.x > 380 or dist_to_crodsim.y > 180:
+		SpeedBoostOfScreen = 200
+	else: 
+		SpeedBoostOfScreen = 0
 	move_and_slide()
 
 func update_meeblingsandmovement():
@@ -43,7 +53,7 @@ func update_meeblingsandmovement():
 	$Rot.look_at(nearest_crowdm.global_position)
 	
 	if dist_to_crowdm.x > 14 or dist_to_crowdm.y > 14:
-		velocity = Vector2(SPEED + randomspeedextra, 0).rotated($Rot.rotation)
+		velocity = Vector2(SPEED + SpeedBoostOfScreen +randomspeedextra, 0).rotated($Rot.rotation)
 		withinreach = false
 	else:
 		velocity.x = 0

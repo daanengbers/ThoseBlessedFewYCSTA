@@ -177,6 +177,7 @@ _data = {
 radius = 5.09902
 
 [node name="EXP_area" type="Area2D" groups=["Despawn", "EXPorb"]]
+z_index = 4
 script = ExtResource("1_18sew")
 
 [node name="Sprite" type="Sprite2D" parent="."]

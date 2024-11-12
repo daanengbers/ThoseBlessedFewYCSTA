@@ -42,23 +42,24 @@ var LockedUIArray
 
 var statToRemove
 
+@onready var HP_Stat = $Stats/HP_Stat
+@onready var ATTACK_Stat = $Stats/ATTACK_Stat
+@onready var COOLDOWN_Stat = $Stats/COOLDOWN_Stat
+@onready var SPEED_Stat = $Stats/SPEED_Stat
+@onready var AMOUNT_Stat = $Stats/AMOUNT_Stat
+
+@onready var FIREBALL_Ability = $Abilities/FIREBALL_Ability
+@onready var LIGHTNING_Ability = $Abilities/LIGHTNING_Abiltiy
+@onready var POISON_Ability = $Abilities/POISON_Ability
+@onready var ICE_Ability = $Abilities/ICE_Ability
+
+@onready var MAX_Stat = $Stats/MAXED_Stat
 
 func _ready():
 	##Here we initialise all the stats that can be chosen
 	$UI/LevelUpUI/CardArrow/Anim.play("play")
 	
-	var HP_Stat = $Stats/HP_Stat
-	var ATTACK_Stat = $Stats/ATTACK_Stat
-	var COOLDOWN_Stat = $Stats/COOLDOWN_Stat
-	var SPEED_Stat = $Stats/SPEED_Stat
-	var AMOUNT_Stat = $Stats/AMOUNT_Stat
 	
-	var FIREBALL_Ability = $Abilities/FIREBALL_Ability
-	var LIGHTNING_Ability = $Abilities/LIGHTNING_Abiltiy
-	var POISON_Ability = $Abilities/POISON_Ability
-	var ICE_Ability = $Abilities/ICE_Ability
-	
-	var MAX_Stat = $Stats/MAXED_Stat
 	
 	var UI_LockedStat1 = $UI/LockedStat1
 	var UI_LockedStat2 = $UI/LockedStat2
@@ -275,14 +276,14 @@ func levelUpInit():
 	if allSlotLocked == true:
 		##The first time you level up after all stats are locked, it makes a new list with the locked stats
 		if FirstTimeAllLocked == true:
-			lockedStatArray = [FirstStat,SeccondStat,ThirdStat,FourthStat]
+			lockedStatArray = [FirstStat,SeccondStat,ThirdStat,FourthStat, FIREBALL_Ability, POISON_Ability, ICE_Ability, LIGHTNING_Ability]
 			FirstTimeAllLocked = false
 		
 		##This loops through the array of the locked stats, if one of them is maxed out, it removes them and replaces them with a maxed out card
 		for i in lockedStatArray.size():
 			if lockedStatArray[i].isMaxLevel == true:
 				lockedStatArray.remove_at(i)
-				lockedStatArray.assign()
+				lockedStatArray.append(MAX_Stat)
 		
 		##randomise stats in locked array
 		lockedStatArray.shuffle()
