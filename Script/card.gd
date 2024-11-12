@@ -19,10 +19,11 @@ func _ready():
 func rerandomizecard():
 	cardnr = randi()%12 + 1
 
-func UpdateCardUI(Title,Level,AmountToIncreaseDecrease):
+func UpdateCardUI(Title,Level,AmountToIncreaseDecrease, imageFrame):
 	##$eh/Spellcards.frame = cardcolor
 	$eh/Cardname.set_text(str(Title))
 	$eh/Carddescription.set_text(str(Level))
+	$eh/UpgradeIcons.set_frame(imageFrame)
 	##$eh/UpgradeIcons.frame = cardimg
 	pass
 

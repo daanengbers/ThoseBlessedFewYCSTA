@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6eexehntobs7"]
+[gd_scene load_steps=20 format=3 uid="uid://c6eexehntobs7"]
 
 [ext_resource type="PackedScene" uid="uid://umuceabk58pi" path="res://Scenes/NewLevelUpSystemTest/HP_Stat.tscn" id="1_lt1ma"]
 [ext_resource type="Script" path="res://Scenes/LevelUp.gd" id="1_u64b8"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ci72mnj78p5om" path="res://Assets/UI/YCSTA_UIboxupgradelevel_full.png" id="7_vuowb"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="8_v6pp2"]
 [ext_resource type="FontFile" uid="uid://b85f1e3h4hl2q" path="res://Fonts/Retro Gaming.ttf" id="8_wghw4"]
+[ext_resource type="Texture2D" uid="uid://cgakxi0t1lwe7" path="res://Assets/UI/Staticons.png" id="9_73unb"]
 [ext_resource type="Texture2D" uid="uid://dsh5841pjc8i5" path="res://Assets/Particle_Sprites/YCSTA_Souldparticles.png" id="12_podm3"]
 
 [sub_resource type="Animation" id="Animation_yqass"]
@@ -103,7 +104,7 @@ horizontal_alignment = 1
 [node name="LockedStat1" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(45, 12)
+position = Vector2(39, 14)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -151,10 +152,15 @@ text = "HP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Icon" type="Sprite2D" parent="UI/LockedStat1"]
+visible = false
+texture = ExtResource("9_73unb")
+vframes = 5
+
 [node name="LockedStat2" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(69, 12)
+position = Vector2(62, 14)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -202,10 +208,16 @@ text = "HP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Icon" type="Sprite2D" parent="UI/LockedStat2"]
+visible = false
+texture = ExtResource("9_73unb")
+vframes = 5
+frame = 4
+
 [node name="LockedStat3" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(93, 12)
+position = Vector2(85, 14)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -253,10 +265,16 @@ text = "HP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Icon" type="Sprite2D" parent="UI/LockedStat3"]
+visible = false
+texture = ExtResource("9_73unb")
+vframes = 5
+frame = 2
+
 [node name="LockedStat4" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(117, 12)
+position = Vector2(108, 14)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -304,73 +322,11 @@ text = "HP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HPStat" parent="." instance=ExtResource("1_lt1ma")]
-process_mode = 3
-UI_level1AmountToIncreaseDecrease = "+3"
-
-[node name="ATTACKStat" parent="." instance=ExtResource("2_3cs6b")]
-process_mode = 3
-script = ExtResource("3_6j8wa")
-statID = "ATTACK"
-UI_Title = "Attack"
-UI_TitleSmall = "AT"
-maxLevel = 6
-level1AmountToIncreaseDecrease = 2
-UI_level1AmountToIncreaseDecrease = "+2"
-level2AmountToIncreaseDecrease = 3
-UI_level2AmountToIncreaseDecrease = "+3"
-level3AmountToIncrease = 6
-UI_level3AmountToIncreaseDecrease = "+6"
-level4AmountToIncreaseDecrease = 10
-UI_level4AmountToIncreaseDecrease = "+10"
-level5AmountToIncrease = 1
-UI_level5AmountToIncreaseDecrease = "+1"
-level6AmountToIncreaseDecrease = 1
-UI_level6AmountToIncreaseDecrease = "+1"
-
-[node name="SPEEDStat" type="Node2D" parent="."]
-process_mode = 3
-script = ExtResource("3_6j8wa")
-statID = "SPEED"
-UI_Title = "Speed"
-UI_TitleSmall = "SP"
-level1AmountToIncreaseDecrease = 5
-UI_level1AmountToIncreaseDecrease = "+5"
-level2AmountToIncreaseDecrease = 10
-UI_level2AmountToIncreaseDecrease = "+10"
-level3AmountToIncrease = 14
-UI_level3AmountToIncreaseDecrease = "+14"
-level4AmountToIncreaseDecrease = 20
-UI_level4AmountToIncreaseDecrease = "+20"
-
-[node name="COOLDOWNStat" type="Node2D" parent="."]
-process_mode = 3
-script = ExtResource("3_6j8wa")
-statID = "COOLDOWN"
-UI_Title = "Cooldown"
-UI_TitleSmall = "CD"
-level1AmountToIncreaseDecrease = 4
-UI_level1AmountToIncreaseDecrease = "-4%"
-level2AmountToIncreaseDecrease = 6
-UI_level2AmountToIncreaseDecrease = "-6%"
-level3AmountToIncrease = 10
-UI_level3AmountToIncreaseDecrease = "-10%"
-level4AmountToIncreaseDecrease = 14
-UI_level4AmountToIncreaseDecrease = "-14%"
-
-[node name="AMOUNTStat" type="Node2D" parent="."]
-process_mode = 3
-script = ExtResource("3_6j8wa")
-statID = "AMOUNT"
-UI_Title = "Amount"
-UI_TitleSmall = "Am"
-
-[node name="MAXEDStat" type="Node2D" parent="."]
-process_mode = 3
-script = ExtResource("3_6j8wa")
-statID = "MAXED"
-UI_Title = "Health recover"
-UI_TitleSmall = "Am"
+[node name="Icon" type="Sprite2D" parent="UI/LockedStat4"]
+visible = false
+texture = ExtResource("9_73unb")
+vframes = 5
+frame = 3
 
 [node name="UnpauseTimerLevelUp" type="Timer" parent="."]
 wait_time = 1.2
@@ -398,6 +354,108 @@ initial_velocity_max = 160.0
 scale_amount_max = 1.4
 color_ramp = SubResource("Gradient_j6cyr")
 color_initial_ramp = SubResource("Gradient_f8f7v")
+
+[node name="Abilities" type="Node2D" parent="."]
+
+[node name="FIREBALL_Ability" type="Node2D" parent="Abilities"]
+script = ExtResource("3_6j8wa")
+statID = "FIREBALL"
+UI_Title = "Fireball"
+UI_TitleSmall = "FB"
+UI_ImageNmr = 5
+UI_level1AmountToIncreaseDecrease = "Shoot ball"
+
+[node name="LIGHTNING_Abiltiy" type="Node2D" parent="Abilities"]
+script = ExtResource("3_6j8wa")
+statID = "LIGHTNING"
+UI_Title = "Lightning"
+UI_TitleSmall = "FB"
+UI_ImageNmr = 6
+UI_level1AmountToIncreaseDecrease = "Shoot ball"
+
+[node name="POISON_Ability" type="Node2D" parent="Abilities"]
+script = ExtResource("3_6j8wa")
+statID = "POISON"
+UI_Title = "Poison"
+UI_TitleSmall = "FB"
+UI_ImageNmr = 7
+UI_level1AmountToIncreaseDecrease = "Shoot ball"
+
+[node name="ICE_Ability" type="Node2D" parent="Abilities"]
+script = ExtResource("3_6j8wa")
+statID = "ICE"
+UI_Title = "Ice"
+UI_TitleSmall = "FB"
+UI_ImageNmr = 8
+UI_level1AmountToIncreaseDecrease = "Shoot ball"
+
+[node name="Stats" type="Node2D" parent="."]
+
+[node name="HP_Stat" parent="Stats" instance=ExtResource("1_lt1ma")]
+process_mode = 3
+isAbility = false
+UI_IconSmall = 4
+UI_ImageNmr = 4
+UI_level1AmountToIncreaseDecrease = "+3"
+AmountToIncrease = [6, 11, 14, 16, 20]
+
+[node name="ATTACK_Stat" parent="Stats" instance=ExtResource("2_3cs6b")]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "ATTACK"
+isAbility = false
+UI_Title = "Attack"
+UI_TitleSmall = "AT"
+UI_IconSmall = 0
+UI_ImageNmr = 0
+level1AmountToIncreaseDecrease = 2
+UI_level1AmountToIncreaseDecrease = "+2"
+AmountToIncrease = [2, 4, 6, 8, 10]
+
+[node name="SPEED_Stat" type="Node2D" parent="Stats"]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "SPEED"
+isAbility = false
+UI_Title = "Speed"
+UI_TitleSmall = "SP"
+UI_IconSmall = 1
+UI_ImageNmr = 1
+level1AmountToIncreaseDecrease = 5
+UI_level1AmountToIncreaseDecrease = "+5"
+AmountToIncrease = [5, 10, 14, 20, 23, 30]
+
+[node name="COOLDOWN_Stat" type="Node2D" parent="Stats"]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "COOLDOWN"
+isAbility = false
+UI_Title = "Cooldown"
+UI_TitleSmall = "CD"
+UI_IconSmall = 2
+UI_ImageNmr = 2
+level1AmountToIncreaseDecrease = 4
+UI_level1AmountToIncreaseDecrease = "-4%"
+AmountToIncrease = [4, 6, 10, 14, 16, 20, 25]
+
+[node name="AMOUNT_Stat" type="Node2D" parent="Stats"]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "AMOUNT"
+isAbility = false
+UI_Title = "Amount"
+UI_TitleSmall = "Am"
+UI_IconSmall = 3
+UI_ImageNmr = 3
+AmountToIncrease = [0, 1, 0, 1, 0, 1]
+
+[node name="MAXED_Stat" type="Node2D" parent="Stats"]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "MAXED"
+isAbility = false
+UI_Title = "Health recover"
+UI_TitleSmall = "Am"
 
 [connection signal="timeout" from="UnpauseTimerLevelUp" to="." method="_on_unpause_timer_level_up_timeout"]
 [connection signal="timeout" from="CanpressTimerLevelUp" to="." method="_on_canpress_timer_level_up_timeout"]

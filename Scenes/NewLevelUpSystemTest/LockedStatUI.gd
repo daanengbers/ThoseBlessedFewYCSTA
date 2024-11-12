@@ -2,12 +2,14 @@ extends Sprite2D
 
 var lvlText
 var statText
+var statIcon
 
 var firstTimeCalled = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	lvlText = $LVLText
 	statText = $StatText
+	statIcon = $Icon
 	pass # Replace with function body.
 
 
@@ -15,12 +17,15 @@ func _ready():
 func _process(delta):
 	pass
 
-func UpdateUI(lvl, stat):
+func UpdateUI(lvl, FrameNmr):
 	if firstTimeCalled == true:
-		statText.visible = true
+		##statText.visible = true
+		statIcon.visible = true
 		lvlText.visible = true
 		lvlText.set_text(lvl)
-		statText.set_text(stat)
+		statIcon.set_frame(FrameNmr)
+		firstTimeCalled = false
 	else:
+		lvlText.set_text(lvl)
 		lvlText.visible = true
 	pass

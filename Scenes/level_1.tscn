@@ -6252,7 +6252,15 @@ texture = ExtResource("55_vbwtl")
 
 [node name="EXP_area" parent="." instance=ExtResource("61_tx0wk")]
 position = Vector2(613, 69)
-expamount = 100
+expamount = 200
+
+[node name="EXP_area2" parent="." instance=ExtResource("61_tx0wk")]
+position = Vector2(663, 55)
+expamount = 200
+
+[node name="EXP_area3" parent="." instance=ExtResource("61_tx0wk")]
+position = Vector2(627, 28)
+expamount = 200
 
 [connection signal="area_entered" from="Crowd_Simulation/Area2D" to="Crowd_Simulation" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Crowd_Simulation/Area2D" to="Crowd_Simulation" method="_on_area_2d_area_exited"]
