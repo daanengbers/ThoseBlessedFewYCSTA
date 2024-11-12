@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://b46qb74feih7m"]
+[gd_scene load_steps=57 format=3 uid="uid://b46qb74feih7m"]
 
 [ext_resource type="Script" path="res://Script/crowd_simulation.gd" id="1_hyuob"]
 [ext_resource type="Texture2D" uid="uid://8wpofymgaama" path="res://Assets/Tilesets/TestMenuOptions.png" id="2_5e03h"]
@@ -442,6 +442,8 @@ _data = {
 "aim": SubResource("Animation_vl61u"),
 "rotate": SubResource("Animation_fjtyg")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gvhy"]
 
 [node name="Crowd_Simulation" type="CharacterBody2D" groups=["crowd_p"]]
 z_index = 20
@@ -1327,6 +1329,11 @@ libraries = {
 
 [node name="TestNodeLevelUp" type="Node2D" parent="."]
 
+[node name="CrowdSimulator_Area" type="Area2D" parent="." groups=["Arrow"]]
+
+[node name="box" type="CollisionShape2D" parent="CrowdSimulator_Area"]
+shape = SubResource("CircleShape2D_4gvhy")
+
 [connection signal="timeout" from="UI/PauseMenu/UnpauseTimer" to="UI/PauseMenu" method="_on_unpause_timer_timeout"]
 [connection signal="timeout" from="UI/SelectLevelupscreen/UnpauseTimer" to="UI/SelectLevelupscreen" method="_on_unpause_timer_timeout"]
 [connection signal="timeout" from="UI/SelectLevelupscreen/CanpressTimer" to="UI/SelectLevelupscreen" method="_on_canpress_timer_timeout"]
@@ -1334,3 +1341,5 @@ libraries = {
 [connection signal="timeout" from="UI/SacrificeMeeblingScreen/CanpressTimerSac" to="UI/SacrificeMeeblingScreen" method="_on_canpress_timer_sac_timeout"]
 [connection signal="timeout" from="Timers/MenuTimer" to="." method="_on_menu_timer_timeout"]
 [connection signal="timeout" from="Timers/CheckFPSTimer" to="." method="_on_check_fps_timer_timeout"]
+[connection signal="area_entered" from="CrowdSimulator_Area" to="." method="_on_crowd_simulator_area_area_entered"]
+[connection signal="area_exited" from="CrowdSimulator_Area" to="." method="_on_crowd_simulator_area_area_exited"]

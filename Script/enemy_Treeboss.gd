@@ -36,7 +36,8 @@ func _physics_process(_delta):
 
 func updateMeeblingsAndMovement():
 	crowd_members = get_tree().get_nodes_in_group("crowd_m")
-	nearest_crowdm = crowd_members[0]
+	if crowd_members.size() >= 1:
+		nearest_crowdm = crowd_members[0]
 	
 	for mem in crowd_members:
 		if mem.global_position.distance_to(self.global_position) < nearest_crowdm.global_position.distance_to(self.global_position):

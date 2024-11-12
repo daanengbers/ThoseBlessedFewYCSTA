@@ -74,7 +74,7 @@ func _physics_process(_delta):
 	$UI/EnemiesAliveUI.set_text(str(Globalsettings.g_enemiesAlive))
 	
 	crowdm = get_tree().get_nodes_in_group("crowd_m")
-	if crowdm.size() <= 1:
+	if crowdm.size() <= 0: # !!!!!!!!!!! THIS LINE MIGHT CAUSE BUGS
 		if gameover == false:
 			$Timers/MenuTimer.start()
 			gameover = true
@@ -274,57 +274,6 @@ func _on_check_fps_timer_timeout():
 	var Enemyamount = get_tree().get_nodes_in_group("enemy_m").size()
 	$UI/Enemycount.set_text(str(Enemyamount) + " NMys")
 
-func _on_area_2d_area_entered(SacDoor):
-	if SacDoor.is_in_group("BossRoom"):
-		isInBossRoom = true
-		pass
-	if SacDoor.is_in_group("CastleDoor"):
-		$"../Ysorter/CastleDoorArea/CastleDoor/AnimationPlayer".play("Open")
-	if SacDoor.is_in_group("Fog"):
-		$"../FogEffect/ParallaxLayer/ColorRect/AnimationPlayer".play("FadeIn")
-	if SacDoor.is_in_group("SacOption") && isSacing == false:
-		isSacing = true
-		currentSacDoor = SacDoor
-		## This activates the option to sac meeblings
-		$UI/SacrificeMeeblingScreen/SacText.set_text("Sacrifice " + str(SacDoor.amountToSac) + " Meeblings
- to open the way?")
-		
-		sacAmount = SacDoor.amountToSac
-		if sacAmount < crowdm.size():
-			$UI/SacrificeMeeblingScreen.spawncards(110,1,1)
-			$UI/SacrificeMeeblingScreen.spawncards(210,2,2)
-			
-			$UI/SacrificeMeeblingScreen.visible = true
-			$UI/SacrificeMeeblingScreen.inmenu = true
-			$UI/SacrificeMeeblingScreen.pressed = false
-			
-			canSac = true
-			
-			get_tree().paused = true
-			#here we should spawn a yes and no card
-		if sacAmount >= crowdm.size():
-			$UI/SacrificeMeeblingScreen.spawncards(160,3,3)
-			
-			$UI/SacrificeMeeblingScreen.visible = true
-			$UI/SacrificeMeeblingScreen.inmenu = true
-			$UI/SacrificeMeeblingScreen.pressed = false
-			
-			canSac = false
-			get_tree().paused = true
-			#here we should spawn a no card
-		pass
-	pass # Replace with function body.
-
-func _on_area_2d_area_exited(area):
-	if area.is_in_group("Fog"):
-		$"../FogEffect/ParallaxLayer/ColorRect/AnimationPlayer".play("FadeOut")
-	if area.is_in_group("SacOption") && isSacing == true:
-		isSacing = false
-	if area.is_in_group("BossRoom"):
-		isInBossRoom = false
-		pass
-	pass # Replace with function body.
-
 func _on_unpause_timer_sac_timeout():
 	pass # Replace with function body.
 	
@@ -354,3 +303,52 @@ func SacMeeblings():
 	pass
 	
 
+
+
+func _on_crowd_simulator_area_area_entered(area):
+	if area.is_in_group("BossRoom"):
+		isInBossRoom = true
+	if area.is_in_group("CastleDoor"):
+		$"../Ysorter/CastleDoorArea/CastleDoor/AnimationPlayer".play("Open")
+	if area.is_in_group("Fog"):
+		$"../FogEffect/ParallaxLayer/ColorRect/AnimationPlayer".play("FadeIn")
+	if area.is_in_group("SacOption") && isSacing == false:
+		isSacing = true
+		currentSacDoor = area
+		## This activates the option to sac meeblings
+		$UI/SacrificeMeeblingScreen/SacText.set_text("Sacrifice " + str(area.amountToSac) + " Meeblings
+ to open the way?")
+		
+		sacAmount = area.amountToSac
+		if sacAmount < crowdm.size():
+			$UI/SacrificeMeeblingScreen.spawncards(110,1,1)
+			$UI/SacrificeMeeblingScreen.spawncards(210,2,2)
+			
+			$UI/SacrificeMeeblingScreen.visible = true
+			$UI/SacrificeMeeblingScreen.inmenu = true
+			$UI/SacrificeMeeblingScreen.pressed = false
+			
+			canSac = true
+			
+			get_tree().paused = true
+			#here we should spawn a yes and no card
+		if sacAmount >= crowdm.size():
+			$UI/SacrificeMeeblingScreen.spawncards(160,3,3)
+			
+			$UI/SacrificeMeeblingScreen.visible = true
+			$UI/SacrificeMeeblingScreen.inmenu = true
+			$UI/SacrificeMeeblingScreen.pressed = false
+			
+			canSac = false
+			get_tree().paused = true
+			#here we should spawn a no card
+
+
+
+func _on_crowd_simulator_area_area_exited(area):
+	if area.is_in_group("Fog"):
+		$"../FogEffect/ParallaxLayer/ColorRect/AnimationPlayer".play("FadeOut")
+	if area.is_in_group("SacOption") && isSacing == true:
+		isSacing = false
+	if area.is_in_group("BossRoom"):
+		isInBossRoom = false

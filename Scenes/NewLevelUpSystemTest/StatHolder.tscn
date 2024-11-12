@@ -120,20 +120,17 @@ texture_under = ExtResource("6_mx60g")
 texture_progress = ExtResource("7_vuowb")
 
 [node name="LVLText" type="Label" parent="UI/LockedStat1"]
-visible = false
-modulate = Color(0.658824, 0, 0.0823529, 1)
-offset_left = -14.0
+offset_left = -13.0
 offset_top = -3.0
-offset_right = 14.0
+offset_right = 15.0
 offset_bottom = 20.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = SubResource("FontVariation_qhd2n")
-text = "LVL 1"
-horizontal_alignment = 2
+text = "Lv. 1"
+horizontal_alignment = 1
 vertical_alignment = 2
+autowrap_mode = 3
 
 [node name="StatText" type="Label" parent="UI/LockedStat1"]
 visible = false
@@ -176,20 +173,17 @@ texture_under = ExtResource("6_mx60g")
 texture_progress = ExtResource("7_vuowb")
 
 [node name="LVLText" type="Label" parent="UI/LockedStat2"]
-visible = false
-modulate = Color(0.658824, 0, 0.0823529, 1)
-offset_left = -14.0
+offset_left = -13.0
 offset_top = -3.0
-offset_right = 14.0
+offset_right = 15.0
 offset_bottom = 20.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = SubResource("FontVariation_qhd2n")
-text = "LVL 1"
-horizontal_alignment = 2
+text = "Lv. 1"
+horizontal_alignment = 1
 vertical_alignment = 2
+autowrap_mode = 3
 
 [node name="StatText" type="Label" parent="UI/LockedStat2"]
 visible = false
@@ -233,20 +227,17 @@ texture_under = ExtResource("6_mx60g")
 texture_progress = ExtResource("7_vuowb")
 
 [node name="LVLText" type="Label" parent="UI/LockedStat3"]
-visible = false
-modulate = Color(0.658824, 0, 0.0823529, 1)
-offset_left = -14.0
+offset_left = -13.0
 offset_top = -3.0
-offset_right = 14.0
+offset_right = 15.0
 offset_bottom = 20.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = SubResource("FontVariation_qhd2n")
-text = "LVL 1"
-horizontal_alignment = 2
+text = "Lv. 1"
+horizontal_alignment = 1
 vertical_alignment = 2
+autowrap_mode = 3
 
 [node name="StatText" type="Label" parent="UI/LockedStat3"]
 visible = false
@@ -290,20 +281,17 @@ texture_under = ExtResource("6_mx60g")
 texture_progress = ExtResource("7_vuowb")
 
 [node name="LVLText" type="Label" parent="UI/LockedStat4"]
-visible = false
-modulate = Color(0.658824, 0, 0.0823529, 1)
-offset_left = -14.0
+offset_left = -13.0
 offset_top = -3.0
-offset_right = 14.0
+offset_right = 15.0
 offset_bottom = 20.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = SubResource("FontVariation_qhd2n")
-text = "LVL 1"
-horizontal_alignment = 2
+text = "Lv. 1"
+horizontal_alignment = 1
 vertical_alignment = 2
+autowrap_mode = 3
 
 [node name="StatText" type="Label" parent="UI/LockedStat4"]
 visible = false

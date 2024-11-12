@@ -341,7 +341,7 @@ func assignStatToSlot(statToAssign):
 					FirstStat.numberAssigned = 1
 					
 					##Initialise the UI of the slot
-					LockedUIArray[0].UpdateUI("LVl 1", FirstStat.UI_IconSmall)
+					LockedUIArray[0].UpdateUI("Lv. 1", FirstStat.UI_IconSmall)
 					
 					##Up the slot to lock
 					currentStatToLock += 1
@@ -357,7 +357,7 @@ func assignStatToSlot(statToAssign):
 					SeccondStat.numberAssigned = 2
 					
 					##Initialise the UI of the slot
-					LockedUIArray[1].UpdateUI("LVl 1", SeccondStat.UI_IconSmall)
+					LockedUIArray[1].UpdateUI("Lv. 1", SeccondStat.UI_IconSmall)
 					
 					##Up the slot to lock
 					currentStatToLock += 1
@@ -372,7 +372,7 @@ func assignStatToSlot(statToAssign):
 					ThirdStat.numberAssigned = 3
 					
 					##Initialise the UI of the slot
-					LockedUIArray[2].UpdateUI("LVl 1", ThirdStat.UI_IconSmall)
+					LockedUIArray[2].UpdateUI("Lv. 1", ThirdStat.UI_IconSmall)
 					
 					##Up the slot to lock
 					currentStatToLock += 1
@@ -388,7 +388,7 @@ func assignStatToSlot(statToAssign):
 					FourthStat.numberAssigned = 4
 					
 					##Initialise the UI of the slot
-					LockedUIArray[3].UpdateUI("LVl 1", FourthStat.UI_IconSmall)
+					LockedUIArray[3].UpdateUI("Lv. 1", FourthStat.UI_IconSmall)
 					
 					##Up the slot to lock
 					currentStatToLock += 1
