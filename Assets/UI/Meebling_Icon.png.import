@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5xegwsh62an2"
-path="res://.godot/imported/GrassPlaneSprites.png-113cd414dbfa8eee5a28044bcffde5ad.ctex"
+uid="uid://bklcw5jhhnmv2"
+path="res://.godot/imported/Meebling_Icon.png-4214bcc01c5e17cd95f7787c887e3488.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GrassPlaneSprites.png"
-dest_files=["res://.godot/imported/GrassPlaneSprites.png-113cd414dbfa8eee5a28044bcffde5ad.ctex"]
+source_file="res://Assets/UI/Meebling_Icon.png"
+dest_files=["res://.godot/imported/Meebling_Icon.png-4214bcc01c5e17cd95f7787c887e3488.ctex"]
 
 [params]
 

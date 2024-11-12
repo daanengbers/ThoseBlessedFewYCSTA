@@ -47,7 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://bxoxbig2xrc6h" path="res://Assets/Environment_Sprites/Tower_Split_Lower.png" id="32_2sbo8"]
 [ext_resource type="Texture2D" uid="uid://c1u7mxahwbaw4" path="res://Assets/YCSTA_Darkforest_trees_up.png" id="32_dgr6a"]
 [ext_resource type="Texture2D" uid="uid://d3cveew3vqy0c" path="res://Assets/Environment_Sprites/Tower_Split_Upper.png" id="33_hm03a"]
-[ext_resource type="Texture2D" uid="uid://bysedw3102sxq" path="res://Assets/GrassPlaneSprites.png" id="34_gp2mt"]
+[ext_resource type="Texture2D" uid="uid://5xegwsh62an2" path="res://Assets/GrassPlaneSprites.png" id="34_gp2mt"]
 [ext_resource type="PackedScene" uid="uid://puwcfh4una5o" path="res://Scenes/waterarea.tscn" id="35_r4k4h"]
 [ext_resource type="PackedScene" uid="uid://c46w1oefw787c" path="res://Scenes/enemy_spawner.tscn" id="37_old02"]
 [ext_resource type="PackedScene" uid="uid://cfhu8chdech4a" path="res://Scenes/Decor/decor_skullonstick.tscn" id="38_oywpv"]

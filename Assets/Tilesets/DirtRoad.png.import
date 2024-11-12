@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5xegwsh62an2"
-path="res://.godot/imported/GrassPlaneSprites.png-113cd414dbfa8eee5a28044bcffde5ad.ctex"
+uid="uid://cq1ty0k1c7mwa"
+path="res://.godot/imported/DirtRoad.png-71953b06bd1ab45a0e5e7ba59880d843.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GrassPlaneSprites.png"
-dest_files=["res://.godot/imported/GrassPlaneSprites.png-113cd414dbfa8eee5a28044bcffde5ad.ctex"]
+source_file="res://Assets/Tilesets/DirtRoad.png"
+dest_files=["res://.godot/imported/DirtRoad.png-71953b06bd1ab45a0e5e7ba59880d843.ctex"]
 
 [params]
 
