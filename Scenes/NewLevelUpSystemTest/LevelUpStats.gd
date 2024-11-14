@@ -2,7 +2,7 @@ extends Node2D
 
 ##base info needed for UI and the level up system
 @export var statID = "HP"
-@export var isAbility = true
+@export var isStat_Ability_Bonus = 1
 @export var UI_Title = "HP"
 @export var UI_TitleSmall = "HP"
 @export var UI_IconSmall = 0
@@ -39,8 +39,8 @@ func _process(delta):
 		UI_level = "MAX"
 
 func levelUp(ButtonNumber):
-	match isAbility:
-		false:
+	match isStat_Ability_Bonus:
+		1:
 			if level < maxLevel:
 				##Update the stats by matching the level to the amountToIncrease array
 				UpdateStats(AmountToIncrease[level])
@@ -59,8 +59,11 @@ func levelUp(ButtonNumber):
 				UI_level = "MAX"
 				pass
 				
-		true:
+		2:
 			updateSpells(ButtonNumber)
+			pass
+		3:
+			updateBonus()
 			pass
 
 func UpdateStats(amountToIncreaseDecrease):
@@ -125,3 +128,10 @@ func updateSpells(spellToSetNumber):
 					Globalsettings.g_spell3 = 4
 				4:
 					Globalsettings.g_spell4 = 4
+
+func updateBonus():
+	match statID:
+		"EXTRAMEEBLING":
+			get_tree().call_group("crowd_p", "spawnbirth")
+			pass
+	pass

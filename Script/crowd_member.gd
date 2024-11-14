@@ -54,6 +54,8 @@ var nearest_enemy
 var withinreach = false
 var currentextrabullets = 0
 
+var IsIncapacitated = false
+
 
 func _ready():
 	
@@ -174,7 +176,7 @@ func _physics_process(_delta):
 	
 	$Rot.look_at(crowdp_pos)
 	
-	if alive == true && falling == false:
+	if alive == true && falling == false && IsIncapacitated == false:
 		if dist_to_crowdp.x > 12 + randomoffsetspace or dist_to_crowdp.y > 12 + randomoffsetspace:
 			velocity = Vector2(SPEED + randomspeedextra + Globalsettings.currentrun_extraspeed, 0).rotated($Rot.rotation)
 		else:
