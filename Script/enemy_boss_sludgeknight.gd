@@ -137,8 +137,9 @@ func apply_freeze():
 func kill():
 	Onscreenmessages.displaymessage("Boss Defeated")
 	Globalsettings.bossfight_active = false
-	get_node("RightDoor").queue_free()
-	get_node("LeftDoor").queue_free()
+	if get_node("RightDoor") != null && get_node("LeftDoor") != null:
+		get_node("RightDoor").queue_free()
+		get_node("LeftDoor").queue_free()
 	Globalsettings.bossfight_number = 0
 	Globalsettings.globalmusic = 1
 	Globalsettings.setmusic()

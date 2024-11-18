@@ -57,7 +57,8 @@ func pauseGame():
 	$".".visible = true
 	get_tree().paused = true
 	InMenu = true
-	$UnpauseTimer.start()
+	unpausePossible = false
+	$UnpauseTimer.start(0.5)
 	
 func unpauseGame():
 	InMenu = false

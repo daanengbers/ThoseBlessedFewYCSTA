@@ -29,7 +29,6 @@ var numberAssigned = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	maxLevel = AmountToIncrease.size()
-	print_debug(maxLevel)
 	UI_AmountToIncreaseDecrease = str(UI_level1AmountToIncreaseDecrease)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,7 +40,7 @@ func _process(delta):
 func levelUp(ButtonNumber):
 	match isStat_Ability_Bonus:
 		1:
-			if level < maxLevel:
+			if level < maxLevel && statID != "MAX":
 				##Update the stats by matching the level to the amountToIncrease array
 				UpdateStats(AmountToIncrease[level])
 				
@@ -58,6 +57,8 @@ func levelUp(ButtonNumber):
 			if level >= maxLevel:
 				UI_level = "MAX"
 				pass
+			if statID == "MAX":
+					UpdateStats(0)
 				
 		2:
 			updateSpells(ButtonNumber)
@@ -87,6 +88,9 @@ func UpdateStats(amountToIncreaseDecrease):
 			
 		"BOUNCE":
 			Globalsettings.currentrun_extrabounce += amountToIncreaseDecrease
+			
+		"MAX":
+			get_tree().call_group("crowd_m", "updateHp")
 
 func updateSpells(spellToSetNumber):
 	match statID:

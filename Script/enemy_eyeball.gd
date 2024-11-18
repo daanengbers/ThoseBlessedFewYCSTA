@@ -37,37 +37,37 @@ func update_meeblingsandmovement():
 	if crowd_members.size() >= 1:
 		nearest_crowdm = crowd_members[0]
 	
-	for mem in crowd_members:
-		if mem.global_position.distance_to(self.global_position) < nearest_crowdm.global_position.distance_to(self.global_position):
-			nearest_crowdm = mem
-	
-	dist_to_crowdm = abs(global_position - nearest_crowdm.global_position)
-	
-	$Rot.look_at(nearest_crowdm.global_position)
-	
-	if (dist_to_crowdm.x > 20 or dist_to_crowdm.y > 20) && startedexploding == false:
-		velocity = Vector2(SPEED + randomspeedextra, 0).rotated($Rot.rotation)
-		withinreach = false
-	else:
-		velocity.x = 0
-		velocity.y = 0
-		withinreach = true
-	
-	if canflip == true:
-		if velocity.x > 0:
-			$Icon.flip_h = true
+		for mem in crowd_members:
+			if mem.global_position.distance_to(self.global_position) < nearest_crowdm.global_position.distance_to(self.global_position):
+				nearest_crowdm = mem
+		
+		dist_to_crowdm = abs(global_position - nearest_crowdm.global_position)
+		
+		$Rot.look_at(nearest_crowdm.global_position)
+		
+		if (dist_to_crowdm.x > 20 or dist_to_crowdm.y > 20) && startedexploding == false:
+			velocity = Vector2(SPEED + randomspeedextra, 0).rotated($Rot.rotation)
+			withinreach = false
 		else:
-			$Icon.flip_h = false
-	
-	if withinreach == true && startedexploding == false:
-		startexploding()
+			velocity.x = 0
+			velocity.y = 0
+			withinreach = true
 		
+		if canflip == true:
+			if velocity.x > 0:
+				$Icon.flip_h = true
+			else:
+				$Icon.flip_h = false
 		
-		#nearest_crowdm.hp -= 1
-		#nearest_crowdm.hurt()
-		#if nearest_crowdm.hp <= 0:
-		#	nearest_crowdm.kill()
-	speedboost()
+		if withinreach == true && startedexploding == false:
+			startexploding()
+			
+			
+			#nearest_crowdm.hp -= 1
+			#nearest_crowdm.hurt()
+			#if nearest_crowdm.hp <= 0:
+			#	nearest_crowdm.kill()
+		speedboost()
 
 func speedboost():
 	var crowd_simulator = get_tree().get_nodes_in_group("crowd_p")
