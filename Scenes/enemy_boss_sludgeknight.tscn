@@ -129,7 +129,7 @@ _data = {
 radius = 23.0
 
 [node name="Enemy_Sludgeknight" type="CharacterBody2D" groups=["enemy_m"]]
-z_index = 1
+z_index = 5
 texture_filter = 1
 script = ExtResource("1_pw6be")
 

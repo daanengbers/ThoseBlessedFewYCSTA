@@ -104,7 +104,7 @@ horizontal_alignment = 1
 [node name="LockedStat1" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(39, 14)
+position = Vector2(31, 14)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -131,6 +131,7 @@ text = "Lv. 1"
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="StatText" type="Label" parent="UI/LockedStat1"]
 visible = false
@@ -157,7 +158,7 @@ vframes = 5
 [node name="LockedStat2" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(62, 14)
+position = Vector2(56, 14)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -184,6 +185,7 @@ text = "Lv. 1"
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="StatText" type="Label" parent="UI/LockedStat2"]
 visible = false
@@ -211,7 +213,7 @@ frame = 4
 [node name="LockedStat3" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(85, 14)
+position = Vector2(81, 14)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -238,6 +240,7 @@ text = "Lv. 1"
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="StatText" type="Label" parent="UI/LockedStat3"]
 visible = false
@@ -265,7 +268,7 @@ frame = 2
 [node name="LockedStat4" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(108, 14)
+position = Vector2(106, 14)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -436,6 +439,16 @@ UI_TitleSmall = "Am"
 UI_IconSmall = 3
 UI_ImageNmr = 3
 AmountToIncrease = [1, 0, 0, 1, 0, 0, 0, 1]
+
+[node name="BOUNCE_Stat" type="Node2D" parent="Stats"]
+process_mode = 3
+script = ExtResource("3_6j8wa")
+statID = "BOUNCE"
+UI_Title = "Bounce"
+UI_TitleSmall = "Bo"
+UI_IconSmall = 3
+UI_ImageNmr = 3
+AmountToIncrease = [1, 1, 1, 1, 1, 1, 1, 1]
 
 [node name="MAXED_Stat" type="Node2D" parent="Stats"]
 process_mode = 3

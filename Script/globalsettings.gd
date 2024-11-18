@@ -17,6 +17,7 @@ var currentrun_extraspeed = 0
 var currentrun_minuscooldown = 0
 var currentrun_extrabullets = 0
 var currentrun_extrahealth = 0
+var currentrun_extrabounce = 0
 
 var timerrunning = false
 var g_seconds = 0

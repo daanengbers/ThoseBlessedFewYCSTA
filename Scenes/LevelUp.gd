@@ -47,6 +47,7 @@ var statToRemove
 @onready var COOLDOWN_Stat = $Stats/COOLDOWN_Stat
 @onready var SPEED_Stat = $Stats/SPEED_Stat
 @onready var AMOUNT_Stat = $Stats/AMOUNT_Stat
+@onready var BOUNCE_Stat = $Stats/BOUNCE_Stat
 
 @onready var FIREBALL_Ability = $Abilities/FIREBALL_Ability
 @onready var LIGHTNING_Ability = $Abilities/LIGHTNING_Abiltiy
@@ -68,7 +69,7 @@ func _ready():
 	var UI_LockedStat4 = $UI/LockedStat4
 	
 	##Here we add the stats to an array
-	StatArray = [HP_Stat, ATTACK_Stat, COOLDOWN_Stat, SPEED_Stat, AMOUNT_Stat, FIREBALL_Ability, LIGHTNING_Ability, POISON_Ability, ICE_Ability, EXTRAMEEBLING_Bonus]
+	StatArray = [HP_Stat, ATTACK_Stat, COOLDOWN_Stat, SPEED_Stat, AMOUNT_Stat, BOUNCE_Stat, FIREBALL_Ability, LIGHTNING_Ability, POISON_Ability, ICE_Ability, EXTRAMEEBLING_Bonus]
 	
 	##Here we add the UI stat slots to an array
 	LockedUIArray = [UI_LockedStat1, UI_LockedStat2, UI_LockedStat3, UI_LockedStat4, FIREBALL_Ability, LIGHTNING_Ability, ICE_Ability, POISON_Ability]

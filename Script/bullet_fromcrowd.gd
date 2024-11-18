@@ -9,8 +9,13 @@ var DMGVAL = preload("res://Scenes/damagenumber.tscn")
 @export var damage = 5
 @export var destroyonimpact = true
 
+var bouncesleft = 0
+var randomdir = 0
+
 func _ready():
-	pass
+	bouncesleft = Globalsettings.currentrun_extrabounce
+	randomize()
+	changerandomdir()
 
 # Functions -----
 
@@ -28,6 +33,9 @@ func spawnDamageValue():
 func _on_queue_timer_timeout():
 	queue_free()
 
+func changerandomdir():
+	randomdir = randi()% 360 + 1
+
 func _on_hitbox_bullet_area_entered(area):
 	if "HURTbox_Enemy" in area.name or "Cage" in area.name:
 		area.get_parent().hp -= (damage + Globalsettings.currentrun_extraattack)
@@ -36,4 +44,13 @@ func _on_hitbox_bullet_area_entered(area):
 		if area.get_parent().hp <= 0:
 			area.get_parent().kill()
 		if destroyonimpact == true:
-			hitImpact()
+			if bouncesleft >= 1:
+				linear_velocity = Vector2(0,0)
+				angular_velocity = 0
+				apply_impulse(Vector2(200, 0).rotated(randomdir))
+				rotation = randomdir
+				$QueueTimer.start(3)
+				changerandomdir()
+				bouncesleft -= 1
+			elif bouncesleft <= 0:
+				hitImpact()

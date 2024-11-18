@@ -220,7 +220,7 @@ radius = 9.05539
 radius = 7.07107
 
 [node name="Crowd_Member" type="CharacterBody2D" groups=["crowd_m"]]
-z_index = 1
+z_index = 3
 collision_mask = 2
 script = ExtResource("1_2m8q3")
 
@@ -267,6 +267,7 @@ libraries = {
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
 z_index = -1
+y_sort_enabled = true
 texture_filter = 1
 position = Vector2(0, 7)
 texture = ExtResource("9_istdl")

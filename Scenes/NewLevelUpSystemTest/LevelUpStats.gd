@@ -84,7 +84,9 @@ func UpdateStats(amountToIncreaseDecrease):
 			
 		"AMOUNT":
 			Globalsettings.currentrun_extrabullets += amountToIncreaseDecrease
-		
+			
+		"BOUNCE":
+			Globalsettings.currentrun_extrabounce += amountToIncreaseDecrease
 
 func updateSpells(spellToSetNumber):
 	match statID:

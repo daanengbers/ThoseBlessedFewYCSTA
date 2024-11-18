@@ -82,7 +82,8 @@ _data = {
 size = Vector2(34, 14)
 
 [node name="MeeblingCage" type="StaticBody2D" groups=["enemy_m"]]
-z_index = 1
+z_index = 3
+y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_do8tn")
 hp = 40

@@ -40,52 +40,53 @@ func update_meeblingsandmovement():
 	crowd_members = get_tree().get_nodes_in_group("crowd_m")
 	if crowd_members.size() >= 1:
 		nearest_crowdm = crowd_members[0]
+		dist_to_crowdm = abs(global_position - nearest_crowdm.global_position)
 	
-	for mem in crowd_members:
-		if mem.global_position.distance_to(self.global_position) < nearest_crowdm.global_position.distance_to(self.global_position):
-			nearest_crowdm = mem
-	
-	dist_to_crowdm = abs(global_position - nearest_crowdm.global_position)
-	
-	if attacking == false:
-		$Rot.look_at(nearest_crowdm.global_position)
-	if $Rot.rotation_degrees > 360:
-		$Rot.rotation_degrees -= 360
-	if $Rot.rotation_degrees < 0:
-		$Rot.rotation_degrees += 360
-	$TestLabel.set_text(str($Rot.rotation_degrees))
-	if $Rot.rotation_degrees >= 337.5 or $Rot.rotation_degrees < 22.5:
-		helmet.frame = 6
-		torso.frame = 6
-		blade.rotation_degrees = 270
-	if $Rot.rotation_degrees >= 22.5 && $Rot.rotation_degrees < 67.5:
-		helmet.frame = 7
-		torso.frame = 7
-		blade.rotation_degrees = 315
-	if $Rot.rotation_degrees >= 67.5 && $Rot.rotation_degrees < 112.5:
-		helmet.frame = 0
-		torso.frame = 0
-		blade.rotation_degrees = 0
-	if $Rot.rotation_degrees >= 112.5 && $Rot.rotation_degrees < 157.5:
-		helmet.frame = 1
-		torso.frame = 1
-		blade.rotation_degrees = 45
-	if $Rot.rotation_degrees >= 157.5 && $Rot.rotation_degrees < 202.5:
-		helmet.frame = 2
-		torso.frame = 2
-		blade.rotation_degrees = 90
-	if $Rot.rotation_degrees >= 202.5 && $Rot.rotation_degrees < 247.5:
-		helmet.frame = 3
-		torso.frame = 3
-		blade.rotation_degrees = 135
-	if $Rot.rotation_degrees >= 247.5 && $Rot.rotation_degrees < 292.5:
-		helmet.frame = 4
-		torso.frame = 4
-		blade.rotation_degrees = 180
-	if $Rot.rotation_degrees >= 292.5 && $Rot.rotation_degrees < 337.5:
-		helmet.frame = 5
-		torso.frame = 5
-		blade.rotation_degrees = 225
+		for mem in crowd_members:
+			if mem.global_position.distance_to(self.global_position) < nearest_crowdm.global_position.distance_to(self.global_position):
+				nearest_crowdm = mem
+		
+		# LINE 43 WAS HERE!!!!
+		
+		if attacking == false:
+			$Rot.look_at(nearest_crowdm.global_position)
+		if $Rot.rotation_degrees > 360:
+			$Rot.rotation_degrees -= 360
+		if $Rot.rotation_degrees < 0:
+			$Rot.rotation_degrees += 360
+		$TestLabel.set_text(str($Rot.rotation_degrees))
+		if $Rot.rotation_degrees >= 337.5 or $Rot.rotation_degrees < 22.5:
+			helmet.frame = 6
+			torso.frame = 6
+			blade.rotation_degrees = 270
+		if $Rot.rotation_degrees >= 22.5 && $Rot.rotation_degrees < 67.5:
+			helmet.frame = 7
+			torso.frame = 7
+			blade.rotation_degrees = 315
+		if $Rot.rotation_degrees >= 67.5 && $Rot.rotation_degrees < 112.5:
+			helmet.frame = 0
+			torso.frame = 0
+			blade.rotation_degrees = 0
+		if $Rot.rotation_degrees >= 112.5 && $Rot.rotation_degrees < 157.5:
+			helmet.frame = 1
+			torso.frame = 1
+			blade.rotation_degrees = 45
+		if $Rot.rotation_degrees >= 157.5 && $Rot.rotation_degrees < 202.5:
+			helmet.frame = 2
+			torso.frame = 2
+			blade.rotation_degrees = 90
+		if $Rot.rotation_degrees >= 202.5 && $Rot.rotation_degrees < 247.5:
+			helmet.frame = 3
+			torso.frame = 3
+			blade.rotation_degrees = 135
+		if $Rot.rotation_degrees >= 247.5 && $Rot.rotation_degrees < 292.5:
+			helmet.frame = 4
+			torso.frame = 4
+			blade.rotation_degrees = 180
+		if $Rot.rotation_degrees >= 292.5 && $Rot.rotation_degrees < 337.5:
+			helmet.frame = 5
+			torso.frame = 5
+			blade.rotation_degrees = 225
 	
 	
 	if dist_to_crowdm.x > 20 or dist_to_crowdm.y > 20:
@@ -136,6 +137,8 @@ func apply_freeze():
 func kill():
 	Onscreenmessages.displaymessage("Boss Defeated")
 	Globalsettings.bossfight_active = false
+	get_node("RightDoor").queue_free()
+	get_node("LeftDoor").queue_free()
 	Globalsettings.bossfight_number = 0
 	Globalsettings.globalmusic = 1
 	Globalsettings.setmusic()

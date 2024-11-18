@@ -179,7 +179,7 @@ offsets = PackedFloat32Array(0, 0.38, 0.753333, 1)
 colors = PackedColorArray(0.932716, 0, 0.284699, 1, 0.526026, 0, 0.144998, 1, 1, 0.243137, 0.372549, 0.627451, 1, 0, 0, 0)
 
 [node name="Enemy_eyeball" type="CharacterBody2D" groups=["enemy_m"]]
-z_index = 1
+z_index = 5
 script = ExtResource("1_hw3wt")
 canflip = true
 

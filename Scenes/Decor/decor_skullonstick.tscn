@@ -6,7 +6,8 @@
 size = Vector2(8, 13)
 
 [node name="Decor_Skullonstick" type="Node2D"]
-z_index = 1
+z_index = 3
+y_sort_enabled = true
 texture_filter = 1
 
 [node name="Sprite" type="Sprite2D" parent="."]

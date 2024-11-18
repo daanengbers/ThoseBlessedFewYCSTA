@@ -5,6 +5,7 @@ var EYEBALL = preload("res://Scenes/enemy_eyeball.tscn")
 var SLIME = preload("res://Scenes/enemy_slime.tscn")
 var GHOST = preload("res://Scenes/enemy_ghost.tscn")
 var SCARAB = preload("res://Scenes/enemy_scarab.tscn")
+var LESTER = preload("res://Scenes/enemy_lesterskeleton.tscn")
 
 var level = 1
 
@@ -14,9 +15,12 @@ var biome = 1
 var randomenemyspawn = 1
 var highesttypeenemy = 1
 var highestlevelenemy = 1
+var amountToSpawn = 1
 
 var randomspawnlocx = 0
 var randomspawnlocy = 0
+
+var randomLesterNumber
 
 var max_enemies = 300
 
@@ -117,6 +121,24 @@ func spawnscarabenemy():
 		sc.position.x = global_position.x + 360
 		sc.position.y = global_position.y + randomspawnlocy
 	sc.hp += level
+	
+func spawnLester():
+	var sc = LESTER.instantiate()
+	get_parent().get_parent().get_node("Ysorter").add_child.call_deferred(sc)
+	var randomtoporside = randi()%4 + 1
+	if randomtoporside == 1:
+		sc.position.x = global_position.x + randomspawnlocx
+		sc.position.y = global_position.y - 40
+	if randomtoporside == 2:
+		sc.position.x = global_position.x + randomspawnlocx
+		sc.position.y = global_position.y + 220
+	if randomtoporside == 3:
+		sc.position.x = global_position.x - 40
+		sc.position.y = global_position.y + randomspawnlocy
+	if randomtoporside == 4:
+		sc.position.x = global_position.x + 360
+		sc.position.y = global_position.y + randomspawnlocy
+	sc.hp += level
 
 func _on_second_timer_timeout():
 	pass
@@ -153,18 +175,27 @@ func _on_second_timer_timeout():
 	#	$SpawnTimer.wait_time = 0.01
 
 func _on_spawn_timer_timeout():
-	randomenemyspawn = randi()% highesttypeenemy + 1
-	if get_tree().get_nodes_in_group("enemy_m").size() < max_enemies:
-		if randomenemyspawn == 1:
-			spawnskullenemy()
-		if randomenemyspawn == 2:
-			spawneyeenemy()
-		if randomenemyspawn == 3:
-			spawnslimeenemy()
-		if randomenemyspawn == 4:
-			spawnghostenemy()
-		if randomenemyspawn == 5:
-			spawnscarabenemy()
+	for i in amountToSpawn:
+		randomenemyspawn = randi()% highesttypeenemy + 1
+		randomLesterNumber = randi_range(0,50)
+		if get_tree().get_nodes_in_group("enemy_m").size() < max_enemies:
+			if randomenemyspawn == 1:
+				spawnskullenemy()
+				print("meeblingamount = " + str(get_tree().get_nodes_in_group("crowd_m").size()))
+			if randomenemyspawn == 2:
+				spawneyeenemy()
+			if randomenemyspawn == 3:
+				if get_tree().get_nodes_in_group("crowd_m").size() <= 5:
+					if randomLesterNumber >= 40:
+						spawnLester()
+					if randomLesterNumber <40:
+						spawnslimeenemy()
+				else: 
+						spawnslimeenemy()
+			if randomenemyspawn == 4:
+				spawnghostenemy()
+			if randomenemyspawn == 5:
+				spawnscarabenemy()
 	
 	randomspawnlocx = randi()% 320
 	randomspawnlocy = randi()% 180
@@ -178,24 +209,27 @@ func _on_level_timer_timeout():
 	if level == 3:
 		$SpawnTimer.wait_time = 3.3
 	if level == 4:
-		$SpawnTimer.wait_time = 3.1
-	if level == 5:
-		$SpawnTimer.wait_time = 3
-	if level == 6:
+		amountToSpawn +=1
 		$SpawnTimer.wait_time = 2.8
+	if level == 5:
+		$SpawnTimer.wait_time = 2.6
+	if level == 6:
+		$SpawnTimer.wait_time = 2.4
 		highesttypeenemy += 1 # Eyeball enemies
 	if level == 8:
-		$SpawnTimer.wait_time = 2.6
+		$SpawnTimer.wait_time = 2.3
 	if level == 10:
-		$SpawnTimer.wait_time = 2.4
+		$SpawnTimer.wait_time = 2.1
 	if level == 12:
-		$SpawnTimer.wait_time = 2.2
-	if level == 14:
+		amountToSpawn +=1
+		highesttypeenemy += 1
 		$SpawnTimer.wait_time = 2
+	if level == 14:
+		$SpawnTimer.wait_time = 1.9
 	if level == 16:
-		$SpawnTimer.wait_time = 1.8
-	if level == 18:
 		$SpawnTimer.wait_time = 1.6
+	if level == 18:
+		$SpawnTimer.wait_time = 1.5
 	if level == 20:
 		$SpawnTimer.wait_time = 1.4
 	if level == 22:
@@ -206,6 +240,7 @@ func _on_level_timer_timeout():
 	if level == 26:
 		$SpawnTimer.wait_time = 0.9
 	if level == 28:
+		amountToSpawn +=1
 		$SpawnTimer.wait_time = 0.8
 	if level == 30:
 		$SpawnTimer.wait_time = 0.7
@@ -215,7 +250,6 @@ func _on_level_timer_timeout():
 		$SpawnTimer.wait_time = 0.5
 	if level == 36:
 		$SpawnTimer.wait_time = 0.4
-		highesttypeenemy += 1 # Ghost enemies
 	if level == 38:
 		$SpawnTimer.wait_time = 0.3
 	if level == 40:
