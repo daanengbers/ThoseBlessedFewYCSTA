@@ -3942,13 +3942,6 @@ texture_filter = 1
 position = Vector2(-3976, -447)
 texture = ExtResource("50_u1jra")
 
-[node name="CampDecorations-63" type="Sprite2D" parent="Ysorter/Camps/Camp5"]
-z_index = 3
-y_sort_enabled = true
-texture_filter = 1
-position = Vector2(1633, 1760)
-texture = ExtResource("50_u1jra")
-
 [node name="CampDecorations-10" type="Sprite2D" parent="Ysorter/Camps/Camp5"]
 z_index = 3
 y_sort_enabled = true
@@ -5302,6 +5295,7 @@ rotation = -1.57079
 shape = SubResource("CapsuleShape2D_q8yvs")
 
 [node name="LooseDetails" type="Node2D" parent="Ysorter"]
+y_sort_enabled = true
 
 [node name="Painting2" type="Sprite2D" parent="Ysorter/LooseDetails"]
 z_index = 2
@@ -5318,9 +5312,10 @@ position = Vector2(78, -740)
 texture = ExtResource("47_wiy7u")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ysorter/LooseDetails/Warriorsword"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ysorter/LooseDetails/Warriorsword/StaticBody2D"]
-visible = false
 polygon = PackedVector2Array(-14, 15, -26, 25, -35, 25, -35, 20, -18, 12, -11, 10, -5, 7, -5, 2, 5, 2, 5, 8, 11, 10, 21, 13, 35, 20, 35, 25, 26, 25, 15, 15)
 
 [node name="CastleBeds" type="Node2D" parent="Ysorter/LooseDetails"]
