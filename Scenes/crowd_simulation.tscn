@@ -735,6 +735,85 @@ texture_filter = 1
 position = Vector2(47, 39)
 texture = ExtResource("7_k1h0b")
 
+[node name="AreYouSure" type="Node2D" parent="UI/PauseMenu"]
+visible = false
+z_index = 24
+
+[node name="Label" type="Label" parent="UI/PauseMenu/AreYouSure"]
+texture_filter = 1
+offset_left = 35.0
+offset_top = 56.0
+offset_right = 285.0
+offset_bottom = 85.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "Are you sure you want to abandon this run and 
+return to the main menu?"
+horizontal_alignment = 1
+
+[node name="NO" type="Sprite2D" parent="UI/PauseMenu/AreYouSure"]
+z_index = 2
+texture_filter = 1
+position = Vector2(99, 119)
+texture = ExtResource("2_5e03h")
+
+[node name="Ne" type="Label" parent="UI/PauseMenu/AreYouSure/NO"]
+z_index = 2
+texture_filter = 1
+offset_left = -50.0
+offset_top = -12.0
+offset_right = 50.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("3_gjq7j")
+theme_override_font_sizes/font_size = 16
+text = "NO"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Yes" type="Sprite2D" parent="UI/PauseMenu/AreYouSure"]
+z_index = 2
+texture_filter = 1
+position = Vector2(235, 119)
+texture = ExtResource("2_5e03h")
+
+[node name="Ye" type="Label" parent="UI/PauseMenu/AreYouSure/Yes"]
+z_index = 2
+texture_filter = 1
+offset_left = -50.0
+offset_top = -12.0
+offset_right = 50.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("3_gjq7j")
+theme_override_font_sizes/font_size = 16
+text = "Yes"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AYSArrow" type="Sprite2D" parent="UI/PauseMenu/AreYouSure"]
+z_index = 2
+texture_filter = 1
+position = Vector2(234, 142)
+texture = ExtResource("15_o6n48")
+hframes = 2
+vframes = 2
+
+[node name="Anim" type="AnimationPlayer" parent="UI/PauseMenu/AreYouSure/AYSArrow"]
+libraries = {
+"": SubResource("AnimationLibrary_v57cf")
+}
+
 [node name="Settings" type="Node2D" parent="UI/PauseMenu"]
 visible = false
 z_index = 22
