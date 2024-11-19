@@ -2731,36 +2731,6 @@ position = Vector2(686, 168)
 [node name="Crowd_Member12" parent="Ysorter" instance=ExtResource("11_0do8d")]
 position = Vector2(705, 165)
 
-[node name="Crowd_Member13" parent="Ysorter" instance=ExtResource("11_0do8d")]
-position = Vector2(665, 6)
-
-[node name="Crowd_Member14" parent="Ysorter" instance=ExtResource("11_0do8d")]
-position = Vector2(665, 6)
-
-[node name="Crowd_Member15" parent="Ysorter" instance=ExtResource("11_0do8d")]
-position = Vector2(665, 6)
-
-[node name="Crowd_Member16" parent="Ysorter" instance=ExtResource("11_0do8d")]
-position = Vector2(665, 6)
-
-[node name="Crowd_Member17" parent="Ysorter" instance=ExtResource("11_0do8d")]
-position = Vector2(665, 6)
-
-[node name="Crowd_Member18" parent="Ysorter" instance=ExtResource("11_0do8d")]
-position = Vector2(665, 6)
-
-[node name="Crowd_Member19" parent="Ysorter" instance=ExtResource("11_0do8d")]
-position = Vector2(665, 6)
-
-[node name="Crowd_Member20" parent="Ysorter" instance=ExtResource("11_0do8d")]
-position = Vector2(665, 6)
-
-[node name="Crowd_Member21" parent="Ysorter" instance=ExtResource("11_0do8d")]
-position = Vector2(665, 6)
-
-[node name="Crowd_Member22" parent="Ysorter" instance=ExtResource("11_0do8d")]
-position = Vector2(665, 6)
-
 [node name="Crowd_Member6" parent="Ysorter" instance=ExtResource("11_0do8d")]
 position = Vector2(-10000, -2291)
 
