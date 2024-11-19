@@ -8,6 +8,7 @@ var alive = true
 var spawnedmeebling = false
 @export var hp = 80
 @export var meeblingscaught = 1
+var on_screen = false
 
 func _ready():
 	$Healthbar.max_value = hp
@@ -16,6 +17,7 @@ func _ready():
 	c_anim.play("RESET")
 
 func hurt():
+	
 	$ChipSound.play()
 	c_anim.play("RESET")
 	c_anim.play("hurt")
@@ -44,3 +46,8 @@ func kill():
 		spawnedmeebling = true
 		spawnmeebling()
 	remove_from_group("enemy_m")
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered():
+	on_screen = true
+	$HURTbox_Enemy/box.set_deferred("disabled", false)
