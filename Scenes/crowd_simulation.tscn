@@ -1479,7 +1479,7 @@ libraries = {
 
 [node name="Arrowshadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
-z_index = -19
+z_index = -18
 texture_filter = 1
 texture = ExtResource("4_h7cj8")
 
