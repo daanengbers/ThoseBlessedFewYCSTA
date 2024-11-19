@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://b46qb74feih7m"]
+[gd_scene load_steps=65 format=3 uid="uid://b46qb74feih7m"]
 
 [ext_resource type="Script" path="res://Script/crowd_simulation.gd" id="1_hyuob"]
 [ext_resource type="Texture2D" uid="uid://8wpofymgaama" path="res://Assets/Tilesets/TestMenuOptions.png" id="2_5e03h"]
@@ -19,7 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://cgakxi0t1lwe7" path="res://Assets/UI/Staticons.png" id="9_ifqvn"]
 [ext_resource type="Script" path="res://Script/SelectLevelupscreen.gd" id="9_v754b"]
 [ext_resource type="Texture2D" uid="uid://cxmshi48066ak" path="res://Assets/UI/lvlbar_full.png" id="10_gf5as"]
+[ext_resource type="Texture2D" uid="uid://l1tpjrkrk83" path="res://Assets/UI/Meeblings_UIbar-empty.png" id="10_mguj2"]
+[ext_resource type="Texture2D" uid="uid://b210huiwl524u" path="res://Assets/UI/Meeblings_UIbar-full.png" id="11_7jbg6"]
+[ext_resource type="Texture2D" uid="uid://chkpdkwkhftff" path="res://Assets/YCSTA_XP_new.png" id="12_jpilo"]
 [ext_resource type="Texture2D" uid="uid://cg180gfaancl0" path="res://Assets/UI/Buttonshowcase.png" id="13_0j5gc"]
+[ext_resource type="Texture2D" uid="uid://dhndfxnjcfqdj" path="res://Assets/Lightshadow.png" id="13_66fi2"]
 [ext_resource type="Texture2D" uid="uid://dsh5841pjc8i5" path="res://Assets/Particle_Sprites/YCSTA_Souldparticles.png" id="13_nqnof"]
 [ext_resource type="Texture2D" uid="uid://c02rr86yd8vae" path="res://Assets/YCSTA_Arrow (new).png" id="14_7qeql"]
 [ext_resource type="Texture2D" uid="uid://bc65frbmttbad" path="res://Assets/UI/Selectcardarrow.png" id="15_o6n48"]
@@ -70,6 +74,50 @@ _data = {
 [sub_resource type="Gradient" id="Gradient_63pq8"]
 offsets = PackedFloat32Array(0, 0.493333, 1)
 colors = PackedColorArray(0.479251, 1, 0.711938, 1, 0.207739, 0.629404, 0.577414, 1, 8.54321e-07, 0.304491, 0.2737, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_tg5al"]
+base_font = ExtResource("3_gjq7j")
+spacing_space = -2
+spacing_top = -2
+spacing_bottom = -2
+
+[sub_resource type="Animation" id="Animation_di6d1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_acqnh"]
+resource_name = "flame"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 3, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rciu5"]
+_data = {
+"RESET": SubResource("Animation_di6d1"),
+"flame": SubResource("Animation_acqnh")
+}
 
 [sub_resource type="FontVariation" id="FontVariation_0hjnx"]
 base_font = ExtResource("3_gjq7j")
@@ -463,6 +511,9 @@ script = ExtResource("2_vcxch")
 [node name="UnpauseTimer" type="Timer" parent="UI/PauseMenu"]
 wait_time = 0.05
 
+[node name="PressedTimer" type="Timer" parent="UI/PauseMenu"]
+wait_time = 0.01
+
 [node name="OptionButtons" type="Node2D" parent="UI/PauseMenu"]
 
 [node name="OptionsArrow" type="Sprite2D" parent="UI/PauseMenu/OptionButtons"]
@@ -683,6 +734,138 @@ metadata/_edit_use_anchors_ = true
 texture_filter = 1
 position = Vector2(47, 39)
 texture = ExtResource("7_k1h0b")
+
+[node name="Settings" type="Node2D" parent="UI/PauseMenu"]
+visible = false
+z_index = 22
+texture_filter = 1
+position = Vector2(-112, -8)
+
+[node name="Setting01" type="Label" parent="UI/PauseMenu/Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 127.0
+offset_top = 57.0
+offset_right = 320.0
+offset_bottom = 70.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_tg5al")
+theme_override_font_sizes/font_size = 16
+text = "- Settings -"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Setting02" type="Label" parent="UI/PauseMenu/Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 182.0
+offset_top = 72.0
+offset_right = 375.0
+offset_bottom = 81.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_tg5al")
+theme_override_font_sizes/font_size = 16
+text = "SFX volume:"
+
+[node name="SFX_bar" type="TextureProgressBar" parent="UI/PauseMenu/Settings"]
+offset_left = 182.0
+offset_top = 85.0
+offset_right = 262.0
+offset_bottom = 91.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+texture_under = ExtResource("10_mguj2")
+texture_progress = ExtResource("11_7jbg6")
+
+[node name="Setting03" type="Label" parent="UI/PauseMenu/Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 182.0
+offset_top = 92.0
+offset_right = 375.0
+offset_bottom = 101.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_tg5al")
+theme_override_font_sizes/font_size = 16
+text = "Music volume:"
+
+[node name="Music_bar" type="TextureProgressBar" parent="UI/PauseMenu/Settings"]
+offset_left = 182.0
+offset_top = 105.0
+offset_right = 262.0
+offset_bottom = 111.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+texture_under = ExtResource("10_mguj2")
+texture_progress = ExtResource("11_7jbg6")
+
+[node name="Setting04" type="Label" parent="UI/PauseMenu/Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 182.0
+offset_top = 113.0
+offset_right = 375.0
+offset_bottom = 122.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_tg5al")
+theme_override_font_sizes/font_size = 16
+text = "Show FPS: < OFF"
+
+[node name="Setting05" type="Label" parent="UI/PauseMenu/Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 182.0
+offset_top = 125.0
+offset_right = 375.0
+offset_bottom = 134.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_tg5al")
+theme_override_font_sizes/font_size = 16
+text = "Full Screen: ON >"
+
+[node name="Back" type="Label" parent="UI/PauseMenu/Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 182.0
+offset_top = 147.0
+offset_right = 375.0
+offset_bottom = 156.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_tg5al")
+theme_override_font_sizes/font_size = 16
+text = "BACK"
+
+[node name="Selecticon" type="Sprite2D" parent="UI/PauseMenu/Settings"]
+z_index = 1
+position = Vector2(171, 151)
+texture = ExtResource("12_jpilo")
+hframes = 5
+vframes = 5
+
+[node name="Iconanim" type="AnimationPlayer" parent="UI/PauseMenu/Settings/Selecticon"]
+libraries = {
+"": SubResource("AnimationLibrary_rciu5")
+}
+
+[node name="Lightshadow" type="Sprite2D" parent="UI/PauseMenu/Settings/Selecticon"]
+modulate = Color(0, 0, 0, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("13_66fi2")
 
 [node name="Box02" type="Sprite2D" parent="UI"]
 texture_filter = 1
@@ -1255,6 +1438,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Showfps" type="Label" parent="UI"]
+visible = false
 texture_filter = 1
 offset_left = 263.0
 offset_top = 164.0
@@ -1267,6 +1451,7 @@ text = "FPS: 0"
 horizontal_alignment = 2
 
 [node name="Enemycount" type="Label" parent="UI"]
+visible = false
 texture_filter = 1
 offset_left = 2.0
 offset_top = 164.0
@@ -1335,6 +1520,9 @@ libraries = {
 shape = SubResource("CircleShape2D_4gvhy")
 
 [connection signal="timeout" from="UI/PauseMenu/UnpauseTimer" to="UI/PauseMenu" method="_on_unpause_timer_timeout"]
+[connection signal="timeout" from="UI/PauseMenu/PressedTimer" to="UI/PauseMenu" method="_on_pressed_timer_timeout"]
+[connection signal="value_changed" from="UI/PauseMenu/Settings/SFX_bar" to="UI/PauseMenu" method="_on_sfx_bar_value_changed"]
+[connection signal="value_changed" from="UI/PauseMenu/Settings/Music_bar" to="UI/PauseMenu" method="_on_music_bar_value_changed"]
 [connection signal="timeout" from="UI/SelectLevelupscreen/UnpauseTimer" to="UI/SelectLevelupscreen" method="_on_unpause_timer_timeout"]
 [connection signal="timeout" from="UI/SelectLevelupscreen/CanpressTimer" to="UI/SelectLevelupscreen" method="_on_canpress_timer_timeout"]
 [connection signal="timeout" from="UI/SacrificeMeeblingScreen/UnpauseTimerSac" to="UI/SacrificeMeeblingScreen" method="_on_unpause_timer_sac_timeout"]
