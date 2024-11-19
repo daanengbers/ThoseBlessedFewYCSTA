@@ -183,7 +183,7 @@ stream = ExtResource("7_6xe6p")
 [node name="Timers" type="Node" parent="."]
 
 [node name="UpdateTimer" type="Timer" parent="Timers"]
-wait_time = 0.5
+wait_time = 0.25
 one_shot = true
 autostart = true
 
