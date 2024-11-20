@@ -23,7 +23,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print_debug(isInAYS)
+	#print_debug(isInAYS)
 	if InMenu == true:
 		##Normal controlls
 		if Input.is_action_just_pressed("down") && OptionSelected < 3  && isInSettings == false && isInAYS == false:
