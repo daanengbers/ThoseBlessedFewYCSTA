@@ -159,7 +159,7 @@ vertical_alignment = 1
 [node name="Icon" type="Sprite2D" parent="UI/LockedStat1"]
 visible = false
 texture = ExtResource("9_73unb")
-vframes = 5
+vframes = 6
 
 [node name="LockedStat2" type="Sprite2D" parent="UI"]
 process_mode = 3
@@ -213,7 +213,7 @@ vertical_alignment = 1
 [node name="Icon" type="Sprite2D" parent="UI/LockedStat2"]
 visible = false
 texture = ExtResource("9_73unb")
-vframes = 5
+vframes = 6
 frame = 4
 
 [node name="LockedStat3" type="Sprite2D" parent="UI"]
@@ -268,7 +268,7 @@ vertical_alignment = 1
 [node name="Icon" type="Sprite2D" parent="UI/LockedStat3"]
 visible = false
 texture = ExtResource("9_73unb")
-vframes = 5
+vframes = 6
 frame = 2
 
 [node name="LockedStat4" type="Sprite2D" parent="UI"]
@@ -322,8 +322,8 @@ vertical_alignment = 1
 [node name="Icon" type="Sprite2D" parent="UI/LockedStat4"]
 visible = false
 texture = ExtResource("9_73unb")
-vframes = 5
-frame = 3
+vframes = 6
+frame = 5
 
 [node name="UnpauseTimerLevelUp" type="Timer" parent="."]
 wait_time = 1.2
@@ -453,8 +453,8 @@ script = ExtResource("3_6j8wa")
 statID = "BOUNCE"
 UI_Title = "Bounce"
 UI_TitleSmall = "Bo"
-UI_IconSmall = 3
-UI_ImageNmr = 3
+UI_IconSmall = 5
+UI_ImageNmr = 15
 AmountToIncrease = [1, 1, 1, 1, 1, 1, 1, 1]
 
 [node name="MAXED_Stat" type="Node2D" parent="Stats"]

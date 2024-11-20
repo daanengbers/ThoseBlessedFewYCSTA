@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://befm77q2ygqmu"]
+[gd_scene load_steps=140 format=3 uid="uid://befm77q2ygqmu"]
 
 [ext_resource type="Script" path="res://Script/mainscene.gd" id="1_sbta7"]
 [ext_resource type="PackedScene" uid="uid://bb8bwc5ht3nc2" path="res://Scenes/rippletiles.tscn" id="1_vfjjl"]
@@ -68,7 +68,6 @@
 [ext_resource type="Texture2D" uid="uid://b1vlrk8xth0jm" path="res://Assets/Tilesets/WoodenFloor.png" id="56_0kfdl"]
 [ext_resource type="PackedScene" uid="uid://52u1j222qmmn" path="res://Scenes/SacDoorArea.tscn" id="58_co8uj"]
 [ext_resource type="Texture2D" uid="uid://latil5l84hl0" path="res://Assets/Fountain.png" id="65_l3p1r"]
-[ext_resource type="PackedScene" uid="uid://qcnugi4u6sup" path="res://Scenes/exp_area.tscn" id="69_ekf7i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t30br"]
 texture = ExtResource("5_shpaq")
@@ -7170,22 +7169,6 @@ z_index = 2
 texture_filter = 1
 position = Vector2(-5632, -8164)
 texture = ExtResource("25_m632d")
-
-[node name="EXP_area" parent="." instance=ExtResource("69_ekf7i")]
-position = Vector2(527, 79)
-expamount = 100
-
-[node name="EXP_area2" parent="." instance=ExtResource("69_ekf7i")]
-position = Vector2(525, 33)
-expamount = 100
-
-[node name="EXP_area3" parent="." instance=ExtResource("69_ekf7i")]
-position = Vector2(571, 21)
-expamount = 100
-
-[node name="EXP_area4" parent="." instance=ExtResource("69_ekf7i")]
-position = Vector2(607, 15)
-expamount = 500
 
 [connection signal="area_entered" from="Crowd_Simulation/Area2D" to="Crowd_Simulation" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Crowd_Simulation/Area2D" to="Crowd_Simulation" method="_on_area_2d_area_exited"]
