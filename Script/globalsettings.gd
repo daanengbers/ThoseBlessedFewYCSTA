@@ -66,6 +66,7 @@ func resetrun():
 	currentrun_minuscooldown = 0
 	currentrun_extrabullets = 0
 	currentrun_extrahealth = 0
+	currentrun_extrabounce = 0
 	g_spell1 = 0
 	g_spell2 = 0
 	g_spell3 = 0

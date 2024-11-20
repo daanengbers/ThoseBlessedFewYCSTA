@@ -522,6 +522,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Startruntext02" type="Label" parent="Startrun"]
+visible = false
 modulate = Color(0.658824, 0, 0.0823529, 1)
 offset_left = 127.0
 offset_top = 71.0
@@ -540,9 +541,9 @@ vertical_alignment = 1
 [node name="Startruntext03" type="Label" parent="Startrun"]
 modulate = Color(0.658824, 0, 0.0823529, 1)
 offset_left = 127.0
-offset_top = 89.0
+offset_top = 80.0
 offset_right = 320.0
-offset_bottom = 105.0
+offset_bottom = 96.0
 theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 1
