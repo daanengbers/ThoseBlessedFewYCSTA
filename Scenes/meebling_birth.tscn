@@ -166,6 +166,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 colors = PackedColorArray(1, 1, 1, 0.666667, 1, 1, 1, 1)
 
 [node name="Meebling_Birth" type="Node2D"]
+z_index = 1
 texture_filter = 1
 script = ExtResource("1_omn0s")
 

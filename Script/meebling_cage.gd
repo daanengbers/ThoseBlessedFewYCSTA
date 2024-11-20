@@ -35,7 +35,7 @@ func spawnmeebling():
 
 func kill():
 	alive = false
-	$Colbox.set_deferred("disabled", true)
+	#$Colbox.set_deferred("disabled", true)
 	$HURTbox_Enemy/box.set_deferred("disabled", true)
 	$Sprites/Captive.visible = false
 	$Sprites/BackBones.visible = false
@@ -49,5 +49,6 @@ func kill():
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
-	on_screen = true
-	$HURTbox_Enemy/box.set_deferred("disabled", false)
+	if on_screen == false && alive == true:
+		on_screen = true
+		$HURTbox_Enemy/box.set_deferred("disabled", false)
