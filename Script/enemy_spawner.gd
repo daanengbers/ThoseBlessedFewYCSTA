@@ -209,7 +209,6 @@ func _on_level_timer_timeout():
 	if level == 3:
 		$SpawnTimer.wait_time = 3.3
 	if level == 4:
-		amountToSpawn +=1
 		$SpawnTimer.wait_time = 2.8
 	if level == 5:
 		$SpawnTimer.wait_time = 2.6
