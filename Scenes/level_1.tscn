@@ -2728,6 +2728,9 @@ amountToSac = 5
 [node name="Crowd_Member11" parent="Ysorter" instance=ExtResource("11_0do8d")]
 position = Vector2(585, 137)
 
+[node name="Crowd_Member13" parent="Ysorter" instance=ExtResource("11_0do8d")]
+position = Vector2(584, 93)
+
 [node name="Crowd_Member12" parent="Ysorter" instance=ExtResource("11_0do8d")]
 position = Vector2(645, 109)
 
