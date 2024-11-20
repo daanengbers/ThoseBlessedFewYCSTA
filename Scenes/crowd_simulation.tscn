@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://b46qb74feih7m"]
+[gd_scene load_steps=65 format=3 uid="uid://b46qb74feih7m"]
 
 [ext_resource type="Script" path="res://Script/crowd_simulation.gd" id="1_hyuob"]
 [ext_resource type="Texture2D" uid="uid://8wpofymgaama" path="res://Assets/Tilesets/TestMenuOptions.png" id="2_5e03h"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="3_gjq7j"]
 [ext_resource type="Texture2D" uid="uid://deqsdtpq6bt6s" path="res://Assets/UI/YCSTA_UIboxes-1.png" id="3_rhqmm"]
 [ext_resource type="Texture2D" uid="uid://siyq5k5htydp" path="res://Assets/UI/UpgradeIcons.png" id="3_rmdml"]
+[ext_resource type="Texture2D" uid="uid://clekfea7rbiox" path="res://Assets/UI/SplashArt_LettersOnly-2.png" id="3_rrfnx"]
 [ext_resource type="Texture2D" uid="uid://fd6jsqufuyr3" path="res://Assets/Particle_Sprites/YCSTA_soulparticle.png" id="4_6mubv"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="4_h7cj8"]
 [ext_resource type="Texture2D" uid="uid://digsb5q5shm5s" path="res://Assets/UI/blacktile28.png" id="5_be4lt"]
@@ -598,11 +599,17 @@ text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BlackBG" type="ColorRect" parent="UI/PauseMenu"]
+[node name="ColorRect" type="ColorRect" parent="UI/PauseMenu"]
 z_index = 1
 offset_right = 320.0
 offset_bottom = 180.0
 color = Color(0, 0, 0, 0.835294)
+
+[node name="SplashArtLettersOnly" type="Sprite2D" parent="UI/PauseMenu"]
+z_index = 2
+texture_filter = 1
+position = Vector2(160, 29)
+texture = ExtResource("3_rrfnx")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="UI/PauseMenu"]
 position = Vector2(160, 187)
@@ -938,19 +945,6 @@ modulate = Color(0, 0, 0, 0.501961)
 z_index = -1
 position = Vector2(0, 7)
 texture = ExtResource("13_66fi2")
-
-[node name="PAUSED" type="Label" parent="UI/PauseMenu"]
-z_index = 1
-texture_filter = 1
-offset_top = 15.0
-offset_right = 320.0
-offset_bottom = 43.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("8_wwr2p")
-theme_override_font_sizes/font_size = 22
-text = "GAME PAUSED"
-horizontal_alignment = 1
 
 [node name="Box02" type="Sprite2D" parent="UI"]
 texture_filter = 1

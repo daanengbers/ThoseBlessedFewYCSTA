@@ -10,7 +10,7 @@ extends Node2D
 var maxLevel = 6
 
 ##internal var keeping the level of the stat and the level for the UI stat
-var level = 1
+var level = 0
 var UI_level = "1"
 var UI_CardLevel ="1"
 var UI_AmountToIncreaseDecrease = "+1"
@@ -45,12 +45,12 @@ func levelUp(ButtonNumber):
 				UpdateStats(AmountToIncrease[level])
 				
 				##Set the UI based on the level
-				UI_level = "LVL " + str(level)
-				UI_CardLevel = str(level + 1)
+				UI_level = "LVL " + str(level + 1)
+				UI_CardLevel = str(level + 2)
 				if statID == "COOLDOWN":
-					UI_AmountToIncreaseDecrease = "-" + str(AmountToIncrease[level]) + "%"
+					UI_AmountToIncreaseDecrease = "-" + str(AmountToIncrease[level + 1]) + "%"
 				else:
-					UI_AmountToIncreaseDecrease = "+" + str(AmountToIncrease[level])
+					UI_AmountToIncreaseDecrease = "+" + str(AmountToIncrease[level + 1])
 				
 				##Up the level
 				level +=1
