@@ -19,6 +19,9 @@ wait_time = 15.0
 one_shot = true
 autostart = true
 
+[node name="LesterTimer" type="Timer" parent="."]
+wait_time = 100.0
+
 [node name="Label" type="Label" parent="."]
 visible = false
 offset_left = 74.0
@@ -30,3 +33,4 @@ text = "000"
 [connection signal="timeout" from="SecondTimer" to="." method="_on_second_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
+[connection signal="timeout" from="LesterTimer" to="." method="_on_lester_timer_timeout"]

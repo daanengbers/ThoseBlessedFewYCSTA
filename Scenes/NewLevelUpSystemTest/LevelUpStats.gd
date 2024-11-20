@@ -40,20 +40,22 @@ func _process(delta):
 func levelUp(ButtonNumber):
 	match isStat_Ability_Bonus:
 		1:
+			print_debug(maxLevel)
+			print_debug(level)
 			if level < maxLevel && statID != "MAX":
 				##Update the stats by matching the level to the amountToIncrease array
 				UpdateStats(AmountToIncrease[level])
 				
 				##Set the UI based on the level
-				UI_level = "LVL " + str(level + 1)
-				UI_CardLevel = str(level + 2)
-				if statID == "COOLDOWN":
-					UI_AmountToIncreaseDecrease = "-" + str(AmountToIncrease[level + 1]) + "%"
-				else:
-					UI_AmountToIncreaseDecrease = "+" + str(AmountToIncrease[level + 1])
-				
 				##Up the level
 				level +=1
+				UI_level = "LVL " + str(level)
+				UI_CardLevel = str(level + 1)
+				if level < maxLevel:
+					if statID == "COOLDOWN":
+						UI_AmountToIncreaseDecrease = "-" + str(AmountToIncrease[level]) + "%"
+					else:
+						UI_AmountToIncreaseDecrease = "+" + str(AmountToIncrease[level])
 			if level >= maxLevel:
 				UI_level = "MAX"
 				pass

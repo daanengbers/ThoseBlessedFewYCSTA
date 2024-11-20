@@ -12,6 +12,8 @@ var level = 1
 var secconds = Globalsettings.g_seconds
 var biome = 1
 
+var lesterCooldown = false
+
 var randomenemyspawn = 1
 var highesttypeenemy = 1
 var highestlevelenemy = 1
@@ -186,9 +188,11 @@ func _on_spawn_timer_timeout():
 				spawneyeenemy()
 			if randomenemyspawn == 3:
 				if get_tree().get_nodes_in_group("crowd_m").size() <= 5:
-					if randomLesterNumber >= 40:
+					if randomLesterNumber >= 40 && lesterCooldown == false:
+						lesterCooldown = true
+						$LesterTimer.start(100)
 						spawnLester()
-					if randomLesterNumber <40:
+					else:
 						spawnslimeenemy()
 				else: 
 						spawnslimeenemy()
@@ -277,3 +281,8 @@ func _on_level_timer_timeout():
 	
 	
 	$LevelTimer.start()
+
+
+func _on_lester_timer_timeout():
+	lesterCooldown = false
+	pass # Replace with function body.
