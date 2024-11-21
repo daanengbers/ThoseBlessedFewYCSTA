@@ -95,7 +95,7 @@ func _process(delta):
 				card1.selectcardAnim()
 				##If the stat is already locked, we search for the slot it is assigned to and update its UI
 				if stat1.isAssigned == true && stat1.isStat_Ability_Bonus == 1:
-					print(stat1.numberAssigned)
+					#print(stat1.numberAssigned)
 					LockedUIArray[stat1.numberAssigned - 1].UpdateUI(stat1.UI_level, stat1.UI_TitleSmall)
 				
 				##If the chosen stat is not assigned yet it runs a function to assign it to the right slot
@@ -134,7 +134,7 @@ func _process(delta):
 				card1.selectcardAnim()
 				##If the stat is already locked, we search for the slot it is assigned to and update its UI
 				if stat1.isAssigned == true && stat1.isStat_Ability_Bonus == 1:
-					print(stat1.numberAssigned)
+					#print(stat1.numberAssigned)
 					LockedUIArray[stat1.numberAssigned - 1].UpdateUI(stat1.UI_level, stat1.UI_TitleSmall)
 				
 				##If the chosen stat is not assigned yet it runs a function to assign it to the right slot
@@ -173,7 +173,7 @@ func _process(delta):
 				card1.selectcardAnim()
 				##If the stat is already locked, we search for the slot it is assigned to and update its UI
 				if stat1.isAssigned == true && stat1.isStat_Ability_Bonus == 1:
-					print(stat1.numberAssigned)
+					#print(stat1.numberAssigned)
 					LockedUIArray[stat1.numberAssigned - 1].UpdateUI(stat1.UI_level, stat1.UI_TitleSmall)
 				
 				##If the chosen stat is not assigned yet it runs a function to assign it to the right slot
@@ -212,7 +212,7 @@ func _process(delta):
 				card1.selectcardAnim()
 				##If the stat is already locked, we search for the slot it is assigned to and update its UI
 				if stat1.isAssigned == true && stat1.isStat_Ability_Bonus == 1:
-					print(stat1.numberAssigned)
+					#print(stat1.numberAssigned)
 					LockedUIArray[stat1.numberAssigned - 1].UpdateUI(stat1.UI_level, stat1.UI_TitleSmall)
 				
 				##If the chosen stat is not assigned yet it runs a function to assign it to the right slot

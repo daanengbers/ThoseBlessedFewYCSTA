@@ -956,7 +956,7 @@ metadata/_edit_group_ = true
 texture_filter = 1
 texture = ExtResource("3_rmdml")
 hframes = 4
-vframes = 4
+vframes = 5
 frame = 15
 
 [node name="CDB" type="TextureProgressBar" parent="UI/Box02"]
@@ -988,7 +988,7 @@ metadata/_edit_group_ = true
 texture_filter = 1
 texture = ExtResource("3_rmdml")
 hframes = 4
-vframes = 4
+vframes = 5
 frame = 15
 
 [node name="CDB" type="TextureProgressBar" parent="UI/Box01"]
@@ -1036,7 +1036,7 @@ metadata/_edit_group_ = true
 texture_filter = 1
 texture = ExtResource("3_rmdml")
 hframes = 4
-vframes = 4
+vframes = 5
 frame = 15
 
 [node name="CDB" type="TextureProgressBar" parent="UI/Box04"]
@@ -1068,7 +1068,7 @@ metadata/_edit_group_ = true
 texture_filter = 1
 texture = ExtResource("3_rmdml")
 hframes = 4
-vframes = 4
+vframes = 5
 frame = 15
 
 [node name="CDB" type="TextureProgressBar" parent="UI/Box03"]

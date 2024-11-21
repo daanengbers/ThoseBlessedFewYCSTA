@@ -49,7 +49,7 @@ func levelUp(ButtonNumber):
 				##Set the UI based on the level
 				##Up the level
 				level +=1
-				UI_level = "LVL " + str(level)
+				UI_level = "Lv.g " + str(level)
 				UI_CardLevel = str(level + 1)
 				if level < maxLevel:
 					if statID == "COOLDOWN":

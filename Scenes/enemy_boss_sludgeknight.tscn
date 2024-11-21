@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://di5jjqqiofweh"]
 
 [ext_resource type="Script" path="res://Script/enemy_boss_sludgeknight.gd" id="1_pw6be"]
-[ext_resource type="Texture2D" uid="uid://bb421vdm7lu2" path="res://Assets/UI/Bosshealthbar-empty.png" id="2_vslwl"]
-[ext_resource type="Texture2D" uid="uid://d2cvcawr3bnjv" path="res://Assets/UI/Bosshealthbar-full.png" id="3_gv25d"]
+[ext_resource type="Texture2D" uid="uid://h0ydmfjyod64" path="res://Assets/UI/BossNewHealthbar_Red.png" id="3_g26df"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="4_qxga1"]
+[ext_resource type="Texture2D" uid="uid://bt7o62j32x51w" path="res://Assets/UI/BossNewHealthbar_Green.png" id="4_v3sb0"]
 [ext_resource type="Texture2D" uid="uid://bpt5xouk1ltxv" path="res://Assets/Particle_Sprites/Bigprojsprites-bigcircle.png" id="5_5o48w"]
 [ext_resource type="Texture2D" uid="uid://fbcd0hykq1ho" path="res://Assets/Enemy_Sprites/SludgeKnight_Helmet.png" id="7_mhbmh"]
 [ext_resource type="Texture2D" uid="uid://dn6qvorb6l4b2" path="res://Assets/Enemy_Sprites/Sludgeknight_Body.png" id="7_x75rx"]
@@ -134,23 +134,23 @@ texture_filter = 1
 script = ExtResource("1_pw6be")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Healthbar" type="TextureProgressBar" parent="UI"]
-offset_left = 60.0
-offset_top = 152.0
-offset_right = 260.0
-offset_bottom = 162.0
-max_value = 8000.0
-value = 8000.0
-texture_under = ExtResource("2_vslwl")
-texture_progress = ExtResource("3_gv25d")
+texture_filter = 1
+offset_left = 132.0
+offset_top = 16.0
+offset_right = 248.0
+offset_bottom = 24.0
+texture_under = ExtResource("3_g26df")
+texture_progress = ExtResource("4_v3sb0")
 
 [node name="Bossname" type="Label" parent="UI"]
 texture_filter = 1
-offset_left = 60.0
-offset_top = 143.0
-offset_right = 260.0
-offset_bottom = 156.0
+offset_left = 132.0
+offset_top = 7.0
+offset_right = 248.0
+offset_bottom = 20.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("4_qxga1")

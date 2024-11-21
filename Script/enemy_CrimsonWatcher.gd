@@ -40,10 +40,11 @@ func updateMeeblingsAndMovement():
 	for mem in crowd_members:
 		if mem.global_position.distance_to(self.global_position) < nearest_crowdm.global_position.distance_to(self.global_position):
 			nearest_crowdm = mem
+			$Rot.look_at(nearest_crowdm.global_position)
 	
 	# dist_to_crowdm = abs(global_position - nearest_crowdm.global_position) # !!!!! IRELLEVANT CODE
 	
-	$Rot.look_at(nearest_crowdm.global_position)
+	
 	
 	#if dist_to_crowdm.x > 20 or dist_to_crowdm.y > 20: # !!!!! IRELLEVANT CODE
 	if chasestate == "chasing":

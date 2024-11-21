@@ -1,14 +1,15 @@
-[gd_scene load_steps=30 format=3 uid="uid://bcp1j8ohl53o8"]
+[gd_scene load_steps=31 format=3 uid="uid://bcp1j8ohl53o8"]
 
 [ext_resource type="Script" path="res://Script/enemy_CrimsonWatcher.gd" id="1_une8v"]
-[ext_resource type="Texture2D" uid="uid://bb421vdm7lu2" path="res://Assets/UI/Bosshealthbar-empty.png" id="2_n50s5"]
-[ext_resource type="Texture2D" uid="uid://d2cvcawr3bnjv" path="res://Assets/UI/Bosshealthbar-full.png" id="3_c6voo"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="4_yolj6"]
 [ext_resource type="Texture2D" uid="uid://bpt5xouk1ltxv" path="res://Assets/Particle_Sprites/Bigprojsprites-bigcircle.png" id="5_g0xqs"]
+[ext_resource type="Texture2D" uid="uid://h0ydmfjyod64" path="res://Assets/UI/BossNewHealthbar_Red.png" id="5_u7cwt"]
+[ext_resource type="Texture2D" uid="uid://bt7o62j32x51w" path="res://Assets/UI/BossNewHealthbar_Green.png" id="6_d5co0"]
 [ext_resource type="Texture2D" uid="uid://q8j78xygv6r2" path="res://Assets/Enemy_Sprites/Crimson_Watcher_Head.png" id="6_nkpwd"]
 [ext_resource type="Texture2D" uid="uid://cbrme7blevntc" path="res://Assets/Enemy_Sprites/Crimson_Watcher_Wing.png" id="7_rkxnq"]
 [ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="8_fxl5r"]
 [ext_resource type="Texture2D" uid="uid://do2ctauvngcw3" path="res://Assets/Enemy_Sprites/Eyeballboss_Shuriken.png" id="9_14e48"]
+[ext_resource type="Texture2D" uid="uid://kukmi4grtqha" path="res://Assets/UI/BossNewHealthbar_Surround.png" id="12_pukh4"]
 
 [sub_resource type="Animation" id="Animation_roeck"]
 length = 0.001
@@ -689,23 +690,27 @@ z_index = 5
 script = ExtResource("1_une8v")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Surroundbar" type="Sprite2D" parent="UI"]
+position = Vector2(190, 20)
+texture = ExtResource("12_pukh4")
 
 [node name="Healthbar" type="TextureProgressBar" parent="UI"]
-offset_left = 60.0
-offset_top = 152.0
-offset_right = 260.0
-offset_bottom = 162.0
-max_value = 2000.0
-value = 2000.0
-texture_under = ExtResource("2_n50s5")
-texture_progress = ExtResource("3_c6voo")
+texture_filter = 1
+offset_left = 132.0
+offset_top = 16.0
+offset_right = 248.0
+offset_bottom = 24.0
+texture_under = ExtResource("5_u7cwt")
+texture_progress = ExtResource("6_d5co0")
 
 [node name="Bossname" type="Label" parent="UI"]
 texture_filter = 1
-offset_left = 60.0
-offset_top = 143.0
-offset_right = 260.0
-offset_bottom = 156.0
+offset_left = 131.0
+offset_top = 6.0
+offset_right = 249.0
+offset_bottom = 19.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("4_yolj6")
