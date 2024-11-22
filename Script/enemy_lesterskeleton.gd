@@ -32,34 +32,30 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func update_meeblingsandmovement():
-	crowd_members = get_tree().get_nodes_in_group("crowd_m")
 	if crowd_members.size() >= 1:
 		nearest_crowdm = crowd_members[0]
 		dist_to_crowdm = abs(global_position - nearest_crowdm.global_position)
 	
-	for mem in crowd_members:
-		if mem.global_position.distance_to(self.global_position) < nearest_crowdm.global_position.distance_to(self.global_position):
-			nearest_crowdm = mem
-			$Rot.look_at(nearest_crowdm.global_position)
-	
-	
-	
-	
-	
-	if dist_to_crowdm.x > 14 or dist_to_crowdm.y > 14:
-		velocity = Vector2(SPEED + randomspeedextra, 0).rotated($Rot.rotation)
-		withinreach = false
-	else:
-		velocity.x = 0
-		velocity.y = 0
-		withinreach = true
-	
-	if withinreach == true:
-		nearest_crowdm.hp -= 1
-		nearest_crowdm.hurt()
-		if nearest_crowdm.hp <= 0:
-			nearest_crowdm.kill()
-	speedboost()
+		for mem in crowd_members:
+			if mem.global_position.distance_to(self.global_position) < nearest_crowdm.global_position.distance_to(self.global_position):
+				nearest_crowdm = mem
+		
+		$Rot.look_at(nearest_crowdm.global_position)
+		
+		if dist_to_crowdm.x > 14 or dist_to_crowdm.y > 14:
+			velocity = Vector2(SPEED + SpeedBoostOfScreen + randomspeedextra, 0).rotated($Rot.rotation)
+			withinreach = false
+		else:
+			velocity.x = 0
+			velocity.y = 0
+			withinreach = true
+		
+		if withinreach == true:
+			nearest_crowdm.hp -= 1
+			nearest_crowdm.hurt()
+			if nearest_crowdm.hp <= 0:
+				nearest_crowdm.kill()
+		speedboost()
 
 func speedboost():
 	var crowd_simulator = get_tree().get_nodes_in_group("crowd_p")

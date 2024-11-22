@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vxomgb30g1rp"
-path="res://.godot/imported/TentTest1.png-7ddbd2401acf1801ad5e8f7c541d06a7.ctex"
+uid="uid://dfj1018bj8dtc"
+path="res://.godot/imported/Drownsplash.png-d14febae14d13693b795d4fcc15601c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesets/TentTest1.png"
-dest_files=["res://.godot/imported/TentTest1.png-7ddbd2401acf1801ad5e8f7c541d06a7.ctex"]
+source_file="res://Assets/Particle_Sprites/Drownsplash.png"
+dest_files=["res://.godot/imported/Drownsplash.png-d14febae14d13693b795d4fcc15601c4.ctex"]
 
 [params]
 

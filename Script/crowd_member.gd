@@ -15,6 +15,7 @@ var THUNDERBOLT = preload("res://Scenes/bullet_fromcrowd_thunderbolt.tscn")
 var POISON = preload("res://Scenes/bullet_fromcrowd_poisonsmoke.tscn")
 var SNOW = preload("res://Scenes/bullet_fromcrowd_snowflake.tscn")
 var DEADMEEBLY = preload("res://Scenes/exp_areameebling.tscn")
+var DEADSPLASH = preload("res://Scenes/watersplash.tscn")
 
 @onready var m_anim = $Meebling/Anim
 
@@ -93,101 +94,118 @@ func _physics_process(_delta):
 	
 	dist_to_crowdp = abs(global_position - crowdp_pos)
 	
-	# Bullet shooting
-	
-	if cooldownframes > 0:
-		cooldownframes -= 1
-	if cooldownframes == 0:
-		currentextrabullets = Globalsettings.currentrun_extrabullets
-		spawnBullet()
-		cooldownframes = max_cooldownframes - Globalsettings.currentrun_minuscooldown
-	
-	# Spell inputs and spawning
-	
-	if Input.is_action_just_pressed("spell1") && crowdparent[0].spell1cooldown <= 0:
-		spellnumber = 1
-		if Globalsettings.g_spell1 == 0:
-			pass
-		if Globalsettings.g_spell1 == 1:
-			spawnFireball()
-			$Timers/CooldownstartTimer.start()
-		if Globalsettings.g_spell1 == 2:
-			spawnThunder()
-			$Timers/CooldownstartTimer.start()
-		if Globalsettings.g_spell1 == 3:
-			spawnPoison()
-			$Timers/CooldownstartTimer.start()
-		if Globalsettings.g_spell1 == 4:
-			spawnSnowflake()
-			$Timers/CooldownstartTimer.start()
-	
-	if Input.is_action_just_pressed("spell2") && crowdparent[0].spell2cooldown <= 0:
-		spellnumber = 2
-		if Globalsettings.g_spell2 == 0:
-			pass
-		if Globalsettings.g_spell2 == 1:
-			spawnFireball()
-			$Timers/CooldownstartTimer.start()
-		if Globalsettings.g_spell2 == 2:
-			spawnThunder()
-			$Timers/CooldownstartTimer.start()
-		if Globalsettings.g_spell2 == 3:
-			spawnPoison()
-			$Timers/CooldownstartTimer.start()
-		if Globalsettings.g_spell2 == 4:
-			spawnSnowflake()
-			$Timers/CooldownstartTimer.start()
-	
-	if Input.is_action_just_pressed("spell3") && crowdparent[0].spell3cooldown <= 0:
-		spellnumber = 3
-		if Globalsettings.g_spell3 == 0:
-			pass
-		if Globalsettings.g_spell3 == 1:
-			spawnFireball()
-			$Timers/CooldownstartTimer.start()
-		if Globalsettings.g_spell3 == 2:
-			spawnThunder()
-			$Timers/CooldownstartTimer.start()
-		if Globalsettings.g_spell3 == 3:
-			spawnPoison()
-			$Timers/CooldownstartTimer.start()
-		if Globalsettings.g_spell3 == 4:
-			spawnSnowflake()
-			$Timers/CooldownstartTimer.start()
-	
-	if Input.is_action_just_pressed("spell4") && crowdparent[0].spell4cooldown <= 0:
-		spellnumber = 4
-		if Globalsettings.g_spell4 == 0:
-			pass
-		if Globalsettings.g_spell4 == 1:
-			spawnFireball()
-			$Timers/CooldownstartTimer.start()
-		if Globalsettings.g_spell4 == 2:
-			spawnThunder()
-			$Timers/CooldownstartTimer.start()
-		if Globalsettings.g_spell4 == 3:
-			spawnPoison()
-			$Timers/CooldownstartTimer.start()
-		if Globalsettings.g_spell4 == 4:
-			spawnSnowflake()
-			$Timers/CooldownstartTimer.start()
-	
-	# Look where to move towards and set velocity to direction (Movement)
-	
-	$Rot.look_at(crowdp_pos)
-	
-	if alive == true && falling == false && IsIncapacitated == false:
-		if dist_to_crowdp.x > 12 + randomoffsetspace or dist_to_crowdp.y > 12 + randomoffsetspace:
-			velocity = Vector2(SPEED + randomspeedextra + Globalsettings.currentrun_extraspeed, 0).rotated($Rot.rotation)
+	if alive == true:
+		
+		# Bullet shooting
+		
+		if cooldownframes > 0:
+			cooldownframes -= 1
+		if cooldownframes == 0:
+			currentextrabullets = Globalsettings.currentrun_extrabullets
+			spawnBullet()
+			cooldownframes = max_cooldownframes - Globalsettings.currentrun_minuscooldown
+		
+		# Spell inputs and spawning
+		
+		if Input.is_action_just_pressed("spell1") && crowdparent[0].spell1cooldown <= 0:
+			spellnumber = 1
+			if Globalsettings.g_spell1 == 0:
+				pass
+			if Globalsettings.g_spell1 == 1:
+				spawnFireball()
+				$Timers/CooldownstartTimer.start()
+			if Globalsettings.g_spell1 == 2:
+				spawnThunder()
+				$Timers/CooldownstartTimer.start()
+			if Globalsettings.g_spell1 == 3:
+				spawnPoison()
+				$Timers/CooldownstartTimer.start()
+			if Globalsettings.g_spell1 == 4:
+				spawnSnowflake()
+				$Timers/CooldownstartTimer.start()
+		
+		if Input.is_action_just_pressed("spell2") && crowdparent[0].spell2cooldown <= 0:
+			spellnumber = 2
+			if Globalsettings.g_spell2 == 0:
+				pass
+			if Globalsettings.g_spell2 == 1:
+				spawnFireball()
+				$Timers/CooldownstartTimer.start()
+			if Globalsettings.g_spell2 == 2:
+				spawnThunder()
+				$Timers/CooldownstartTimer.start()
+			if Globalsettings.g_spell2 == 3:
+				spawnPoison()
+				$Timers/CooldownstartTimer.start()
+			if Globalsettings.g_spell2 == 4:
+				spawnSnowflake()
+				$Timers/CooldownstartTimer.start()
+		
+		if Input.is_action_just_pressed("spell3") && crowdparent[0].spell3cooldown <= 0:
+			spellnumber = 3
+			if Globalsettings.g_spell3 == 0:
+				pass
+			if Globalsettings.g_spell3 == 1:
+				spawnFireball()
+				$Timers/CooldownstartTimer.start()
+			if Globalsettings.g_spell3 == 2:
+				spawnThunder()
+				$Timers/CooldownstartTimer.start()
+			if Globalsettings.g_spell3 == 3:
+				spawnPoison()
+				$Timers/CooldownstartTimer.start()
+			if Globalsettings.g_spell3 == 4:
+				spawnSnowflake()
+				$Timers/CooldownstartTimer.start()
+		
+		if Input.is_action_just_pressed("spell4") && crowdparent[0].spell4cooldown <= 0:
+			spellnumber = 4
+			if Globalsettings.g_spell4 == 0:
+				pass
+			if Globalsettings.g_spell4 == 1:
+				spawnFireball()
+				$Timers/CooldownstartTimer.start()
+			if Globalsettings.g_spell4 == 2:
+				spawnThunder()
+				$Timers/CooldownstartTimer.start()
+			if Globalsettings.g_spell4 == 3:
+				spawnPoison()
+				$Timers/CooldownstartTimer.start()
+			if Globalsettings.g_spell4 == 4:
+				spawnSnowflake()
+				$Timers/CooldownstartTimer.start()
+		
+		# Look where to move towards and set velocity to direction (Movement)
+		
+		$Rot.look_at(crowdp_pos)
+		
+		if alive == true && falling == false && IsIncapacitated == false:
+			if dist_to_crowdp.x > 12 + randomoffsetspace or dist_to_crowdp.y > 12 + randomoffsetspace:
+				velocity = Vector2(SPEED + randomspeedextra + Globalsettings.currentrun_extraspeed, 0).rotated($Rot.rotation)
+			else:
+				velocity.x = 0
+				velocity.y = 0
+		
+		if falling == true:
+			velocity.y += 20
+			fallingframes += 1
+		
+		move_and_slide()
+		
+		if $CliffWaterCollider.is_colliding():
+			var collider = $CliffWaterCollider.get_collider()
+			#print(collider)
+			if alive == true:
+				if collider.is_in_group("water_hiddentiles"):
+					diefromwater()
+				if collider.is_in_group("cliffs_hiddentiles"):
+					falling = true
+					if fallingframes == 1:
+						velocity = Vector2(0,0)
+				if collider.is_in_group("highwater_hiddentiles"):
+					fallFromHigh()
 		else:
-			velocity.x = 0
-			velocity.y = 0
-	
-	if falling == true:
-		velocity.y += 20
-		fallingframes += 1
-	
-	move_and_slide()
+			checkFallDamage()
 
 # Functions -----
 
@@ -203,6 +221,32 @@ func checkAimShoot():
 			$Rot2.look_at(nearest_enemy.global_position)
 		else:
 			$Rot2.look_at(crowdparent[0].aimring.global_position)
+
+func checkFallDamage():
+	falling = false
+	if fallingframes >= 20 && fallingframes < 40:
+		hp -= 1
+		hurt()
+	if fallingframes >= 40 && fallingframes < 60:
+		hp -= 2
+		hurt()
+	if fallingframes >= 60 && fallingframes < 80:
+		hp -= 4
+		hurt()
+	if fallingframes >= 80 && fallingframes < 100:
+		hp -= 8
+		hurt()
+	if fallingframes >= 100 && fallingframes < 120:
+		hp -= 16
+		hurt()
+	if fallingframes >= 120 && fallingframes < 140:
+		hp -= 32
+		hurt()
+	if fallingframes >= 140:
+		kill()
+	if hp <= 0 && alive == true:
+		kill()
+	fallingframes = 0
 
 # ----- Spawn seperate objects
 
@@ -262,6 +306,12 @@ func spawnDeadBody():
 	get_parent().add_child.call_deferred(dm)
 	dm.position = global_position
 
+func spawnSplash():
+	var ds = DEADSPLASH.instantiate()
+	get_parent().add_child.call_deferred(ds)
+	ds.position.x = global_position.x
+	ds.position.y = global_position.y + $Meebling.position.y
+
 # ----- Animation functions
 
 func continueBouncing():
@@ -276,21 +326,39 @@ func updateHp():
 	hp = MAX_HP
 
 func hurt():
-	m_anim.play("RESET")
-	m_anim.play("hurt")
-	$Healthbar.value = hp # !!!!! Moved from physicsprocessdelta, check if it doesn't break the code
-	$Healthbar.visible = true
-	$Sounds/Hit.play()
+	if alive == true:
+		m_anim.play("RESET")
+		m_anim.play("hurt")
+		$Healthbar.value = hp # !!!!! Moved from physicsprocessdelta, check if it doesn't break the code
+		$Healthbar.visible = true
+		$Sounds/Hit.play()
+
+func diefromwater():
+	spawnSplash()
+	velocity = Vector2(0,0)
+	alive = false
+	visible = false
+	$Shadow.visible = false
+	$Sounds/Break.play()
+	$Sounds/Splash.play()
+	$Timers/QueueTimer.start()
 
 func drown():
-	velocity.x = 0
-	velocity.y = 0
+	velocity = Vector2(0,0)
 	m_anim.play("drown")
 	alive = false
 	$Timers/SplashTimer.start()
 	$Shadow.visible = false
 	$Sounds/Break.play()
 	$Timers/QueueTimer.start()
+
+func fallFromHigh():
+	z_index = -1
+	velocity = Vector2(0,0)
+	m_anim.play("fallingfromabove")
+	alive = false
+	$Shadow.visible = false
+	$Sounds/Break.play()
 
 func kill():
 	spawnDeadBody()
