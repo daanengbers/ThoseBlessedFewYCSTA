@@ -36,11 +36,11 @@ func update_meeblingsandmovement():
 	if crowd_members.size() >= 1:
 		nearest_crowdm = crowd_members[0]
 		dist_to_crowdm = abs(global_position - nearest_crowdm.global_position)
-		$Rot.look_at(nearest_crowdm.global_position)
 	
 	for mem in crowd_members:
 		if mem.global_position.distance_to(self.global_position) < nearest_crowdm.global_position.distance_to(self.global_position):
 			nearest_crowdm = mem
+			$Rot.look_at(nearest_crowdm.global_position)
 	
 	
 	
