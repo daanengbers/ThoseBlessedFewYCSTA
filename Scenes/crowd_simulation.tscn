@@ -1543,6 +1543,14 @@ text = "0 NMys"
 
 [node name="StatHolder" parent="UI" instance=ExtResource("23_qdspg")]
 
+[node name="LevelDebug" type="Label" parent="UI"]
+texture_filter = 1
+offset_top = 41.0
+offset_right = 40.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("3_gjq7j")
+text = "Level "
+
 [node name="Mainarrow" type="Sprite2D" parent="."]
 z_index = 5
 texture_filter = 1

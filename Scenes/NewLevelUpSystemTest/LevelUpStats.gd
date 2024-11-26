@@ -28,6 +28,8 @@ var numberAssigned = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if statID == "MAXED":
+		UI_CardLevel = "Recover"
 	maxLevel = AmountToIncrease.size()
 	UI_AmountToIncreaseDecrease = str(UI_level1AmountToIncreaseDecrease)
 
@@ -40,16 +42,14 @@ func _process(delta):
 func levelUp(ButtonNumber):
 	match isStat_Ability_Bonus:
 		1:
-			print_debug(maxLevel)
-			print_debug(level)
-			if level < maxLevel && statID != "MAX":
+			if level < maxLevel && statID != "MAXED":
 				##Update the stats by matching the level to the amountToIncrease array
 				UpdateStats(AmountToIncrease[level])
 				
 				##Set the UI based on the level
 				##Up the level
 				level +=1
-				UI_level = "Lv.g " + str(level)
+				UI_level = "Lv. " + str(level)
 				UI_CardLevel = str(level + 1)
 				if level < maxLevel:
 					if statID == "COOLDOWN":
@@ -59,7 +59,8 @@ func levelUp(ButtonNumber):
 			if level >= maxLevel:
 				UI_level = "MAX"
 				pass
-			if statID == "MAX":
+			if statID == "MAXED":
+					UI_level = "Recover"
 					UpdateStats(0)
 				
 		2:
@@ -91,7 +92,7 @@ func UpdateStats(amountToIncreaseDecrease):
 		"BOUNCE":
 			Globalsettings.currentrun_extrabounce += amountToIncreaseDecrease
 			
-		"MAX":
+		"MAXED":
 			get_tree().call_group("crowd_m", "updateHp")
 
 func updateSpells(spellToSetNumber):

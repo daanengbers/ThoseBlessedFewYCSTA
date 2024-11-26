@@ -16,7 +16,10 @@ func UpdateCardUI(Title,Level,AmountToIncreaseDecrease, imageFrame):
 	if Level == "":
 		$eh/CardLevel.set_text("")
 	else:
-		$eh/CardLevel.set_text("Level " + str(Level))
+		if Level == "Recover":
+			$eh/CardLevel.set_text("Recover")
+		else:
+			$eh/CardLevel.set_text("Level " + str(Level))
 	$eh/Carddescription.set_text(str(AmountToIncreaseDecrease))
 	$eh/UpgradeIcons.set_frame(imageFrame)
 	##$eh/UpgradeIcons.frame = cardimg

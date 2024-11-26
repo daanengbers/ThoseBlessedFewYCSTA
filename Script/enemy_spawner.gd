@@ -17,7 +17,7 @@ var lesterCooldown = false
 var randomenemyspawn = 1
 var highesttypeenemy = 1
 var highestlevelenemy = 1
-var amountToSpawn = 1
+var amountToSpawn = 3
 
 var randomspawnlocx = 0
 var randomspawnlocy = 0
@@ -28,6 +28,15 @@ var max_enemies = 300
 
 func _ready():
 	randomize()
+	randomspawnlocx = randi_range(-160, 160)
+	randomspawnlocy = randi_range(-90,90)
+	spawnskullenemy()
+	randomspawnlocx = randi_range(-160, 160)
+	randomspawnlocy = randi_range(-90,90)
+	spawnskullenemy()
+	randomspawnlocx = randi_range(-160, 160)
+	randomspawnlocy = randi_range(-90,90)
+	spawnskullenemy()
 
 func _process(_delta):
 	$Label.set_text(str(secconds))
@@ -37,17 +46,29 @@ func spawnskullenemy():
 	get_parent().get_parent().get_node("Ysorter").add_child.call_deferred(sk)
 	var randomtoporside = randi()%4 + 1
 	if randomtoporside == 1:
-		sk.position.x = global_position.x + randomspawnlocx
-		sk.position.y = global_position.y - 40
+		sk.position.x = global_position.x - 160
+		sk.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 2:
-		sk.position.x = global_position.x + randomspawnlocx
-		sk.position.y = global_position.y + 220
+		sk.position.x = global_position.x + 160
+		sk.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 3:
-		sk.position.x = global_position.x - 40
-		sk.position.y = global_position.y + randomspawnlocy
+		sk.position.x = global_position.x + randomspawnlocx
+		sk.position.y = global_position.y - 90
 	if randomtoporside == 4:
-		sk.position.x = global_position.x + 360
-		sk.position.y = global_position.y + randomspawnlocy
+		sk.position.x = global_position.x + randomspawnlocx
+		sk.position.y = global_position.y + 90
+	#if randomtoporside == 1:
+		#sk.position.x = global_position.x + randomspawnlocx
+		#sk.position.y = global_position.y - 40
+	#if randomtoporside == 2:
+		#sk.position.x = global_position.x + randomspawnlocx
+		#sk.position.y = global_position.y + 220
+	#if randomtoporside == 3:
+		#sk.position.x = global_position.x - 40
+		#sk.position.y = global_position.y + randomspawnlocy
+	#if randomtoporside == 4:
+		#sk.position.x = global_position.x + 360
+		#sk.position.y = global_position.y + randomspawnlocy
 	sk.hp = sk.hp + (level/4)
 	sk.SPEED = sk.SPEED + (level/5)
 
@@ -56,17 +77,17 @@ func spawneyeenemy():
 	get_parent().get_parent().get_node("Ysorter").add_child.call_deferred(ey)
 	var randomtoporside = randi()%4 + 1
 	if randomtoporside == 1:
-		ey.position.x = global_position.x + randomspawnlocx
-		ey.position.y = global_position.y - 40
+		ey.position.x = global_position.x - 160
+		ey.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 2:
-		ey.position.x = global_position.x + randomspawnlocx
-		ey.position.y = global_position.y + 220
+		ey.position.x = global_position.x + 160
+		ey.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 3:
-		ey.position.x = global_position.x - 40
-		ey.position.y = global_position.y + randomspawnlocy
+		ey.position.x = global_position.x + randomspawnlocx
+		ey.position.y = global_position.y - 90
 	if randomtoporside == 4:
-		ey.position.x = global_position.x + 360
-		ey.position.y = global_position.y + randomspawnlocy
+		ey.position.x = global_position.x + randomspawnlocx
+		ey.position.y = global_position.y + 90
 	ey.hp = ey.hp + (level/2)
 	ey.SPEED = ey.SPEED + (level/5)
 
@@ -75,17 +96,17 @@ func spawnslimeenemy():
 	get_parent().get_parent().get_node("Ysorter").add_child.call_deferred(sl)
 	var randomtoporside = randi()%4 + 1
 	if randomtoporside == 1:
-		sl.position.x = global_position.x + randomspawnlocx
-		sl.position.y = global_position.y - 40
+		sl.position.x = global_position.x - 160
+		sl.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 2:
-		sl.position.x = global_position.x + randomspawnlocx
-		sl.position.y = global_position.y + 220
+		sl.position.x = global_position.x + 160
+		sl.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 3:
-		sl.position.x = global_position.x - 40
-		sl.position.y = global_position.y + randomspawnlocy
+		sl.position.x = global_position.x + randomspawnlocx
+		sl.position.y = global_position.y - 90
 	if randomtoporside == 4:
-		sl.position.x = global_position.x + 360
-		sl.position.y = global_position.y + randomspawnlocy
+		sl.position.x = global_position.x + randomspawnlocx
+		sl.position.y = global_position.y + 90
 	sl.hp = sl.hp + (level/2)
 	sl.SPEED = sl.SPEED + (level/7)
 
@@ -94,34 +115,34 @@ func spawnghostenemy():
 	get_parent().get_parent().get_node("Ysorter").add_child.call_deferred(gh)
 	var randomtoporside = randi()%4 + 1
 	if randomtoporside == 1:
-		gh.position.x = global_position.x + randomspawnlocx
-		gh.position.y = global_position.y - 40
+		gh.position.x = global_position.x - 160
+		gh.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 2:
-		gh.position.x = global_position.x + randomspawnlocx
-		gh.position.y = global_position.y + 220
+		gh.position.x = global_position.x + 160
+		gh.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 3:
-		gh.position.x = global_position.x - 40
-		gh.position.y = global_position.y + randomspawnlocy
+		gh.position.x = global_position.x + randomspawnlocx
+		gh.position.y = global_position.y - 90
 	if randomtoporside == 4:
-		gh.position.x = global_position.x + 360
-		gh.position.y = global_position.y + randomspawnlocy
+		gh.position.x = global_position.x + randomspawnlocx
+		gh.position.y = global_position.y + 90
 
 func spawnscarabenemy():
 	var sc = SCARAB.instantiate()
 	get_parent().get_parent().get_node("Ysorter").add_child.call_deferred(sc)
 	var randomtoporside = randi()%4 + 1
 	if randomtoporside == 1:
-		sc.position.x = global_position.x + randomspawnlocx
-		sc.position.y = global_position.y - 40
+		sc.position.x = global_position.x - 160
+		sc.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 2:
-		sc.position.x = global_position.x + randomspawnlocx
-		sc.position.y = global_position.y + 220
+		sc.position.x = global_position.x + 160
+		sc.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 3:
-		sc.position.x = global_position.x - 40
-		sc.position.y = global_position.y + randomspawnlocy
+		sc.position.x = global_position.x + randomspawnlocx
+		sc.position.y = global_position.y - 90
 	if randomtoporside == 4:
-		sc.position.x = global_position.x + 360
-		sc.position.y = global_position.y + randomspawnlocy
+		sc.position.x = global_position.x + randomspawnlocx
+		sc.position.y = global_position.y + 90
 	sc.hp += level
 	
 func spawnLester():
@@ -129,17 +150,17 @@ func spawnLester():
 	get_parent().get_parent().get_node("Ysorter").add_child.call_deferred(sc)
 	var randomtoporside = randi()%4 + 1
 	if randomtoporside == 1:
-		sc.position.x = global_position.x + randomspawnlocx
-		sc.position.y = global_position.y - 40
+		sc.position.x = global_position.x - 160
+		sc.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 2:
-		sc.position.x = global_position.x + randomspawnlocx
-		sc.position.y = global_position.y + 220
+		sc.position.x = global_position.x + 160
+		sc.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 3:
-		sc.position.x = global_position.x - 40
-		sc.position.y = global_position.y + randomspawnlocy
+		sc.position.x = global_position.x + randomspawnlocx
+		sc.position.y = global_position.y - 90
 	if randomtoporside == 4:
-		sc.position.x = global_position.x + 360
-		sc.position.y = global_position.y + randomspawnlocy
+		sc.position.x = global_position.x + randomspawnlocx
+		sc.position.y = global_position.y + 90
 	sc.hp += level
 
 func _on_second_timer_timeout():
@@ -180,6 +201,8 @@ func _on_spawn_timer_timeout():
 	for i in amountToSpawn:
 		randomenemyspawn = randi()% highesttypeenemy + 1
 		randomLesterNumber = randi_range(0,50)
+		randomspawnlocx = randi_range(-160, 160)
+		randomspawnlocy = randi_range(-90,90)
 		if get_tree().get_nodes_in_group("enemy_m").size() < max_enemies:
 			if randomenemyspawn == 1:
 				spawnskullenemy()
@@ -201,8 +224,6 @@ func _on_spawn_timer_timeout():
 			if randomenemyspawn == 5:
 				spawnscarabenemy()
 	
-	randomspawnlocx = randi()% 320
-	randomspawnlocy = randi()% 180
 	$SpawnTimer.start()
 
 
@@ -217,12 +238,13 @@ func _on_level_timer_timeout():
 	if level == 5:
 		$SpawnTimer.wait_time = 2.6
 	if level == 6:
-		$SpawnTimer.wait_time = 2.4
+		$SpawnTimer.wait_time = 3
+		amountToSpawn +=2
 		highesttypeenemy += 1 # Eyeball enemies
 	if level == 8:
-		$SpawnTimer.wait_time = 2.3
+		$SpawnTimer.wait_time = 2.9
 	if level == 10:
-		$SpawnTimer.wait_time = 2.1
+		$SpawnTimer.wait_time = 2.8
 	if level == 12:
 		amountToSpawn +=1
 		highesttypeenemy += 1

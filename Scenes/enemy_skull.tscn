@@ -104,7 +104,8 @@ _data = {
 [node name="Enemy_skull" type="CharacterBody2D" groups=["enemy_m"]]
 z_index = 5
 script = ExtResource("1_6agiw")
-hp = 20
+SPEED = 45
+hp = 5
 
 [node name="Icon" type="Sprite2D" parent="."]
 texture_filter = 1
