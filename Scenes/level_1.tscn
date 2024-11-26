@@ -2833,7 +2833,6 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_qju6d")
 
 [node name="EnemySpawner" parent="Crowd_Simulation" instance=ExtResource("37_old02")]
-position = Vector2(-160, -90)
 
 [node name="Ysorter" type="Node2D" parent="."]
 y_sort_enabled = true
