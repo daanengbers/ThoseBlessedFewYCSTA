@@ -311,13 +311,13 @@ func spawncards(xpos, stat):
 	match stat.isStat_Ability_Bonus:
 		1:
 			##Stat
-			ca.UpdateCardUI(stat.UI_Title,stat.UI_CardLevel,stat.UI_AmountToIncreaseDecrease, stat.UI_ImageNmr)
+			ca.UpdateCardUI(stat.UI_Title,stat.UI_CardLevel,stat.UI_AmountToIncreaseDecrease, stat.UI_ImageNmr, stat.isStat_Ability_Bonus)
 		2:
 			##Spell
-			ca.UpdateCardUI(stat.UI_Title,"",stat.UI_AmountToIncreaseDecrease, stat.UI_ImageNmr)
+			ca.UpdateCardUI(stat.UI_Title,"",stat.UI_AmountToIncreaseDecrease, stat.UI_ImageNmr, stat.isStat_Ability_Bonus)
 		3:
 			##bonus
-			ca.UpdateCardUI(stat.UI_Title,"",stat.UI_AmountToIncreaseDecrease, stat.UI_ImageNmr)
+			ca.UpdateCardUI(stat.UI_Title,"",stat.UI_AmountToIncreaseDecrease, stat.UI_ImageNmr, stat.isStat_Ability_Bonus)
 	##add_child.call_deferred(ca)
 	$UI/LevelUpUI.add_child(ca)
 	ca.position.x = xpos

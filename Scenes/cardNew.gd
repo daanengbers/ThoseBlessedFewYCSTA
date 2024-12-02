@@ -10,7 +10,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func UpdateCardUI(Title,Level,AmountToIncreaseDecrease, imageFrame):
+func UpdateCardUI(Title,Level,AmountToIncreaseDecrease, imageFrame, stat_ab_bon):
 	##$eh/Spellcards.frame = cardcolor
 	$eh/Cardname.set_text(str(Title))
 	if Level == "":
@@ -22,6 +22,7 @@ func UpdateCardUI(Title,Level,AmountToIncreaseDecrease, imageFrame):
 			$eh/CardLevel.set_text("Level " + str(Level))
 	$eh/Carddescription.set_text(str(AmountToIncreaseDecrease))
 	$eh/UpgradeIcons.set_frame(imageFrame)
+	$eh/Spellcards.frame = stat_ab_bon - 1
 	##$eh/UpgradeIcons.frame = cardimg
 	pass
 	
