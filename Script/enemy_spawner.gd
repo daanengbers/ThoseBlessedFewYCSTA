@@ -46,17 +46,17 @@ func spawnskullenemy():
 	get_parent().get_parent().get_node("Ysorter").add_child.call_deferred(sk)
 	var randomtoporside = randi()%4 + 1
 	if randomtoporside == 1:
-		sk.position.x = global_position.x - 160
+		sk.position.x = global_position.x - 170
 		sk.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 2:
-		sk.position.x = global_position.x + 160
+		sk.position.x = global_position.x + 170
 		sk.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 3:
 		sk.position.x = global_position.x + randomspawnlocx
-		sk.position.y = global_position.y - 90
+		sk.position.y = global_position.y - 100
 	if randomtoporside == 4:
 		sk.position.x = global_position.x + randomspawnlocx
-		sk.position.y = global_position.y + 90
+		sk.position.y = global_position.y + 100
 	#if randomtoporside == 1:
 		#sk.position.x = global_position.x + randomspawnlocx
 		#sk.position.y = global_position.y - 40

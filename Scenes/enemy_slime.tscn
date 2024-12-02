@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c2fxesfd424fa"]
+[gd_scene load_steps=20 format=3 uid="uid://c2fxesfd424fa"]
 
 [ext_resource type="Script" path="res://Script/enemy_member.gd" id="1_27jjo"]
 [ext_resource type="Texture2D" uid="uid://xjft5bfbaqpp" path="res://Assets/Enemy_Sprites/Daanslime-1.png" id="2_qo07c"]
@@ -71,7 +71,71 @@ _data = {
 "bounce": SubResource("Animation_50v2h")
 }
 
+[sub_resource type="Animation" id="Animation_yatvy"]
+resource_name = "fadein"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Arrowshadow:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oovy0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Arrowshadow:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k7kyx"]
+_data = {
+"RESET": SubResource("Animation_oovy0"),
+"fadein": SubResource("Animation_yatvy")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rmrd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xqll4"]
+radius = 4.12311
 
 [sub_resource type="Animation" id="Animation_2akjp"]
 length = 0.001
@@ -130,10 +194,11 @@ _data = {
 z_index = 5
 script = ExtResource("1_27jjo")
 SPEED = 30
-hp = 40
+hp = 65
 
 [node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(1, 0.392157, 0.392157, 1)
+self_modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 position = Vector2(0, 1)
 texture = ExtResource("2_qo07c")
@@ -141,6 +206,11 @@ texture = ExtResource("2_qo07c")
 [node name="Anim" type="AnimationPlayer" parent="Icon"]
 libraries = {
 "": SubResource("AnimationLibrary_3ym26")
+}
+
+[node name="Coloranim" type="AnimationPlayer" parent="Icon"]
+libraries = {
+"": SubResource("AnimationLibrary_k7kyx")
 }
 
 [node name="Rot" type="Node2D" parent="."]
@@ -167,6 +237,9 @@ texture_progress = ExtResource("6_db5yi")
 [node name="box" type="CollisionShape2D" parent="HURTbox_Enemy"]
 shape = SubResource("CircleShape2D_1rmrd")
 
+[node name="Crowdcollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xqll4")
+
 [node name="EffectsAnim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tudjj")
@@ -174,6 +247,7 @@ libraries = {
 
 [node name="Arrowshadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
+self_modulate = Color(1, 1, 1, 0)
 z_index = -1
 texture_filter = 1
 position = Vector2(2.38419e-07, 6)

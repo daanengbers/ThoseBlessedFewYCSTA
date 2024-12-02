@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://woynnvejwgxd"]
+[gd_scene load_steps=20 format=3 uid="uid://woynnvejwgxd"]
 
 [ext_resource type="Script" path="res://Script/enemy_lesterskeleton.gd" id="1_pswjw"]
 [ext_resource type="Texture2D" uid="uid://pystlas62qi8" path="res://Assets/Enemy_Sprites/LesterTheSkeleton.png" id="2_bjtli"]
@@ -70,7 +70,71 @@ _data = {
 "bounce": SubResource("Animation_50v2h")
 }
 
+[sub_resource type="Animation" id="Animation_cbbcb"]
+resource_name = "fadein"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Arrowshadow:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_svwvh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Arrowshadow:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6gje0"]
+_data = {
+"RESET": SubResource("Animation_svwvh"),
+"fadein": SubResource("Animation_cbbcb")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rmrd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_32fml"]
+radius = 4.12311
 
 [sub_resource type="Animation" id="Animation_2akjp"]
 length = 0.001
@@ -130,6 +194,7 @@ z_index = 5
 script = ExtResource("1_pswjw")
 
 [node name="Icon" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 position = Vector2(0, 1)
 texture = ExtResource("2_bjtli")
@@ -138,6 +203,11 @@ hframes = 4
 [node name="Anim" type="AnimationPlayer" parent="Icon"]
 libraries = {
 "": SubResource("AnimationLibrary_3ym26")
+}
+
+[node name="Coloranim" type="AnimationPlayer" parent="Icon"]
+libraries = {
+"": SubResource("AnimationLibrary_6gje0")
 }
 
 [node name="Rot" type="Node2D" parent="."]
@@ -165,6 +235,9 @@ visible = false
 [node name="box" type="CollisionShape2D" parent="HURTbox_Enemy"]
 shape = SubResource("CircleShape2D_1rmrd")
 
+[node name="Crowdcollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_32fml")
+
 [node name="EffectsAnim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tudjj")
@@ -172,6 +245,7 @@ libraries = {
 
 [node name="Arrowshadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
+self_modulate = Color(1, 1, 1, 0)
 z_index = -1
 texture_filter = 1
 position = Vector2(0, 8)

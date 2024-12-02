@@ -23,6 +23,7 @@ func _ready():
 	randomspeedextra = randi()%10
 	e_anim.play("bounce")
 	$EffectsAnim.play("default")
+	$Icon/Coloranim.play("fadein")
 	$Healthbar.max_value = hp
 	$Healthbar.value = hp
 	update_meeblingsandmovement()

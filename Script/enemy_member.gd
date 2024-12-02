@@ -25,6 +25,7 @@ func _ready():
 	randomspeedextra = randi()%10
 	e_anim.play("bounce")
 	$EffectsAnim.play("default")
+	$Icon/Coloranim.play("fadein")
 	$Healthbar.max_value = hp
 	$Healthbar.value = hp
 	update_meeblingsandmovement()
@@ -47,7 +48,7 @@ func update_meeblingsandmovement():
 		
 		$Rot.look_at(nearest_crowdm.global_position)
 		
-		if dist_to_crowdm.x > 14 or dist_to_crowdm.y > 14:
+		if dist_to_crowdm.x > 16 or dist_to_crowdm.y > 16:
 			velocity = Vector2(SPEED + SpeedBoostOfScreen + randomspeedextra, 0).rotated($Rot.rotation)
 			withinreach = false
 		else:

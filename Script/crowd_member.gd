@@ -64,9 +64,9 @@ func _ready():
 	randomize()
 	randomspeedextra = randi()%20 + 10 # previously 30 (?)
 	if randomxplus == 0:
-		randomxplus = randi()%70 - 35
+		randomxplus = randi()%60 - 30
 	if randomyplus == 0:
-		randomyplus = randi()%50 - 25
+		randomyplus = randi()%40 - 20
 	randomoffsetspace = randi()%8
 	randomsprite = randi()%8
 	random_s = randi()%4096 + 1

@@ -8,7 +8,7 @@ var SpeedBoostOfScreen = 0
 
 @onready var e_anim = $Spritecontainer/Icon/Anim
 
-@export var hp = 120
+@export var hp = 160
 var alive = true
 
 var randomspeedextra = 0
@@ -23,6 +23,7 @@ func _ready():
 	randomspeedextra = randi()%10
 	e_anim.play("bounce")
 	$EffectsAnim.play("default")
+	$Spritecontainer/Coloranim.play("fadein")
 	$Healthbar.max_value = hp
 	$Healthbar.value = hp
 	update_meeblingsandmovement()

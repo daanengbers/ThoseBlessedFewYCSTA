@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b0cp86nb5a0ys"]
+[gd_scene load_steps=24 format=3 uid="uid://b0cp86nb5a0ys"]
 
 [ext_resource type="Script" path="res://Script/enemy_scarab.gd" id="1_sk68o"]
 [ext_resource type="Texture2D" uid="uid://drkue8pytwjt8" path="res://Assets/Enemy_Sprites/AndreasScarab_Legs.png" id="2_6lhv4"]
@@ -99,6 +99,67 @@ _data = {
 "bounce": SubResource("Animation_50v2h")
 }
 
+[sub_resource type="Animation" id="Animation_bkeyv"]
+resource_name = "fadein"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Arrowshadow:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_atyhr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Arrowshadow:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ltlw6"]
+_data = {
+"RESET": SubResource("Animation_atyhr"),
+"fadein": SubResource("Animation_bkeyv")
+}
+
 [sub_resource type="Animation" id="Animation_2akjp"]
 length = 0.001
 tracks/0/type = "value"
@@ -178,12 +239,16 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rmrd"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_osael"]
+radius = 4.12311
+
 [node name="Enemy_scarab" type="CharacterBody2D" groups=["enemy_m"]]
 z_index = 5
 texture_filter = 1
 script = ExtResource("1_sk68o")
 
 [node name="Spritecontainer" type="Node2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 
 [node name="Icon" type="Sprite2D" parent="Spritecontainer"]
 texture_filter = 1
@@ -212,6 +277,11 @@ texture = ExtResource("5_4qf3d")
 position = Vector2(0, -3)
 texture = ExtResource("6_i0uk0")
 
+[node name="Coloranim" type="AnimationPlayer" parent="Spritecontainer"]
+libraries = {
+"": SubResource("AnimationLibrary_ltlw6")
+}
+
 [node name="EffectsAnim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tudjj")
@@ -237,13 +307,16 @@ texture_under = ExtResource("4_p4y7a")
 texture_progress = ExtResource("5_q54wd")
 
 [node name="HURTbox_Enemy" type="Area2D" parent="."]
-visible = false
 
 [node name="box" type="CollisionShape2D" parent="HURTbox_Enemy"]
 shape = SubResource("CircleShape2D_1rmrd")
 
+[node name="Crowdcollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_osael")
+
 [node name="Arrowshadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
+self_modulate = Color(1, 1, 1, 0)
 z_index = -1
 texture_filter = 1
 position = Vector2(2.38419e-07, 4)

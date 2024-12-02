@@ -23,6 +23,7 @@ func _ready():
 	randomspeedextra = randi()%10
 	e_anim.play("bounce")
 	$EffectsAnim.play("default")
+	$Icon/Coloranim.play("fadein")
 	$Healthbar.max_value = hp
 	$Healthbar.value = hp
 	update_meeblingsandmovement()
@@ -32,6 +33,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func update_meeblingsandmovement():
+	crowd_members = get_tree().get_nodes_in_group("crowd_m")
 	if crowd_members.size() >= 1:
 		nearest_crowdm = crowd_members[0]
 		dist_to_crowdm = abs(global_position - nearest_crowdm.global_position)
