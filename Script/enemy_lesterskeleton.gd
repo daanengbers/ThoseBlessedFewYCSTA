@@ -17,6 +17,7 @@ var dist_to_crowdm
 var crowd_members
 var nearest_crowdm
 var withinreach = false
+var amountOfMeebsInRange = 0
 
 func _ready():
 	randomize()
@@ -44,20 +45,19 @@ func update_meeblingsandmovement():
 		
 		$Rot.look_at(nearest_crowdm.global_position)
 		
-		if dist_to_crowdm.x > 14 or dist_to_crowdm.y > 14:
-			velocity = Vector2(SPEED + SpeedBoostOfScreen + randomspeedextra, 0).rotated($Rot.rotation)
-			withinreach = false
-		else:
-			velocity.x = 0
-			velocity.y = 0
-			withinreach = true
-		
-		if withinreach == true:
-			nearest_crowdm.hp -= 1
-			nearest_crowdm.hurt()
-			if nearest_crowdm.hp <= 0:
-				nearest_crowdm.kill()
+		match withinreach:
+			true:
+				nearest_crowdm.hp -= 1
+				nearest_crowdm.hurt()
+				velocity = Vector2(0,0)
+				if nearest_crowdm.hp <= 0:
+					nearest_crowdm.kill()
+			false:
+				velocity = Vector2(SPEED + SpeedBoostOfScreen + randomspeedextra, 0).rotated($Rot.rotation)
+				
 		speedboost()
+	if crowd_members.size() <= 0:
+		velocity = Vector2(0,40)
 
 func speedboost():
 	var crowd_simulator = get_tree().get_nodes_in_group("crowd_p")
@@ -90,3 +90,14 @@ func spawn_exporb():
 func _on_update_timer_timeout():
 	update_meeblingsandmovement()
 	$Timers/UpdateTimer.start()
+
+func _on_hur_tbox_enemy_area_entered(area):
+	if area.is_in_group("CrowdHurt"):
+		amountOfMeebsInRange +=1
+		withinreach = true
+
+func _on_hur_tbox_enemy_area_exited(area):
+	if area.is_in_group("CrowdHurt") && amountOfMeebsInRange > 0:
+		amountOfMeebsInRange -= 1
+	if area.is_in_group("CrowdHurt") && amountOfMeebsInRange == 0:
+		withinreach = false

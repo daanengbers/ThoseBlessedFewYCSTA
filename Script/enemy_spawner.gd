@@ -237,10 +237,10 @@ func _on_level_timer_timeout():
 		$SpawnTimer.wait_time = 2.8
 	if level == 5:
 		$SpawnTimer.wait_time = 2.6
+		highesttypeenemy += 1 #Eyeball enemies
 	if level == 6:
 		$SpawnTimer.wait_time = 3
 		amountToSpawn +=2
-		highesttypeenemy += 1 # Eyeball enemies
 	if level == 8:
 		$SpawnTimer.wait_time = 2.9
 	if level == 10:
@@ -255,6 +255,7 @@ func _on_level_timer_timeout():
 		$SpawnTimer.wait_time = 1.6
 	if level == 18:
 		$SpawnTimer.wait_time = 1.5
+		amountToSpawn +=3
 	if level == 20:
 		$SpawnTimer.wait_time = 1.4
 	if level == 22:

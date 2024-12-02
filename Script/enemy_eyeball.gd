@@ -69,6 +69,8 @@ func update_meeblingsandmovement():
 			#if nearest_crowdm.hp <= 0:
 			#	nearest_crowdm.kill()
 		speedboost()
+	if crowd_members.size() <= 0:
+		velocity = Vector2(0,40)
 
 func speedboost():
 	var crowd_simulator = get_tree().get_nodes_in_group("crowd_p")
