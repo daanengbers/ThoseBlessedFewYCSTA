@@ -450,7 +450,7 @@ statID = "BOUNCE"
 UI_Title = "Bounce"
 UI_TitleSmall = "Bo"
 UI_IconSmall = 5
-UI_ImageNmr = 15
+UI_ImageNmr = 16
 AmountToIncrease = [1, 1, 1, 1, 1, 1, 1, 1]
 
 [node name="MAXED_Stat" type="Node2D" parent="Stats"]
