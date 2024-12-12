@@ -28,6 +28,7 @@ texture = ExtResource("2_yq000")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 z_index = -1
 texture_filter = 1
+amount = 4
 lifetime = 0.6
 texture = ExtResource("3_x5bjt")
 spread = 180.0

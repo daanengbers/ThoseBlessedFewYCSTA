@@ -206,7 +206,6 @@ func _on_spawn_timer_timeout():
 		if get_tree().get_nodes_in_group("enemy_m").size() < max_enemies:
 			if randomenemyspawn == 1:
 				spawnskullenemy()
-				print("meeblingamount = " + str(get_tree().get_nodes_in_group("crowd_m").size()))
 			if randomenemyspawn == 2:
 				spawneyeenemy()
 			if randomenemyspawn == 3:

@@ -85,8 +85,9 @@ func _on_game_timer_timeout():
 				g_uisecconds = 0
 	$Timers/GameTimer.start()
 
-func _on_despawn_timer_timeout():
-	if get_tree().paused == false:
-		for des in get_tree().get_nodes_in_group("Despawn"):
-			des.subtract_despawn()
-	$Timers/DespawnTimer.start()
+# Despawn XP orb timer - OUT OF USE
+#func _on_despawn_timer_timeout():
+#	if get_tree().paused == false:
+#		for des in get_tree().get_nodes_in_group("Despawn"):
+#			des.subtract_despawn()
+#	$Timers/DespawnTimer.start()

@@ -20,7 +20,7 @@ texture = ExtResource("2_7g18b")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 z_index = -1
 texture_filter = 1
-amount = 4
+amount = 3
 lifetime = 0.4
 texture = ExtResource("3_13duv")
 emission_shape = 1
