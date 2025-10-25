@@ -1,9 +1,16 @@
 extends Node2D
 
+#var SKULL = preload("res://Scenes/enemy_skull.tscn")
+#var EYEBALL = preload("res://Scenes/enemy_eyeball.tscn")
+#var SLIME = preload("res://Scenes/enemy_slime.tscn")
+#var GHOST = preload("res://Scenes/enemy_ghost.tscn")
+#var SCARAB = preload("res://Scenes/enemy_scarab.tscn")
+#var LESTER = preload("res://Scenes/enemy_lesterskeleton.tscn")
+
 var SKULL = preload("res://Scenes/enemy_skull.tscn")
-var EYEBALL = preload("res://Scenes/enemy_eyeball.tscn")
+var eyeBall = preload("res://Scenes/enemyEyball.tscn")
 var SLIME = preload("res://Scenes/enemy_slime.tscn")
-var GHOST = preload("res://Scenes/enemy_ghost.tscn")
+var ghost = preload("res://Scenes/enemyGhost.tscn")
 var SCARAB = preload("res://Scenes/enemy_scarab.tscn")
 var LESTER = preload("res://Scenes/enemy_lesterskeleton.tscn")
 
@@ -30,13 +37,13 @@ func _ready():
 	randomize()
 	randomspawnlocx = randi_range(-160, 160)
 	randomspawnlocy = randi_range(-90,90)
-	spawnskullenemy()
+	spawneyeenemy()
 	randomspawnlocx = randi_range(-160, 160)
 	randomspawnlocy = randi_range(-90,90)
-	spawnskullenemy()
+	spawneyeenemy()
 	randomspawnlocx = randi_range(-160, 160)
 	randomspawnlocy = randi_range(-90,90)
-	spawnskullenemy()
+	spawneyeenemy()
 
 func _process(_delta):
 	$Label.set_text(str(secconds))
@@ -57,39 +64,28 @@ func spawnskullenemy():
 	if randomtoporside == 4:
 		sk.position.x = global_position.x + randomspawnlocx
 		sk.position.y = global_position.y + 100
-	#if randomtoporside == 1:
-		#sk.position.x = global_position.x + randomspawnlocx
-		#sk.position.y = global_position.y - 40
-	#if randomtoporside == 2:
-		#sk.position.x = global_position.x + randomspawnlocx
-		#sk.position.y = global_position.y + 220
-	#if randomtoporside == 3:
-		#sk.position.x = global_position.x - 40
-		#sk.position.y = global_position.y + randomspawnlocy
-	#if randomtoporside == 4:
-		#sk.position.x = global_position.x + 360
-		#sk.position.y = global_position.y + randomspawnlocy
 	sk.hp = sk.hp + (level/4)
 	sk.SPEED = sk.SPEED + (level/5)
 
 func spawneyeenemy():
-	var ey = EYEBALL.instantiate()
-	get_parent().get_parent().get_node("Ysorter").add_child.call_deferred(ey)
+	var eyeBallIn = eyeBall.instantiate()
+	get_tree().get_first_node_in_group("Ysorter").add_child.call_deferred(eyeBallIn)
+	##get_parent().get_parent().get_node("Ysorter").add_child.call_deferred(eyeBallIn)
 	var randomtoporside = randi()%4 + 1
 	if randomtoporside == 1:
-		ey.position.x = global_position.x - 160
-		ey.position.y = global_position.y + randomspawnlocy
+		eyeBallIn.position.x = global_position.x - 160
+		eyeBallIn.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 2:
-		ey.position.x = global_position.x + 160
-		ey.position.y = global_position.y + randomspawnlocy
+		eyeBallIn.position.x = global_position.x + 160
+		eyeBallIn.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 3:
-		ey.position.x = global_position.x + randomspawnlocx
-		ey.position.y = global_position.y - 90
+		eyeBallIn.position.x = global_position.x + randomspawnlocx
+		eyeBallIn.position.y = global_position.y - 90
 	if randomtoporside == 4:
-		ey.position.x = global_position.x + randomspawnlocx
-		ey.position.y = global_position.y + 90
-	ey.hp = ey.hp + (level/2)
-	ey.SPEED = ey.SPEED + (level/5)
+		eyeBallIn.position.x = global_position.x + randomspawnlocx
+		eyeBallIn.position.y = global_position.y + 90
+	eyeBallIn.hp = eyeBallIn.hp + (level/2)
+	eyeBallIn.speed = eyeBallIn.speed + (level/5)
 
 func spawnslimeenemy():
 	var sl = SLIME.instantiate()
@@ -111,21 +107,21 @@ func spawnslimeenemy():
 	sl.SPEED = sl.SPEED + (level/7)
 
 func spawnghostenemy():
-	var gh = GHOST.instantiate()
-	get_parent().get_parent().get_node("Ysorter").add_child.call_deferred(gh)
+	var ghostIn = ghost.instantiate()
+	get_tree().get_first_node_in_group("Ysorter").add_child.call_deferred(ghostIn)
 	var randomtoporside = randi()%4 + 1
 	if randomtoporside == 1:
-		gh.position.x = global_position.x - 160
-		gh.position.y = global_position.y + randomspawnlocy
+		ghostIn.position.x = global_position.x - 160
+		ghostIn.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 2:
-		gh.position.x = global_position.x + 160
-		gh.position.y = global_position.y + randomspawnlocy
+		ghostIn.position.x = global_position.x + 160
+		ghostIn.position.y = global_position.y + randomspawnlocy
 	if randomtoporside == 3:
-		gh.position.x = global_position.x + randomspawnlocx
-		gh.position.y = global_position.y - 90
+		ghostIn.position.x = global_position.x + randomspawnlocx
+		ghostIn.position.y = global_position.y - 90
 	if randomtoporside == 4:
-		gh.position.x = global_position.x + randomspawnlocx
-		gh.position.y = global_position.y + 90
+		ghostIn.position.x = global_position.x + randomspawnlocx
+		ghostIn.position.y = global_position.y + 90
 
 func spawnscarabenemy():
 	var sc = SCARAB.instantiate()
@@ -198,30 +194,32 @@ func _on_second_timer_timeout():
 	#	$SpawnTimer.wait_time = 0.01
 
 func _on_spawn_timer_timeout():
-	for i in amountToSpawn:
-		randomenemyspawn = randi()% highesttypeenemy + 1
-		randomLesterNumber = randi_range(0,50)
-		randomspawnlocx = randi_range(-160, 160)
-		randomspawnlocy = randi_range(-90,90)
-		if get_tree().get_nodes_in_group("enemy_m").size() < max_enemies:
-			if randomenemyspawn == 1:
-				spawnskullenemy()
-			if randomenemyspawn == 2:
-				spawneyeenemy()
-			if randomenemyspawn == 3:
-				if get_tree().get_nodes_in_group("crowd_m").size() <= 5:
-					if randomLesterNumber >= 40 && lesterCooldown == false:
-						lesterCooldown = true
-						$LesterTimer.start(100)
-						spawnLester()
-					else:
-						spawnslimeenemy()
-				else: 
-						spawnslimeenemy()
-			if randomenemyspawn == 4:
-				spawnghostenemy()
-			if randomenemyspawn == 5:
-				spawnscarabenemy()
+	spawneyeenemy()
+	spawnghostenemy()
+	#for i in amountToSpawn:
+		#randomenemyspawn = randi()% highesttypeenemy + 1
+		#randomLesterNumber = randi_range(0,50)
+		#randomspawnlocx = randi_range(-160, 160)
+		#randomspawnlocy = randi_range(-90,90)
+		#if get_tree().get_nodes_in_group("enemy_m").size() < max_enemies:
+			#if randomenemyspawn == 1:
+				#spawnskullenemy()
+			#if randomenemyspawn == 2:
+				#spawneyeenemy()
+			#if randomenemyspawn == 3:
+				#if get_tree().get_nodes_in_group("crowd_m").size() <= 5:
+					#if randomLesterNumber >= 40 && lesterCooldown == false:
+						#lesterCooldown = true
+						#$LesterTimer.start(100)
+						#spawnLester()
+					#else:
+						#spawnslimeenemy()
+				#else: 
+						#spawnslimeenemy()
+			#if randomenemyspawn == 4:
+				#spawnghostenemy()
+			#if randomenemyspawn == 5:
+				#spawnscarabenemy()
 	
 	$SpawnTimer.start()
 

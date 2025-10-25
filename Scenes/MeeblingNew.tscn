@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bc8ql0cllmai1"]
+[gd_scene load_steps=19 format=3 uid="uid://bc8ql0cllmai1"]
 
 [ext_resource type="Script" path="res://Scenes/MeeblingNew.gd" id="1_macxw"]
 [ext_resource type="Texture2D" uid="uid://dvav5qp6ypv2b" path="res://Assets/YCSTA_Meeblings-Spritesheet.png" id="2_xjkpd"]
@@ -6,23 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="3_bg25f"]
 [ext_resource type="AnimationLibrary" uid="uid://cp4faxa0d0emw" path="res://Scenes/MeeblingLib.res" id="4_52pdy"]
 [ext_resource type="Texture2D" uid="uid://clcwajmp8hby7" path="res://Assets/Particle_Sprites/YCSTA_Bullets-2.png" id="4_jmkrt"]
+[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/UI/YCSTA_healthbar-1.png" id="5_2olm4"]
+[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/UI/YCSTA_healthbar-2.png" id="6_1smoq"]
 [ext_resource type="Texture2D" uid="uid://beqcri3xxoul" path="res://Assets/Particle_Sprites/YCSTA_lightpoint.png" id="7_6oyeh"]
-
-[sub_resource type="Curve" id="Curve_b2kkd"]
-max_value = 2.0
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 2), 0.0, 0.0, 0, 0, Vector2(1, 0), -9.88318, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Gradient" id="Gradient_dvbcn"]
-offsets = PackedFloat32Array(0, 0.333333, 0.633333, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_70chl"]
-colors = PackedColorArray(1, 1, 1, 0.666667, 1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_gelk4"]
 resource_name = "BirthNew"
-length = 3.0
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -78,10 +68,22 @@ tracks/4/path = NodePath("../Circle:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1, 2.6, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Circle:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.97),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_2q23y"]
@@ -200,6 +202,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Circle:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x7hx2"]
 _data = {
@@ -208,21 +222,26 @@ _data = {
 "RESET": SubResource("Animation_4v5v8")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fyq8f"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xqg7v"]
+radius = 9.05539
+
+[sub_resource type="Curve" id="Curve_b2kkd"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 2), 0.0, 0.0, 0, 0, Vector2(1, 0), -9.88318, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_dvbcn"]
+offsets = PackedFloat32Array(0, 0.333333, 0.633333, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_70chl"]
+colors = PackedColorArray(1, 1, 1, 0.666667, 1, 1, 1, 1)
+
 [node name="MeeblingNew" type="CharacterBody2D" groups=["meeblings"]]
 script = ExtResource("1_macxw")
-
-[node name="BirthParticles" type="CPUParticles2D" parent="."]
-texture_filter = 1
-emitting = false
-amount = 12
-texture = ExtResource("4_jmkrt")
-emission_shape = 1
-emission_sphere_radius = 32.0
-gravity = Vector2(0, 0)
-scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_b2kkd")
-color_ramp = SubResource("Gradient_dvbcn")
-color_initial_ramp = SubResource("Gradient_70chl")
 
 [node name="Meebling" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -238,6 +257,19 @@ libraries = {
 "MeeblingLib": ExtResource("4_52pdy")
 }
 
+[node name="Healthbar" type="TextureProgressBar" parent="."]
+visible = false
+z_index = 2
+texture_filter = 1
+offset_left = -5.0
+offset_top = -14.0
+offset_right = 5.0
+offset_bottom = -13.0
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource("5_2olm4")
+texture_progress = ExtResource("6_1smoq")
+
 [node name="Rot" type="Node2D" parent="."]
 visible = false
 
@@ -247,11 +279,35 @@ rotation = 1.5708
 texture = ExtResource("3_bg25f")
 
 [node name="Rot2" type="Node2D" parent="."]
+visible = false
 
 [node name="Rotatingarrow" type="Sprite2D" parent="Rot2"]
 texture_filter = 1
 rotation = 1.5708
 texture = ExtResource("3_bg25f")
+
+[node name="Colbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fyq8f")
+
+[node name="Hurtbox_crowd" type="Area2D" parent="." groups=["CrowdHurt"]]
+collision_layer = 2049
+collision_mask = 2049
+
+[node name="box" type="CollisionShape2D" parent="Hurtbox_crowd"]
+shape = SubResource("CircleShape2D_xqg7v")
+
+[node name="BirthParticles" type="CPUParticles2D" parent="."]
+texture_filter = 1
+emitting = false
+amount = 12
+texture = ExtResource("4_jmkrt")
+emission_shape = 1
+emission_sphere_radius = 32.0
+gravity = Vector2(0, 0)
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_b2kkd")
+color_ramp = SubResource("Gradient_dvbcn")
+color_initial_ramp = SubResource("Gradient_70chl")
 
 [node name="Circle" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -259,3 +315,6 @@ z_index = -1
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_6oyeh")
+
+[connection signal="area_entered" from="Hurtbox_crowd" to="." method="_on_hurtbox_crowd_area_entered"]
+[connection signal="area_exited" from="Hurtbox_crowd" to="." method="_on_hurtbox_crowd_area_exited"]

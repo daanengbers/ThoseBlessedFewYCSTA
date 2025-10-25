@@ -13,6 +13,7 @@ var DMGVAL = preload("res://Scenes/damagenumber.tscn")
 @export var destroyonimpact = false
 
 func _ready():
+	set_as_top_level(true)
 	pass
 
 # Functions -----
@@ -32,12 +33,13 @@ func _on_queue_timer_timeout():
 	queue_free()
 
 func _on_hitbox_bullet_area_entered(area):
-	if "HURTbox_Enemy" in area.name or "Cage" in area.name:
-		area.get_parent().hp -= (damage)
-		area.get_parent().hurt()
-		area.get_parent().apply_freeze()
-		#spawnDamageValue()
-		if area.get_parent().hp <= 0:
-			area.get_parent().kill()
-		if destroyonimpact == true:
-			hitImpact()
+	pass
+	#if "HURTbox_Enemy" in area.name or "Cage" in area.name:
+		#area.get_parent().hp -= (damage)
+		#area.get_parent().hurt()
+		#area.get_parent().apply_freeze()
+		##spawnDamageValue()
+		#if area.get_parent().hp <= 0:
+			#area.get_parent().kill()
+		#if destroyonimpact == true:
+			#hitImpact()

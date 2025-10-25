@@ -1,15 +1,47 @@
 extends CharacterBody2D
 
+##Arrow stats
 const arrowSpeed = 60
-const aimSpeed = 4
 const acceleration = 0.1
+const aimSpeed = 4
 
+##Level vars
+var xp = Globalsettings.global_xp
+var level = 1
+var xpuntilnextlvl = 5
+
+##Ability vars
+var spell1ability = 0
+var spell2ability = 0
+var spell3ability = 0
+var spell4ability = 0
+
+var spell1cooldown = 0
+var spell2cooldown = 0
+var spell3cooldown = 0
+var spell4cooldown = 0
+
+var spellnumber = 0
+var cooldownspeed = .2
+
+@onready var spellCooldownTimer = $Timers/SpellCooldown
+
+##Preload vars
 var meebling = preload("res://Scenes/MeeblingNew.tscn")
+
 var bullet = preload("res://Scenes/bullet_fromcrowd.tscn")
+var fireBall = preload("res://Scenes/bullet_fromcrowd_fireball.tscn")
+var lightningBolt = preload("res://Scenes/bullet_fromcrowd_thunderbolt.tscn")
+var poison = preload("res://Scenes/bullet_fromcrowd_poisonsmoke.tscn")
+var frost = preload("res://Scenes/bullet_fromcrowd_snowflake.tscn")
+
+##Array vars
 var meeblings
 var enemies
 
-
+##Stat vars
+var cooldown = 100
+@export var beginCooldown = 100
 
 func _ready():
 	birthMeebling(global_position)
@@ -24,6 +56,31 @@ func _ready():
 	var arrownr = Globalsettings.global_arrow
 	$Mainarrow/Anim.play("arrow" + str(arrownr))
 	pass
+
+func _physics_process(_delta):
+	##Movement
+	movement()
+	
+	##Attacking
+	if cooldown > 0:
+			cooldown -= 1
+	if cooldown == 0:
+		##currentextrabullets = Globalsettings.currentrun_extrabullets
+		basicAttack()
+		cooldown = beginCooldown - Globalsettings.currentrun_minuscooldown
+	
+	##Abillities
+	castSpelsOnInput()
+	
+	##Set the closest meebling for the enemies to attack
+	if Engine.get_process_frames() % 20 == 0:
+		getClosestMeebling()
+	
+	#EXP system
+	expSystem()
+	
+	##CooldownUI
+	spelCooldownUI()
 
 func birthMeebling(spawnPos):
 	##Instantiate meebling
@@ -46,7 +103,7 @@ func birthMeebling(spawnPos):
 	newMeebling.birthEffectsBegin()
 	
 	##Wait till animation is done
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	
 	##End birth animation
 	newMeebling.birthEffectsEnd()
@@ -57,7 +114,7 @@ func meeblingDied():
 
 func getClosestEnemy():
 	##Make an array with all enemies
-	enemies = get_tree().get_nodes_in_group("enemy_m")
+	enemies = get_tree().get_nodes_in_group("enemies")
 	
 	##Set the closest distance, then set it to INF so it is always bigger than the first vallue
 	var closestDistance : float = INF
@@ -73,15 +130,45 @@ func getClosestEnemy():
 				Globalsettings.globalClosestEnemy = enemy
 				closestDistance = distance
 
+func getClosestMeebling():
+	##Get all meeblings
+	meeblings = get_tree().get_nodes_in_group("meeblings")
+	
+	##Initiallise a closest distance for each quadrant and set it to INF
+	var closestDistanceQ1 : float = INF
+	var closestDistanceQ2 : float = INF
+	var closestDistanceQ3 : float = INF
+	var closestDistanceQ4 : float = INF
+	
+	##Calculate the distances to each quadrant for each meebling and act accordingly
+	if meeblings.size() >= 1:
+		for meeb in meeblings:
+			var distanceQ1 : float = $QuadrantSystem/Q1.global_position.distance_squared_to(meeb.global_position)
+			var distanceQ2 : float = $QuadrantSystem/Q2.global_position.distance_squared_to(meeb.global_position)
+			var distanceQ3 : float = $QuadrantSystem/Q3.global_position.distance_squared_to(meeb.global_position)
+			var distanceQ4 : float = $QuadrantSystem/Q4.global_position.distance_squared_to(meeb.global_position)
+			if distanceQ1 < closestDistanceQ1: 
+				Globalsettings.globalClosestMeeblingQ1 = meeb
+				closestDistanceQ1 = distanceQ1
+			if distanceQ2 < closestDistanceQ2: 
+				Globalsettings.globalClosestMeeblingQ2 = meeb
+				closestDistanceQ2 = distanceQ2
+			if distanceQ3 < closestDistanceQ3: 
+				Globalsettings.globalClosestMeeblingQ3 = meeb
+				closestDistanceQ3 = distanceQ3
+			if distanceQ4 < closestDistanceQ4: 
+				Globalsettings.globalClosestMeeblingQ4 = meeb
+				closestDistanceQ4 = distanceQ4
+
 func basicAttack():
 	##Get the closest enemy
 	getClosestEnemy()
 	
-	##Make an array with all enemies
+	##Make an array with all meeblings
 	meeblings = get_tree().get_nodes_in_group("meeblings")
 	
 	##Play sound effect
-	##$Sounds/Shoot.play() Play SE
+	$Sounds/Shoot.play()
 	
 	##Loop through all meeblings
 	for meeb in meeblings:
@@ -102,19 +189,125 @@ func basicAttack():
 		
 		##Set the rotation of the bullet to match the direction of the bullet
 		bullet.rotation = rotation
+		
 	##if currentextrabullets > 0:
 		##$Timers/DoubleBulletTimer.start()
 		##currentextrabullets -= 1
+
+func shootFireBall():
+	##Get the closest enemy
+	getClosestEnemy()
 	
-	##Every so many secconds, instantiate a bullet at every meebling in array and shoot them toward the closest enemy
-	pass
+	##Make an array with all meeblings
+	meeblings = get_tree().get_nodes_in_group("meeblings")
+	
+	##Play sound effect
+	$Sounds/Bigspell.play()
+	
+	##Loop through all meeblings
+	for meeb in meeblings:
+		##Instantiate a new bullet
+		var fireBallIn = fireBall.instantiate()
+		
+		##Add the bullet as a child to the meebling
+		meeb.add_child.call_deferred(fireBallIn)
+		
+		##Set the bullet position to the position of the meebling
+		fireBallIn.global_position = meeb.global_position
+		
+		##Get the rotation towards the closest enemy
+		var rotation = meeb.rotateTowardsEnemy()
+		
+		##Move the bullet from the meebling to the closest enemy
+		fireBallIn.apply_impulse(Vector2(140, 0).rotated(rotation))
+		
+		##Set the rotation of the bullet to match the direction of the bullet
+		fireBallIn.rotation = rotation
 
-func sacMeeblings(int):
+func shootLightning():
+	##Get the closest enemy
+	getClosestEnemy()
+	
+	##Make an array with all meeblings
+	meeblings = get_tree().get_nodes_in_group("meeblings")
+	
+	##Play sound effect
+	$Sounds/Bigspell.play()
+	
+	##Loop through all meeblings
+	for meeb in meeblings:
+		##Instantiate a new bullet
+		var lightningIn = lightningBolt.instantiate()
+		
+		##Add the bullet as a child to the meebling
+		meeb.add_child.call_deferred(lightningIn)
+		
+		##Set the bullet position to the position of the meebling
+		lightningIn.global_position = meeb.global_position
+		
+		##Get the rotation towards the closest enemy
+		var rotation = meeb.rotateTowardsEnemy()
+		
+		##Move the bullet from the meebling to the closest enemy
+		lightningIn.apply_impulse(Vector2(200, 0).rotated(rotation))
+		
+		##Set the rotation of the bullet to match the direction of the bullet
+		lightningIn.rotation = rotation
+
+func shootPoison():
+	##Get the closest enemy
+	getClosestEnemy()
+	
+	##Make an array with all meeblings
+	meeblings = get_tree().get_nodes_in_group("meeblings")
+	
+	##Play sound effect
+	$Sounds/Bigspell.play()
+	
+	##Loop through all meeblings
+	for meeb in meeblings:
+		##Instantiate a new bullet
+		var poisonIn = poison.instantiate()
+		
+		##Add the bullet as a child to the meebling
+		meeb.add_child.call_deferred(poisonIn)
+		
+		##Set the bullet position to the position of the meebling
+		poisonIn.global_position = meeb.global_position
+		
+
+func shootFrost():
+	##Get the closest enemy
+	getClosestEnemy()
+	
+	##Make an array with all meeblings
+	meeblings = get_tree().get_nodes_in_group("meeblings")
+	
+	##Play sound effect
+	$Sounds/Bigspell.play()
+	
+	##Loop through all meeblings
+	for meeb in meeblings:
+		##Instantiate a new bullet
+		var frostIn = frost.instantiate()
+		
+		##Add the bullet as a child to the meebling
+		meeb.add_child.call_deferred(frostIn)
+		
+		##Set the bullet position to the position of the meebling
+		frostIn.global_position = meeb.global_position
+		
+		##Get the rotation towards the closest enemy
+		var rotation = meeb.rotateTowardsEnemy()
+		
+		##Move the bullet from the meebling to the closest enemy
+		frostIn.apply_impulse(Vector2(100, 0).rotated(rotation))
+		
+		##Set the rotation of the bullet to match the direction of the bullet
+		frostIn.rotation = rotation
+
+func sacMeeblings(meebAmountToSac):
 	##Sac the specified amount of meeblings
-	pass
-
-func levelUp():
-	##Handel leveling up
 	pass
 
 func get_Input():
@@ -124,19 +317,160 @@ func get_Input():
 
 func movement():
 	var direction = get_Input()
-	velocity = velocity.lerp(direction.normalized() * arrowSpeed , acceleration ) ##+ Globalsettings.currentrun_extraspeed
+	velocity = velocity.lerp(direction.normalized() * (arrowSpeed + Globalsettings.currentrun_extraspeed), acceleration ) ##+ Globalsettings.currentrun_extraspeed
 	move_and_slide()
 
-func _physics_process(_delta):
-	##Movement
-	movement()
+func playSound(soundToPlay):
+	match soundToPlay:
+		"Hit":
+			$Sounds/Hit.play()
+		"Break":
+			$Sounds/Break.play()
+
+func spelCooldownUI():
+	if spell1cooldown > 0:
+		spell1cooldown -= cooldownspeed
+	if spell2cooldown > 0:
+		spell2cooldown -= cooldownspeed
+	if spell3cooldown > 0:
+		spell3cooldown -= cooldownspeed
+	if spell4cooldown > 0:
+		spell4cooldown -= cooldownspeed
+	$UI/Box01/CDB.value = spell1cooldown
+	$UI/Box02/CDB.value = spell2cooldown
+	$UI/Box03/CDB.value = spell3cooldown
+	$UI/Box04/CDB.value = spell4cooldown
+
+func castSpelsOnInput():
+	if Input.is_action_just_pressed("spell1") && spell1cooldown <= 0:
+			spellnumber = 1
+			if Globalsettings.g_spell1 == 0:
+				pass
+			if Globalsettings.g_spell1 == 1:
+				shootFireBall()
+				spellCooldownTimer.start()
+			if Globalsettings.g_spell1 == 2:
+				shootLightning()
+				spellCooldownTimer.start()
+			if Globalsettings.g_spell1 == 3:
+				shootPoison()
+				spellCooldownTimer.start()
+			if Globalsettings.g_spell1 == 4:
+				shootFrost()
+				spellCooldownTimer.start()
+		
+	if Input.is_action_just_pressed("spell2") && spell2cooldown <= 0:
+		spellnumber = 2
+		if Globalsettings.g_spell2 == 0:
+			pass
+		if Globalsettings.g_spell2 == 1:
+			shootFireBall()
+			spellCooldownTimer.start()
+		if Globalsettings.g_spell2 == 2:
+			shootLightning()
+			spellCooldownTimer.start()
+		if Globalsettings.g_spell2 == 3:
+			shootPoison()
+			spellCooldownTimer.start()
+		if Globalsettings.g_spell2 == 4:
+			shootFrost()
+			spellCooldownTimer.start()
 	
-	##Attacking
-	if Engine.get_process_frames() % 40 == 0:
-		basicAttack()
-	##Manage the meebling stats
-	##Manage level
-	##Manage movement
-	##Manage Shooting
-	##Manage group
-	##Manage enemy targeting
+	if Input.is_action_just_pressed("spell3") && spell3cooldown <= 0:
+		spellnumber = 3
+		if Globalsettings.g_spell3 == 0:
+			pass
+		if Globalsettings.g_spell3 == 1:
+			shootFireBall()
+			spellCooldownTimer.start()
+		if Globalsettings.g_spell3 == 2:
+			shootLightning()
+			spellCooldownTimer.start()
+		if Globalsettings.g_spell3 == 3:
+			shootPoison()
+			spellCooldownTimer.start()
+		if Globalsettings.g_spell3 == 4:
+			shootFrost()
+			spellCooldownTimer.start()
+	
+	if Input.is_action_just_pressed("spell4") && spell4cooldown <= 0:
+		spellnumber = 4
+		if Globalsettings.g_spell4 == 0:
+			pass
+		if Globalsettings.g_spell4 == 1:
+			shootFireBall()
+			spellCooldownTimer.start()
+		if Globalsettings.g_spell4 == 2:
+			shootLightning()
+			spellCooldownTimer.start()
+		if Globalsettings.g_spell4 == 3:
+			shootPoison()
+			spellCooldownTimer.start()
+		if Globalsettings.g_spell4 == 4:
+			shootFrost()
+			spellCooldownTimer.start()
+
+func expSystem():
+	$UI/LVLbar.value = Globalsettings.global_xp
+	$UI/LVLtext.set_text("Level: " + str(level))
+	if Globalsettings.global_xp >= xpuntilnextlvl:
+		level_up()
+
+func level_up():
+	level += 1
+	Globalsettings.global_xp -= xpuntilnextlvl
+	
+	##$LVLup.play()
+	
+	if level <= 10:
+		xpuntilnextlvl += 2
+	elif level >= 11 && level <= 30:
+		xpuntilnextlvl += 3
+	elif level >= 31 && level <= 50:
+		xpuntilnextlvl += 4
+	elif level >= 51 && level <= 70:
+		xpuntilnextlvl += 5
+	elif level >= 71 && level <= 90:
+		xpuntilnextlvl += 6
+	elif level >= 91 && level <= 100:
+		xpuntilnextlvl += 7
+	elif level >= 101:
+		xpuntilnextlvl += 10 + level * 2
+	
+	$UI/LVLbar.max_value = xpuntilnextlvl
+	$UI/LVLbar.value = Globalsettings.global_xp
+	$UI/LVLtext.set_text("Level: " + str(level))
+	
+	$UI/StatHolder.levelUpInit()
+	
+	get_tree().paused = true
+
+func displayupgrades():
+	if Globalsettings.g_spell1 != 0:
+		$UI/Box01/UpgradeIcons.frame = Globalsettings.g_spell1 + 4
+	if Globalsettings.g_spell2 != 0:
+		$UI/Box02/UpgradeIcons.frame = Globalsettings.g_spell2 + 4
+	if Globalsettings.g_spell3 != 0:
+		$UI/Box03/UpgradeIcons.frame = Globalsettings.g_spell3 + 4
+	if Globalsettings.g_spell4 != 0:
+		$UI/Box04/UpgradeIcons.frame = Globalsettings.g_spell4 + 4
+	$UI/PauseMenu/StatSheet/Text_ATKlvl.set_text(str(5 + Globalsettings.currentrun_extraattack))
+	$UI/PauseMenu/StatSheet/Text_SPDlvl.set_text(str(30 + Globalsettings.currentrun_extraspeed))
+	$UI/PauseMenu/StatSheet/Text_CDNlvl.set_text(str(-0 + Globalsettings.currentrun_minuscooldown))
+	$UI/PauseMenu/StatSheet/Text_AMTlvl.set_text(str(1 + Globalsettings.currentrun_extrabullets))
+	$UI/PauseMenu/StatSheet/Text_HPlvl.set_text(str(10 + Globalsettings.currentrun_extrahealth))
+	if Globalsettings.currentrun_minuscooldown >= 80:
+		$UI/PauseMenu/StatSheet/Text_CDNlvl.modulate = Color(1,.2,.2)
+	if Globalsettings.currentrun_minuscooldown == 0:
+		$UI/PauseMenu/StatSheet/Text_CDNlvl.modulate = Color(1,1,1)
+
+
+func _on_spell_cooldown_timeout():
+	if spellnumber == 1:
+		spell1cooldown = 100
+	if spellnumber == 2:
+		spell2cooldown = 100
+	if spellnumber == 3:
+		spell3cooldown = 100
+	if spellnumber == 4:
+		spell4cooldown = 100

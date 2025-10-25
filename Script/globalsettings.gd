@@ -39,6 +39,7 @@ var bossfight_active = false
 var bossfight_number = 0
 
 var globalClosestEnemy
+
 var globalClosestMeeblingQ1
 var globalClosestMeeblingQ2
 var globalClosestMeeblingQ3

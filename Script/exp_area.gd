@@ -6,6 +6,7 @@ var randomid = 0
 var pickedup = false
 
 func _ready():
+	set_as_top_level(true)
 	randomize()
 	randomid = randi()%9999 + 1
 	if expamount < 5:
@@ -60,7 +61,7 @@ func _on_area_entered(area):
 		#		queue_free()
 		#	else:
 		#		pass
-	if area.get_parent().is_in_group("crowd_m") && pickedup == false:
+	if area.get_parent().is_in_group("meeblings") && pickedup == false:
 		pickedup = true
 		$Sprite/Anim.play("pickup")
 		$box.set_deferred("disabled", true)

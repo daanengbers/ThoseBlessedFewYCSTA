@@ -1,13 +1,196 @@
-[gd_scene load_steps=19 format=3 uid="uid://gye6sxa3o7gs"]
+[gd_scene load_steps=69 format=3 uid="uid://gye6sxa3o7gs"]
 
 [ext_resource type="Script" path="res://Scenes/Crowd_Simulation_New.gd" id="1_4f4g1"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="2_0iapw"]
+[ext_resource type="Script" path="res://Scenes/PauseMenu.gd" id="2_xe06a"]
 [ext_resource type="Texture2D" uid="uid://c02rr86yd8vae" path="res://Assets/YCSTA_Arrow (new).png" id="3_ew17e"]
-[ext_resource type="Texture2D" uid="uid://mjj1sj7ks7iq" path="res://Assets/Enemy_Sprites/AndreasScarab_body1.png" id="4_8wo7k"]
-[ext_resource type="Script" path="res://Scenes/EnemyTestScript.gd" id="5_75olh"]
-[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="5_jsw5u"]
+[ext_resource type="Texture2D" uid="uid://bc65frbmttbad" path="res://Assets/UI/Selectcardarrow.png" id="3_onkk8"]
+[ext_resource type="AudioStream" uid="uid://c3c2eau8lpm7v" path="res://Sounds/exppickup1.wav" id="4_1x5fh"]
+[ext_resource type="Texture2D" uid="uid://8wpofymgaama" path="res://Assets/Tilesets/TestMenuOptions.png" id="4_xpi3s"]
+[ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="5_3jsnd"]
+[ext_resource type="AudioStream" uid="uid://b3qee1fus0dfw" path="res://Sounds/meeblingdeath.wav" id="5_b0to5"]
+[ext_resource type="AudioStream" uid="uid://cshcblbmdc83w" path="res://Sounds/splash2.wav" id="6_5lvbo"]
+[ext_resource type="Texture2D" uid="uid://clekfea7rbiox" path="res://Assets/UI/SplashArt_LettersOnly-2.png" id="6_sbvce"]
 [ext_resource type="Texture2D" uid="uid://d10xllb3gvng7" path="res://Assets/Environment_Sprites/YCSTA_water_3.png" id="7_3ob7i"]
+[ext_resource type="AudioStream" uid="uid://dsfcd8ewbeh2s" path="res://Sounds/fireball.wav" id="7_4hp0s"]
+[ext_resource type="Texture2D" uid="uid://fd6jsqufuyr3" path="res://Assets/Particle_Sprites/YCSTA_soulparticle.png" id="7_lbxif"]
+[ext_resource type="AudioStream" uid="uid://byqt1itgmqt6n" path="res://Sounds/meeblinghit.wav" id="8_0eqyc"]
+[ext_resource type="Texture2D" uid="uid://cgakxi0t1lwe7" path="res://Assets/UI/Staticons.png" id="8_h6oi1"]
 [ext_resource type="Script" path="res://Scenes/TestArea.gd" id="8_ytq54"]
+[ext_resource type="Texture2D" uid="uid://36i2a7fscpug" path="res://Assets/Tilesets/TestStatBorder.png" id="9_igdhr"]
+[ext_resource type="AudioStream" uid="uid://c66u7y8neairl" path="res://Sounds/spell1.wav" id="9_poeg5"]
+[ext_resource type="Texture2D" uid="uid://l1tpjrkrk83" path="res://Assets/UI/Meeblings_UIbar-empty.png" id="10_24h7b"]
+[ext_resource type="AudioStream" uid="uid://c2bt7kbawpevd" path="res://Sounds/whiffMid.wav" id="10_xprvf"]
+[ext_resource type="Texture2D" uid="uid://b210huiwl524u" path="res://Assets/UI/Meeblings_UIbar-full.png" id="11_88lbs"]
+[ext_resource type="Texture2D" uid="uid://chkpdkwkhftff" path="res://Assets/YCSTA_XP_new.png" id="12_suomj"]
+[ext_resource type="Texture2D" uid="uid://dhndfxnjcfqdj" path="res://Assets/Lightshadow.png" id="13_t52xm"]
+[ext_resource type="Texture2D" uid="uid://deqsdtpq6bt6s" path="res://Assets/UI/YCSTA_UIboxes-1.png" id="14_3to6u"]
+[ext_resource type="Texture2D" uid="uid://siyq5k5htydp" path="res://Assets/UI/UpgradeIcons.png" id="15_btg32"]
+[ext_resource type="Texture2D" uid="uid://digsb5q5shm5s" path="res://Assets/UI/blacktile28.png" id="16_tgili"]
+[ext_resource type="Texture2D" uid="uid://232oadf56her" path="res://Assets/UI/YCSTA_UIboxupgradelevel_empty.png" id="17_078ea"]
+[ext_resource type="Texture2D" uid="uid://ci72mnj78p5om" path="res://Assets/UI/YCSTA_UIboxupgradelevel_full.png" id="18_rtf1h"]
+[ext_resource type="Texture2D" uid="uid://c5yw41i5s8ra" path="res://Assets/UI/Meeblingbuttons.png" id="19_qro8q"]
+[ext_resource type="Texture2D" uid="uid://dcqqw175nsbbw" path="res://Assets/UI/lvlbar_empty.png" id="20_vepmi"]
+[ext_resource type="Texture2D" uid="uid://cxmshi48066ak" path="res://Assets/UI/lvlbar_full.png" id="21_jof3b"]
+[ext_resource type="Script" path="res://Script/SelectLevelupscreen.gd" id="22_o5i4q"]
+[ext_resource type="Texture2D" uid="uid://cg180gfaancl0" path="res://Assets/UI/Buttonshowcase.png" id="23_40i7b"]
+[ext_resource type="FontFile" uid="uid://b85f1e3h4hl2q" path="res://Fonts/Retro Gaming.ttf" id="24_mfuhi"]
+[ext_resource type="Texture2D" uid="uid://dsh5841pjc8i5" path="res://Assets/Particle_Sprites/YCSTA_Souldparticles.png" id="25_6b0nc"]
+[ext_resource type="Script" path="res://Scenes/SacrificeMeeblingScreen.gd" id="26_cjs6b"]
+[ext_resource type="Texture2D" uid="uid://d21gc6pesq6l3" path="res://Assets/UI/GameOver.png" id="27_kk31k"]
+[ext_resource type="PackedScene" uid="uid://c6eexehntobs7" path="res://Scenes/NewLevelUpSystemTest/StatHolder.tscn" id="28_4404o"]
+[ext_resource type="PackedScene" uid="uid://c46w1oefw787c" path="res://Scenes/enemy_spawner.tscn" id="40_q7c3j"]
+
+[sub_resource type="Animation" id="Animation_yqass"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kxa56"]
+resource_name = "play"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v57cf"]
+_data = {
+"RESET": SubResource("Animation_yqass"),
+"play": SubResource("Animation_kxa56")
+}
+
+[sub_resource type="Gradient" id="Gradient_1pofq"]
+offsets = PackedFloat32Array(0, 0.493333, 1)
+colors = PackedColorArray(0.479251, 1, 0.711938, 1, 0.207739, 0.629404, 0.577414, 1, 8.54321e-07, 0.304491, 0.2737, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_f7ysh"]
+base_font = ExtResource("5_3jsnd")
+spacing_space = -2
+spacing_top = -2
+spacing_bottom = -2
+
+[sub_resource type="Animation" id="Animation_di6d1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_acqnh"]
+resource_name = "flame"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 3, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rciu5"]
+_data = {
+"RESET": SubResource("Animation_di6d1"),
+"flame": SubResource("Animation_acqnh")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_tvbwi"]
+base_font = ExtResource("5_3jsnd")
+spacing_space = -4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j74bb"]
+atlas = ExtResource("23_40i7b")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g64dw"]
+atlas = ExtResource("23_40i7b")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tm4gb"]
+atlas = ExtResource("23_40i7b")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3r4j"]
+atlas = ExtResource("23_40i7b")
+region = Rect2(64, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v688"]
+atlas = ExtResource("23_40i7b")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_648yf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j74bb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g64dw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tm4gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3r4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v688")
+}],
+"loop": true,
+"name": &"arcade",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"controller",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"keyboard",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_vre8q"]
+offsets = PackedFloat32Array(0, 0.486667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_cns18"]
+offsets = PackedFloat32Array(0, 0.313333, 0.686667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.431865, 1, 0.400656, 1, 0.431373, 1, 0.858824, 1, 1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_rcns4"]
 length = 0.001
@@ -184,8 +367,1052 @@ _data = {
 "arrow8": SubResource("Animation_d6utp")
 }
 
-[node name="CrowdSimulationNew" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnur0"]
+
+[node name="CrowdSimulationNew" type="CharacterBody2D" groups=["CrowdSimulation"]]
 script = ExtResource("1_4f4g1")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" type="Node2D" parent="UI"]
+process_mode = 3
+visible = false
+script = ExtResource("2_xe06a")
+
+[node name="UnpauseTimer" type="Timer" parent="UI/PauseMenu"]
+wait_time = 0.05
+
+[node name="PressedTimer" type="Timer" parent="UI/PauseMenu"]
+wait_time = 0.01
+
+[node name="OptionButtons" type="Node2D" parent="UI/PauseMenu"]
+
+[node name="OptionsArrow" type="Sprite2D" parent="UI/PauseMenu/OptionButtons"]
+z_index = 2
+texture_filter = 1
+position = Vector2(27, 103)
+rotation = 1.5708
+texture = ExtResource("3_onkk8")
+hframes = 2
+vframes = 2
+
+[node name="Anim" type="AnimationPlayer" parent="UI/PauseMenu/OptionButtons/OptionsArrow"]
+libraries = {
+"": SubResource("AnimationLibrary_v57cf")
+}
+
+[node name="Continue" type="Sprite2D" parent="UI/PauseMenu/OptionButtons"]
+z_index = 2
+texture_filter = 1
+position = Vector2(99, 71)
+texture = ExtResource("4_xpi3s")
+
+[node name="Continue" type="Label" parent="UI/PauseMenu/OptionButtons/Continue"]
+z_index = 2
+texture_filter = 1
+offset_left = -50.0
+offset_top = -12.0
+offset_right = 50.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_3jsnd")
+theme_override_font_sizes/font_size = 16
+text = "Continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Settings" type="Sprite2D" parent="UI/PauseMenu/OptionButtons"]
+z_index = 2
+texture_filter = 1
+position = Vector2(99, 103)
+texture = ExtResource("4_xpi3s")
+
+[node name="Settings" type="Label" parent="UI/PauseMenu/OptionButtons/Settings"]
+z_index = 1
+texture_filter = 1
+offset_left = -50.0
+offset_top = -12.0
+offset_right = 50.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_3jsnd")
+theme_override_font_sizes/font_size = 16
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Sprite2D" parent="UI/PauseMenu/OptionButtons"]
+z_index = 2
+texture_filter = 1
+position = Vector2(99, 135)
+texture = ExtResource("4_xpi3s")
+
+[node name="Quit" type="Label" parent="UI/PauseMenu/OptionButtons/Quit"]
+z_index = 1
+texture_filter = 1
+offset_left = -50.0
+offset_top = -12.0
+offset_right = 50.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_3jsnd")
+theme_override_font_sizes/font_size = 16
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="UI/PauseMenu"]
+z_index = 1
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 0.835294)
+
+[node name="SplashArtLettersOnly" type="Sprite2D" parent="UI/PauseMenu"]
+z_index = 2
+texture_filter = 1
+position = Vector2(160, 29)
+texture = ExtResource("6_sbvce")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="UI/PauseMenu"]
+position = Vector2(160, 187)
+amount = 30
+lifetime = 4.0
+preprocess = 4.0
+texture = ExtResource("7_lbxif")
+emission_shape = 3
+emission_rect_extents = Vector2(160, 1)
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 14.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 35.0
+initial_velocity_max = 60.0
+scale_amount_max = 1.4
+color_ramp = SubResource("Gradient_1pofq")
+
+[node name="StatSheet" type="Node2D" parent="UI/PauseMenu"]
+z_index = 1
+position = Vector2(166, 49)
+
+[node name="Staticons" type="Sprite2D" parent="UI/PauseMenu/StatSheet"]
+z_index = 1
+texture_filter = 1
+position = Vector2(7, 39)
+texture = ExtResource("8_h6oi1")
+
+[node name="Label" type="Label" parent="UI/PauseMenu/StatSheet/Staticons"]
+z_index = 1
+texture_filter = 1
+offset_left = 11.0
+offset_top = -27.0
+offset_right = 66.0
+offset_bottom = 50.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "Attack
+Speed
+Cooldown
+Amount
+Max health"
+
+[node name="Text_ATKlvl" type="Label" parent="UI/PauseMenu/StatSheet"]
+z_index = 1
+texture_filter = 1
+offset_left = 81.0
+offset_top = 12.0
+offset_right = 224.0
+offset_bottom = 25.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "5"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Text_SPDlvl" type="Label" parent="UI/PauseMenu/StatSheet"]
+z_index = 1
+texture_filter = 1
+offset_left = 81.0
+offset_top = 22.0
+offset_right = 224.0
+offset_bottom = 35.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "30"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Text_CDNlvl" type="Label" parent="UI/PauseMenu/StatSheet"]
+z_index = 1
+texture_filter = 1
+offset_left = 81.0
+offset_top = 32.0
+offset_right = 224.0
+offset_bottom = 45.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "0"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Text_AMTlvl" type="Label" parent="UI/PauseMenu/StatSheet"]
+z_index = 1
+texture_filter = 1
+offset_left = 81.0
+offset_top = 42.0
+offset_right = 224.0
+offset_bottom = 55.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "0"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Text_HPlvl" type="Label" parent="UI/PauseMenu/StatSheet"]
+z_index = 1
+texture_filter = 1
+offset_left = 81.0
+offset_top = 52.0
+offset_right = 224.0
+offset_bottom = 65.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "10"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/PauseMenu/StatSheet"]
+texture_filter = 1
+position = Vector2(47, 39)
+texture = ExtResource("9_igdhr")
+
+[node name="AreYouSure" type="Node2D" parent="UI/PauseMenu"]
+visible = false
+z_index = 24
+
+[node name="Label" type="Label" parent="UI/PauseMenu/AreYouSure"]
+texture_filter = 1
+offset_left = 35.0
+offset_top = 56.0
+offset_right = 285.0
+offset_bottom = 85.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "Are you sure you want to abandon this run and 
+return to the main menu?"
+horizontal_alignment = 1
+
+[node name="NO" type="Sprite2D" parent="UI/PauseMenu/AreYouSure"]
+z_index = 2
+texture_filter = 1
+position = Vector2(99, 119)
+texture = ExtResource("4_xpi3s")
+
+[node name="Ne" type="Label" parent="UI/PauseMenu/AreYouSure/NO"]
+z_index = 2
+texture_filter = 1
+offset_left = -50.0
+offset_top = -12.0
+offset_right = 50.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_3jsnd")
+theme_override_font_sizes/font_size = 16
+text = "NO"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Yes" type="Sprite2D" parent="UI/PauseMenu/AreYouSure"]
+z_index = 2
+texture_filter = 1
+position = Vector2(235, 119)
+texture = ExtResource("4_xpi3s")
+
+[node name="Ye" type="Label" parent="UI/PauseMenu/AreYouSure/Yes"]
+z_index = 2
+texture_filter = 1
+offset_left = -50.0
+offset_top = -12.0
+offset_right = 50.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_3jsnd")
+theme_override_font_sizes/font_size = 16
+text = "Yes"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AYSArrow" type="Sprite2D" parent="UI/PauseMenu/AreYouSure"]
+z_index = 2
+texture_filter = 1
+position = Vector2(234, 142)
+texture = ExtResource("3_onkk8")
+hframes = 2
+vframes = 2
+
+[node name="Anim" type="AnimationPlayer" parent="UI/PauseMenu/AreYouSure/AYSArrow"]
+libraries = {
+"": SubResource("AnimationLibrary_v57cf")
+}
+
+[node name="Settings" type="Node2D" parent="UI/PauseMenu"]
+visible = false
+z_index = 22
+texture_filter = 1
+position = Vector2(-112, -8)
+
+[node name="Setting01" type="Label" parent="UI/PauseMenu/Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 127.0
+offset_top = 57.0
+offset_right = 320.0
+offset_bottom = 70.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_f7ysh")
+theme_override_font_sizes/font_size = 16
+text = "- Settings -"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Setting02" type="Label" parent="UI/PauseMenu/Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 182.0
+offset_top = 72.0
+offset_right = 375.0
+offset_bottom = 81.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_f7ysh")
+theme_override_font_sizes/font_size = 16
+text = "SFX volume:"
+
+[node name="SFX_bar" type="TextureProgressBar" parent="UI/PauseMenu/Settings"]
+offset_left = 182.0
+offset_top = 85.0
+offset_right = 262.0
+offset_bottom = 91.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+texture_under = ExtResource("10_24h7b")
+texture_progress = ExtResource("11_88lbs")
+
+[node name="Setting03" type="Label" parent="UI/PauseMenu/Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 182.0
+offset_top = 92.0
+offset_right = 375.0
+offset_bottom = 101.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_f7ysh")
+theme_override_font_sizes/font_size = 16
+text = "Music volume:"
+
+[node name="Music_bar" type="TextureProgressBar" parent="UI/PauseMenu/Settings"]
+offset_left = 182.0
+offset_top = 105.0
+offset_right = 262.0
+offset_bottom = 111.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+texture_under = ExtResource("10_24h7b")
+texture_progress = ExtResource("11_88lbs")
+
+[node name="Setting04" type="Label" parent="UI/PauseMenu/Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 182.0
+offset_top = 113.0
+offset_right = 375.0
+offset_bottom = 122.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_f7ysh")
+theme_override_font_sizes/font_size = 16
+text = "Show FPS: < OFF"
+
+[node name="Setting05" type="Label" parent="UI/PauseMenu/Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 182.0
+offset_top = 125.0
+offset_right = 375.0
+offset_bottom = 134.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_f7ysh")
+theme_override_font_sizes/font_size = 16
+text = "Full Screen: ON >"
+
+[node name="Back" type="Label" parent="UI/PauseMenu/Settings"]
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = 182.0
+offset_top = 147.0
+offset_right = 375.0
+offset_bottom = 156.0
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_f7ysh")
+theme_override_font_sizes/font_size = 16
+text = "BACK"
+
+[node name="Selecticon" type="Sprite2D" parent="UI/PauseMenu/Settings"]
+z_index = 1
+position = Vector2(171, 151)
+texture = ExtResource("12_suomj")
+hframes = 5
+vframes = 5
+
+[node name="Iconanim" type="AnimationPlayer" parent="UI/PauseMenu/Settings/Selecticon"]
+libraries = {
+"": SubResource("AnimationLibrary_rciu5")
+}
+
+[node name="Lightshadow" type="Sprite2D" parent="UI/PauseMenu/Settings/Selecticon"]
+modulate = Color(0, 0, 0, 0.501961)
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("13_t52xm")
+
+[node name="Box02" type="Sprite2D" parent="UI"]
+texture_filter = 1
+position = Vector2(274, 17)
+texture = ExtResource("14_3to6u")
+metadata/_edit_group_ = true
+
+[node name="UpgradeIcons" type="Sprite2D" parent="UI/Box02"]
+texture_filter = 1
+texture = ExtResource("15_btg32")
+hframes = 4
+vframes = 5
+frame = 15
+
+[node name="CDB" type="TextureProgressBar" parent="UI/Box02"]
+modulate = Color(1, 1, 1, 0.501961)
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("16_tgili")
+
+[node name="Levelprogress" type="TextureProgressBar" parent="UI/Box02"]
+offset_left = -14.0
+offset_top = 13.0
+offset_right = 14.0
+offset_bottom = 15.0
+max_value = 10.0
+texture_under = ExtResource("17_078ea")
+texture_progress = ExtResource("18_rtf1h")
+
+[node name="Box01" type="Sprite2D" parent="UI"]
+texture_filter = 1
+position = Vector2(245, 35)
+texture = ExtResource("14_3to6u")
+metadata/_edit_group_ = true
+
+[node name="UpgradeIcons" type="Sprite2D" parent="UI/Box01"]
+texture_filter = 1
+texture = ExtResource("15_btg32")
+hframes = 4
+vframes = 5
+frame = 15
+
+[node name="CDB" type="TextureProgressBar" parent="UI/Box01"]
+modulate = Color(1, 1, 1, 0.501961)
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("16_tgili")
+
+[node name="Levelprogress" type="TextureProgressBar" parent="UI/Box01"]
+offset_left = -14.0
+offset_top = 13.0
+offset_right = 14.0
+offset_bottom = 15.0
+max_value = 10.0
+texture_under = ExtResource("17_078ea")
+texture_progress = ExtResource("18_rtf1h")
+
+[node name="Label" type="Label" parent="UI/Box01"]
+visible = false
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = -14.0
+offset_top = -10.0
+offset_right = 14.0
+offset_bottom = 13.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_tvbwi")
+text = "lvl 1"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Box04" type="Sprite2D" parent="UI"]
+texture_filter = 1
+position = Vector2(303, 35)
+texture = ExtResource("14_3to6u")
+metadata/_edit_group_ = true
+
+[node name="UpgradeIcons" type="Sprite2D" parent="UI/Box04"]
+texture_filter = 1
+texture = ExtResource("15_btg32")
+hframes = 4
+vframes = 5
+frame = 15
+
+[node name="CDB" type="TextureProgressBar" parent="UI/Box04"]
+modulate = Color(1, 1, 1, 0.501961)
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("16_tgili")
+
+[node name="Levelprogress" type="TextureProgressBar" parent="UI/Box04"]
+offset_left = -14.0
+offset_top = 13.0
+offset_right = 14.0
+offset_bottom = 15.0
+max_value = 10.0
+texture_under = ExtResource("17_078ea")
+texture_progress = ExtResource("18_rtf1h")
+
+[node name="Box03" type="Sprite2D" parent="UI"]
+texture_filter = 1
+position = Vector2(274, 54)
+texture = ExtResource("14_3to6u")
+metadata/_edit_group_ = true
+
+[node name="UpgradeIcons" type="Sprite2D" parent="UI/Box03"]
+texture_filter = 1
+texture = ExtResource("15_btg32")
+hframes = 4
+vframes = 5
+frame = 15
+
+[node name="CDB" type="TextureProgressBar" parent="UI/Box03"]
+modulate = Color(1, 1, 1, 0.501961)
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("16_tgili")
+
+[node name="Levelprogress" type="TextureProgressBar" parent="UI/Box03"]
+offset_left = -14.0
+offset_top = 13.0
+offset_right = 14.0
+offset_bottom = 15.0
+max_value = 10.0
+texture_under = ExtResource("17_078ea")
+texture_progress = ExtResource("18_rtf1h")
+
+[node name="Letters" type="Node2D" parent="UI"]
+visible = false
+texture_filter = 1
+position = Vector2(254, 1)
+
+[node name="Activateletter01" type="Label" parent="UI/Letters"]
+texture_filter = 1
+offset_left = 3.0
+offset_top = 24.0
+offset_right = 29.0
+offset_bottom = 37.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "G"
+horizontal_alignment = 1
+
+[node name="Activateletter02" type="Label" parent="UI/Letters"]
+texture_filter = 1
+offset_left = 36.0
+offset_top = 24.0
+offset_right = 62.0
+offset_bottom = 37.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "H"
+horizontal_alignment = 1
+
+[node name="Activateletter03" type="Label" parent="UI/Letters"]
+texture_filter = 1
+offset_left = 3.0
+offset_top = 57.0
+offset_right = 29.0
+offset_bottom = 70.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "V"
+horizontal_alignment = 1
+
+[node name="Activateletter04" type="Label" parent="UI/Letters"]
+texture_filter = 1
+offset_left = 36.0
+offset_top = 57.0
+offset_right = 62.0
+offset_bottom = 70.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "B"
+horizontal_alignment = 1
+
+[node name="Buttons" type="Node2D" parent="UI"]
+visible = false
+texture_filter = 1
+position = Vector2(254, 1)
+
+[node name="Meeblingbuttons" type="Sprite2D" parent="UI/Buttons"]
+position = Vector2(-9, 49)
+texture = ExtResource("19_qro8q")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Meeblingbuttons2" type="Sprite2D" parent="UI/Buttons"]
+position = Vector2(20, 31)
+texture = ExtResource("19_qro8q")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Meeblingbuttons3" type="Sprite2D" parent="UI/Buttons"]
+position = Vector2(20, 67)
+texture = ExtResource("19_qro8q")
+hframes = 2
+vframes = 2
+frame = 3
+
+[node name="Meeblingbuttons4" type="Sprite2D" parent="UI/Buttons"]
+position = Vector2(49, 48)
+texture = ExtResource("19_qro8q")
+hframes = 2
+vframes = 2
+
+[node name="Staticons" type="Sprite2D" parent="UI"]
+visible = false
+texture_filter = 1
+position = Vector2(8, 39)
+texture = ExtResource("8_h6oi1")
+
+[node name="Text_ATKlvl" type="Label" parent="UI"]
+visible = false
+texture_filter = 1
+offset_left = 17.0
+offset_top = 12.0
+offset_right = 160.0
+offset_bottom = 25.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "5"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Text_SPDlvl" type="Label" parent="UI"]
+visible = false
+texture_filter = 1
+offset_left = 17.0
+offset_top = 22.0
+offset_right = 160.0
+offset_bottom = 35.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "30"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Text_CDNlvl" type="Label" parent="UI"]
+visible = false
+texture_filter = 1
+offset_left = 17.0
+offset_top = 32.0
+offset_right = 160.0
+offset_bottom = 45.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "0"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Text_AMTlvl" type="Label" parent="UI"]
+visible = false
+texture_filter = 1
+offset_left = 17.0
+offset_top = 42.0
+offset_right = 160.0
+offset_bottom = 55.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "0"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Text_HPlvl" type="Label" parent="UI"]
+visible = false
+texture_filter = 1
+offset_left = 17.0
+offset_top = 52.0
+offset_right = 160.0
+offset_bottom = 65.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "10"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LVLbar" type="TextureProgressBar" parent="UI"]
+texture_filter = 1
+offset_left = 60.0
+offset_top = 169.0
+offset_right = 260.0
+offset_bottom = 175.0
+max_value = 5.0
+texture_under = ExtResource("20_vepmi")
+texture_progress = ExtResource("21_jof3b")
+
+[node name="ColorRect" type="ColorRect" parent="UI/LVLbar"]
+z_index = -1
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 201.0
+offset_bottom = 7.0
+color = Color(0, 0, 0, 1)
+
+[node name="LVLtext" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 60.0
+offset_top = 160.0
+offset_right = 260.0
+offset_bottom = 173.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "Level 1"
+horizontal_alignment = 1
+
+[node name="SelectLevelupscreen" type="Node2D" parent="UI"]
+process_mode = 3
+visible = false
+script = ExtResource("22_o5i4q")
+
+[node name="Blackrect" type="ColorRect" parent="UI/SelectLevelupscreen"]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 0.784314)
+
+[node name="buttonstopress" type="AnimatedSprite2D" parent="UI/SelectLevelupscreen/Blackrect"]
+texture_filter = 1
+position = Vector2(284, 154)
+sprite_frames = SubResource("SpriteFrames_648yf")
+animation = &"keyboard"
+
+[node name="Text1" type="Label" parent="UI/SelectLevelupscreen"]
+texture_filter = 1
+offset_top = 4.0
+offset_right = 320.0
+offset_bottom = 32.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("24_mfuhi")
+theme_override_font_sizes/font_size = 22
+text = "LEVEL UP!"
+horizontal_alignment = 1
+
+[node name="CardArrow" type="Sprite2D" parent="UI/SelectLevelupscreen"]
+z_index = 1
+texture_filter = 1
+position = Vector2(90, 144)
+texture = ExtResource("3_onkk8")
+hframes = 2
+vframes = 2
+
+[node name="Anim" type="AnimationPlayer" parent="UI/SelectLevelupscreen/CardArrow"]
+libraries = {
+"": SubResource("AnimationLibrary_v57cf")
+}
+
+[node name="UnpauseTimer" type="Timer" parent="UI/SelectLevelupscreen"]
+wait_time = 1.2
+one_shot = true
+
+[node name="CanpressTimer" type="Timer" parent="UI/SelectLevelupscreen"]
+wait_time = 0.4
+one_shot = true
+
+[node name="Tut" type="Label" parent="UI/SelectLevelupscreen"]
+texture_filter = 1
+offset_left = 4.0
+offset_top = 147.0
+offset_right = 257.0
+offset_bottom = 160.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "Press with the button you want to assign it to"
+horizontal_alignment = 1
+
+[node name="Confetti" type="CPUParticles2D" parent="UI/SelectLevelupscreen"]
+texture_filter = 1
+position = Vector2(160, 188)
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.9
+texture = ExtResource("25_6b0nc")
+emission_shape = 3
+emission_rect_extents = Vector2(160, 8)
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, -98)
+initial_velocity_min = 100.0
+initial_velocity_max = 160.0
+scale_amount_max = 1.4
+color_ramp = SubResource("Gradient_vre8q")
+color_initial_ramp = SubResource("Gradient_cns18")
+
+[node name="SacrificeMeeblingScreen" type="Node2D" parent="UI"]
+process_mode = 3
+visible = false
+script = ExtResource("26_cjs6b")
+
+[node name="ConfettiSac" type="CPUParticles2D" parent="UI/SacrificeMeeblingScreen"]
+texture_filter = 1
+position = Vector2(160, 188)
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.9
+texture = ExtResource("25_6b0nc")
+emission_shape = 3
+emission_rect_extents = Vector2(160, 8)
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, -98)
+initial_velocity_min = 100.0
+initial_velocity_max = 160.0
+scale_amount_max = 1.4
+color_ramp = SubResource("Gradient_vre8q")
+color_initial_ramp = SubResource("Gradient_cns18")
+
+[node name="Blackrect2" type="ColorRect" parent="UI/SacrificeMeeblingScreen"]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 0.784314)
+
+[node name="buttonstopress" type="AnimatedSprite2D" parent="UI/SacrificeMeeblingScreen/Blackrect2"]
+texture_filter = 1
+position = Vector2(284, 154)
+sprite_frames = SubResource("SpriteFrames_648yf")
+animation = &"keyboard"
+
+[node name="SacText" type="Label" parent="UI/SacrificeMeeblingScreen"]
+texture_filter = 1
+offset_right = 320.0
+offset_bottom = 59.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("24_mfuhi")
+theme_override_font_sizes/font_size = 22
+text = "Sacrifice 2 Meeblings
+ to open the way?"
+horizontal_alignment = 1
+
+[node name="CardArrowSac" type="Sprite2D" parent="UI/SacrificeMeeblingScreen"]
+z_index = 1
+texture_filter = 1
+position = Vector2(90, 144)
+texture = ExtResource("3_onkk8")
+hframes = 2
+vframes = 2
+
+[node name="Anim" type="AnimationPlayer" parent="UI/SacrificeMeeblingScreen/CardArrowSac"]
+libraries = {
+"": SubResource("AnimationLibrary_v57cf")
+}
+
+[node name="UnpauseTimerSac" type="Timer" parent="UI/SacrificeMeeblingScreen"]
+wait_time = 1.2
+one_shot = true
+
+[node name="CanpressTimerSac" type="Timer" parent="UI/SacrificeMeeblingScreen"]
+wait_time = 0.4
+one_shot = true
+
+[node name="Deathscreen" type="Node2D" parent="UI"]
+visible = false
+texture_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="UI/Deathscreen"]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 0.501961)
+
+[node name="GameOver" type="Sprite2D" parent="UI/Deathscreen"]
+position = Vector2(160, 66)
+texture = ExtResource("27_kk31k")
+
+[node name="Gameover" type="Label" parent="UI/Deathscreen"]
+visible = false
+modulate = Color(1, 0.529412, 0.443137, 1)
+texture_filter = 1
+offset_top = 51.0
+offset_right = 320.0
+offset_bottom = 79.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("24_mfuhi")
+theme_override_font_sizes/font_size = 22
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="UI/Deathscreen"]
+texture_filter = 1
+offset_top = 105.0
+offset_right = 320.0
+offset_bottom = 118.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "Score: 0"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/Deathscreen"]
+texture_filter = 1
+offset_top = 83.0
+offset_right = 320.0
+offset_bottom = 96.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "All your meeblings have died"
+horizontal_alignment = 1
+
+[node name="EnemiesAliveUI" type="Label" parent="UI"]
+visible = false
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 1.375
+anchor_top = 11.8462
+anchor_right = 1.375
+anchor_bottom = 11.8462
+offset_left = -351.0
+offset_top = -1978.31
+offset_right = -311.0
+offset_bottom = -1965.31
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "0"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="GameTimerUI" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 44.0
+offset_bottom = 21.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "0"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Showfps" type="Label" parent="UI"]
+visible = false
+texture_filter = 1
+offset_left = 263.0
+offset_top = 164.0
+offset_right = 318.0
+offset_bottom = 177.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "FPS: 0"
+horizontal_alignment = 2
+
+[node name="Enemycount" type="Label" parent="UI"]
+visible = false
+texture_filter = 1
+offset_left = 2.0
+offset_top = 164.0
+offset_right = 59.0
+offset_bottom = 177.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("5_3jsnd")
+text = "0 NMys"
+
+[node name="StatHolder" parent="UI" instance=ExtResource("28_4404o")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -209,1457 +1436,98 @@ texture_filter = 1
 position = Vector2(1, 0)
 texture = ExtResource("2_0iapw")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Sounds" type="Node2D" parent="."]
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="EXPpickup" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("4_1x5fh")
+bus = &"SFX"
 
-[node name="Enemy 1" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-61.45, 53)
-script = ExtResource("5_75olh")
+[node name="Break" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("5_b0to5")
+volume_db = 5.0
+bus = &"SFX"
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 1"]
-texture = ExtResource("4_8wo7k")
+[node name="Splash" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("6_5lvbo")
+bus = &"SFX"
 
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 1"]
+[node name="Shoot" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("7_4hp0s")
+volume_db = -16.0
+bus = &"SFX"
 
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 1/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
+[node name="Hit" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("8_0eqyc")
+bus = &"SFX"
 
-[node name="Enemy 2" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-129, -10.41)
-script = ExtResource("5_75olh")
+[node name="Bigspell" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("9_poeg5")
+bus = &"SFX"
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 2"]
-texture = ExtResource("4_8wo7k")
+[node name="Fall" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("10_xprvf")
+bus = &"SFX"
 
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 2"]
+[node name="SoundsSplash" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_5lvbo")
 
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 2/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
+[node name="QuadrantSystem" type="Node2D" parent="."]
 
-[node name="Enemy 3" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-101.4, 100.215)
-script = ExtResource("5_75olh")
+[node name="Q1" type="Node2D" parent="QuadrantSystem" groups=["Q1"]]
+position = Vector2(-80, -45)
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 3"]
-texture = ExtResource("4_8wo7k")
+[node name="Q2" type="Node2D" parent="QuadrantSystem" groups=["Q2"]]
+position = Vector2(80, -45)
 
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 3"]
+[node name="Q3" type="Node2D" parent="QuadrantSystem" groups=["Q3"]]
+position = Vector2(-80, 45)
 
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 3/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
+[node name="Q4" type="Node2D" parent="QuadrantSystem" groups=["Q4"]]
+position = Vector2(80, 45)
 
-[node name="Enemy 4" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-69, -36)
-script = ExtResource("5_75olh")
+[node name="Q1Area" type="Area2D" parent="QuadrantSystem" groups=["Q1"]]
+position = Vector2(-320, -180)
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 4"]
-texture = ExtResource("4_8wo7k")
+[node name="Box" type="CollisionShape2D" parent="QuadrantSystem/Q1Area"]
+scale = Vector2(32, 18)
+shape = SubResource("RectangleShape2D_pnur0")
 
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 4"]
+[node name="Q2Area" type="Area2D" parent="QuadrantSystem" groups=["Q2"]]
+position = Vector2(320, -180)
 
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 4/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
+[node name="Box" type="CollisionShape2D" parent="QuadrantSystem/Q2Area"]
+scale = Vector2(32, 18)
+shape = SubResource("RectangleShape2D_pnur0")
+debug_color = Color(0.870588, 0.145098, 0.772549, 0.419608)
 
-[node name="Enemy 5" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-129, 53)
-script = ExtResource("5_75olh")
+[node name="Q3Area" type="Area2D" parent="QuadrantSystem" groups=["Q3"]]
+position = Vector2(-320, 180)
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 5"]
-texture = ExtResource("4_8wo7k")
+[node name="Box" type="CollisionShape2D" parent="QuadrantSystem/Q3Area"]
+scale = Vector2(32, 18)
+shape = SubResource("RectangleShape2D_pnur0")
+debug_color = Color(0.592157, 0.545098, 0.0196078, 0.419608)
 
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 5"]
+[node name="Q4Area" type="Area2D" parent="QuadrantSystem" groups=["Q4"]]
+position = Vector2(320, 180)
 
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 5/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
+[node name="Box" type="CollisionShape2D" parent="QuadrantSystem/Q4Area"]
+scale = Vector2(32, 18)
+shape = SubResource("RectangleShape2D_pnur0")
+debug_color = Color(0.482353, 0.435294, 1, 0.419608)
 
-[node name="Enemy 6" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-129, 53)
-script = ExtResource("5_75olh")
+[node name="TestNodes" type="Node2D" parent="."]
+visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 6"]
-texture = ExtResource("4_8wo7k")
+[node name="BG" type="Node2D" parent="TestNodes"]
 
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 6"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 6/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 7" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(157, -41)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 7"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 7"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 7/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 8" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(149, 100)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 8"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 8"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 8/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 9" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(62, -75)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 9"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 9"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 9/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 10" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(192, 44)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 10"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 10"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 10/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 11" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(81, 124)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 11"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 11"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 11/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 12" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-17, -90)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 12"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 12"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 12/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 13" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(75, 60)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 13"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 13"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 13/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 14" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-10, 118)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 14"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 14"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 14/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 15" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-120, -98)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 15"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 15"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 15/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 16" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(154, -101)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 16"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 16"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 16/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 17" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(280.55, -23)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 17"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 17"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 17/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 18" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(213, -86.41)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 18"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 18"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 18/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 19" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(240.6, 24.215)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 19"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 19"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 19/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 20" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(273, -112)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 20"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 20"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 20/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 21" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(213, -23)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 21"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 21"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 21/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 22" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(213, -23)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 22"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 22"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 22/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 23" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(499, -117)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 23"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 23"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 23/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 24" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(491, 24)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 24"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 24"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 24/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 25" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(404, -151)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 25"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 25"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 25/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 26" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(534, -32)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 26"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 26"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 26/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 27" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(423, 48)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 27"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 27"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 27/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 28" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(325, -166)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 28"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 28"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 28/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 29" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(417, -16)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 29"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 29"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 29/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 30" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(332, 42)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 30"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 30"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 30/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 31" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(222, -174)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 31"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 31"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 31/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 32" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(496, -177)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 32"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 32"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 32/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 33" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(263.55, 229)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 33"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 33"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 33/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 34" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(196, 165.59)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 34"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 34"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 34/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 35" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(223.6, 276.215)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 35"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 35"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 35/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 36" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(256, 140)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 36"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 36"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 36/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 37" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(196, 229)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 37"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 37"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 37/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 38" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(196, 229)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 38"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 38"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 38/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 39" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(482, 135)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 39"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 39"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 39/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 40" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(474, 276)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 40"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 40"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 40/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 41" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(387, 101)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 41"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 41"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 41/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 42" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(517, 220)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 42"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 42"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 42/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 43" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(406, 300)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 43"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 43"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 43/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 44" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(308, 86)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 44"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 44"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 44/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 45" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(400, 236)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 45"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 45"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 45/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 46" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(315, 294)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 46"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 46"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 46/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 47" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(205, 78)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 47"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 47"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 47/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 48" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(479, 75)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 48"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 48"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 48/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 49" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-91.45, 305)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 49"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 49"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 49/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 50" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-159, 241.59)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 50"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 50"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 50/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 51" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-131.4, 352.215)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 51"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 51"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 51/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 52" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-99, 216)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 52"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 52"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 52/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 53" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-159, 305)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 53"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 53"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 53/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 54" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-159, 305)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 54"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 54"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 54/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 55" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(127, 211)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 55"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 55"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 55/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 56" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(119, 352)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 56"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 56"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 56/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 57" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(32, 177)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 57"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 57"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 57/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 58" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(162, 296)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 58"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 58"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 58/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 59" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(51, 376)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 59"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 59"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 59/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 60" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-47, 162)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 60"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 60"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 60/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 61" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(45, 312)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 61"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 61"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 61/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 62" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-40, 370)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 62"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 62"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 62/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 63" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-150, 154)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 63"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 63"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 63/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 64" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(124, 151)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 64"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 64"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 64/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 65" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-425.45, 79)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 65"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 65"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 65/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 66" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-493, 15.59)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 66"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 66"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 66/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 67" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-465.4, 126.215)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 67"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 67"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 67/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 68" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-433, -10)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 68"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 68"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 68/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 69" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-493, 79)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 69"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 69"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 69/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 70" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-493, 79)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 70"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 70"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 70/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 71" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-207, -15)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 71"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 71"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 71/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 72" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-215, 126)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 72"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 72"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 72/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 73" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-302, -49)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 73"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 73"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 73/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 74" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-172, 70)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 74"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 74"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 74/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 75" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-283, 150)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 75"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 75"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 75/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 76" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-381, -64)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 76"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 76"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 76/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 77" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-289, 86)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 77"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 77"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 77/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 78" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-374, 144)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 78"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 78"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 78/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 79" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-484, -72)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 79"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 79"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 79/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 80" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-210, -75)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 80"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 80"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 80/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 81" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-126.45, -211)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 81"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 81"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 81/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 82" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-194, -274.41)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 82"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 82"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 82/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 83" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-166.4, -163.785)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 83"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 83"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 83/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 84" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-134, -300)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 84"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 84"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 84/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 85" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-194, -211)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 85"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 85"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 85/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 86" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-194, -211)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 86"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 86"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 86/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 87" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(92, -305)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 87"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 87"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 87/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 88" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(84, -164)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 88"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 88"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 88/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 89" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-3, -339)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 89"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 89"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 89/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 90" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(127, -220)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 90"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 90"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 90/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 91" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(16, -140)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 91"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 91"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 91/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 92" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-82, -354)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 92"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 92"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 92/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 93" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(10, -204)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 93"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 93"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 93/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 94" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-75, -146)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 94"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 94"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 94/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 95" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(-185, -362)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 95"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 95"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 95/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Enemy 96" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
-texture_filter = 1
-position = Vector2(89, -365)
-script = ExtResource("5_75olh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 96"]
-texture = ExtResource("4_8wo7k")
-
-[node name="Rot" type="Node2D" parent="Enemies/Enemy 96"]
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 96/Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("5_jsw5u")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="TestNodes/BG"]
 z_index = -2
 position = Vector2(0, -1)
 texture = ExtResource("7_3ob7i")
 script = ExtResource("8_ytq54")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="TestNodes/BG"]
 modulate = Color(1, 0.603922, 0.780392, 1)
 z_index = -2
 texture_filter = 1
@@ -1667,7 +1535,7 @@ position = Vector2(320, 0)
 texture = ExtResource("7_3ob7i")
 script = ExtResource("8_ytq54")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
+[node name="Sprite2D3" type="Sprite2D" parent="TestNodes/BG"]
 modulate = Color(1, 0.603922, 0.780392, 1)
 z_index = -2
 texture_filter = 1
@@ -1675,7 +1543,7 @@ position = Vector2(-320, 0)
 texture = ExtResource("7_3ob7i")
 script = ExtResource("8_ytq54")
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
+[node name="Sprite2D4" type="Sprite2D" parent="TestNodes/BG"]
 modulate = Color(1, 0.603922, 0.780392, 1)
 z_index = -2
 texture_filter = 1
@@ -1683,21 +1551,21 @@ position = Vector2(0, 180)
 texture = ExtResource("7_3ob7i")
 script = ExtResource("8_ytq54")
 
-[node name="Sprite2D5" type="Sprite2D" parent="."]
+[node name="Sprite2D5" type="Sprite2D" parent="TestNodes/BG"]
 z_index = -2
 texture_filter = 1
 position = Vector2(320, 180)
 texture = ExtResource("7_3ob7i")
 script = ExtResource("8_ytq54")
 
-[node name="Sprite2D6" type="Sprite2D" parent="."]
+[node name="Sprite2D6" type="Sprite2D" parent="TestNodes/BG"]
 z_index = -2
 texture_filter = 1
 position = Vector2(-320, 180)
 texture = ExtResource("7_3ob7i")
 script = ExtResource("8_ytq54")
 
-[node name="Sprite2D7" type="Sprite2D" parent="."]
+[node name="Sprite2D7" type="Sprite2D" parent="TestNodes/BG"]
 modulate = Color(1, 0.603922, 0.780392, 1)
 z_index = -2
 texture_filter = 1
@@ -1705,16 +1573,38 @@ position = Vector2(0, -181)
 texture = ExtResource("7_3ob7i")
 script = ExtResource("8_ytq54")
 
-[node name="Sprite2D8" type="Sprite2D" parent="."]
+[node name="Sprite2D8" type="Sprite2D" parent="TestNodes/BG"]
 z_index = -2
 texture_filter = 1
 position = Vector2(320, -181)
 texture = ExtResource("7_3ob7i")
 script = ExtResource("8_ytq54")
 
-[node name="Sprite2D9" type="Sprite2D" parent="."]
+[node name="Sprite2D9" type="Sprite2D" parent="TestNodes/BG"]
 z_index = -2
 texture_filter = 1
 position = Vector2(-320, -181)
 texture = ExtResource("7_3ob7i")
 script = ExtResource("8_ytq54")
+
+[node name="Enemies" type="Node2D" parent="TestNodes"]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("40_q7c3j")]
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="AttackTimer" type="Timer" parent="Timers"]
+wait_time = 0.05
+one_shot = true
+
+[node name="SpellCooldown" type="Timer" parent="Timers"]
+
+[connection signal="timeout" from="UI/PauseMenu/UnpauseTimer" to="UI/PauseMenu" method="_on_unpause_timer_timeout"]
+[connection signal="timeout" from="UI/PauseMenu/PressedTimer" to="UI/PauseMenu" method="_on_pressed_timer_timeout"]
+[connection signal="value_changed" from="UI/PauseMenu/Settings/SFX_bar" to="UI/PauseMenu" method="_on_sfx_bar_value_changed"]
+[connection signal="value_changed" from="UI/PauseMenu/Settings/Music_bar" to="UI/PauseMenu" method="_on_music_bar_value_changed"]
+[connection signal="timeout" from="UI/SelectLevelupscreen/UnpauseTimer" to="UI/SelectLevelupscreen" method="_on_unpause_timer_timeout"]
+[connection signal="timeout" from="UI/SelectLevelupscreen/CanpressTimer" to="UI/SelectLevelupscreen" method="_on_canpress_timer_timeout"]
+[connection signal="timeout" from="UI/SacrificeMeeblingScreen/UnpauseTimerSac" to="UI/SacrificeMeeblingScreen" method="_on_unpause_timer_sac_timeout"]
+[connection signal="timeout" from="UI/SacrificeMeeblingScreen/CanpressTimerSac" to="UI/SacrificeMeeblingScreen" method="_on_canpress_timer_sac_timeout"]
+[connection signal="timeout" from="Timers/SpellCooldown" to="." method="_on_spell_cooldown_timeout"]

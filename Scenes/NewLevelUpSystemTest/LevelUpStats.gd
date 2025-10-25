@@ -141,6 +141,7 @@ func updateSpells(spellToSetNumber):
 func updateBonus():
 	match statID:
 		"EXTRAMEEBLING":
-			get_tree().call_group("crowd_p", "spawnbirth")
+			var arrow = get_tree().get_first_node_in_group("CrowdSimulation")
+			arrow.birthMeebling(arrow.global_position)
 			pass
 	pass

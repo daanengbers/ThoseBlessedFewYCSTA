@@ -28,10 +28,12 @@ func apply_freeze():
 	pass
 
 func spawnmeebling():
-	var me = MEEBLING.instantiate()
-	get_parent().add_child.call_deferred(me)
-	me.position.x = global_position.x + randi()%20 -10
-	me.position.y = global_position.y + randi()%20 -10
+	var arrow = get_tree().get_first_node_in_group("CrowdSimulation")
+	arrow.birthMeebling(global_position)
+	#var me = MEEBLING.instantiate()
+	#get_parent().add_child.call_deferred(me)
+	#me.position.x = global_position.x + randi()%20 -10
+	#me.position.y = global_position.y + randi()%20 -10
 
 func kill():
 	alive = false

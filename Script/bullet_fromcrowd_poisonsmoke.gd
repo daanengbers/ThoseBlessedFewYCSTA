@@ -11,6 +11,7 @@ var DMGVAL = preload("res://Scenes/damagenumber.tscn")
 
 func _ready():
 	$Hitbox_BULLET/Anim.play("flicker")
+	set_as_top_level(true)
 
 # Functions -----
 
@@ -29,9 +30,10 @@ func _on_queue_timer_timeout():
 	queue_free()
 
 func _on_hitbox_bullet_area_entered(area):
-	if "HURTbox_Enemy" in area.name or "Cage" in area.name:
-		area.get_parent().hp -= (damage + Globalsettings.currentrun_extraattack)
-		area.get_parent().hurt()
-		spawnDamageValue()
-		if area.get_parent().hp <= 0:
-			area.get_parent().kill()
+	pass
+	#if "HURTbox_Enemy" in area.name or "Cage" in area.name:
+		#area.get_parent().hp -= (damage + Globalsettings.currentrun_extraattack)
+		#area.get_parent().hurt()
+		#spawnDamageValue()
+		#if area.get_parent().hp <= 0:
+			#area.get_parent().kill()

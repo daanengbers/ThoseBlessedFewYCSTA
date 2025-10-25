@@ -10,11 +10,13 @@ func _ready():
 	$Bloodsplatter.emitting = true
 	$Coloranim.play("fade")
 	$Splat.play()
+	
+	set_as_top_level(true)
 
 # Signals -----
 
 func _on_area_entered(area):
-	if area.get_parent().is_in_group("crowd_m"):
+	if area.get_parent().is_in_group("meeblings"):
 		area.get_parent().hp -= damage
 		area.get_parent().hurt()
 		if area.get_parent().hp <= 0:

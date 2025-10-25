@@ -6,6 +6,7 @@ extends Node2D
 var dmg_value = 0
 
 func _ready():
+	set_as_top_level(true)
 	# Set damage value and animation
 	$Container/Text.set_text(str(dmg_value))
 	$Container/Anim.play("appear")
