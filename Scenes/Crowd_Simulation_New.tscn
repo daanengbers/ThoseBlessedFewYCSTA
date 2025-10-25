@@ -1,0 +1,1720 @@
+[gd_scene load_steps=19 format=3 uid="uid://gye6sxa3o7gs"]
+
+[ext_resource type="Script" path="res://Scenes/Crowd_Simulation_New.gd" id="1_4f4g1"]
+[ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="2_0iapw"]
+[ext_resource type="Texture2D" uid="uid://c02rr86yd8vae" path="res://Assets/YCSTA_Arrow (new).png" id="3_ew17e"]
+[ext_resource type="Texture2D" uid="uid://mjj1sj7ks7iq" path="res://Assets/Enemy_Sprites/AndreasScarab_body1.png" id="4_8wo7k"]
+[ext_resource type="Script" path="res://Scenes/EnemyTestScript.gd" id="5_75olh"]
+[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="5_jsw5u"]
+[ext_resource type="Texture2D" uid="uid://d10xllb3gvng7" path="res://Assets/Environment_Sprites/YCSTA_water_3.png" id="7_3ob7i"]
+[ext_resource type="Script" path="res://Scenes/TestArea.gd" id="8_ytq54"]
+
+[sub_resource type="Animation" id="Animation_rcns4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xxqfg"]
+resource_name = "arrow1"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_wnrt4"]
+resource_name = "arrow2"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_6moog"]
+resource_name = "arrow3"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21, 16]
+}
+
+[sub_resource type="Animation" id="Animation_wwsdf"]
+resource_name = "arrow4"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27]
+}
+
+[sub_resource type="Animation" id="Animation_2vwwc"]
+resource_name = "arrow5"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36, 37, 38, 39]
+}
+
+[sub_resource type="Animation" id="Animation_i61v4"]
+resource_name = "arrow6"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43, 44, 45, 46, 47]
+}
+
+[sub_resource type="Animation" id="Animation_g0hxw"]
+resource_name = "arrow7"
+length = 1.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 49, 48, 49, 50, 51, 52, 53, 54, 53, 52, 53, 54, 53, 52, 51]
+}
+
+[sub_resource type="Animation" id="Animation_d6utp"]
+resource_name = "arrow8"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [55, 56, 57, 58, 59, 60, 61, 62, 61, 60, 59, 58, 57, 56, 55]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dgkm7"]
+_data = {
+"RESET": SubResource("Animation_rcns4"),
+"arrow1": SubResource("Animation_xxqfg"),
+"arrow2": SubResource("Animation_wnrt4"),
+"arrow3": SubResource("Animation_6moog"),
+"arrow4": SubResource("Animation_wwsdf"),
+"arrow5": SubResource("Animation_2vwwc"),
+"arrow6": SubResource("Animation_i61v4"),
+"arrow7": SubResource("Animation_g0hxw"),
+"arrow8": SubResource("Animation_d6utp")
+}
+
+[node name="CrowdSimulationNew" type="CharacterBody2D"]
+script = ExtResource("1_4f4g1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Mainarrow" type="Sprite2D" parent="."]
+z_index = 5
+texture_filter = 1
+position = Vector2(0, -14)
+texture = ExtResource("3_ew17e")
+hframes = 8
+vframes = 8
+
+[node name="Anim" type="AnimationPlayer" parent="Mainarrow"]
+libraries = {
+"": SubResource("AnimationLibrary_dgkm7")
+}
+
+[node name="Arrowshadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -18
+texture_filter = 1
+position = Vector2(1, 0)
+texture = ExtResource("2_0iapw")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy 1" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-61.45, 53)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 1"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 1"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 1/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 2" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-129, -10.41)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 2"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 2"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 2/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 3" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-101.4, 100.215)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 3"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 3"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 3/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 4" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-69, -36)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 4"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 4"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 4/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 5" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-129, 53)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 5"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 5"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 5/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 6" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-129, 53)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 6"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 6"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 6/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 7" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(157, -41)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 7"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 7"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 7/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 8" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(149, 100)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 8"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 8"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 8/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 9" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(62, -75)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 9"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 9"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 9/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 10" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(192, 44)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 10"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 10"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 10/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 11" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(81, 124)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 11"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 11"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 11/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 12" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-17, -90)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 12"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 12"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 12/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 13" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(75, 60)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 13"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 13"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 13/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 14" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-10, 118)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 14"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 14"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 14/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 15" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-120, -98)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 15"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 15"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 15/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 16" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(154, -101)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 16"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 16"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 16/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 17" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(280.55, -23)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 17"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 17"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 17/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 18" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(213, -86.41)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 18"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 18"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 18/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 19" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(240.6, 24.215)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 19"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 19"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 19/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 20" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(273, -112)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 20"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 20"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 20/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 21" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(213, -23)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 21"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 21"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 21/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 22" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(213, -23)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 22"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 22"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 22/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 23" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(499, -117)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 23"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 23"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 23/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 24" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(491, 24)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 24"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 24"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 24/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 25" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(404, -151)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 25"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 25"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 25/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 26" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(534, -32)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 26"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 26"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 26/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 27" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(423, 48)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 27"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 27"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 27/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 28" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(325, -166)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 28"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 28"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 28/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 29" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(417, -16)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 29"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 29"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 29/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 30" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(332, 42)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 30"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 30"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 30/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 31" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(222, -174)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 31"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 31"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 31/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 32" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(496, -177)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 32"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 32"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 32/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 33" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(263.55, 229)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 33"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 33"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 33/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 34" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(196, 165.59)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 34"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 34"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 34/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 35" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(223.6, 276.215)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 35"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 35"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 35/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 36" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(256, 140)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 36"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 36"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 36/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 37" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(196, 229)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 37"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 37"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 37/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 38" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(196, 229)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 38"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 38"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 38/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 39" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(482, 135)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 39"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 39"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 39/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 40" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(474, 276)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 40"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 40"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 40/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 41" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(387, 101)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 41"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 41"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 41/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 42" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(517, 220)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 42"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 42"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 42/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 43" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(406, 300)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 43"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 43"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 43/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 44" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(308, 86)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 44"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 44"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 44/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 45" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(400, 236)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 45"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 45"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 45/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 46" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(315, 294)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 46"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 46"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 46/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 47" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(205, 78)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 47"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 47"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 47/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 48" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(479, 75)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 48"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 48"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 48/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 49" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-91.45, 305)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 49"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 49"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 49/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 50" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-159, 241.59)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 50"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 50"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 50/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 51" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-131.4, 352.215)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 51"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 51"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 51/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 52" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-99, 216)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 52"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 52"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 52/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 53" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-159, 305)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 53"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 53"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 53/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 54" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-159, 305)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 54"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 54"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 54/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 55" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(127, 211)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 55"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 55"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 55/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 56" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(119, 352)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 56"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 56"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 56/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 57" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(32, 177)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 57"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 57"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 57/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 58" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(162, 296)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 58"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 58"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 58/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 59" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(51, 376)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 59"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 59"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 59/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 60" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-47, 162)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 60"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 60"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 60/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 61" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(45, 312)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 61"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 61"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 61/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 62" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-40, 370)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 62"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 62"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 62/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 63" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-150, 154)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 63"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 63"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 63/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 64" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(124, 151)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 64"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 64"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 64/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 65" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-425.45, 79)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 65"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 65"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 65/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 66" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-493, 15.59)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 66"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 66"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 66/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 67" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-465.4, 126.215)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 67"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 67"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 67/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 68" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-433, -10)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 68"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 68"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 68/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 69" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-493, 79)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 69"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 69"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 69/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 70" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-493, 79)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 70"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 70"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 70/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 71" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-207, -15)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 71"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 71"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 71/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 72" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-215, 126)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 72"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 72"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 72/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 73" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-302, -49)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 73"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 73"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 73/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 74" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-172, 70)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 74"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 74"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 74/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 75" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-283, 150)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 75"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 75"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 75/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 76" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-381, -64)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 76"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 76"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 76/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 77" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-289, 86)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 77"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 77"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 77/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 78" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-374, 144)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 78"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 78"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 78/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 79" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-484, -72)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 79"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 79"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 79/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 80" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-210, -75)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 80"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 80"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 80/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 81" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-126.45, -211)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 81"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 81"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 81/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 82" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-194, -274.41)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 82"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 82"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 82/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 83" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-166.4, -163.785)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 83"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 83"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 83/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 84" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-134, -300)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 84"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 84"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 84/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 85" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-194, -211)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 85"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 85"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 85/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 86" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-194, -211)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 86"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 86"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 86/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 87" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(92, -305)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 87"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 87"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 87/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 88" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(84, -164)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 88"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 88"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 88/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 89" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-3, -339)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 89"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 89"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 89/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 90" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(127, -220)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 90"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 90"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 90/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 91" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(16, -140)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 91"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 91"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 91/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 92" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-82, -354)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 92"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 92"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 92/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 93" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(10, -204)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 93"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 93"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 93/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 94" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-75, -146)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 94"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 94"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 94/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 95" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(-185, -362)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 95"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 95"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 95/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Enemy 96" type="CharacterBody2D" parent="Enemies" groups=["enemy_m"]]
+texture_filter = 1
+position = Vector2(89, -365)
+script = ExtResource("5_75olh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemies/Enemy 96"]
+texture = ExtResource("4_8wo7k")
+
+[node name="Rot" type="Node2D" parent="Enemies/Enemy 96"]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Enemies/Enemy 96/Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("5_jsw5u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(0, -1)
+texture = ExtResource("7_3ob7i")
+script = ExtResource("8_ytq54")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 0.603922, 0.780392, 1)
+z_index = -2
+texture_filter = 1
+position = Vector2(320, 0)
+texture = ExtResource("7_3ob7i")
+script = ExtResource("8_ytq54")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(1, 0.603922, 0.780392, 1)
+z_index = -2
+texture_filter = 1
+position = Vector2(-320, 0)
+texture = ExtResource("7_3ob7i")
+script = ExtResource("8_ytq54")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+modulate = Color(1, 0.603922, 0.780392, 1)
+z_index = -2
+texture_filter = 1
+position = Vector2(0, 180)
+texture = ExtResource("7_3ob7i")
+script = ExtResource("8_ytq54")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(320, 180)
+texture = ExtResource("7_3ob7i")
+script = ExtResource("8_ytq54")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(-320, 180)
+texture = ExtResource("7_3ob7i")
+script = ExtResource("8_ytq54")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+modulate = Color(1, 0.603922, 0.780392, 1)
+z_index = -2
+texture_filter = 1
+position = Vector2(0, -181)
+texture = ExtResource("7_3ob7i")
+script = ExtResource("8_ytq54")
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(320, -181)
+texture = ExtResource("7_3ob7i")
+script = ExtResource("8_ytq54")
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+z_index = -2
+texture_filter = 1
+position = Vector2(-320, -181)
+texture = ExtResource("7_3ob7i")
+script = ExtResource("8_ytq54")

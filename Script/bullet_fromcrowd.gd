@@ -15,6 +15,7 @@ var randomdir = 0
 func _ready():
 	bouncesleft = Globalsettings.currentrun_extrabounce
 	randomize()
+	set_as_top_level(true)
 	changerandomdir()
 
 # Functions -----

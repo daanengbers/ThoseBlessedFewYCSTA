@@ -38,6 +38,12 @@ var inFogArea = false
 var bossfight_active = false
 var bossfight_number = 0
 
+var globalClosestEnemy
+var globalClosestMeeblingQ1
+var globalClosestMeeblingQ2
+var globalClosestMeeblingQ3
+var globalClosestMeeblingQ4
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	#bus_index = AudioServer.get_bus_index(bus_name)
