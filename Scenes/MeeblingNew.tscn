@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bc8ql0cllmai1"]
+[gd_scene load_steps=20 format=3 uid="uid://bc8ql0cllmai1"]
 
 [ext_resource type="Script" path="res://Scenes/MeeblingNew.gd" id="1_macxw"]
 [ext_resource type="Texture2D" uid="uid://dvav5qp6ypv2b" path="res://Assets/YCSTA_Meeblings-Spritesheet.png" id="2_xjkpd"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/UI/YCSTA_healthbar-1.png" id="5_2olm4"]
 [ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/UI/YCSTA_healthbar-2.png" id="6_1smoq"]
 [ext_resource type="Texture2D" uid="uid://beqcri3xxoul" path="res://Assets/Particle_Sprites/YCSTA_lightpoint.png" id="7_6oyeh"]
+[ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="10_dafob"]
 
 [sub_resource type="Animation" id="Animation_gelk4"]
 resource_name = "BirthNew"
@@ -241,6 +242,8 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 colors = PackedColorArray(1, 1, 1, 0.666667, 1, 1, 1, 1)
 
 [node name="MeeblingNew" type="CharacterBody2D" groups=["meeblings"]]
+z_index = 3
+y_sort_enabled = true
 script = ExtResource("1_macxw")
 
 [node name="Meebling" type="Sprite2D" parent="."]
@@ -315,6 +318,20 @@ z_index = -1
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_6oyeh")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(0, 7)
+texture = ExtResource("10_dafob")
+
+[node name="CliffWaterCollider" type="RayCast2D" parent="."]
+position = Vector2(0, 3)
+target_position = Vector2(0, 4)
+collision_mask = 16
+hit_from_inside = true
 
 [connection signal="area_entered" from="Hurtbox_crowd" to="." method="_on_hurtbox_crowd_area_entered"]
 [connection signal="area_exited" from="Hurtbox_crowd" to="." method="_on_hurtbox_crowd_area_exited"]

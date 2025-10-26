@@ -1,11 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://jk3x8l6xs84q"]
+[gd_scene load_steps=19 format=3 uid="uid://clsptsr7eo0k6"]
 
-[ext_resource type="Script" path="res://Scenes/enemies.gd" id="1_ajsir"]
-[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="2_2gl30"]
-[ext_resource type="Texture2D" uid="uid://d4isrqfs5uqyt" path="res://Assets/Enemy_Sprites/YCSTA_Enemies-2.png" id="2_842v3"]
-[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/UI/YCSTA_healthbar-1.png" id="3_yfx5n"]
-[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/UI/YCSTA_healthbar-2.png" id="4_1mnfj"]
-[ext_resource type="AudioStream" uid="uid://bg2xrdk3npnsa" path="res://Sounds/spellshort1.wav" id="6_yl8u8"]
+[ext_resource type="Script" path="res://Scenes/enemies.gd" id="1_3svnp"]
+[ext_resource type="Texture2D" uid="uid://xjft5bfbaqpp" path="res://Assets/Enemy_Sprites/Daanslime-1.png" id="2_b6r6i"]
+[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="3_vfhiw"]
+[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/UI/YCSTA_healthbar-1.png" id="4_2ysqv"]
+[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/UI/YCSTA_healthbar-2.png" id="5_5ht15"]
+[ext_resource type="AudioStream" uid="uid://bg2xrdk3npnsa" path="res://Sounds/spellshort1.wav" id="6_6cl64"]
 
 [sub_resource type="Animation" id="Animation_roeck"]
 length = 0.001
@@ -36,7 +36,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_50v2h"]
 resource_name = "bounce"
-length = 0.6
+length = 0.8
 loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
@@ -46,10 +46,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(0.435275, 2, 0.450625),
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8),
+"transitions": PackedFloat32Array(1.93187, 1, 2.07053, 2.07053),
 "update": 0,
-"values": [Vector2(0, 2), Vector2(0, -1), Vector2(0, 2)]
+"values": [Vector2(0, 1), Vector2(0, 2), Vector2(0, -1), Vector2(0, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -58,62 +58,19 @@ tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.55),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1.12, 0.88), Vector2(0.92, 1.16), Vector2(0.96, 1.08), Vector2(1, 0.913)]
-}
-
-[sub_resource type="Animation" id="Animation_evf56"]
-resource_name = "explodestartup"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 1), Vector2(0, 2), Vector2(0, 1.875), Vector2(0, 2.625), Vector2(0, 2.3), Vector2(0, 3.65), Vector2(0, -1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 0.84), Vector2(1.175, 0.86), Vector2(1.325, 0.82), Vector2(1.26, 0.856), Vector2(1.61, 0.608), Vector2(0.8, 1.32)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"explode"
-}]
+"values": [Vector2(1, 1), Vector2(1.12, 0.92), Vector2(0.9, 1.1), Vector2(0.74646, 1.32), Vector2(0.918277, 1.12), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ym26"]
 _data = {
 "RESET": SubResource("Animation_roeck"),
-"bounce": SubResource("Animation_50v2h"),
-"explodestartup": SubResource("Animation_evf56")
+"bounce": SubResource("Animation_50v2h")
 }
 
-[sub_resource type="Animation" id="Animation_o7g1j"]
+[sub_resource type="Animation" id="Animation_oovy0"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -140,7 +97,7 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_8e7sc"]
+[sub_resource type="Animation" id="Animation_yatvy"]
 resource_name = "fadein"
 length = 0.3
 tracks/0/type = "value"
@@ -168,11 +125,16 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vfoi4"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k7kyx"]
 _data = {
-"RESET": SubResource("Animation_o7g1j"),
-"fadein": SubResource("Animation_8e7sc")
+"RESET": SubResource("Animation_oovy0"),
+"fadein": SubResource("Animation_yatvy")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yeb4w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gqg6m"]
+radius = 4.12311
 
 [sub_resource type="Animation" id="Animation_2akjp"]
 length = 0.001
@@ -227,20 +189,17 @@ _data = {
 "hurt": SubResource("Animation_ei3xv")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m8pl6"]
-
-[node name="EnemyEyeball" type="CharacterBody2D" groups=["enemies"]]
+[node name="EnemySlime" type="CharacterBody2D" groups=["enemies"]]
 z_index = 5
-script = ExtResource("1_ajsir")
-enemyType = "Exploding"
-hp = 10
+script = ExtResource("1_3svnp")
+enemyType = "NormalAttack"
 
 [node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(1, 0.392157, 0.392157, 1)
 self_modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 position = Vector2(0, 1)
-texture = ExtResource("2_842v3")
+texture = ExtResource("2_b6r6i")
 
 [node name="Anim" type="AnimationPlayer" parent="Icon"]
 libraries = {
@@ -249,13 +208,16 @@ libraries = {
 
 [node name="Coloranim" type="AnimationPlayer" parent="Icon"]
 libraries = {
-"": SubResource("AnimationLibrary_vfoi4")
+"": SubResource("AnimationLibrary_k7kyx")
 }
 
-[node name="EffectsAnim" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_tudjj")
-}
+[node name="Rot" type="Node2D" parent="."]
+visible = false
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("3_vfhiw")
 
 [node name="Healthbar" type="TextureProgressBar" parent="."]
 visible = false
@@ -265,26 +227,23 @@ offset_right = 5.0
 offset_bottom = -12.0
 max_value = 10.0
 value = 10.0
-texture_under = ExtResource("3_yfx5n")
-texture_progress = ExtResource("4_1mnfj")
-
-[node name="Rot" type="Node2D" parent="."]
-visible = false
-
-[node name="Rotatingarrow" type="Sprite2D" parent="Rot"]
-texture_filter = 1
-rotation = 1.5708
-texture = ExtResource("2_2gl30")
+texture_under = ExtResource("4_2ysqv")
+texture_progress = ExtResource("5_5ht15")
 
 [node name="HURTbox_Enemy" type="Area2D" parent="."]
-visible = false
 
 [node name="box" type="CollisionShape2D" parent="HURTbox_Enemy"]
-shape = SubResource("CircleShape2D_m8pl6")
+shape = SubResource("CircleShape2D_yeb4w")
+
+[node name="Crowdcollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gqg6m")
+
+[node name="EffectsAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tudjj")
+}
 
 [node name="Sounds" type="Node2D" parent="."]
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("6_yl8u8")
-
-[connection signal="area_entered" from="HURTbox_Enemy" to="." method="_on_hur_tbox_enemy_area_entered"]
+stream = ExtResource("6_6cl64")

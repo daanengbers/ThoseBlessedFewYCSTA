@@ -18,11 +18,17 @@ var randomOffsetSpace = 0
 var randomSprite
 var randomShiny
 
+##Arrow vars
 @onready var arrow = get_parent()
 var arrowPosition = Vector2(0,0)
 var distanceToArrow
 
+##animator vars
 @onready var meeblingAnimator = $Meebling/Anim
+
+##===============================##
+
+###Standard functions###
 
 func _physics_process(_delta):
 	##Movement##
@@ -32,28 +38,15 @@ func _physics_process(_delta):
 			$Rot.look_at(arrowPosition)
 			movement()
 		move_and_slide()
-
-func getDistanceToArrow():
-	##Get the distance to the arrow by comparing locations
-	arrowPosition.x = arrow.position.x + randomxplus
-	arrowPosition.y = arrow.position.y + randomyplus
 	
-	distanceToArrow = abs(global_position - arrowPosition)
+	##Colisions
+	handleCollisions()
 
-func movement():
-	##Check if meebling is falling
-	if !falling:
-		##If distance is big enough, move towards arrow. If not, stop moving
-		if distanceToArrow.x > 12 + randomOffsetSpace or distanceToArrow.y > 12 + randomOffsetSpace:
-			velocity = Vector2(speed + randomSpeedExtra + Globalsettings.currentrun_extraspeed, 0).rotated($Rot.rotation)
-		else:
-			velocity.x = 0
-			velocity.y = 0
-	if falling:
-		velocity.y += 20
-		fallingframes += 1
-	
+###Standard functions###
 
+##===========================================##
+
+###Setup functions###
 
 func randomizeAndSetup():
 	randomize()
@@ -96,12 +89,44 @@ func birthEffectsEnd():
 	meeblingAnimator.play("BounceNew")
 	$Circle.queue_free()
 
+###Setup functions###
+
+##===========================================##
+
+###Movement handling###
+
+func getDistanceToArrow():
+	##Get the distance to the arrow by comparing locations
+	arrowPosition.x = arrow.position.x + randomxplus
+	arrowPosition.y = arrow.position.y + randomyplus
+	
+	distanceToArrow = abs(global_position - arrowPosition)
+
+func movement():
+	##Check if meebling is falling
+	if !falling:
+		##If distance is big enough, move towards arrow. If not, stop moving
+		if distanceToArrow.x > 12 + randomOffsetSpace or distanceToArrow.y > 12 + randomOffsetSpace:
+			velocity = Vector2(speed + randomSpeedExtra + Globalsettings.currentrun_extraspeed, 0).rotated($Rot.rotation)
+		else:
+			velocity.x = 0
+			velocity.y = 0
+	if falling:
+		velocity.y += 20
+		fallingframes += 1
+
 func rotateTowardsEnemy():
 	##If there is a closest enemy, set the rotation of rot2 to it
 	if Globalsettings.globalClosestEnemy != null:
 		$Rot2.look_at(Globalsettings.globalClosestEnemy.global_position)
 	##Return the rotation for use in attacks
 	return $Rot2.rotation
+
+###Movement handling###
+
+##===========================================##
+
+###Death health and hurt handling###
 
 func updateHp():
 	##Set maxHP to starting value + globalsettings
@@ -114,11 +139,26 @@ func updateHp():
 	##Set the actual hp values
 	hp = maxHp
 
-func _on_hurtbox_crowd_area_entered(area):
-	pass
-
-func _on_hurtbox_crowd_area_exited(area):
-	pass # Replace with function body.
+func diefromwater():
+	##Spawn splash at meebling location
+	arrow.spawnMeeblingSplash(global_position)
+	
+	##Stop movement
+	velocity = Vector2(0,0)
+	
+	##Set status to dead and hide sprite and shadow
+	alive = false
+	visible = false
+	$Shadow.visible = false
+	
+	##Play sound effects
+	arrow.playSound("Splash")
+	arrow.playSound("Break")
+	
+	##Kill the meebling
+	await get_tree().create_timer(0.01).timeout
+	arrow.GameOverCheck()
+	queue_free()
 
 func hurt():
 	if alive == true:
@@ -126,9 +166,73 @@ func hurt():
 		meeblingAnimator.play("MeeblingLib/hurt")
 		$Healthbar.value = hp
 		$Healthbar.visible = true
-		get_parent().playSound("Hit")
+		arrow.playSound("Hit")
 
 func kill():
 	alive = false
 	get_parent().playSound("Break")
+	arrow.GameOverCheck()
 	queue_free()
+
+func fallFromHigh():
+	##Set z index to -1 and disable shadow for visuals
+	z_index = -1
+	$Shadow.visible = false
+	
+	##Set velocity to 0 to prevent movement
+	velocity = Vector2(0,0)
+	
+	##Play sound effect
+	arrow.playSound("Fall")
+
+func checkFallDamage():
+	falling = false
+	if fallingframes >= 20 && fallingframes < 40:
+		hp -= 1
+		hurt()
+	if fallingframes >= 40 && fallingframes < 60:
+		hp -= 2
+		hurt()
+	if fallingframes >= 60 && fallingframes < 80:
+		hp -= 4
+		hurt()
+	if fallingframes >= 80 && fallingframes < 100:
+		hp -= 8
+		hurt()
+	if fallingframes >= 100 && fallingframes < 120:
+		hp -= 16
+		hurt()
+	if fallingframes >= 120 && fallingframes < 140:
+		hp -= 32
+		hurt()
+	if fallingframes >= 140:
+		kill()
+	if hp <= 0 && alive == true:
+		kill()
+	fallingframes = 0
+
+###Death health and hurt handling###
+
+##===========================================##
+
+###Collision handling###
+
+func handleCollisions():
+	if $CliffWaterCollider.is_colliding():
+			var collider = $CliffWaterCollider.get_collider()
+			if alive == true:
+				if collider.is_in_group("water_hiddentiles"):
+					diefromwater()
+				if collider.is_in_group("cliffs_hiddentiles"):
+					falling = true
+					if fallingframes == 1:
+						velocity = Vector2(0,0)
+				if collider.is_in_group("highwater_hiddentiles"):
+					fallFromHigh()
+	else:
+		checkFallDamage()
+
+
+###Collision handling###
+
+##===============================##

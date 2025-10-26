@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 ##Stats
 @export var enemyType = "Eyeball"
+@export var spawnMeebOnDeath = false
 @export var hp = 40
 @export var speed = 20
 @export var baseXpDropped = 1
@@ -92,10 +93,10 @@ func rotateTowardsClosestMeebling():
 					
 	if withinReach:
 		match enemyType:
-			"Eyeball":
+			"Exploding":
 				if !startedExploding:
 					explode()
-			"Ghost":
+			"NormalAttack":
 				if meeblingToDamage != null:
 					meeblingToDamage.hp -= 1
 					meeblingToDamage.hurt()
@@ -138,7 +139,10 @@ func kill():
 	Globalsettings.global_xp += baseXpDropped ##Add scaled amount##!!
 	spawnXpEffect()
 	
-	##spawn_exporb()
+	if spawnMeebOnDeath:
+		var arrow = get_tree().get_first_node_in_group("CrowdSimulation")
+		arrow.birthMeebling(global_position)
+		
 	queue_free()
 
 func _on_hur_tbox_enemy_area_entered(area):

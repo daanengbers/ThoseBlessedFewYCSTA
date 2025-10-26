@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://gye6sxa3o7gs"]
+[gd_scene load_steps=70 format=3 uid="uid://gye6sxa3o7gs"]
 
 [ext_resource type="Script" path="res://Scenes/Crowd_Simulation_New.gd" id="1_4f4g1"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="2_0iapw"]
@@ -368,6 +368,8 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pnur0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p70ly"]
 
 [node name="CrowdSimulationNew" type="CharacterBody2D" groups=["CrowdSimulation"]]
 script = ExtResource("1_4f4g1")
@@ -1593,11 +1595,12 @@ script = ExtResource("8_ytq54")
 
 [node name="Timers" type="Node2D" parent="."]
 
-[node name="AttackTimer" type="Timer" parent="Timers"]
-wait_time = 0.05
-one_shot = true
-
 [node name="SpellCooldown" type="Timer" parent="Timers"]
+
+[node name="CrowdSimulator_Area" type="Area2D" parent="." groups=["Arrow"]]
+
+[node name="box" type="CollisionShape2D" parent="CrowdSimulator_Area"]
+shape = SubResource("CircleShape2D_p70ly")
 
 [connection signal="timeout" from="UI/PauseMenu/UnpauseTimer" to="UI/PauseMenu" method="_on_unpause_timer_timeout"]
 [connection signal="timeout" from="UI/PauseMenu/PressedTimer" to="UI/PauseMenu" method="_on_pressed_timer_timeout"]
@@ -1608,3 +1611,5 @@ one_shot = true
 [connection signal="timeout" from="UI/SacrificeMeeblingScreen/UnpauseTimerSac" to="UI/SacrificeMeeblingScreen" method="_on_unpause_timer_sac_timeout"]
 [connection signal="timeout" from="UI/SacrificeMeeblingScreen/CanpressTimerSac" to="UI/SacrificeMeeblingScreen" method="_on_canpress_timer_sac_timeout"]
 [connection signal="timeout" from="Timers/SpellCooldown" to="." method="_on_spell_cooldown_timeout"]
+[connection signal="area_entered" from="CrowdSimulator_Area" to="." method="_on_crowd_simulator_area_area_entered"]
+[connection signal="area_exited" from="CrowdSimulator_Area" to="." method="_on_crowd_simulator_area_area_exited"]

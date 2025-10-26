@@ -71,11 +71,12 @@ func levelUp(ButtonNumber):
 			pass
 
 func UpdateStats(amountToIncreaseDecrease):
+	var arrow = get_tree().get_first_node_in_group("CrowdSimulation")
 	##Check the statID and up the right stats
 	match statID:
 		"HP":
 			Globalsettings.currentrun_extrahealth += amountToIncreaseDecrease
-			get_tree().call_group("crowd_m", "updateHp")
+			get_tree().call_group("meeblings", "updateHp")
 			
 		"ATTACK":
 			Globalsettings.currentrun_extraattack += amountToIncreaseDecrease
@@ -93,7 +94,7 @@ func UpdateStats(amountToIncreaseDecrease):
 			Globalsettings.currentrun_extrabounce += amountToIncreaseDecrease
 			
 		"MAXED":
-			get_tree().call_group("crowd_m", "updateHp")
+			get_tree().call_group("meeblings", "updateHp")
 
 func updateSpells(spellToSetNumber):
 	match statID:

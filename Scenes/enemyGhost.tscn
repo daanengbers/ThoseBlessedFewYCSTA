@@ -186,8 +186,9 @@ _data = {
 }
 
 [node name="EnemyGhost" type="CharacterBody2D" groups=["enemies"]]
+z_index = 5
 script = ExtResource("1_knbxy")
-enemyType = "Ghost"
+enemyType = "NormalAttack"
 speed = 70
 
 [node name="Icon" type="Sprite2D" parent="."]

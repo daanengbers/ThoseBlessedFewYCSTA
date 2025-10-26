@@ -28,6 +28,7 @@ var cooldownspeed = .2
 
 ##Preload vars
 var meebling = preload("res://Scenes/MeeblingNew.tscn")
+var deadSplash = preload("res://Scenes/watersplash.tscn")
 
 var bullet = preload("res://Scenes/bullet_fromcrowd.tscn")
 var fireBall = preload("res://Scenes/bullet_fromcrowd_fireball.tscn")
@@ -43,7 +44,30 @@ var enemies
 var cooldown = 100
 @export var beginCooldown = 100
 
+##Game state vars
+var gameOver = false
+
+##===============================##
+
+###Standard functions###
+
 func _ready():
+	birthMeebling(global_position)
+	birthMeebling(global_position)
+	birthMeebling(global_position)
+	birthMeebling(global_position)
+	birthMeebling(global_position)
+	birthMeebling(global_position)
+	birthMeebling(global_position)
+	birthMeebling(global_position)
+	birthMeebling(global_position)
+	birthMeebling(global_position)
+	birthMeebling(global_position)
+	birthMeebling(global_position)
+	birthMeebling(global_position)
+	birthMeebling(global_position)
+	birthMeebling(global_position)
+	birthMeebling(global_position)
 	birthMeebling(global_position)
 	birthMeebling(global_position)
 	birthMeebling(global_position)
@@ -66,7 +90,7 @@ func _physics_process(_delta):
 			cooldown -= 1
 	if cooldown == 0:
 		##currentextrabullets = Globalsettings.currentrun_extrabullets
-		basicAttack()
+		basicAttack(Globalsettings.currentrun_extrabullets)
 		cooldown = beginCooldown - Globalsettings.currentrun_minuscooldown
 	
 	##Abillities
@@ -81,6 +105,49 @@ func _physics_process(_delta):
 	
 	##CooldownUI
 	spelCooldownUI()
+	
+	$UI/GameTimerUI.set_text(str(Globalsettings.g_uiminutes) + ":" + str(Globalsettings.g_uisecconds))
+	$UI/EnemiesAliveUI.set_text(str(Globalsettings.g_enemiesAlive))
+
+func GameOverCheck():
+	##Get meeblings
+	meeblings = get_tree().get_nodes_in_group("meeblings")
+	
+	##If all meeblings are dead, handle gameover
+	if meeblings.size() <= 1:
+		if gameOver == false:
+			gameOver = true
+			velocity.x = 0
+			velocity.y = 0
+			$UI/Deathscreen.visible = true
+			$UI/Deathscreen/Score.set_text("Score: " + str(Globalsettings.global_total_xp))
+			
+			##Go back to main menu after 6 secconds
+			await get_tree().create_timer(6.0).timeout
+			if Globalsettings.highscore_xp < Globalsettings.global_total_xp:
+				Globalsettings.highscore_xp = Globalsettings.global_total_xp
+			get_tree().change_scene_to_file("res://Scenes/new_titlescreen.tscn")
+###Standard functions###
+
+##===========================================##
+
+###Movement handling###
+
+func get_Input():
+	var vertical = Input.get_axis("up", "down")
+	var horizontal = Input.get_axis("left", "right")
+	return Vector2(horizontal, vertical)
+
+func movement():
+	var direction = get_Input()
+	velocity = velocity.lerp(direction.normalized() * (arrowSpeed + Globalsettings.currentrun_extraspeed), acceleration ) ##+ Globalsettings.currentrun_extraspeed
+	move_and_slide()
+
+###Movement handling###
+
+##===========================================##
+
+###Meebling functions###
 
 func birthMeebling(spawnPos):
 	##Instantiate meebling
@@ -111,6 +178,25 @@ func birthMeebling(spawnPos):
 func meeblingDied():
 	##When a meebling dies, check the amount of meeblings left and act accordingly
 	pass
+
+func meeblingSplash(locationToSpawn):
+	var splashIn = deadSplash.instantiate()
+	splashIn.global_location = locationToSpawn
+
+func sacMeeblings(meebAmountToSac):
+	##Sac the specified amount of meeblings
+	pass
+
+func spawnMeeblingSplash(locationToSpawn):
+	var splashIn = deadSplash.instantiate()
+	add_child.call_deferred(splashIn)
+	splashIn.global_position = locationToSpawn
+
+###Meebling functions###
+
+##===========================================##
+
+###Get closest entities###
 
 func getClosestEnemy():
 	##Make an array with all enemies
@@ -160,7 +246,13 @@ func getClosestMeebling():
 				Globalsettings.globalClosestMeeblingQ4 = meeb
 				closestDistanceQ4 = distanceQ4
 
-func basicAttack():
+###Get closest entities###
+
+##===========================================##
+
+###Attack and spell handling###
+
+func basicAttack(howOftenToAttack):
 	##Get the closest enemy
 	getClosestEnemy()
 	
@@ -189,10 +281,11 @@ func basicAttack():
 		
 		##Set the rotation of the bullet to match the direction of the bullet
 		bullet.rotation = rotation
-		
-	##if currentextrabullets > 0:
-		##$Timers/DoubleBulletTimer.start()
-		##currentextrabullets -= 1
+	
+	##If there are extra attacks, handle them with a slight delay
+	if howOftenToAttack > 0:
+		await get_tree().create_timer(0.02).timeout
+		basicAttack(howOftenToAttack - 1)
 
 func shootFireBall():
 	##Get the closest enemy
@@ -274,7 +367,6 @@ func shootPoison():
 		
 		##Set the bullet position to the position of the meebling
 		poisonIn.global_position = meeb.global_position
-		
 
 func shootFrost():
 	##Get the closest enemy
@@ -305,27 +397,6 @@ func shootFrost():
 		
 		##Set the rotation of the bullet to match the direction of the bullet
 		frostIn.rotation = rotation
-
-func sacMeeblings(meebAmountToSac):
-	##Sac the specified amount of meeblings
-	pass
-
-func get_Input():
-	var vertical = Input.get_axis("up", "down")
-	var horizontal = Input.get_axis("left", "right")
-	return Vector2(horizontal, vertical)
-
-func movement():
-	var direction = get_Input()
-	velocity = velocity.lerp(direction.normalized() * (arrowSpeed + Globalsettings.currentrun_extraspeed), acceleration ) ##+ Globalsettings.currentrun_extraspeed
-	move_and_slide()
-
-func playSound(soundToPlay):
-	match soundToPlay:
-		"Hit":
-			$Sounds/Hit.play()
-		"Break":
-			$Sounds/Break.play()
 
 func spelCooldownUI():
 	if spell1cooldown > 0:
@@ -410,6 +481,22 @@ func castSpelsOnInput():
 			shootFrost()
 			spellCooldownTimer.start()
 
+func _on_spell_cooldown_timeout():
+	if spellnumber == 1:
+		spell1cooldown = 100
+	if spellnumber == 2:
+		spell2cooldown = 100
+	if spellnumber == 3:
+		spell3cooldown = 100
+	if spellnumber == 4:
+		spell4cooldown = 100
+
+###Attack and spell handling###
+
+##===========================================##
+
+###Leveling system###
+
 func expSystem():
 	$UI/LVLbar.value = Globalsettings.global_xp
 	$UI/LVLtext.set_text("Level: " + str(level))
@@ -464,13 +551,36 @@ func displayupgrades():
 	if Globalsettings.currentrun_minuscooldown == 0:
 		$UI/PauseMenu/StatSheet/Text_CDNlvl.modulate = Color(1,1,1)
 
+###Leveling system###
 
-func _on_spell_cooldown_timeout():
-	if spellnumber == 1:
-		spell1cooldown = 100
-	if spellnumber == 2:
-		spell2cooldown = 100
-	if spellnumber == 3:
-		spell3cooldown = 100
-	if spellnumber == 4:
-		spell4cooldown = 100
+##===========================================##
+
+###Sound effects###
+
+func playSound(soundToPlay):
+	match soundToPlay:
+		"Hit":
+			$Sounds/Hit.play()
+		"Break":
+			$Sounds/Break.play()
+		"Splash":
+			$Sounds/SoundsSplash.play()
+		"Fall":
+			$Sounds/Fall.play()
+
+###Sound effects###
+
+##===========================================##
+
+###Colision handling###
+
+func _on_crowd_simulator_area_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_crowd_simulator_area_area_exited(area):
+	pass # Replace with function body.
+
+###Colision handling###
+
+##===============================##
