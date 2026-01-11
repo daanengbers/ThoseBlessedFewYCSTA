@@ -9,6 +9,7 @@ var alive = true
 var falling = false
 var isIncapacitated = false
 var fallingframes = 0
+var marked = false
 
 ##Randomized vars per meebling
 var randomSpeedExtra = 0

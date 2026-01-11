@@ -1,8 +1,7 @@
-[gd_scene load_steps=146 format=3 uid="uid://befm77q2ygqmu"]
+[gd_scene load_steps=145 format=3 uid="uid://befm77q2ygqmu"]
 
 [ext_resource type="Script" path="res://Script/mainscene.gd" id="1_sbta7"]
 [ext_resource type="PackedScene" uid="uid://bb8bwc5ht3nc2" path="res://Scenes/rippletiles.tscn" id="1_vfjjl"]
-[ext_resource type="PackedScene" uid="uid://c46w1oefw787c" path="res://Scenes/enemy_spawner.tscn" id="2_47qke"]
 [ext_resource type="Texture2D" uid="uid://b35lpeblxr4uq" path="res://Assets/Environment_Sprites/WoodenBridge2h.png" id="2_a1yrb"]
 [ext_resource type="PackedScene" uid="uid://7e6n8mnxghg7" path="res://Scenes/BossBase.tscn" id="2_u02q7"]
 [ext_resource type="Texture2D" uid="uid://y00856mc6e1o" path="res://Assets/Tilesets/TileSetDeadlands (1).png" id="3_m8siw"]
@@ -2671,10 +2670,6 @@ _data = {
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_sbta7")
 
-[node name="EnemySpawner" parent="." instance=ExtResource("2_47qke")]
-
-[node name="BossBase" parent="." instance=ExtResource("2_u02q7")]
-
 [node name="Tilesets" type="Node2D" parent="."]
 texture_filter = 1
 
@@ -2827,6 +2822,9 @@ layer_0/tile_data = PackedInt32Array(-1507300, 65536, 805306368, -1507299, 65536
 
 [node name="Ysorter" type="Node2D" parent="." groups=["Ysorter"]]
 y_sort_enabled = true
+
+[node name="BossBase" parent="Ysorter" instance=ExtResource("2_u02q7")]
+z_index = 4
 
 [node name="CastleDoorArea" type="Area2D" parent="Ysorter" groups=["CastleDoor"]]
 

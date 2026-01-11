@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://gye6sxa3o7gs"]
+[gd_scene load_steps=68 format=3 uid="uid://gye6sxa3o7gs"]
 
 [ext_resource type="Script" path="res://Scenes/Crowd_Simulation_New.gd" id="1_4f4g1"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="2_0iapw"]
@@ -32,7 +32,6 @@
 [ext_resource type="Texture2D" uid="uid://c5yw41i5s8ra" path="res://Assets/UI/Meeblingbuttons.png" id="19_qro8q"]
 [ext_resource type="Texture2D" uid="uid://dcqqw175nsbbw" path="res://Assets/UI/lvlbar_empty.png" id="20_vepmi"]
 [ext_resource type="Texture2D" uid="uid://cxmshi48066ak" path="res://Assets/UI/lvlbar_full.png" id="21_jof3b"]
-[ext_resource type="Script" path="res://Script/SelectLevelupscreen.gd" id="22_o5i4q"]
 [ext_resource type="Texture2D" uid="uid://cg180gfaancl0" path="res://Assets/UI/Buttonshowcase.png" id="23_40i7b"]
 [ext_resource type="FontFile" uid="uid://b85f1e3h4hl2q" path="res://Fonts/Retro Gaming.ttf" id="24_mfuhi"]
 [ext_resource type="Texture2D" uid="uid://dsh5841pjc8i5" path="res://Assets/Particle_Sprites/YCSTA_Souldparticles.png" id="25_6b0nc"]
@@ -130,6 +129,14 @@ _data = {
 base_font = ExtResource("5_3jsnd")
 spacing_space = -4
 
+[sub_resource type="Gradient" id="Gradient_vre8q"]
+offsets = PackedFloat32Array(0, 0.486667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_cns18"]
+offsets = PackedFloat32Array(0, 0.313333, 0.686667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.431865, 1, 0.400656, 1, 0.431373, 1, 0.858824, 1, 1, 1, 1, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_j74bb"]
 atlas = ExtResource("23_40i7b")
 region = Rect2(0, 0, 64, 32)
@@ -182,14 +189,6 @@ animations = [{
 "name": &"keyboard",
 "speed": 5.0
 }]
-
-[sub_resource type="Gradient" id="Gradient_vre8q"]
-offsets = PackedFloat32Array(0, 0.486667, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_cns18"]
-offsets = PackedFloat32Array(0, 0.313333, 0.686667, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.431865, 1, 0.400656, 1, 0.431373, 1, 0.858824, 1, 1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_rcns4"]
 length = 0.001
@@ -473,24 +472,24 @@ vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="UI/PauseMenu"]
 z_index = 1
-offset_right = 320.0
-offset_bottom = 180.0
+offset_right = 480.0
+offset_bottom = 270.0
 color = Color(0, 0, 0, 0.835294)
 
 [node name="SplashArtLettersOnly" type="Sprite2D" parent="UI/PauseMenu"]
 z_index = 2
 texture_filter = 1
-position = Vector2(160, 29)
+position = Vector2(240, 29)
 texture = ExtResource("6_sbvce")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="UI/PauseMenu"]
-position = Vector2(160, 187)
-amount = 30
-lifetime = 4.0
+position = Vector2(244, 270)
+amount = 60
+lifetime = 6.0
 preprocess = 4.0
 texture = ExtResource("7_lbxif")
 emission_shape = 3
-emission_rect_extents = Vector2(160, 1)
+emission_rect_extents = Vector2(300, 1)
 particle_flag_align_y = true
 direction = Vector2(0, -1)
 spread = 14.0
@@ -1173,94 +1172,6 @@ theme_override_fonts/font = ExtResource("5_3jsnd")
 text = "Level 1"
 horizontal_alignment = 1
 
-[node name="SelectLevelupscreen" type="Node2D" parent="UI"]
-process_mode = 3
-visible = false
-script = ExtResource("22_o5i4q")
-
-[node name="Blackrect" type="ColorRect" parent="UI/SelectLevelupscreen"]
-offset_right = 481.0
-offset_bottom = 270.0
-color = Color(0, 0, 0, 0.784314)
-
-[node name="buttonstopress" type="AnimatedSprite2D" parent="UI/SelectLevelupscreen/Blackrect"]
-texture_filter = 1
-position = Vector2(284, 154)
-sprite_frames = SubResource("SpriteFrames_648yf")
-animation = &"keyboard"
-
-[node name="Text1" type="Label" parent="UI/SelectLevelupscreen"]
-texture_filter = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 175.0
-offset_top = 6.0
-offset_right = 305.0
-offset_bottom = 34.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("24_mfuhi")
-theme_override_font_sizes/font_size = 22
-text = "LEVEL UP!"
-horizontal_alignment = 1
-
-[node name="CardArrow" type="Sprite2D" parent="UI/SelectLevelupscreen"]
-z_index = 1
-texture_filter = 1
-position = Vector2(90, 144)
-texture = ExtResource("3_onkk8")
-hframes = 2
-vframes = 2
-
-[node name="Anim" type="AnimationPlayer" parent="UI/SelectLevelupscreen/CardArrow"]
-libraries = {
-"": SubResource("AnimationLibrary_v57cf")
-}
-
-[node name="UnpauseTimer" type="Timer" parent="UI/SelectLevelupscreen"]
-wait_time = 1.2
-one_shot = true
-
-[node name="CanpressTimer" type="Timer" parent="UI/SelectLevelupscreen"]
-wait_time = 0.4
-one_shot = true
-
-[node name="Tut" type="Label" parent="UI/SelectLevelupscreen"]
-texture_filter = 1
-offset_left = 4.0
-offset_top = 147.0
-offset_right = 257.0
-offset_bottom = 160.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("5_3jsnd")
-text = "Press with the button you want to assign it to"
-horizontal_alignment = 1
-
-[node name="Confetti" type="CPUParticles2D" parent="UI/SelectLevelupscreen"]
-texture_filter = 1
-position = Vector2(160, 188)
-emitting = false
-amount = 16
-one_shot = true
-explosiveness = 0.9
-texture = ExtResource("25_6b0nc")
-emission_shape = 3
-emission_rect_extents = Vector2(160, 8)
-direction = Vector2(0, -1)
-spread = 15.0
-gravity = Vector2(0, -98)
-initial_velocity_min = 100.0
-initial_velocity_max = 160.0
-scale_amount_max = 1.4
-color_ramp = SubResource("Gradient_vre8q")
-color_initial_ramp = SubResource("Gradient_cns18")
-
 [node name="SacrificeMeeblingScreen" type="Node2D" parent="UI"]
 process_mode = 3
 visible = false
@@ -1629,8 +1540,6 @@ shape = SubResource("CircleShape2D_p70ly")
 [connection signal="timeout" from="UI/PauseMenu/PressedTimer" to="UI/PauseMenu" method="_on_pressed_timer_timeout"]
 [connection signal="value_changed" from="UI/PauseMenu/Settings/SFX_bar" to="UI/PauseMenu" method="_on_sfx_bar_value_changed"]
 [connection signal="value_changed" from="UI/PauseMenu/Settings/Music_bar" to="UI/PauseMenu" method="_on_music_bar_value_changed"]
-[connection signal="timeout" from="UI/SelectLevelupscreen/UnpauseTimer" to="UI/SelectLevelupscreen" method="_on_unpause_timer_timeout"]
-[connection signal="timeout" from="UI/SelectLevelupscreen/CanpressTimer" to="UI/SelectLevelupscreen" method="_on_canpress_timer_timeout"]
 [connection signal="timeout" from="UI/SacrificeMeeblingScreen/UnpauseTimerSac" to="UI/SacrificeMeeblingScreen" method="_on_unpause_timer_sac_timeout"]
 [connection signal="timeout" from="UI/SacrificeMeeblingScreen/CanpressTimerSac" to="UI/SacrificeMeeblingScreen" method="_on_canpress_timer_sac_timeout"]
 [connection signal="timeout" from="Timers/SpellCooldown" to="." method="_on_spell_cooldown_timeout"]

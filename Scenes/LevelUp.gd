@@ -322,7 +322,7 @@ func spawncards(xpos, stat):
 	##add_child.call_deferred(ca)
 	$UI/LevelUpUI.add_child(ca)
 	ca.position.x = xpos
-	ca.position.y = global_position.y + 100
+	ca.position.y = global_position.y + 150
 	if xpos == 100:
 		card1 = ca
 	if xpos == 240:

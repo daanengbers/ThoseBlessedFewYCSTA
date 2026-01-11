@@ -72,12 +72,13 @@ script = ExtResource("1_u64b8")
 
 [node name="LevelUpUI" type="Node2D" parent="UI"]
 process_mode = 3
+visible = false
 z_index = 20
 
 [node name="CardArrow" type="Sprite2D" parent="UI/LevelUpUI"]
 z_index = 22
 texture_filter = 1
-position = Vector2(90, 144)
+position = Vector2(90, 200)
 texture = ExtResource("5_q2ag7")
 hframes = 2
 vframes = 2
