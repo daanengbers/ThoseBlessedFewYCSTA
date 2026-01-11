@@ -72,7 +72,6 @@ script = ExtResource("1_u64b8")
 
 [node name="LevelUpUI" type="Node2D" parent="UI"]
 process_mode = 3
-visible = false
 z_index = 20
 
 [node name="CardArrow" type="Sprite2D" parent="UI/LevelUpUI"]
@@ -89,15 +88,22 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="UI/LevelUpUI"]
-offset_right = 320.0
-offset_bottom = 180.0
+offset_right = 480.0
+offset_bottom = 270.0
 color = Color(0.188235, 0.188235, 0.188235, 0.662745)
 
 [node name="Label" type="Label" parent="UI/LevelUpUI"]
 texture_filter = 1
-offset_top = 24.0
-offset_right = 320.0
-offset_bottom = 54.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 20.0
+offset_right = 480.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4

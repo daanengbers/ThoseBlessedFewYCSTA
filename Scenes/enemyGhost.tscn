@@ -241,3 +241,5 @@ libraries = {
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("6_t27kh")
+
+[connection signal="area_entered" from="HURTbox_Enemy" to="." method="_on_hur_tbox_enemy_area_entered"]

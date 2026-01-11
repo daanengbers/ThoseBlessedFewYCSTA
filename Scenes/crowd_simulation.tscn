@@ -948,7 +948,7 @@ texture = ExtResource("13_66fi2")
 
 [node name="Box02" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(274, 17)
+position = Vector2(423, 23)
 texture = ExtResource("3_rhqmm")
 metadata/_edit_group_ = true
 
@@ -980,7 +980,7 @@ texture_progress = ExtResource("7_qp7we")
 
 [node name="Box01" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(245, 35)
+position = Vector2(394, 41)
 texture = ExtResource("3_rhqmm")
 metadata/_edit_group_ = true
 
@@ -1028,7 +1028,7 @@ vertical_alignment = 2
 
 [node name="Box04" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(303, 35)
+position = Vector2(452, 41)
 texture = ExtResource("3_rhqmm")
 metadata/_edit_group_ = true
 
@@ -1060,7 +1060,7 @@ texture_progress = ExtResource("7_qp7we")
 
 [node name="Box03" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(274, 54)
+position = Vector2(423, 60)
 texture = ExtResource("3_rhqmm")
 metadata/_edit_group_ = true
 
@@ -1258,10 +1258,17 @@ metadata/_edit_use_anchors_ = true
 
 [node name="LVLbar" type="TextureProgressBar" parent="UI"]
 texture_filter = 1
-offset_left = 60.0
-offset_top = 169.0
-offset_right = 260.0
-offset_bottom = 175.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 120.0
+offset_right = 100.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
 max_value = 5.0
 texture_under = ExtResource("9_hlga0")
 texture_progress = ExtResource("10_gf5as")
@@ -1277,10 +1284,17 @@ color = Color(0, 0, 0, 1)
 
 [node name="LVLtext" type="Label" parent="UI"]
 texture_filter = 1
-offset_left = 60.0
-offset_top = 160.0
-offset_right = 260.0
-offset_bottom = 173.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 105.0
+offset_right = 100.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_gjq7j")

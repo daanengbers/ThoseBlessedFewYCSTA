@@ -72,11 +72,11 @@ func _process(_delta):
 
 func setselectarrow():
 	if cardselected == 1:
-		$CardArrow.position.x = 90
+		$CardArrow.position.x = 100
 	if cardselected == 2:
-		$CardArrow.position.x = 160
+		$CardArrow.position.x = 240
 	if cardselected == 3:
-		$CardArrow.position.x = 230
+		$CardArrow.position.x = 380
 
 func spawncards(xpos):
 	canselectcard = false
@@ -85,12 +85,12 @@ func spawncards(xpos):
 	var ca = CARD.instantiate()
 	add_child.call_deferred(ca)
 	ca.position.x = xpos
-	ca.position.y = global_position.y + 100
-	if xpos == 90:
+	ca.position.y = global_position.y -100
+	if xpos == 100:
 		card1 = ca
-	if xpos == 160:
+	if xpos == 240:
 		card2 = ca
-	if xpos == 230:
+	if xpos == 380:
 		card3 = ca
 
 func _on_unpause_timer_timeout():

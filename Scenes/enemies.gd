@@ -16,7 +16,7 @@ var alive = true
 @export var canflip = false
 
 ##Targeting vars
-var quadrant = 1
+var quadrant
 var distanceToMeebling
 var meeblingToDamage
 var withinReach = false

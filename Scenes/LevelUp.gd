@@ -245,6 +245,7 @@ func _process(delta):
 
 func levelUpInit():
 	##Begins the level up process
+	#LevelUpUI
 	$UI/LevelUpUI.visible = true
 	pressed = false
 	inmenu = true
@@ -270,9 +271,9 @@ func levelUpInit():
 		stat3 = pickedCards[2]
 		
 		##Spawn three cards and assign the randomly picked stats
-		spawncards(90, stat1)
-		spawncards(160, stat2)
-		spawncards(230, stat3)
+		spawncards(100, stat1)
+		spawncards(240, stat2)
+		spawncards(380, stat3)
 		
 	#Checks if all stat slots are locked
 	if allSlotLocked == true:
@@ -322,21 +323,21 @@ func spawncards(xpos, stat):
 	$UI/LevelUpUI.add_child(ca)
 	ca.position.x = xpos
 	ca.position.y = global_position.y + 100
-	if xpos == 90:
+	if xpos == 100:
 		card1 = ca
-	if xpos == 160:
+	if xpos == 240:
 		card2 = ca
-	if xpos == 230:
+	if xpos == 380:
 		card3 = ca
 
 func setselectarrow():
 	##Move the arrow to the selected card
 	if cardselected == 1:
-		$UI/LevelUpUI/CardArrow.position.x = 90
+		$UI/LevelUpUI/CardArrow.position.x = 100
 	if cardselected == 2:
-		$UI/LevelUpUI/CardArrow.position.x = 160
+		$UI/LevelUpUI/CardArrow.position.x = 240
 	if cardselected == 3:
-		$UI/LevelUpUI/CardArrow.position.x = 230
+		$UI/LevelUpUI/CardArrow.position.x = 380
 
 func assignStatToSlot(statToAssign):
 	if currentStatToLock <= maxStatToLock:
