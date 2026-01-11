@@ -6,6 +6,7 @@ extends Node2D
 #var GHOST = preload("res://Scenes/enemy_ghost.tscn")
 #var SCARAB = preload("res://Scenes/enemy_scarab.tscn")
 #var LESTER = preload("res://Scenes/enemy_lesterskeleton.tscn")
+@export var enabled = false
 
 var skull = preload("res://Scenes/enemySkull.tscn")
 var eyeBall = preload("res://Scenes/enemyEyball.tscn")
@@ -34,16 +35,17 @@ var randomLesterNumber
 var max_enemies = 300
 
 func _ready():
-	randomize()
-	randomspawnlocx = randi_range(-160, 160)
-	randomspawnlocy = randi_range(-90,90)
-	spawnskullenemy()
-	randomspawnlocx = randi_range(-160, 160)
-	randomspawnlocy = randi_range(-90,90)
-	spawnskullenemy()
-	randomspawnlocx = randi_range(-160, 160)
-	randomspawnlocy = randi_range(-90,90)
-	spawnskullenemy()
+	if enabled == true:
+		randomize()
+		randomspawnlocx = randi_range(-160, 160)
+		randomspawnlocy = randi_range(-90,90)
+		spawnskullenemy()
+		randomspawnlocx = randi_range(-160, 160)
+		randomspawnlocy = randi_range(-90,90)
+		spawnskullenemy()
+		randomspawnlocx = randi_range(-160, 160)
+		randomspawnlocy = randi_range(-90,90)
+		spawnskullenemy()
 
 func _process(_delta):
 	$Label.set_text(str(secconds))
@@ -221,82 +223,83 @@ func _on_spawn_timer_timeout():
 
 
 func _on_level_timer_timeout():
-	level += 1
-	match level:
-		2:
-			$SpawnTimer.wait_time = 3.5
-		3:
-			$SpawnTimer.wait_time = 3.3
-		4:
-			$SpawnTimer.wait_time = 2.8
-		5:
-			$SpawnTimer.wait_time = 2.6
-			highesttypeenemy += 1 #Eyeball enemies
-		6:
-			$SpawnTimer.wait_time = 3
-			amountToSpawn +=2
-		8:
-			$SpawnTimer.wait_time = 2.9
-		10:
-			$SpawnTimer.wait_time = 2.8
-		12:
-			amountToSpawn +=1
-			highesttypeenemy += 1
-			$SpawnTimer.wait_time = 2
-		14:
-			$SpawnTimer.wait_time = 1.9
-		16:
-			$SpawnTimer.wait_time = 1.6
-		18:
-			$SpawnTimer.wait_time = 1.5
-			amountToSpawn +=3
-		20:
-			$SpawnTimer.wait_time = 1.4
-		22:
-			$SpawnTimer.wait_time = 1.2
-		24:
-			$SpawnTimer.wait_time = 1
-			highesttypeenemy += 1 # Slime enemies
-		26:
-			$SpawnTimer.wait_time = 0.9
-		28:
-			amountToSpawn +=1
-			$SpawnTimer.wait_time = 0.8
-		30:
-			$SpawnTimer.wait_time = 0.7
-		32:
-			$SpawnTimer.wait_time = 0.6
-		34:
-			$SpawnTimer.wait_time = 0.5
-		36:
-			$SpawnTimer.wait_time = 0.4
-		38:
-			$SpawnTimer.wait_time = 0.3
-		40:
-			$SpawnTimer.wait_time = 0.2
-		42:
-			$SpawnTimer.wait_time = 0.1
-		44:
-			$SpawnTimer.wait_time = 0.09
-		46:
-			$SpawnTimer.wait_time = 0.08
-		48:
-			$SpawnTimer.wait_time = 0.07
-		50:
-			highesttypeenemy += 1 # Scarab enemies
-			$SpawnTimer.wait_time = 0.06
-		52:
-			$SpawnTimer.wait_time = 0.05
-		54:
-			$SpawnTimer.wait_time = 0.04
-		56:
-			$SpawnTimer.wait_time = 0.03
-		58:
-			$SpawnTimer.wait_time = 0.02
-		60:
-			$SpawnTimer.wait_time = 0.01
-	
-	$LevelTimer.start()
+	if enabled == true:
+		level += 1
+		match level:
+			2:
+				$SpawnTimer.wait_time = 3.5
+			3:
+				$SpawnTimer.wait_time = 3.3
+			4:
+				$SpawnTimer.wait_time = 2.8
+			5:
+				$SpawnTimer.wait_time = 2.6
+				highesttypeenemy += 1 #Eyeball enemies
+			6:
+				$SpawnTimer.wait_time = 3
+				amountToSpawn +=2
+			8:
+				$SpawnTimer.wait_time = 2.9
+			10:
+				$SpawnTimer.wait_time = 2.8
+			12:
+				amountToSpawn +=1
+				highesttypeenemy += 1
+				$SpawnTimer.wait_time = 2
+			14:
+				$SpawnTimer.wait_time = 1.9
+			16:
+				$SpawnTimer.wait_time = 1.6
+			18:
+				$SpawnTimer.wait_time = 1.5
+				amountToSpawn +=3
+			20:
+				$SpawnTimer.wait_time = 1.4
+			22:
+				$SpawnTimer.wait_time = 1.2
+			24:
+				$SpawnTimer.wait_time = 1
+				highesttypeenemy += 1 # Slime enemies
+			26:
+				$SpawnTimer.wait_time = 0.9
+			28:
+				amountToSpawn +=1
+				$SpawnTimer.wait_time = 0.8
+			30:
+				$SpawnTimer.wait_time = 0.7
+			32:
+				$SpawnTimer.wait_time = 0.6
+			34:
+				$SpawnTimer.wait_time = 0.5
+			36:
+				$SpawnTimer.wait_time = 0.4
+			38:
+				$SpawnTimer.wait_time = 0.3
+			40:
+				$SpawnTimer.wait_time = 0.2
+			42:
+				$SpawnTimer.wait_time = 0.1
+			44:
+				$SpawnTimer.wait_time = 0.09
+			46:
+				$SpawnTimer.wait_time = 0.08
+			48:
+				$SpawnTimer.wait_time = 0.07
+			50:
+				highesttypeenemy += 1 # Scarab enemies
+				$SpawnTimer.wait_time = 0.06
+			52:
+				$SpawnTimer.wait_time = 0.05
+			54:
+				$SpawnTimer.wait_time = 0.04
+			56:
+				$SpawnTimer.wait_time = 0.03
+			58:
+				$SpawnTimer.wait_time = 0.02
+			60:
+				$SpawnTimer.wait_time = 0.01
+		
+		$LevelTimer.start()
 
 
 func _on_lester_timer_timeout():

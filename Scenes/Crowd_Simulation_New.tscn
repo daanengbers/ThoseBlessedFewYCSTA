@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://gye6sxa3o7gs"]
+[gd_scene load_steps=69 format=3 uid="uid://gye6sxa3o7gs"]
 
 [ext_resource type="Script" path="res://Scenes/Crowd_Simulation_New.gd" id="1_4f4g1"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="2_0iapw"]
@@ -39,7 +39,6 @@
 [ext_resource type="Script" path="res://Scenes/SacrificeMeeblingScreen.gd" id="26_cjs6b"]
 [ext_resource type="Texture2D" uid="uid://d21gc6pesq6l3" path="res://Assets/UI/GameOver.png" id="27_kk31k"]
 [ext_resource type="PackedScene" uid="uid://c6eexehntobs7" path="res://Scenes/NewLevelUpSystemTest/StatHolder.tscn" id="28_4404o"]
-[ext_resource type="PackedScene" uid="uid://c46w1oefw787c" path="res://Scenes/enemy_spawner.tscn" id="40_q7c3j"]
 
 [sub_resource type="Animation" id="Animation_yqass"]
 length = 0.001
@@ -1488,6 +1487,7 @@ position = Vector2(-80, 45)
 position = Vector2(80, 45)
 
 [node name="Q1Area" type="Area2D" parent="QuadrantSystem" groups=["Q1"]]
+visible = false
 position = Vector2(-320, -180)
 
 [node name="Box" type="CollisionShape2D" parent="QuadrantSystem/Q1Area"]
@@ -1495,6 +1495,7 @@ scale = Vector2(32, 18)
 shape = SubResource("RectangleShape2D_pnur0")
 
 [node name="Q2Area" type="Area2D" parent="QuadrantSystem" groups=["Q2"]]
+visible = false
 position = Vector2(320, -180)
 
 [node name="Box" type="CollisionShape2D" parent="QuadrantSystem/Q2Area"]
@@ -1503,6 +1504,7 @@ shape = SubResource("RectangleShape2D_pnur0")
 debug_color = Color(0.870588, 0.145098, 0.772549, 0.419608)
 
 [node name="Q3Area" type="Area2D" parent="QuadrantSystem" groups=["Q3"]]
+visible = false
 position = Vector2(-320, 180)
 
 [node name="Box" type="CollisionShape2D" parent="QuadrantSystem/Q3Area"]
@@ -1511,6 +1513,7 @@ shape = SubResource("RectangleShape2D_pnur0")
 debug_color = Color(0.592157, 0.545098, 0.0196078, 0.419608)
 
 [node name="Q4Area" type="Area2D" parent="QuadrantSystem" groups=["Q4"]]
+visible = false
 position = Vector2(320, 180)
 
 [node name="Box" type="CollisionShape2D" parent="QuadrantSystem/Q4Area"]
@@ -1590,8 +1593,6 @@ texture = ExtResource("7_3ob7i")
 script = ExtResource("8_ytq54")
 
 [node name="Enemies" type="Node2D" parent="TestNodes"]
-
-[node name="EnemySpawner" parent="." instance=ExtResource("40_q7c3j")]
 
 [node name="Timers" type="Node2D" parent="."]
 

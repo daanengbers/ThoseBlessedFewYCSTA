@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://7e6n8mnxghg7"]
+
+[ext_resource type="Script" path="res://Scenes/BossBase.gd" id="1_i1pb4"]
+[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="2_kxxsk"]
+
+[node name="BossBase" type="CharacterBody2D"]
+script = ExtResource("1_i1pb4")
+
+[node name="Rot" type="Node2D" parent="."]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("2_kxxsk")
