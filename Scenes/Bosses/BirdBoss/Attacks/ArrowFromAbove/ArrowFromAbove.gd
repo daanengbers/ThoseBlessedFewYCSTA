@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var animator = $Anim
-@onready var arrowImpact = preload("res://Scenes/ArrowImpact.tscn")
+@onready var arrowImpact = preload("res://Scenes/Bosses/BirdBoss/Attacks/ArrowFromAboveImpact/ArrowImpact.tscn")
 var arrow
 
 func _ready():

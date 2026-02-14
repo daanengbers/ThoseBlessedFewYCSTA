@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 ##Status vars
 var hp
 @export var maxHp = 10
@@ -21,6 +22,7 @@ var randomShiny
 
 ##Arrow vars
 @onready var arrow = get_parent()
+@onready var targetingService = arrow.get_node("TargetingService")
 var arrowPosition = Vector2(0,0)
 var distanceToArrow
 
@@ -31,7 +33,10 @@ var distanceToArrow
 
 ###Standard functions###
 
-func _physics_process(_delta):
+func _ready() -> void:
+	targetingService.registerMeebling(self)
+
+func _physics_process(_delta) -> void:
 	##Movement##
 	if alive && !isIncapacitated:
 		if Engine.get_process_frames() % 4 == 0:
@@ -174,6 +179,10 @@ func kill():
 	get_parent().playSound("Break")
 	arrow.GameOverCheck()
 	queue_free()
+
+func _exit_tree() -> void:
+	if is_instance_valid(targetingService):
+		targetingService.unregisterMeebling(self)
 
 func fallFromHigh():
 	##Set z index to -1 and disable shadow for visuals

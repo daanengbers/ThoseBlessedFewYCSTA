@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var hurtBox : Area2D = $HURTbox_Enemy
+
 ##Stats
 @export var hp : int
 @export var damage : int
@@ -8,10 +10,11 @@ extends CharacterBody2D
 ##Attack vars
 var attackArray = ["arrowAim", "arrowRain", "airSlamAttack", "arrowScatter"]
 
-var arrowFromAbove = preload("res://Scenes/ArrowFromAbove.tscn")
-var arrowBullet = preload("res://Scenes/ArrowFromCrowd.tscn")
+var arrowFromAbove = preload("res://Scenes/Bosses/BirdBoss/Attacks/ArrowFromAbove/ArrowFromAbove.tscn")
+var arrowBullet = preload("res://Scenes/Bosses/BirdBoss/Attacks/ArrowFromCrowd/ArrowFromCrowd.tscn")
 var markedEffect = preload("res://Scenes/MarkedEffect.tscn")
 
+var isTargetable : bool = true
 var attackInProgress: bool = false
 var shadowInstance: Node2D = null
 
@@ -44,33 +47,45 @@ var orbitAngle: float = 0.0
 ##Sprite vars
 var canFlip
 
+func spawnBoss():
+	$AnimationPlayer.play("spawn_anim")
+	
+	await get_tree().create_timer(5.0).timeout
+	
+	$UI/HealthBar/UIAnim.play("BossBarOverlayAnim")
+	$UI/HealthBar/HealthBar.value = hp
+	$UI/HealthBar.visible = true
+	
+	Globalsettings.inCutscene = false
+
 func _ready():
-	##Pick a random target To move towards
 	PickRandomMoveTarget()
 
 func _process(delta):
 	##Movement system
-	if !attackInProgress:
-		HoverAndDrift(delta)
+	if Globalsettings.inCutscene == false:
+		if !attackInProgress:
+			HoverAndDrift(delta)
 	#DonutBandWander(delta)
 
 func _on_attack_timer_timeout():
-	if !attackInProgress:
-		##When the timer runs out, pick a random string from the available attack array
-		randomize()
-		var randomAttackString = attackArray.pick_random()
-		
-		##Then match the string to the corrosponding attack
-		match randomAttackString:
-			"arrowAim":
-				arrowAim(10)
-			"arrowRain":
-				var randomAmount = randi_range(4,12)
-				ArrowRain(randomAmount)
-			"airSlamAttack":
-				airSlamAttack()
-			"arrowScatter":
-				weakArrowScatter()
+	if Globalsettings.inCutscene == false:
+		if !attackInProgress:
+			##When the timer runs out, pick a random string from the available attack array
+			randomize()
+			var randomAttackString = attackArray.pick_random()
+			
+			##Then match the string to the corrosponding attack
+			match randomAttackString:
+				"arrowAim":
+					arrowAim(10)
+				"arrowRain":
+					var randomAmount = randi_range(4,12)
+					ArrowRain(randomAmount)
+				"airSlamAttack":
+					airSlamAttack()
+				"arrowScatter":
+					weakArrowScatter()
 
 func HoverAndDrift(delta: float):
 	##When target is null or invalid, find a new target. If none are available, stop moving
@@ -202,7 +217,8 @@ func airSlamAttack():
 	velocity = Vector2.ZERO
 	move_and_slide()
 	
-	##Play start of attack animation
+	##Play start of attack animation and make boss untargetable
+	SetTargetable(false)
 	$AnimationPlayer.play("throw_air")
 	await $AnimationPlayer.animation_finished
 	
@@ -251,6 +267,9 @@ func airSlamAttack():
 			meebling.hurt()
 	shadowInstance.queue_free()
 	
+	##Make enemy targetable again
+	SetTargetable(true)
+	
 	##Stun animation
 	$AnimationPlayer.play("stunned_after_air")
 	await $AnimationPlayer.animation_finished
@@ -283,3 +302,18 @@ func weakArrowScatter(arrowCount: int = 5):
 		arrowInstance.rotation = arrowDirection
 		arrowInstance.damage = 2
 		arrowInstance.apply_impulse(Vector2(arrowSpeed, 0).rotated(arrowDirection))
+
+func SetTargetable(v: bool) -> void:
+	isTargetable = v
+	hurtBox.monitorable = v
+	hurtBox.monitoring = v
+
+func hurt():
+	##$EffectsAnim.play("hurt")
+	##$Sounds/HurtSound.play()
+	$UI/HealthBar/HealthBar.value = hp
+
+func kill():
+	##Set status to dead
+	##alive = false
+	pass

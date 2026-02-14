@@ -38,6 +38,9 @@ var inFogArea = false
 var bossfight_active = false
 var bossfight_number = 0
 
+var inCutscene = false
+var inBossFight = false
+
 var globalClosestEnemy
 
 var globalClosestMeeblingQ1

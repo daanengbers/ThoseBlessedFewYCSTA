@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bkpemg0gw83ds"]
 
-[ext_resource type="Script" path="res://Scenes/ArrowFromAbove.gd" id="1_ojs1v"]
-[ext_resource type="Texture2D" uid="uid://burhygv13akg8" path="res://Assets/shadow-big.png" id="2_p0eku"]
+[ext_resource type="Script" path="res://Scenes/Bosses/BirdBoss/Attacks/ArrowFromAbove/ArrowFromAbove.gd" id="1_jxe4x"]
+[ext_resource type="Texture2D" uid="uid://burhygv13akg8" path="res://Assets/shadow-big.png" id="2_gtvvi"]
 
 [sub_resource type="Animation" id="Animation_lrlch"]
 resource_name = "ArrowFromAboveAnim"
@@ -65,12 +65,12 @@ _data = {
 }
 
 [node name="ArrowFromAbove" type="CharacterBody2D"]
-script = ExtResource("1_ojs1v")
+script = ExtResource("1_jxe4x")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 texture_filter = 1
-texture = ExtResource("2_p0eku")
+texture = ExtResource("2_gtvvi")
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 libraries = {

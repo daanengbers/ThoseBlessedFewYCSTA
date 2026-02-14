@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dgp0r41uai0vo"]
 
-[ext_resource type="Script" path="res://Scenes/ArrowImpact.gd" id="1_fg5f5"]
-[ext_resource type="Texture2D" uid="uid://cyhj8n444h4h" path="res://Scenes/FireballExplosion.png" id="2_g20he"]
-[ext_resource type="Texture2D" uid="uid://d8e7k7mlxmxk" path="res://Scenes/UGLYaRROW.png" id="3_k4gx5"]
+[ext_resource type="Script" path="res://Scenes/Bosses/BirdBoss/Attacks/ArrowFromAboveImpact/ArrowImpact.gd" id="1_722o6"]
+[ext_resource type="Texture2D" uid="uid://cyhj8n444h4h" path="res://Scenes/FireballExplosion.png" id="2_28l78"]
+[ext_resource type="Texture2D" uid="uid://d8e7k7mlxmxk" path="res://Scenes/UGLYaRROW.png" id="3_7d7ue"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2rep"]
 radius = 16.1245
@@ -93,7 +93,7 @@ _data = {
 }
 
 [node name="ArrowImpact" type="Node2D"]
-script = ExtResource("1_fg5f5")
+script = ExtResource("1_722o6")
 
 [node name="ArrowArea" type="Area2D" parent="."]
 
@@ -108,13 +108,13 @@ libraries = {
 [node name="Explosion" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
-texture = ExtResource("2_g20he")
+texture = ExtResource("2_28l78")
 hframes = 3
 vframes = 3
 
 [node name="Arrow" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
-texture = ExtResource("3_k4gx5")
+texture = ExtResource("3_7d7ue")
 
 [connection signal="area_entered" from="ArrowArea" to="." method="_on_arrow_area_area_entered"]

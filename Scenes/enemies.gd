@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+##Services
+@onready var targetingService = get_tree().get_first_node_in_group("CrowdSimulation").get_node("TargetingService")
+
 ##Stats
 @export var enemyType = "Eyeball"
 @export var spawnMeebOnDeath = false
@@ -20,6 +23,7 @@ var quadrant
 var distanceToMeebling
 var meeblingToDamage
 var withinReach = false
+var isTargetable = true
 
 ##Enemy specific stats
 var startedExploding = false
@@ -40,6 +44,8 @@ func _ready():
 	$Icon/Coloranim.play("fadein")
 	$Healthbar.max_value = hp
 	$Healthbar.value = hp
+	
+	targetingService.registerEnemy(self)
 	
 	set_as_top_level(true)
 
@@ -142,8 +148,12 @@ func kill():
 	if spawnMeebOnDeath:
 		var arrow = get_tree().get_first_node_in_group("CrowdSimulation")
 		arrow.birthMeebling(global_position)
-		
+	
 	queue_free()
+
+func _exit_tree() -> void:
+	if is_instance_valid(targetingService):
+		targetingService.unregisterEnemy(self)
 
 func _on_hur_tbox_enemy_area_entered(area):
 	if area.is_in_group("Q1"):

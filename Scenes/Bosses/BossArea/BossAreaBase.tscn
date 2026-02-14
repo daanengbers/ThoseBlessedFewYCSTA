@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci3jf7dkl72nx"]
+
+[ext_resource type="Script" path="res://Scenes/Bosses/BossArea/BossAreaBase.gd" id="1_s8pbp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bisdq"]
+radius = 34.0588
+
+[node name="BossArea" type="Node2D"]
+script = ExtResource("1_s8pbp")
+
+[node name="EnterSquare" type="Area2D" parent="."]
+
+[node name="Circle" type="CollisionShape2D" parent="EnterSquare"]
+shape = SubResource("CircleShape2D_bisdq")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="SpawnPos" type="Node2D" parent="."]
+position = Vector2(0, -109)
+
+[connection signal="area_entered" from="EnterSquare" to="." method="_on_enter_square_area_entered"]

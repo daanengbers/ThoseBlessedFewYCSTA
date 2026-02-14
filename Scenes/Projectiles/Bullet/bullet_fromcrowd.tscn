@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdtabu32m1o56"]
 
-[ext_resource type="Script" path="res://Script/bullet_fromcrowd.gd" id="1_gso4t"]
-[ext_resource type="Texture2D" uid="uid://bmx1qmkj1cy3r" path="res://Assets/Particle_Sprites/YCSTA_Bullets-1.png" id="2_odlr2"]
+[ext_resource type="Script" path="res://Script/bullet_fromcrowd.gd" id="1_7f3fd"]
+[ext_resource type="Texture2D" uid="uid://bmx1qmkj1cy3r" path="res://Assets/Particle_Sprites/YCSTA_Bullets-1.png" id="2_52m32"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_146p2"]
 radius = 3.0
@@ -9,11 +9,11 @@ radius = 3.0
 [node name="bullet_fromcrowd" type="RigidBody2D"]
 z_index = 6
 gravity_scale = 0.0
-script = ExtResource("1_gso4t")
+script = ExtResource("1_7f3fd")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_odlr2")
+texture = ExtResource("2_52m32")
 
 [node name="Hitbox_BULLET" type="Area2D" parent="."]
 

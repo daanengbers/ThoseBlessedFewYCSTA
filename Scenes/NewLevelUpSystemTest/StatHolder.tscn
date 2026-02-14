@@ -117,7 +117,7 @@ horizontal_alignment = 1
 [node name="LockedStat1" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(39, 14)
+position = Vector2(23, 254)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -170,7 +170,7 @@ vframes = 6
 [node name="LockedStat2" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(64, 14)
+position = Vector2(48, 254)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -224,7 +224,7 @@ frame = 4
 [node name="LockedStat3" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(89, 14)
+position = Vector2(73, 254)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true
@@ -278,7 +278,7 @@ frame = 2
 [node name="LockedStat4" type="Sprite2D" parent="UI"]
 process_mode = 3
 texture_filter = 1
-position = Vector2(114, 14)
+position = Vector2(98, 254)
 texture = ExtResource("3_amp03")
 script = ExtResource("4_85s6u")
 metadata/_edit_group_ = true

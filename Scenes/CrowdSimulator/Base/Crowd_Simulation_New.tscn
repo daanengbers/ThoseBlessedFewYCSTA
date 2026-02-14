@@ -1,11 +1,14 @@
-[gd_scene load_steps=68 format=3 uid="uid://gye6sxa3o7gs"]
+[gd_scene load_steps=71 format=3 uid="uid://gye6sxa3o7gs"]
 
-[ext_resource type="Script" path="res://Scenes/Crowd_Simulation_New.gd" id="1_4f4g1"]
+[ext_resource type="Script" path="res://Scenes/CrowdSimulator/Base/Crowd_Simulation_New.gd" id="1_4f4g1"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="2_0iapw"]
+[ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/TargetingService/TargetingService.gd" id="2_j82j1"]
 [ext_resource type="Script" path="res://Scenes/PauseMenu.gd" id="2_xe06a"]
 [ext_resource type="Texture2D" uid="uid://c02rr86yd8vae" path="res://Assets/YCSTA_Arrow (new).png" id="3_ew17e"]
 [ext_resource type="Texture2D" uid="uid://bc65frbmttbad" path="res://Assets/UI/Selectcardarrow.png" id="3_onkk8"]
+[ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/AttackingService/AttackingService.gd" id="3_xhrjw"]
 [ext_resource type="AudioStream" uid="uid://c3c2eau8lpm7v" path="res://Sounds/exppickup1.wav" id="4_1x5fh"]
+[ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/AbilityService/AbilityService.gd" id="4_3nhk1"]
 [ext_resource type="Texture2D" uid="uid://8wpofymgaama" path="res://Assets/Tilesets/TestMenuOptions.png" id="4_xpi3s"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="5_3jsnd"]
 [ext_resource type="AudioStream" uid="uid://b3qee1fus0dfw" path="res://Sounds/meeblingdeath.wav" id="5_b0to5"]
@@ -371,6 +374,15 @@ _data = {
 
 [node name="CrowdSimulationNew" type="CharacterBody2D" groups=["CrowdSimulation"]]
 script = ExtResource("1_4f4g1")
+
+[node name="TargetingService" type="Node" parent="."]
+script = ExtResource("2_j82j1")
+
+[node name="AttackingService" type="Node" parent="."]
+script = ExtResource("3_xhrjw")
+
+[node name="AbilityService" type="Node" parent="."]
+script = ExtResource("4_3nhk1")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -819,7 +831,7 @@ texture = ExtResource("13_t52xm")
 
 [node name="Box02" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(431, 21)
+position = Vector2(431, 205)
 texture = ExtResource("14_3to6u")
 metadata/_edit_group_ = true
 
@@ -851,7 +863,7 @@ texture_progress = ExtResource("18_rtf1h")
 
 [node name="Box01" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(402, 39)
+position = Vector2(402, 223)
 texture = ExtResource("14_3to6u")
 metadata/_edit_group_ = true
 
@@ -899,7 +911,7 @@ vertical_alignment = 2
 
 [node name="Box04" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(460, 39)
+position = Vector2(460, 223)
 texture = ExtResource("14_3to6u")
 metadata/_edit_group_ = true
 
@@ -931,7 +943,7 @@ texture_progress = ExtResource("18_rtf1h")
 
 [node name="Box03" type="Sprite2D" parent="UI"]
 texture_filter = 1
-position = Vector2(431, 58)
+position = Vector2(431, 242)
 texture = ExtResource("14_3to6u")
 metadata/_edit_group_ = true
 
@@ -1348,6 +1360,22 @@ text = "0 NMys"
 
 [node name="StatHolder" parent="UI" instance=ExtResource("28_4404o")]
 
+[node name="BossHealthBar" type="Node2D" parent="UI"]
+visible = false
+
+[node name="HealthBar" type="TextureProgressBar" parent="UI/BossHealthBar"]
+texture_filter = 1
+offset_left = 92.0
+offset_top = 209.0
+offset_right = 365.0
+offset_bottom = 249.0
+texture_under = ExtResource("20_vepmi")
+
+[node name="ColorRect" type="ColorRect" parent="UI/BossHealthBar/HealthBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Mainarrow" type="Sprite2D" parent="."]
@@ -1531,6 +1559,10 @@ script = ExtResource("8_ytq54")
 
 [node name="SpellCooldown" type="Timer" parent="Timers"]
 
+[node name="TargetingPruneTimer" type="Timer" parent="Timers"]
+wait_time = 10.0
+autostart = true
+
 [node name="CrowdSimulator_Area" type="Area2D" parent="." groups=["Arrow"]]
 
 [node name="box" type="CollisionShape2D" parent="CrowdSimulator_Area"]
@@ -1543,5 +1575,6 @@ shape = SubResource("CircleShape2D_p70ly")
 [connection signal="timeout" from="UI/SacrificeMeeblingScreen/UnpauseTimerSac" to="UI/SacrificeMeeblingScreen" method="_on_unpause_timer_sac_timeout"]
 [connection signal="timeout" from="UI/SacrificeMeeblingScreen/CanpressTimerSac" to="UI/SacrificeMeeblingScreen" method="_on_canpress_timer_sac_timeout"]
 [connection signal="timeout" from="Timers/SpellCooldown" to="." method="_on_spell_cooldown_timeout"]
+[connection signal="timeout" from="Timers/TargetingPruneTimer" to="TargetingService" method="_on_targeting_prune_timer_timeout"]
 [connection signal="area_entered" from="CrowdSimulator_Area" to="." method="_on_crowd_simulator_area_area_entered"]
 [connection signal="area_exited" from="CrowdSimulator_Area" to="." method="_on_crowd_simulator_area_area_exited"]

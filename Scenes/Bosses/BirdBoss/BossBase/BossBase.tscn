@@ -1,0 +1,380 @@
+[gd_scene load_steps=22 format=3 uid="uid://7e6n8mnxghg7"]
+
+[ext_resource type="Script" path="res://Scenes/Bosses/BirdBoss/BossBase/BossBase.gd" id="1_i1pb4"]
+[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="2_kxxsk"]
+[ext_resource type="Texture2D" uid="uid://rymk7hxxv3fe" path="res://Scenes/Pigeon-12.png" id="3_ptddg"]
+[ext_resource type="Texture2D" uid="uid://b87w0owjim5rv" path="res://Assets/Enemy_Sprites/BossInAirShadow.png" id="4_ae566"]
+[ext_resource type="Texture2D" uid="uid://cyhj8n444h4h" path="res://Scenes/FireballExplosion.png" id="4_fjp3t"]
+[ext_resource type="Texture2D" uid="uid://cabypgts77p71" path="res://Assets/UI/Bosshealthbar_RedBar_Empty.png" id="5_6t0ft"]
+[ext_resource type="Texture2D" uid="uid://cjuulk5ke2q6y" path="res://Assets/UI/Bosshealthbar_RedBar_Full.png" id="6_17jrk"]
+[ext_resource type="Texture2D" uid="uid://wwxcwfsfoyhv" path="res://Assets/UI/Bosshealthbar_Base.png" id="7_d3kbr"]
+[ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="7_le0y4"]
+[ext_resource type="Texture2D" uid="uid://dlrehh27ajr1d" path="res://Assets/UI/Bosshealthbar_Overlay.png" id="9_52jv2"]
+
+[sub_resource type="Animation" id="Animation_40u34"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LandingExplosion:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LandingExplosion:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shadow:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Shadow:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shadow:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kbo34"]
+resource_name = "slam_down"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.61),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1000), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LandingExplosion:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.61, 0.66, 0.71, 0.76, 0.81, 0.86, 0.91, 0.96),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 4, 5, 6, 7, 8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LandingExplosion:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shadow:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+
+[sub_resource type="Animation" id="Animation_oy4ed"]
+resource_name = "spawn_anim"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -10000), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shadow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shadow:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.8), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ko3p0"]
+resource_name = "stunned_after_air"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 0.9, 1.2, 1.5, 1.8, 2.1, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, -5), Vector2(0, 0), Vector2(0, -5), Vector2(0, 0), Vector2(0, 0), Vector2(0, -5), Vector2(0, 0), Vector2(0, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_cyrwv"]
+resource_name = "throw_air"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, -20), Vector2(0, -10), Vector2(0, -1000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shadow:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uhu73"]
+_data = {
+"RESET": SubResource("Animation_40u34"),
+"slam_down": SubResource("Animation_kbo34"),
+"spawn_anim": SubResource("Animation_oy4ed"),
+"stunned_after_air": SubResource("Animation_ko3p0"),
+"throw_air": SubResource("Animation_cyrwv")
+}
+
+[sub_resource type="Animation" id="Animation_2n11i"]
+resource_name = "BossBarOverlayAnim"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_1rj1v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x6it7"]
+_data = {
+"BossBarOverlayAnim": SubResource("Animation_2n11i"),
+"RESET": SubResource("Animation_1rj1v")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dsae1"]
+radius = 33.0606
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpam3"]
+radius = 32.1403
+
+[node name="BossBase" type="CharacterBody2D" groups=["enemies"]]
+y_sort_enabled = true
+script = ExtResource("1_i1pb4")
+hp = 690
+damage = 5
+speed = 20
+
+[node name="Rot" type="Node2D" parent="."]
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("2_kxxsk")
+
+[node name="BossSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_ptddg")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(0, 18)
+texture = ExtResource("4_ae566")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uhu73")
+}
+
+[node name="LandingExplosion" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, 39)
+scale = Vector2(2, 2)
+texture = ExtResource("4_fjp3t")
+hframes = 3
+vframes = 3
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="Node2D" parent="UI"]
+visible = false
+position = Vector2(2, 0)
+
+[node name="Bossname" type="Label" parent="UI/HealthBar"]
+texture_filter = 1
+offset_left = -2.0
+offset_top = 40.0
+offset_right = 478.0
+offset_bottom = 53.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("7_le0y4")
+text = "Bird archer"
+horizontal_alignment = 1
+
+[node name="Base" type="TextureRect" parent="UI/HealthBar"]
+z_index = -1
+texture_filter = 1
+offset_left = 104.0
+offset_top = 1.0
+offset_right = 440.0
+offset_bottom = 65.0
+texture = ExtResource("7_d3kbr")
+stretch_mode = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="UI/HealthBar"]
+texture_filter = 1
+offset_left = 104.0
+offset_top = 1.0
+offset_right = 376.0
+offset_bottom = 49.0
+max_value = 690.0
+value = 100.0
+texture_under = ExtResource("5_6t0ft")
+texture_progress = ExtResource("6_17jrk")
+
+[node name="Overlay" type="Sprite2D" parent="UI/HealthBar"]
+texture_filter = 1
+position = Vector2(240, 24)
+texture = ExtResource("9_52jv2")
+hframes = 2
+vframes = 2
+
+[node name="UIAnim" type="AnimationPlayer" parent="UI/HealthBar"]
+libraries = {
+"": SubResource("AnimationLibrary_x6it7")
+}
+
+[node name="HURTbox_Enemy" type="Area2D" parent="."]
+
+[node name="box" type="CollisionShape2D" parent="HURTbox_Enemy"]
+shape = SubResource("CircleShape2D_dsae1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HURTbox_Enemy"]
+position = Vector2(0, 33)
+shape = SubResource("CircleShape2D_wpam3")
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -134,9 +134,9 @@ texture_filter = 1
 script = ExtResource("1_pw6be")
 
 [node name="UI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Healthbar" type="TextureProgressBar" parent="UI"]
+visible = false
 texture_filter = 1
 offset_left = 132.0
 offset_top = 16.0
