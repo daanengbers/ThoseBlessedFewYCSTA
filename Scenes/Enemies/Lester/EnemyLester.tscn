@@ -1,0 +1,263 @@
+[gd_scene load_steps=20 format=3 uid="uid://copypbjb2pjcv"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/Base/enemies.gd" id="1_vpvuk"]
+[ext_resource type="Texture2D" uid="uid://pystlas62qi8" path="res://Scenes/Enemies/Lester/EnemyLesterSprite.png" id="2_2my4a"]
+[ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="3_3jvcs"]
+[ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/UI/YCSTA_healthbar-1.png" id="4_c585t"]
+[ext_resource type="Texture2D" uid="uid://c70378fp1g0kl" path="res://Assets/UI/YCSTA_healthbar-2.png" id="5_lc5ik"]
+[ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="6_ibkt4"]
+[ext_resource type="AudioStream" uid="uid://bg2xrdk3npnsa" path="res://Sounds/spellshort1.wav" id="7_28o35"]
+
+[sub_resource type="Animation" id="Animation_roeck"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_50v2h"]
+resource_name = "bounce"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(1.93187, 2.07053, 2.07053),
+"update": 0,
+"values": [Vector2(0, -3), Vector2(0, -5), Vector2(0, -3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ym26"]
+_data = {
+"RESET": SubResource("Animation_roeck"),
+"bounce": SubResource("Animation_50v2h")
+}
+
+[sub_resource type="Animation" id="Animation_svwvh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Arrowshadow:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cbbcb"]
+resource_name = "fadein"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Arrowshadow:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6gje0"]
+_data = {
+"RESET": SubResource("Animation_svwvh"),
+"fadein": SubResource("Animation_cbbcb")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_isc2d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kpsm"]
+radius = 4.12311
+
+[sub_resource type="Animation" id="Animation_2akjp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vq5j7"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ei3xv"]
+resource_name = "hurt"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.392157, 0.392157, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tudjj"]
+_data = {
+"RESET": SubResource("Animation_2akjp"),
+"default": SubResource("Animation_vq5j7"),
+"hurt": SubResource("Animation_ei3xv")
+}
+
+[node name="EnemyLester" type="CharacterBody2D" groups=["enemies"]]
+z_index = 5
+script = ExtResource("1_vpvuk")
+enemyType = "NormalAttack"
+spawnMeebOnDeath = true
+
+[node name="Icon" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+position = Vector2(0, 1)
+texture = ExtResource("2_2my4a")
+hframes = 4
+
+[node name="Anim" type="AnimationPlayer" parent="Icon"]
+libraries = {
+"": SubResource("AnimationLibrary_3ym26")
+}
+
+[node name="Coloranim" type="AnimationPlayer" parent="Icon"]
+libraries = {
+"": SubResource("AnimationLibrary_6gje0")
+}
+
+[node name="Rot" type="Node2D" parent="."]
+visible = false
+
+[node name="Rotatingarrow" type="Sprite2D" parent="Rot"]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("3_3jvcs")
+
+[node name="Healthbar" type="TextureProgressBar" parent="."]
+visible = false
+offset_left = -5.0
+offset_top = -22.0
+offset_right = 5.0
+offset_bottom = -21.0
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource("4_c585t")
+texture_progress = ExtResource("5_lc5ik")
+
+[node name="HURTbox_Enemy" type="Area2D" parent="."]
+visible = false
+light_mask = 32
+visibility_layer = 32
+
+[node name="box" type="CollisionShape2D" parent="HURTbox_Enemy"]
+shape = SubResource("CircleShape2D_isc2d")
+
+[node name="Crowdcollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4kpsm")
+
+[node name="EffectsAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tudjj")
+}
+
+[node name="Arrowshadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+self_modulate = Color(1, 1, 1, 0)
+z_index = -1
+texture_filter = 1
+position = Vector2(0, 8)
+texture = ExtResource("6_ibkt4")
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("7_28o35")
+
+[connection signal="area_entered" from="HURTbox_Enemy" to="." method="_on_hur_tbox_enemy_area_entered"]

@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+##Services
+@onready var targetingService = get_tree().get_first_node_in_group("CrowdSimulation").get_node("TargetingService")
+
 @onready var hurtBox : Area2D = $HURTbox_Enemy
 
 ##Stats
@@ -55,6 +58,7 @@ func spawnBoss():
 	$UI/HealthBar/UIAnim.play("BossBarOverlayAnim")
 	$UI/HealthBar/HealthBar.value = hp
 	$UI/HealthBar.visible = true
+	targetingService.registerEnemy(self)
 	
 	Globalsettings.inCutscene = false
 

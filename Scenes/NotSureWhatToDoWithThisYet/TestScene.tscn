@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://csy8k0r4ke81e"]
+
+[ext_resource type="Texture2D" uid="uid://c8p3id35vq2e7" path="res://Scenes/Enemies/Scarab/AndreasScarab_body.png" id="1_ubd7h"]
+[ext_resource type="PackedScene" uid="uid://gye6sxa3o7gs" path="res://Scenes/CrowdSimulator/Base/CrowdSimulation.tscn" id="2_2cwqe"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ubd7h")
+
+[node name="CrowdSimulationNew" parent="." instance=ExtResource("2_2cwqe")]

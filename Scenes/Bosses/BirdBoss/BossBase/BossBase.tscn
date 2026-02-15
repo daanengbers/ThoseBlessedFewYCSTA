@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Scenes/Bosses/BirdBoss/BossBase/BossBase.gd" id="1_i1pb4"]
 [ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="2_kxxsk"]
-[ext_resource type="Texture2D" uid="uid://rymk7hxxv3fe" path="res://Scenes/Pigeon-12.png" id="3_ptddg"]
-[ext_resource type="Texture2D" uid="uid://b87w0owjim5rv" path="res://Assets/Enemy_Sprites/BossInAirShadow.png" id="4_ae566"]
-[ext_resource type="Texture2D" uid="uid://cyhj8n444h4h" path="res://Scenes/FireballExplosion.png" id="4_fjp3t"]
+[ext_resource type="Texture2D" uid="uid://rymk7hxxv3fe" path="res://Scenes/Bosses/BirdBoss/Sprites/Pigeon-12.png" id="3_ptddg"]
+[ext_resource type="Texture2D" uid="uid://b87w0owjim5rv" path="res://Scenes/Enemies/UnsortedSprites/BossInAirShadow.png" id="4_ae566"]
 [ext_resource type="Texture2D" uid="uid://cabypgts77p71" path="res://Assets/UI/Bosshealthbar_RedBar_Empty.png" id="5_6t0ft"]
+[ext_resource type="Texture2D" uid="uid://cyhj8n444h4h" path="res://Scenes/Projectiles/Fireball/FireballExplosion.png" id="5_bk5ly"]
 [ext_resource type="Texture2D" uid="uid://cjuulk5ke2q6y" path="res://Assets/UI/Bosshealthbar_RedBar_Full.png" id="6_17jrk"]
 [ext_resource type="Texture2D" uid="uid://wwxcwfsfoyhv" path="res://Assets/UI/Bosshealthbar_Base.png" id="7_d3kbr"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="7_le0y4"]
@@ -313,7 +313,7 @@ visible = false
 texture_filter = 1
 position = Vector2(0, 39)
 scale = Vector2(2, 2)
-texture = ExtResource("4_fjp3t")
+texture = ExtResource("5_bk5ly")
 hframes = 3
 vframes = 3
 
