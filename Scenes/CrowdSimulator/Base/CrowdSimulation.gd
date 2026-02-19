@@ -15,14 +15,14 @@ var level = 1
 var xpuntilnextlvl = 5
 
 ##Preload vars
-var meebling = preload("res://Scenes/MeeblingNew.tscn")
-var deadSplash = preload("res://Scenes/watersplash.tscn")
+var meebling = GameResources.meeblingScene
+var deadSplash = GameResources.splashEffectScene
 
-var bullet = preload("res://Scenes/Projectiles/Bullet/bullet_fromcrowd.tscn")
-var fireBall = preload("res://Scenes/Projectiles/Fireball/bullet_fromcrowd_fireball.tscn")
-var lightningBolt = preload("res://Scenes/Projectiles/ThunderBolt/bullet_fromcrowd_thunderbolt.tscn")
-var poison = preload("res://Scenes/Projectiles/Poison/bullet_fromcrowd_poisonsmoke.tscn")
-var frost = preload("res://Scenes/Projectiles/Frost/bullet_fromcrowd_snowflake.tscn")
+var bullet = GameResources.baseBulletScene
+var fireBall = GameResources.fireBallScene
+var lightningBolt = GameResources.lightningBoltScene
+var poison = GameResources.poisonScene
+var frost = GameResources.frostScene
 
 ##Stat vars
 var cooldown = 100

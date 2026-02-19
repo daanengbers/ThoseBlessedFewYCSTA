@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://loirchxti00r"]
+[gd_scene load_steps=4 format=3 uid="uid://loirchxti00r"]
+
+[ext_resource type="PackedScene" uid="uid://c46w1oefw787c" path="res://Scenes/Spawner/enemy_spawner.tscn" id="1_dro02"]
+[ext_resource type="PackedScene" uid="uid://bsa5f5fwc106k" path="res://Scenes/Cage/MeeblingCage.tscn" id="2_bclca"]
+[ext_resource type="PackedScene" uid="uid://gye6sxa3o7gs" path="res://Scenes/CrowdSimulator/Base/CrowdSimulation.tscn" id="3_xcdwa"]
 
 [node name="BaseLevel" type="Node2D"]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("1_dro02")]
+
+[node name="Ysorter" type="Node2D" parent="." groups=["Ysorter"]]
+y_sort_enabled = true
+
+[node name="MeeblingCage" parent="Ysorter" instance=ExtResource("2_bclca")]
+
+[node name="CrowdSimulationNew" parent="Ysorter" instance=ExtResource("3_xcdwa")]

@@ -29,8 +29,8 @@ var isTargetable = true
 var startedExploding = false
 
 ##Preload vars
-var xpDrop = preload("res://Scenes/XPEffect.tscn")
-var explosion = preload("res://Scenes/bloodexplosion.tscn")
+var xpDrop = GameResources.XPEffectScene
+var explosion = GameResources.bloodExplosionEffectScene
 
 func _ready():
 	randomize()
@@ -45,7 +45,7 @@ func _ready():
 	$Healthbar.max_value = hp
 	$Healthbar.value = hp
 	
-	targetingService.registerEnemy(self)
+	targetingService.RegisterEnemy(self)
 	
 	set_as_top_level(true)
 
@@ -153,7 +153,7 @@ func kill():
 
 func _exit_tree() -> void:
 	if is_instance_valid(targetingService):
-		targetingService.unregisterEnemy(self)
+		targetingService.UnregisterEnemy(self)
 
 func _on_hur_tbox_enemy_area_entered(area):
 	if area.is_in_group("Q1"):

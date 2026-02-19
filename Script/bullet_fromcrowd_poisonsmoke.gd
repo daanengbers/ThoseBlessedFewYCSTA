@@ -4,7 +4,7 @@ extends RigidBody2D
 # Weenter Approved (Great Cleanup, 10-9-24)
 
 # Preload variables
-var DMGVAL = preload("res://Scenes/damagenumber.tscn")
+var DMGVAL = GameResources.damageNumberScene
 
 @export var damage = 4
 @export var destroyonimpact = true

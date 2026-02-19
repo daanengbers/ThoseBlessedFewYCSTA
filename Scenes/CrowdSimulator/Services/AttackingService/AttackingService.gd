@@ -17,7 +17,7 @@ extends Node
 
 func fireProjectile(projectileScene: PackedScene, impulse: float, AbilitySound: bool = false) -> void:
 	## Get and set closest enemy
-	var closestEnemy: Node2D = targetingService.getClosestEnemy(crowdSimulator.global_position)
+	var closestEnemy: Node2D = targetingService.GetClosestEnemy(crowdSimulator.global_position)
 	Globalsettings.globalClosestEnemy = closestEnemy
 
 	if AbilitySound:

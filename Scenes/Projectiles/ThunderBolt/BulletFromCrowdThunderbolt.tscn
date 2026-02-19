@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://crg7f6gkmd33i"]
 
-[ext_resource type="Script" path="res://Script/bullet_fromcrowd.gd" id="1_f6atg"]
+[ext_resource type="Script" path="res://Scenes/Projectiles/BulletFromCrowd.gd" id="1_f6atg"]
 [ext_resource type="Texture2D" uid="uid://d3kc5rmd2m011" path="res://Assets/Particle_Sprites/YCSTA_thunderbolt.png" id="2_7g18b"]
 [ext_resource type="Texture2D" uid="uid://dp4umjagy7dv3" path="res://Scenes/Projectiles/ThunderBolt/LightningSprite.png" id="3_13duv"]
 

@@ -24,6 +24,7 @@ config/windows_native_icon="res://Icons/Meebling_Icon_ingame_ICO.ico"
 
 Globalsettings="*res://Scenes/Singletons/GlobalSettings/globalsettings.tscn"
 Onscreenmessages="*res://Scenes/NotSureWhatToDoWithThisYet/onscreenmessages.tscn"
+GameResources="*res://Scenes/Singletons/GameResources/GameResources.gd"
 
 [display]
 

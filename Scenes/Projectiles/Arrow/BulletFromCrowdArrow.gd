@@ -13,7 +13,7 @@ func _on_arrow_hurtbox_area_entered(area):
 	if area.get_parent().is_in_group("meeblings"):
 		##Check if the meebling was marked, if so, increase damage and remove its marked status
 		if area.get_parent().marked == true:
-			var critEffect = preload("res://Scenes/CritVFX.tscn")
+			var critEffect = GameResources.critEffectScene
 			var critEffectIn = critEffect.instantiate()
 			get_tree().current_scene.add_child(critEffectIn)
 			critEffectIn.global_position = area.get_parent().global_position

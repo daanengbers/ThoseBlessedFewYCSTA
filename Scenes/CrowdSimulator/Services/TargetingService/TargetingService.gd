@@ -3,21 +3,21 @@ extends Node
 var enemies: Array[Node2D] = []
 var meeblings: Array[Node2D] = []
 
-func registerEnemy(enemy: Node2D) -> void:
+func RegisterEnemy(enemy: Node2D) -> void:
 	if enemy != null and not enemies.has(enemy):
 		enemies.append(enemy)
 
-func unregisterEnemy(enemy: Node2D) -> void:
+func UnregisterEnemy(enemy: Node2D) -> void:
 	enemies.erase(enemy)
 
-func registerMeebling(meebling: Node2D) -> void:
+func RegisterMeebling(meebling: Node2D) -> void:
 	if meebling != null and not meeblings.has(meebling):
 		meeblings.append(meebling)
 
-func unregisterMeebling(meebling: Node2D) -> void:
+func UnregisterMeebling(meebling: Node2D) -> void:
 	meeblings.erase(meebling)
 
-func getClosestEnemy(fromPos: Vector2) -> Node2D:
+func GetClosestEnemy(fromPos: Vector2) -> Node2D:
 	var closestDistance := INF
 	var closest: Node2D = null
 	

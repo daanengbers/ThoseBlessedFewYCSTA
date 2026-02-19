@@ -1,6 +1,6 @@
 extends Node2D
 
-var CARD = preload("res://Scenes/cardNew.tscn")
+var CARD = preload("res://Scenes/LevelUpSystem/Card/cardNew.tscn")
 
 ##These stats hold the randomly picked stats, they keep getting reassigned on every level up
 var stat1 

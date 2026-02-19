@@ -1,7 +1,7 @@
 extends Node2D
 
-var YESCARD = preload("res://Scenes/cardYesOption.tscn")
-var NOCARD = preload("res://Scenes/cardNoOption.tscn")
+var YESCARD = preload("res://Scenes/NotSureWhatToDoWithThisYet/Yes and no options with cards/cardYesOption.tscn")
+var NOCARD = preload("res://Scenes/NotSureWhatToDoWithThisYet/Yes and no options with cards/cardNoOption.tscn")
 
 var cardselected = 1
 var canselectcard = false

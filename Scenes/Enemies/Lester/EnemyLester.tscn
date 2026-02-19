@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://copypbjb2pjcv"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/Base/enemies.gd" id="1_vpvuk"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Base/EnemyBaseScript.gd" id="1_vpvuk"]
 [ext_resource type="Texture2D" uid="uid://pystlas62qi8" path="res://Scenes/Enemies/Lester/EnemyLesterSprite.png" id="2_2my4a"]
 [ext_resource type="Texture2D" uid="uid://ditkmrdmoscht" path="res://Assets/UI/rotatingarrow.png" id="3_3jvcs"]
 [ext_resource type="Texture2D" uid="uid://cvcvbac04nos2" path="res://Assets/UI/YCSTA_healthbar-1.png" id="4_c585t"]

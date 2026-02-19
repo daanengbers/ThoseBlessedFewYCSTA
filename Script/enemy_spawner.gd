@@ -5,12 +5,12 @@ extends Node2D
 
 @export var enabled = false
 
-var skull = preload("res://Scenes/enemySkull.tscn")
-var eyeBall = preload("res://Scenes/enemyEyball.tscn")
-var slime = preload("res://Scenes/enemySlime.tscn")
-var ghost = preload("res://Scenes/enemyGhost.tscn")
-var scarab = preload("res://Scenes/enemy_scarab.tscn")
-var lester = preload("res://Scenes/enemyLester.tscn")
+var skull = preload("res://Scenes/Enemies/Skull/EnemySkull.tscn")
+var eyeBall = preload("res://Scenes/Enemies/Eye/EnemyEyball.tscn")
+var slime = preload("res://Scenes/Enemies/Slime/EnemySlime.tscn")
+var ghost = preload("res://Scenes/Enemies/Ghost/EnemyGhost.tscn")
+var scarab = preload("res://Scenes/Enemies/Scarab/enemyScarab.tscn")
+var lester = preload("res://Scenes/Enemies/Lester/EnemyLester.tscn")
 
 var level = 1
 

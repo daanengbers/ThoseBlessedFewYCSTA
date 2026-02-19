@@ -34,7 +34,7 @@ var distanceToArrow
 ###Standard functions###
 
 func _ready() -> void:
-	targetingService.registerMeebling(self)
+	targetingService.RegisterMeebling(self)
 
 func _physics_process(_delta) -> void:
 	##Movement##
@@ -182,7 +182,7 @@ func kill():
 
 func _exit_tree() -> void:
 	if is_instance_valid(targetingService):
-		targetingService.unregisterMeebling(self)
+		targetingService.UnregisterMeebling(self)
 
 func fallFromHigh():
 	##Set z index to -1 and disable shadow for visuals

@@ -7,7 +7,7 @@ extends RigidBody2D
 # Change "apply_freeze" to "applyFreeze" once all enemies have their script optimized
 
 # Preload variables
-var DMGVAL = preload("res://Scenes/damagenumber.tscn")
+var DMGVAL = GameResources.damageNumberScene
 
 @export var damage = 0
 @export var destroyonimpact = false
