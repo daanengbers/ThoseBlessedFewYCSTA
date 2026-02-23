@@ -7,11 +7,13 @@ size = Vector2(28, 18)
 
 [node name="GraveStone" type="StaticBody2D"]
 z_index = 1
+y_sort_enabled = true
 texture_filter = 1
 collision_layer = 3
 collision_mask = 3
 
 [node name="Sprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
 texture = ExtResource("1_ebiry")
 hframes = 2
 vframes = 3

@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cuat3yklkupyd"]
+[gd_scene load_steps=5 format=3 uid="uid://cuat3yklkupyd"]
 
 [ext_resource type="Script" path="res://Scenes/Projectiles/Frost/BulletFromCrowdSnowFlake.gd" id="1_h6tfe"]
-[ext_resource type="Texture2D" uid="uid://bryx15jfsyu32" path="res://Scenes/Projectiles/Frost/FrostSprite.png" id="2_1aorm"]
 
 [sub_resource type="Curve" id="Curve_oy50o"]
 _data = [Vector2(0, 0.78022), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.53689, 0.0, 0, 0]
@@ -21,14 +20,12 @@ script = ExtResource("1_h6tfe")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_1aorm")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 z_index = -1
 texture_filter = 1
 amount = 3
 lifetime = 0.6
-texture = ExtResource("2_1aorm")
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 4.0

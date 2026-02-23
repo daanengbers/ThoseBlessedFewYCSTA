@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgc66fdmnthhs"]
+
+[ext_resource type="Texture2D" uid="uid://dnc3wh4lsvqq3" path="res://Scenes/LevelAssets/Props/Boat/RuinedBoat.png" id="1_r64vs"]
+
+[node name="RuinedBoat" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_r64vs")

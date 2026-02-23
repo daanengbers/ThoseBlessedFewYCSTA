@@ -21,7 +21,7 @@ var randomSprite
 var randomShiny
 
 ##Arrow vars
-@onready var arrow = get_parent()
+@onready var arrow = get_tree().get_first_node_in_group("CrowdSimulation")
 @onready var targetingService = arrow.get_node("TargetingService")
 var arrowPosition = Vector2(0,0)
 var distanceToArrow
@@ -75,9 +75,6 @@ func randomizeAndSetup():
 	if randomShiny == 4096:
 		randomSprite = 8
 		##spawnSparkle()
-	
-	##Make movement independent from arrow
-	set_as_top_level(true)
 	
 	##initialise stats
 	hp = maxHp
@@ -176,7 +173,7 @@ func hurt():
 
 func kill():
 	alive = false
-	get_parent().playSound("Break")
+	arrow.playSound("Break")
 	arrow.GameOverCheck()
 	queue_free()
 

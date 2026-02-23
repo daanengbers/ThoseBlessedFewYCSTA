@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j2ppfh3wk0pk"
-path="res://.godot/imported/YCSTA_water_1.png-7f9d58af1cfeba8dba3293fbf8a99b29.ctex"
+uid="uid://dnc3wh4lsvqq3"
+path="res://.godot/imported/RuinedBoat.png-e6d4390897d149e06363682501eb4bed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/LevelAssets/Props/PropsUnsorted/YCSTA_water_1.png"
-dest_files=["res://.godot/imported/YCSTA_water_1.png-7f9d58af1cfeba8dba3293fbf8a99b29.ctex"]
+source_file="res://Scenes/LevelAssets/Props/Boat/RuinedBoat.png"
+dest_files=["res://.godot/imported/RuinedBoat.png-e6d4390897d149e06363682501eb4bed.ctex"]
 
 [params]
 

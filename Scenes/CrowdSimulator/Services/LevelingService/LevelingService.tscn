@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0imqf2ffpqok"]
+
+[ext_resource type="Script" path="res://Scenes/CrowdSimulator/Base/LevelingService.gd" id="1_5g04b"]
+[ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/LevelingService/StatBase.gd" id="2_iu6og"]
+
+[node name="LevelingService" type="Node"]
+script = ExtResource("1_5g04b")
+
+[node name="Stats" type="Node" parent="."]
+
+[node name="hp" type="Node" parent="Stats"]
+script = ExtResource("2_iu6og")

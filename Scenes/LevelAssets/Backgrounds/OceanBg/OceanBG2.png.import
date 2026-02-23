@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d10xllb3gvng7"
-path="res://.godot/imported/YCSTA_water_3.png-1079e72ee42b5fb9967d6f5aa55e2b57.ctex"
+uid="uid://spyw7i6l8he6"
+path="res://.godot/imported/OceanBG2.png-6a22c7f119f867aea9520ee198aea29b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/LevelAssets/Props/PropsUnsorted/YCSTA_water_3.png"
-dest_files=["res://.godot/imported/YCSTA_water_3.png-1079e72ee42b5fb9967d6f5aa55e2b57.ctex"]
+source_file="res://Scenes/LevelAssets/Backgrounds/OceanBg/OceanBG2.png"
+dest_files=["res://.godot/imported/OceanBG2.png-6a22c7f119f867aea9520ee198aea29b.ctex"]
 
 [params]
 

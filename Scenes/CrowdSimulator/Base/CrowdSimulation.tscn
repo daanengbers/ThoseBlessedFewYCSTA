@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://gye6sxa3o7gs"]
+[gd_scene load_steps=70 format=3 uid="uid://gye6sxa3o7gs"]
 
 [ext_resource type="Script" path="res://Scenes/CrowdSimulator/Base/CrowdSimulation.gd" id="1_4f4g1"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="2_0iapw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://8wpofymgaama" path="res://Scenes/LevelAssets/TileSets/TilesetsUnsorted/TestMenuOptions.png" id="4_xpi3s"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="5_3jsnd"]
 [ext_resource type="AudioStream" uid="uid://b3qee1fus0dfw" path="res://Sounds/meeblingdeath.wav" id="5_b0to5"]
+[ext_resource type="PackedScene" uid="uid://c0imqf2ffpqok" path="res://Scenes/CrowdSimulator/Services/LevelingService/LevelingService.tscn" id="5_fm5cr"]
 [ext_resource type="Script" path="res://Scenes/UIPagesAndMenus/PauseMenu/PauseMenu.gd" id="5_ulwkd"]
 [ext_resource type="AudioStream" uid="uid://cshcblbmdc83w" path="res://Sounds/splash2.wav" id="6_5lvbo"]
 [ext_resource type="Texture2D" uid="uid://clekfea7rbiox" path="res://Assets/UI/SplashArt_LettersOnly-2.png" id="6_sbvce"]
@@ -371,6 +372,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_p70ly"]
 
 [node name="CrowdSimulationNew" type="CharacterBody2D" groups=["CrowdSimulation"]]
+y_sort_enabled = true
 script = ExtResource("1_4f4g1")
 
 [node name="TargetingService" type="Node" parent="."]
@@ -381,6 +383,8 @@ script = ExtResource("3_xhrjw")
 
 [node name="AbilityService" type="Node" parent="."]
 script = ExtResource("4_3nhk1")
+
+[node name="LevelingService" parent="." instance=ExtResource("5_fm5cr")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 

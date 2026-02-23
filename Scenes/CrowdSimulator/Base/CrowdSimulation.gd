@@ -6,16 +6,17 @@ extends CharacterBody2D
 @onready var AbilityService = $AbilityService
 
 ##Arrow stats
-const arrowSpeed = 60
-const acceleration = 0.1
-const aimSpeed = 4
+const arrowSpeed : float = 60
+const acceleration : float = 0.1
+const aimSpeed : float = 4
 
 ##Level vars
-var level = 1
-var xpuntilnextlvl = 5
+var level : int = 1
+var xpuntilnextlvl : int = 5
 
 ##Preload vars
 var meebling = GameResources.meeblingScene
+var meeblingParent: Node2D 
 var deadSplash = GameResources.splashEffectScene
 
 var bullet = GameResources.baseBulletScene
@@ -39,14 +40,12 @@ var gameOver = false
 ###Standard functions###
 
 func _ready():
+	meeblingParent = get_tree().get_first_node_in_group("MeeblingParentNode")
+	
 	birthMeebling(global_position)
 	birthMeebling(global_position)
 	birthMeebling(global_position)
-	birthMeebling(global_position)
-	birthMeebling(global_position)
-	birthMeebling(global_position)
-	birthMeebling(global_position)
-	birthMeebling(global_position)
+	
 	
 	var arrownr = Globalsettings.global_arrow
 	$Mainarrow/Anim.play("arrow" + str(arrownr))
@@ -121,7 +120,7 @@ func birthMeebling(spawnPos):
 	var newMeebling = meebling.instantiate()
 	
 	##Add the instantiated meebling as a child to the arrow
-	add_child.call_deferred(newMeebling)
+	meeblingParent.add_child.call_deferred(newMeebling)
 	
 	##Run the randomiser and setup for the meebling
 	newMeebling.randomizeAndSetup()
