@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfkucjjrrbh0g"]
+
+[ext_resource type="Texture2D" uid="uid://2w0qfwgn6i8t" path="res://Scenes/CrowdSimulator/Services/LevelingService/LevelingArrow/LevelUpArrow.png" id="1_xtehf"]
+
+[sub_resource type="Animation" id="Animation_rv30f"]
+resource_name = "Hover"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_linig"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vd547"]
+_data = {
+"Hover": SubResource("Animation_rv30f"),
+"RESET": SubResource("Animation_linig")
+}
+
+[node name="LevelUpArrow" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_xtehf")
+hframes = 2
+vframes = 2
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vd547")
+}
+autoplay = "Hover"

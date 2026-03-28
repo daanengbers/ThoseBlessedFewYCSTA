@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cspxbx8dg6c7v"
-path="res://.godot/imported/LevelCardBaseSprite.png-8ae6b81f35f7b428ff0d3db318da790c.ctex"
+uid="uid://2w0qfwgn6i8t"
+path="res://.godot/imported/LevelUpArrow.png-775aadab66f25a9c6b343ef4b9ccb599.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/CrowdSimulator/Services/LevelingService/LevelCardBaseSprite.png"
-dest_files=["res://.godot/imported/LevelCardBaseSprite.png-8ae6b81f35f7b428ff0d3db318da790c.ctex"]
+source_file="res://Scenes/CrowdSimulator/Services/LevelingService/LevelingArrow/LevelUpArrow.png"
+dest_files=["res://.godot/imported/LevelUpArrow.png-775aadab66f25a9c6b343ef4b9ccb599.ctex"]
 
 [params]
 

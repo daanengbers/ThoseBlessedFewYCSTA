@@ -1,28 +1,35 @@
 extends Node
 
-const noAbility := 0
+##Onready vars
+@onready var crowdSimulator = get_parent()
+@onready var attackService = crowdSimulator.get_node("AttackingService")
 
-##Cooldown per slots, and max cooldown for UI purposes
-var slotCooldowns := [0.0, 0.0, 0.0, 0.0]
-var slotCooldownMax := [1.0, 1.0, 1.0, 1.0]
+const noAbility = 0
 
-##Dictionary that abilities spells and cooldowns
-var abilityDictionary: Dictionary = {}
+##UI vars
+var uiSlotCooldowns = [0.0, 0.0, 0.0, 0.0]
+var uiSlotCooldownMax = [1.0, 1.0, 1.0, 1.0]
 
-##Crowd simulator and needed services
-@onready var crowdSimulator := get_parent()
-@onready var attackService := crowdSimulator.get_node("AttackingService")
+##Dictionary of abilities
+var abilitiesById : Dictionary = {}
+
+##===============================##
+
+###Standard Functions###
 
 func _ready() -> void:
-	##Builds the dictionary to hold all the abilities
-	LoadAbilities()
+	RegisterAbilities()
 
 func _physics_process(delta: float) -> void:
-	##Ticks down cooldown
 	TickCooldowns(delta)
 
+###Standard Functions###
+
+##===============================##
+
+###Input Functions###
+
 func HandleAbilityInput() -> void:
-	##Handles ability input
 	if Input.is_action_just_pressed("spell1"):
 		TryToCastAbility(1)
 	if Input.is_action_just_pressed("spell2"):
@@ -32,52 +39,74 @@ func HandleAbilityInput() -> void:
 	if Input.is_action_just_pressed("spell4"):
 		TryToCastAbility(4)
 
+###Input Functions###
+
+##===============================##
+
+###Ability loading Functions###
+
+func RegisterAbilities() -> void:
+	##Clear any previous abilities
+	abilitiesById.clear()
+	
+	##Get children of the abilityService
+	for child in get_children():
+		
+		##Filter out anything that isn't an ability
+		if child is AbilityBase:
+			
+			##Make a var of the child
+			var ability = child as AbilityBase
+			
+			##Check if the ability id is properly set
+			if ability.abilityId == 0:
+				push_warning("Ability '%s' has abilityId = 0 (invalid), skipping." % ability.name)
+				continue
+				
+			##Add the ability id to the array
+			abilitiesById[ability.abilityId] = ability
+
+###Ability loading Functions###
+
+##===============================##
+
+###Ability casting Functions###
+
 func TryToCastAbility(slot: int) -> void:
-	##Convert slot to array id
-	var id := slot - 1
+	##Create a usable var with the slot
+	var id = slot - 1
 	
-	##Validate id and check cooldown
-	if id < 0 or id >= slotCooldowns.size():
+	##If the id is invalid or the cooldown is not yet done, return
+	if id < 0 or id >= uiSlotCooldowns.size():
 		return
-	if slotCooldowns[id] > 0.0:
+	if uiSlotCooldowns[id] > 0.0:
 		return
 	
-	##Get equipped ability from global settings
-	var abilityId := GetEquippedAbilityId(slot)
+	##Get the abilityId that corrosponds the the slot
+	var abilityId = GetEquippedAbilityId(slot)
 	if abilityId == noAbility:
 		return
 	
-	##Look up ability in dictionary
-	var ability: Dictionary = abilityDictionary.get(abilityId, {})
-	if ability.is_empty():
+	##Get the ability corrosponding to the id
+	var ability : AbilityBase = abilitiesById.get(abilityId, null)
+	
+	##Check if anything is wrong with the ability
+	if ability == null:
+		return
+	if ability.currentLevel <= 0:
 		return
 	
-	##Get action to do on ability
-	var action: Callable = ability.get("action", Callable())
-	if not action.is_valid():
-		return
+	##Use the child to cast the ability
+	ability.Cast(crowdSimulator, attackService)
 	
-	##Cast ability
-	action.call()
+	##Get the cooldown of the stat
+	var coolDown = ability.GetCooldown()
 	
-	## Apply cooldown (seconds)
-	var coolDown := float(ability.get("cooldown", 0.0))
-	slotCooldowns[id] = coolDown
-	slotCooldownMax[id] = max(coolDown, 0.01)
-
-func GetSlotCooldown(slot: int) -> float:
-	return slotCooldowns[slot - 1]
-
-func GetSlotCooldownMax(slot: int) -> float:
-	return slotCooldownMax[slot - 1]
-
-func TickCooldowns(delta: float) -> void:
-	for i in slotCooldowns.size():
-		if slotCooldowns[i] > 0.0:
-			slotCooldowns[i] = max(0.0, slotCooldowns[i] - delta)
+	##Make the cooldown of the slot corrospond with the returned cooldown
+	uiSlotCooldowns[id] = coolDown
+	uiSlotCooldownMax[id] = max(coolDown, 0.01)
 
 func GetEquippedAbilityId(slot: int) -> int:
-	##Get ability from global settings
 	match slot:
 		1: return Globalsettings.g_spell1
 		2: return Globalsettings.g_spell2
@@ -85,23 +114,35 @@ func GetEquippedAbilityId(slot: int) -> int:
 		4: return Globalsettings.g_spell4
 	return noAbility
 
-func LoadAbilities() -> void:
-	##Dictionary including cooldowns and functions
-	abilityDictionary = {
-		1: { ## Fireball
-			"cooldown": 1.2,
-			"action": func(): attackService.fireProjectile(crowdSimulator.fireBall, attackService.fireballImpulse, true),
-		},
-		2: { ## Lightning
-			"cooldown": 1.8,
-			"action": func(): attackService.fireProjectile(crowdSimulator.lightningBolt, attackService.lightningImpulse, true),
-		},
-		3: { ## Poison
-			"cooldown": 3.0,
-			"action": func(): attackService.SpawnPoison(crowdSimulator.poison),
-		},
-		4: { ## Frost
-			"cooldown": 2.2,
-			"action": func(): attackService.fireProjectile(crowdSimulator.frost, attackService.frostImpulse, true),
-		},
-	}
+###Ability loading Functions###
+
+##===============================##
+
+###Cooldown Functions###
+
+func GetSlotCooldown(slot: int) -> float:
+	return uiSlotCooldowns[slot - 1]
+
+func GetSlotCooldownMax(slot: int) -> float:
+	return uiSlotCooldownMax[slot - 1]
+
+func TickCooldowns(delta: float) -> void:
+	for i in uiSlotCooldowns.size():
+		if uiSlotCooldowns[i] > 0.0:
+			uiSlotCooldowns[i] = max(0.0, uiSlotCooldowns[i] - delta)
+
+###Cooldown Functions###
+
+##===============================##
+
+###Ability locking/leveling Functions###
+
+func SetAbilityLevel(abilityId: int, newLevel: int) -> void:
+	var ability: AbilityBase = abilitiesById.get(abilityId, null)
+	if ability == null:
+		return
+	ability.currentLevel = clampi(newLevel, 0, ability.maxLevel)
+
+###Ability locking Functions###
+
+##===============================##

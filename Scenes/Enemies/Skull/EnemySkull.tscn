@@ -169,6 +169,8 @@ _data = {
 z_index = 5
 script = ExtResource("1_jkq4o")
 enemyType = "NormalAttack"
+hp = 10
+baseXpDropped = 50
 
 [node name="Icon" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)

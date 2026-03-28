@@ -42,7 +42,6 @@ func _ready():
 	birthMeebling(global_position)
 	birthMeebling(global_position)
 	
-	
 	var arrownr = Globalsettings.global_arrow
 	$Mainarrow/Anim.play("arrow" + str(arrownr))
 	pass
@@ -87,6 +86,7 @@ func GameOverCheck():
 			if Globalsettings.highscore_xp < Globalsettings.global_total_xp:
 				Globalsettings.highscore_xp = Globalsettings.global_total_xp
 			get_tree().change_scene_to_file("res://Scenes/new_titlescreen.tscn")
+
 ###Standard functions###
 
 ##===========================================##
@@ -193,14 +193,14 @@ func basicAttack(extraAttacks: int) -> void:
 			await get_tree().create_timer(0.02).timeout
 
 func UpdateAbilityUI() -> void:
-	$UI/Box01/CDB.max_value = AbilityService.GetSlotCooldownMax(1)
-	$UI/Box01/CDB.value = AbilityService.GetSlotCooldown(1)
-	$UI/Box02/CDB.max_value = AbilityService.GetSlotCooldownMax(2)
-	$UI/Box02/CDB.value = AbilityService.GetSlotCooldown(2)
-	$UI/Box03/CDB.max_value = AbilityService.GetSlotCooldownMax(3)
-	$UI/Box03/CDB.value = AbilityService.GetSlotCooldown(3)
-	$UI/Box04/CDB.max_value = AbilityService.GetSlotCooldownMax(4)
-	$UI/Box04/CDB.value = AbilityService.GetSlotCooldown(4)
+	$UI/AbilityBoxes/Box01/CDB.max_value = AbilityService.GetSlotCooldownMax(1)
+	$UI/AbilityBoxes/Box01/CDB.value = AbilityService.GetSlotCooldown(1)
+	$UI/AbilityBoxes/Box02/CDB.max_value = AbilityService.GetSlotCooldownMax(2)
+	$UI/AbilityBoxes/Box02/CDB.value = AbilityService.GetSlotCooldown(2)
+	$UI/AbilityBoxes/Box03/CDB.max_value = AbilityService.GetSlotCooldownMax(3)
+	$UI/AbilityBoxes/Box03/CDB.value = AbilityService.GetSlotCooldown(3)
+	$UI/AbilityBoxes/Box04/CDB.max_value = AbilityService.GetSlotCooldownMax(4)
+	$UI/AbilityBoxes/Box04/CDB.value = AbilityService.GetSlotCooldown(4)
 
 ###Attack and spell handling###
 
