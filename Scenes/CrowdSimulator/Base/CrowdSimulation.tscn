@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bc65frbmttbad" path="res://Assets/UI/Selectcardarrow.png" id="3_onkk8"]
 [ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/AttackingService/AttackingService.gd" id="3_xhrjw"]
 [ext_resource type="AudioStream" uid="uid://c3c2eau8lpm7v" path="res://Sounds/exppickup1.wav" id="4_1x5fh"]
-[ext_resource type="PackedScene" uid="uid://dqth1akcvvhji" path="res://Scenes/CrowdSimulator/Services/AbilityService/abilityService.tscn" id="4_h3i2p"]
+[ext_resource type="PackedScene" uid="uid://b84ny54vrc6jo" path="res://Scenes/CrowdSimulator/Services/AbilityService/abilityService.tscn" id="4_h3i2p"]
 [ext_resource type="Texture2D" uid="uid://8wpofymgaama" path="res://Scenes/LevelAssets/TileSets/TilesetsUnsorted/TestMenuOptions.png" id="4_xpi3s"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="5_3jsnd"]
 [ext_resource type="AudioStream" uid="uid://b3qee1fus0dfw" path="res://Sounds/meeblingdeath.wav" id="5_b0to5"]
@@ -34,12 +34,12 @@
 [ext_resource type="Texture2D" uid="uid://c5yw41i5s8ra" path="res://Assets/UI/Meeblingbuttons.png" id="19_qro8q"]
 [ext_resource type="Texture2D" uid="uid://dcqqw175nsbbw" path="res://Assets/UI/lvlbar_empty.png" id="20_vepmi"]
 [ext_resource type="Texture2D" uid="uid://cxmshi48066ak" path="res://Assets/UI/lvlbar_full.png" id="21_jof3b"]
+[ext_resource type="Texture2D" uid="uid://bo4g2mvwd5gpt" path="res://Assets/UI/LockedStatUIBox.png" id="23_8t2k3"]
 [ext_resource type="Texture2D" uid="uid://cg180gfaancl0" path="res://Assets/UI/Buttonshowcase.png" id="23_40i7b"]
 [ext_resource type="FontFile" uid="uid://b85f1e3h4hl2q" path="res://Fonts/Retro Gaming.ttf" id="24_mfuhi"]
 [ext_resource type="Texture2D" uid="uid://dsh5841pjc8i5" path="res://Assets/Particle_Sprites/YCSTA_Souldparticles.png" id="25_6b0nc"]
 [ext_resource type="Script" path="res://Scenes/NotSureWhatToDoWithThisYet/SacrificeMeeblings/SacrificeMeeblingScreen.gd" id="26_cjs6b"]
 [ext_resource type="Texture2D" uid="uid://d21gc6pesq6l3" path="res://Assets/UI/GameOver.png" id="27_kk31k"]
-[ext_resource type="PackedScene" uid="uid://c6eexehntobs7" path="res://Scenes/LevelUpSystem/StatHolder/StatHolder.tscn" id="28_4404o"]
 
 [sub_resource type="Animation" id="Animation_yqass"]
 length = 0.001
@@ -976,47 +976,28 @@ max_value = 10.0
 texture_under = ExtResource("17_078ea")
 texture_progress = ExtResource("18_rtf1h")
 
-[node name="Statholder2" type="Node2D" parent="UI"]
+[node name="StatHolder" type="Node2D" parent="UI"]
+position = Vector2(12, -6)
 
-[node name="Box01" type="Sprite2D" parent="UI/Statholder2"]
+[node name="Box01" type="Sprite2D" parent="UI/StatHolder"]
 texture_filter = 1
-position = Vector2(34, 228)
-texture = ExtResource("14_3to6u")
+position = Vector2(12, 252)
+texture = ExtResource("23_8t2k3")
 metadata/_edit_group_ = true
 
-[node name="UpgradeIcons" type="Sprite2D" parent="UI/Statholder2/Box01"]
+[node name="StatIcons" type="Sprite2D" parent="UI/StatHolder/Box01"]
+visible = false
 texture_filter = 1
-texture = ExtResource("15_btg32")
-hframes = 4
-vframes = 5
-frame = 15
+texture = ExtResource("8_h6oi1")
+vframes = 6
 
-[node name="CDB" type="TextureProgressBar" parent="UI/Statholder2/Box01"]
-modulate = Color(1, 1, 1, 0.501961)
-offset_left = -14.0
-offset_top = -14.0
-offset_right = 14.0
-offset_bottom = 14.0
-value = 100.0
-fill_mode = 3
-texture_progress = ExtResource("16_tgili")
-
-[node name="Levelprogress" type="TextureProgressBar" parent="UI/Statholder2/Box01"]
-offset_left = -14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 15.0
-max_value = 10.0
-texture_under = ExtResource("17_078ea")
-texture_progress = ExtResource("18_rtf1h")
-
-[node name="Label" type="Label" parent="UI/Statholder2/Box01"]
+[node name="Label" type="Label" parent="UI/StatHolder/Box01"]
 visible = false
 modulate = Color(0.658824, 0, 0.0823529, 1)
-offset_left = -14.0
-offset_top = -10.0
-offset_right = 14.0
-offset_bottom = 13.0
+offset_left = -11.0
+offset_top = 6.0
+offset_right = 11.0
+offset_bottom = 19.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 1
@@ -1026,101 +1007,89 @@ text = "lvl 1"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Box03" type="Sprite2D" parent="UI/Statholder2"]
+[node name="Box02" type="Sprite2D" parent="UI/StatHolder"]
 texture_filter = 1
-position = Vector2(63, 247)
-texture = ExtResource("14_3to6u")
+position = Vector2(40, 252)
+texture = ExtResource("23_8t2k3")
 metadata/_edit_group_ = true
 
-[node name="UpgradeIcons" type="Sprite2D" parent="UI/Statholder2/Box03"]
+[node name="StatIcons" type="Sprite2D" parent="UI/StatHolder/Box02"]
+visible = false
 texture_filter = 1
-texture = ExtResource("15_btg32")
-hframes = 4
-vframes = 5
-frame = 15
+texture = ExtResource("8_h6oi1")
+vframes = 6
 
-[node name="CDB" type="TextureProgressBar" parent="UI/Statholder2/Box03"]
-modulate = Color(1, 1, 1, 0.501961)
-offset_left = -14.0
-offset_top = -14.0
-offset_right = 14.0
-offset_bottom = 14.0
-value = 100.0
-fill_mode = 3
-texture_progress = ExtResource("16_tgili")
+[node name="Label" type="Label" parent="UI/StatHolder/Box02"]
+visible = false
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = -11.0
+offset_top = 6.0
+offset_right = 11.0
+offset_bottom = 19.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_tvbwi")
+text = "lvl 1"
+horizontal_alignment = 2
+vertical_alignment = 2
 
-[node name="Levelprogress" type="TextureProgressBar" parent="UI/Statholder2/Box03"]
-offset_left = -14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 15.0
-max_value = 10.0
-texture_under = ExtResource("17_078ea")
-texture_progress = ExtResource("18_rtf1h")
-
-[node name="Box02" type="Sprite2D" parent="UI/Statholder2"]
+[node name="Box03" type="Sprite2D" parent="UI/StatHolder"]
 texture_filter = 1
-position = Vector2(63, 210)
-texture = ExtResource("14_3to6u")
+position = Vector2(68, 252)
+texture = ExtResource("23_8t2k3")
 metadata/_edit_group_ = true
 
-[node name="UpgradeIcons" type="Sprite2D" parent="UI/Statholder2/Box02"]
+[node name="StatIcons" type="Sprite2D" parent="UI/StatHolder/Box03"]
+visible = false
 texture_filter = 1
-texture = ExtResource("15_btg32")
-hframes = 4
-vframes = 5
-frame = 17
+texture = ExtResource("8_h6oi1")
+vframes = 6
 
-[node name="CDB" type="TextureProgressBar" parent="UI/Statholder2/Box02"]
-modulate = Color(1, 1, 1, 0.501961)
-offset_left = -14.0
-offset_top = -14.0
-offset_right = 14.0
-offset_bottom = 14.0
-value = 100.0
-fill_mode = 3
-texture_progress = ExtResource("16_tgili")
+[node name="Label" type="Label" parent="UI/StatHolder/Box03"]
+visible = false
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = -11.0
+offset_top = 6.0
+offset_right = 11.0
+offset_bottom = 19.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_tvbwi")
+text = "lvl 1"
+horizontal_alignment = 2
+vertical_alignment = 2
 
-[node name="Levelprogress" type="TextureProgressBar" parent="UI/Statholder2/Box02"]
-offset_left = -14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 15.0
-max_value = 10.0
-texture_under = ExtResource("17_078ea")
-texture_progress = ExtResource("18_rtf1h")
-
-[node name="Box04" type="Sprite2D" parent="UI/Statholder2"]
+[node name="Box04" type="Sprite2D" parent="UI/StatHolder"]
 texture_filter = 1
-position = Vector2(92, 228)
-texture = ExtResource("14_3to6u")
+position = Vector2(96, 252)
+texture = ExtResource("23_8t2k3")
 metadata/_edit_group_ = true
 
-[node name="UpgradeIcons" type="Sprite2D" parent="UI/Statholder2/Box04"]
+[node name="StatIcons" type="Sprite2D" parent="UI/StatHolder/Box04"]
+visible = false
 texture_filter = 1
-texture = ExtResource("15_btg32")
-hframes = 4
-vframes = 5
-frame = 15
+texture = ExtResource("8_h6oi1")
+vframes = 6
 
-[node name="CDB" type="TextureProgressBar" parent="UI/Statholder2/Box04"]
-modulate = Color(1, 1, 1, 0.501961)
-offset_left = -14.0
-offset_top = -14.0
-offset_right = 14.0
-offset_bottom = 14.0
-value = 100.0
-fill_mode = 3
-texture_progress = ExtResource("16_tgili")
-
-[node name="Levelprogress" type="TextureProgressBar" parent="UI/Statholder2/Box04"]
-offset_left = -14.0
-offset_top = 13.0
-offset_right = 14.0
-offset_bottom = 15.0
-max_value = 10.0
-texture_under = ExtResource("17_078ea")
-texture_progress = ExtResource("18_rtf1h")
+[node name="Label" type="Label" parent="UI/StatHolder/Box04"]
+visible = false
+modulate = Color(0.658824, 0, 0.0823529, 1)
+offset_left = -11.0
+offset_top = 6.0
+offset_right = 11.0
+offset_bottom = 19.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("FontVariation_tvbwi")
+text = "lvl 1"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Letters" type="Node2D" parent="UI"]
 visible = false
@@ -1506,8 +1475,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("5_3jsnd")
 text = "0 NMys"
-
-[node name="StatHolder" parent="UI" instance=ExtResource("28_4404o")]
 
 [node name="BossHealthBar" type="Node2D" parent="UI"]
 visible = false

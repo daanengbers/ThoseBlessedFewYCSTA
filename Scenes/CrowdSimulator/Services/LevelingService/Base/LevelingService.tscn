@@ -10,33 +10,50 @@ script = ExtResource("1_dmmj1")
 
 [node name="Stats" type="Node" parent="."]
 
-[node name="Bounce" type="Node" parent="Stats" groups=["Upgrades"]]
-script = ExtResource("2_kotbj")
-levels = Array[int]([1, 2, 4, 8])
-cardName = "Bounce"
-description = Array[String](["Increase bounce  by 1", "Increase bounce by 2", "Increase bounce by 4", "Increase bounce by 8"])
-spriteFrame = 16
-maxLevel = 4
+[node name="Attack" type="Node" parent="Stats" groups=["Upgrades"]]
+script = ExtResource("3_gr4s0")
+levels = Array[int]([3, 7, 12, 22, 30, 45])
+cardName = "ATK"
+description = Array[String](["Increase damage by 3", "Increase damage by 7", "Increase damage by 12", "Increase damage by 22", "Increase damage by 30", "Increase damage by 45"])
+spriteFrame = 1
+maxLevel = 6
 
 [node name="Speed" type="Node" parent="Stats" groups=["Upgrades"]]
 script = ExtResource("2_kotbj")
-levels = Array[int]([10, 15, 30, 50])
+levels = Array[int]([10, 15, 30, 50, 70, 80, 100])
 cardName = "Speed"
-description = Array[String](["Increase speed  by 10", "Increase speed by 15", "Increase speed by 30", "Increase speed by 50"])
-spriteFrame = 1
-maxLevel = 4
+description = Array[String](["Increase speed  by 10", "Increase speed by 15", "Increase speed by 30", "Increase speed by 50", "Increase speed  by 70", "Increase speed  by 80", "Increase speed  by 100"])
+spriteFrame = 2
+maxLevel = 7
 
-[node name="Attack" type="Node" parent="Stats" groups=["Upgrades"]]
-script = ExtResource("3_gr4s0")
-levels = Array[int]([5, 5, 10])
-cardName = "ATK"
-description = Array[String](["Attack + 5", "Attack + 5", "Attack + 10"])
-maxLevel = 3
+[node name="CD" type="Node" parent="Stats" groups=["Upgrades"]]
+script = ExtResource("2_kotbj")
+levels = Array[int]([4, 5, 6, 8, 12, 14, 15])
+cardName = "Cooldown"
+description = Array[String](["Decrease cooldown by 4%", "Decrease cooldown by 5%", "Decrease cooldown by 6%", "Decrease cooldown by 8%", "Decrease cooldown by 12%", "Decrease cooldown by 14%", "Decrease cooldown by 15%"])
+spriteFrame = 3
+maxLevel = 7
+
+[node name="Amount" type="Node" parent="Stats" groups=["Upgrades"]]
+script = ExtResource("2_kotbj")
+levels = Array[int]([0, 0, 1, 0, 0, 0, 1])
+cardName = "Amount"
+description = Array[String](["Nothing happens...", "Nothing happens...", "Increase bullets by 1", "Nothing happens...", "Nothing happens...", "Nothing happens...", "Increase bullets by 1"])
+spriteFrame = 4
+maxLevel = 7
 
 [node name="hp" type="Node" parent="Stats" groups=["Upgrades"]]
 script = ExtResource("3_vyt1a")
 levels = Array[int]([10, 15, 30, 50])
 cardName = "HP"
 description = Array[String](["Increase HP by 10", "Increase HP by 15", "Increase HP by 30", "Increase HP by 50"])
-spriteFrame = 4
+spriteFrame = 5
+maxLevel = 4
+
+[node name="Bounce" type="Node" parent="Stats" groups=["Upgrades"]]
+script = ExtResource("2_kotbj")
+levels = Array[int]([1, 2, 4, 8])
+cardName = "Bounce"
+description = Array[String](["Increase bounce  by 1", "Increase bounce by 2", "Increase bounce by 4", "Increase bounce by 8"])
+spriteFrame = 6
 maxLevel = 4

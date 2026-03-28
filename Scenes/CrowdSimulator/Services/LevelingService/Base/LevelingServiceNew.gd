@@ -11,6 +11,20 @@ extends Node
 @onready var Key3UI = $"../UI/AbilityMapPrompt/V"
 @onready var Key4UI = $"../UI/AbilityMapPrompt/B"
 
+@onready var statUISprites : Array[Sprite2D] = [
+	$"../UI/StatHolder/Box01/StatIcons",
+	$"../UI/StatHolder/Box02/StatIcons",
+	$"../UI/StatHolder/Box03/StatIcons",
+	$"../UI/StatHolder/Box04/StatIcons",
+	]
+
+@onready var statUILabels : Array[Label] = [
+	$"../UI/StatHolder/Box01/Label",
+	$"../UI/StatHolder/Box02/Label",
+	$"../UI/StatHolder/Box03/Label",
+	$"../UI/StatHolder/Box04/Label",
+]
+
 @onready var abilityService = crowdSimulator.get_node("AbilityService")
 
 ##Preload vars
@@ -27,6 +41,8 @@ var pendingLevelUps : int = 0
 ##Leveling stats
 var statSlotsAvailable : int = 4
 var abilitySlotsAvailable : int = 4
+
+var currentStatSlotLocked : int = 1
 
 var isChoosingUpgrade : bool = false
 var isPickingAbilitySlot : bool = false
@@ -172,10 +188,26 @@ func TriggerNextLevelUp():
 func ApplyUpgrade(upgrade: UpgradeBase) -> void:
 	if upgrade.upgradeType == UpgradeBase.UpgradeType.Stat:
 		var stat = upgrade as StatUpgrade
+		
+		##Check if stat is already chosen, if not, set slot and enable UI
+		if stat.currentLevel == 0 and stat.slot == -1:
+			stat.slot = currentStatSlotLocked
+			currentStatSlotLocked += 1
+			
+			##Update UI
+			UpdateUIStatSlots(stat)
+		
+		##Apply upgrade
 		stat.ApplyStatLevel()
+		
+		##if slot is taken, update UI
+		if stat.slot != -1:
+			UpdateUIStatSlots(stat)
+		
+		##Continue with the game
 		ClearAndResume()
 		return
-		
+	
 	if upgrade.upgradeType == UpgradeBase.UpgradeType.Ability:
 		var ability := upgrade as AbilityBase
 		ApplyAbility(ability)
@@ -201,16 +233,16 @@ func MapAbilityToSlot(ability: AbilityBase, slot: int) -> void:
 	match slot:
 		1: 
 			Globalsettings.g_spell1 = ability.abilityId
-			$"../UI/AbilityBoxes/Box01/UpgradeIcons".frame = ability.spriteFrame
+			$"../UI/AbilityBoxes/Box01/UpgradeIcons".frame = (ability.spriteFrame + $"../UI/AbilityBoxes/Box01/UpgradeIcons".hframes)
 		2: 
 			Globalsettings.g_spell2 = ability.abilityId
-			$"../UI/AbilityBoxes/Box02/UpgradeIcons".frame = ability.spriteFrame
+			$"../UI/AbilityBoxes/Box02/UpgradeIcons".frame = (ability.spriteFrame + $"../UI/AbilityBoxes/Box01/UpgradeIcons".hframes)
 		3: 
 			Globalsettings.g_spell3 = ability.abilityId
-			$"../UI/AbilityBoxes/Box03/UpgradeIcons".frame = ability.spriteFrame
+			$"../UI/AbilityBoxes/Box03/UpgradeIcons".frame = (ability.spriteFrame + $"../UI/AbilityBoxes/Box01/UpgradeIcons".hframes)
 		4: 
 			Globalsettings.g_spell4 = ability.abilityId
-			$"../UI/AbilityBoxes/Box04/UpgradeIcons".frame = ability.spriteFrame
+			$"../UI/AbilityBoxes/Box04/UpgradeIcons".frame = (ability.spriteFrame + $"../UI/AbilityBoxes/Box01/UpgradeIcons".hframes)
 	
 	##Add the taken slot to the list for UI and tracking purposes
 	slotsTaken.append(slot)
@@ -345,11 +377,13 @@ func SetCardContent(emptyCardInstance, chosenCard):
 	emptyCardInstance.get_node("CardName").text = chosenCard.cardName
 	emptyCardInstance.get_node("CardLevel").text = "LVL " + str(chosenCard.currentLevel)
 	emptyCardInstance.get_node("CardDescription").text = chosenCard.description[chosenCard.currentLevel]
-	emptyCardInstance.get_node("CardSpriteUpgrade").frame = chosenCard.spriteFrame
+	
 	if chosenCard.upgradeType == UpgradeBase.UpgradeType.Stat:
 		emptyCardInstance.get_node("CardSpriteBase").frame = 0
+		emptyCardInstance.get_node("CardSpriteUpgrade").frame = chosenCard.spriteFrame
 	if chosenCard.upgradeType == UpgradeBase.UpgradeType.Ability:
 		emptyCardInstance.get_node("CardSpriteBase").frame = 1
+		emptyCardInstance.get_node("CardSpriteUpgrade").frame = (chosenCard.spriteFrame + emptyCardInstance.get_node("CardSpriteUpgrade").hframes)
 
 func UpdateArrowUI():
 	##Checks if any cards are shown
@@ -388,6 +422,18 @@ func ClearExistingCards():
 		if is_instance_valid(card):
 			card.queue_free()
 	shownCards.clear()
+
+func UpdateUIStatSlots(stat : StatUpgrade):
+	var id = stat.slot - 1
+	
+	if id < statUISprites.size():
+		statUISprites[id].visible = true
+		statUISprites[id].frame = stat.spriteFrame
+	
+	if id < statUILabels.size():
+		statUILabels[id].visible = true
+		statUILabels[id].text = "LVL " + str(stat.currentLevel)
+
 
 ###UI Functions###
 

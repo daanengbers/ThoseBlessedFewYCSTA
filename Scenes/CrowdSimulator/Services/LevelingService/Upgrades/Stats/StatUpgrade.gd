@@ -2,6 +2,7 @@ extends UpgradeBase
 class_name StatUpgrade
 
 @export var levels: Array[int] = []
+@export var slot: int = -1
 
 func _ready() -> void:
 	upgradeType = UpgradeType.Stat
