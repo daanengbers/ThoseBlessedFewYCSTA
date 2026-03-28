@@ -10,10 +10,6 @@ const arrowSpeed : float = 60
 const acceleration : float = 0.1
 const aimSpeed : float = 4
 
-##Level vars
-var level : int = 1
-var xpuntilnextlvl : int = 5
-
 ##Preload vars
 var meebling = GameResources.meeblingScene
 var meeblingParent: Node2D 
@@ -69,8 +65,6 @@ func _physics_process(delta: float) -> void:
 		if Engine.get_process_frames() % 20 == 0:
 			getClosestMeebling()
 		
-	#EXP system
-	expSystem()
 	
 	##CooldownUI
 	UpdateAbilityUI()
@@ -212,43 +206,6 @@ func UpdateAbilityUI() -> void:
 
 ##===========================================##
 
-###Leveling system###
-
-func expSystem():
-	$UI/LVLbar.value = Globalsettings.global_xp
-	$UI/LVLtext.set_text("Level: " + str(level))
-	if Globalsettings.global_xp >= xpuntilnextlvl:
-		level_up()
-
-func level_up():
-	level += 1
-	Globalsettings.global_xp -= xpuntilnextlvl
-	
-	##$LVLup.play()
-	
-	if level <= 10:
-		xpuntilnextlvl += 2
-	elif level >= 11 && level <= 30:
-		xpuntilnextlvl += 3
-	elif level >= 31 && level <= 50:
-		xpuntilnextlvl += 4
-	elif level >= 51 && level <= 70:
-		xpuntilnextlvl += 5
-	elif level >= 71 && level <= 90:
-		xpuntilnextlvl += 6
-	elif level >= 91 && level <= 100:
-		xpuntilnextlvl += 7
-	elif level >= 101:
-		xpuntilnextlvl += 10 + level * 2
-	
-	$UI/LVLbar.max_value = xpuntilnextlvl
-	$UI/LVLbar.value = Globalsettings.global_xp
-	$UI/LVLtext.set_text("Level: " + str(level))
-	
-	$UI/StatHolder.levelUpInit()
-	
-	get_tree().paused = true
-
 func displayupgrades():
 	if Globalsettings.g_spell1 != 0:
 		$UI/Box01/UpgradeIcons.frame = Globalsettings.g_spell1 + 4
@@ -267,8 +224,6 @@ func displayupgrades():
 		$UI/PauseMenu/StatSheet/Text_CDNlvl.modulate = Color(1,.2,.2)
 	if Globalsettings.currentrun_minuscooldown == 0:
 		$UI/PauseMenu/StatSheet/Text_CDNlvl.modulate = Color(1,1,1)
-
-###Leveling system###
 
 ##===========================================##
 

@@ -44,10 +44,6 @@ func fireProjectile(projectileScene: PackedScene, impulse: float, AbilitySound: 
 # --- Unique/special attacks ---
 
 func SpawnPoison(poisonScene: PackedScene) -> void:
-	##Get and set closest enemy
-	var closestEnemy: Node2D = targetingService.getClosestEnemy(crowdSimulator.global_position)
-	Globalsettings.globalClosestEnemy = closestEnemy
-	
 	##Play sfx
 	AbilitySfx.play()
 	

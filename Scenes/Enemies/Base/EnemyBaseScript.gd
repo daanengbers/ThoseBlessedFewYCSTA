@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 ##Services
 @onready var targetingService = get_tree().get_first_node_in_group("CrowdSimulation").get_node("TargetingService")
-
+@onready var levelingSystem = get_tree().get_first_node_in_group("CrowdSimulation").get_node("LevelingService")
 ##Stats
 @export var enemyType = "Eyeball"
 @export var spawnMeebOnDeath = false
@@ -142,7 +142,7 @@ func kill():
 	alive = false
 	
 	##increase global xp by base amount and scaled amount
-	Globalsettings.global_xp += baseXpDropped ##Add scaled amount##!!
+	levelingSystem.GetXp(baseXpDropped)
 	spawnXpEffect()
 	
 	if spawnMeebOnDeath:

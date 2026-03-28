@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://loirchxti00r"]
+[gd_scene load_steps=21 format=3 uid="uid://loirchxti00r"]
 
+[ext_resource type="PackedScene" uid="uid://c46w1oefw787c" path="res://Scenes/Spawner/enemy_spawner.tscn" id="1_6irfh"]
 [ext_resource type="PackedScene" uid="uid://bsa5f5fwc106k" path="res://Scenes/Cage/MeeblingCage.tscn" id="2_bclca"]
 [ext_resource type="PackedScene" uid="uid://gye6sxa3o7gs" path="res://Scenes/CrowdSimulator/Base/CrowdSimulation.tscn" id="3_xcdwa"]
 [ext_resource type="Texture2D" uid="uid://maogmnfxgm1u" path="res://Scenes/LevelAssets/TileSets/Beach/BeachTileSet.png" id="4_yfnu8"]
@@ -1158,6 +1159,8 @@ shader_parameter/addedx = 160.0
 
 [node name="Ysorter" type="Node2D" parent="." groups=["Ysorter"]]
 y_sort_enabled = true
+
+[node name="EnemySpawner" parent="Ysorter" instance=ExtResource("1_6irfh")]
 
 [node name="MeeblingParentNode" type="Node2D" parent="Ysorter" groups=["MeeblingParentNode"]]
 y_sort_enabled = true
