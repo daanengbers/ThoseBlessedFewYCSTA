@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1y2u3lifcljj"
-path="res://.godot/imported/LevelCardUpgradeSprites.png-bdeec66bf254f5cba646f258d8e4fdd4.ctex"
+uid="uid://cspxbx8dg6c7v"
+path="res://.godot/imported/LevelCardBaseSprite.png-ee8fad7af8cd2af345ffc61a96c96873.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/CrowdSimulator/Services/LevelingService/LevelCardUpgradeSprites.png"
-dest_files=["res://.godot/imported/LevelCardUpgradeSprites.png-bdeec66bf254f5cba646f258d8e4fdd4.ctex"]
+source_file="res://Scenes/CrowdSimulator/Services/LevelingService/LevelingCards/LevelCardBaseSprite.png"
+dest_files=["res://.godot/imported/LevelCardBaseSprite.png-ee8fad7af8cd2af345ffc61a96c96873.ctex"]
 
 [params]
 

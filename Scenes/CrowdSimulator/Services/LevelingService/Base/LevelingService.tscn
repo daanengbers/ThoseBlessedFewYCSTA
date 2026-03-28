@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0imqf2ffpqok"]
+
+[ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/LevelingService/Base/LevelingServiceNew.gd" id="1_dmmj1"]
+[ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/LevelingService/Upgrades/Stats/StatVariations/SpeedUpgrade.gd" id="2_kotbj"]
+[ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/LevelingService/Upgrades/Stats/StatVariations/AttackUpgrade.gd" id="3_gr4s0"]
+[ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/LevelingService/Upgrades/Stats/StatVariations/HealthUpgrade.gd" id="3_vyt1a"]
+
+[node name="LevelingService" type="Node"]
+script = ExtResource("1_dmmj1")
+
+[node name="Stats" type="Node" parent="."]
+
+[node name="Bounce" type="Node" parent="Stats" groups=["Upgrades"]]
+script = ExtResource("2_kotbj")
+levels = Array[int]([1, 2, 4, 8])
+cardName = "Bounce"
+description = Array[String](["Increase bounce  by 1", "Increase bounce by 2", "Increase bounce by 4", "Increase bounce by 8"])
+spriteFrame = 16
+maxLevel = 4
+
+[node name="Speed" type="Node" parent="Stats" groups=["Upgrades"]]
+script = ExtResource("2_kotbj")
+levels = Array[int]([10, 15, 30, 50])
+cardName = "Speed"
+description = Array[String](["Increase speed  by 10", "Increase speed by 15", "Increase speed by 30", "Increase speed by 50"])
+spriteFrame = 1
+maxLevel = 4
+
+[node name="Attack" type="Node" parent="Stats" groups=["Upgrades"]]
+script = ExtResource("3_gr4s0")
+levels = Array[int]([5, 5, 10])
+cardName = "ATK"
+description = Array[String](["Attack + 5", "Attack + 5", "Attack + 10"])
+maxLevel = 3
+
+[node name="hp" type="Node" parent="Stats" groups=["Upgrades"]]
+script = ExtResource("3_vyt1a")
+levels = Array[int]([10, 15, 30, 50])
+cardName = "HP"
+description = Array[String](["Increase HP by 10", "Increase HP by 15", "Increase HP by 30", "Increase HP by 50"])
+spriteFrame = 4
+maxLevel = 4
