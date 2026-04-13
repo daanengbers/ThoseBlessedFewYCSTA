@@ -8,16 +8,25 @@ var global_arrow = 1
 var global_showfps = false
 var global_fullscreen = true
 
-var global_xp = 0
-var global_total_xp = 0
 var highscore_xp = 0
 
-var currentrun_extraattack = 0
-var currentrun_extraspeed = 0
-var currentrun_minuscooldown = 0
-var currentrun_extrabullets = 0
-var currentrun_extrahealth = 0
-var currentrun_extrabounce = 0
+##GlobalStats flat values
+
+var globalStatsExtraDMG : int = 0
+var globalStatsExtraHP : int = 0
+var globalStatsExtraBOU : int  = 0
+var globalStatsExtraAM : int = 0
+var globalStatsExtraSPD : int = 0
+var globalStatsExtraARM : int = 0
+var globalStatsExtraRG : int = 0
+
+##Globalstats percentages
+var globalStatsPerCDR : float = 1
+var globalStatsPerAS : float = 1
+var globalStatsPerDUR : float = 1
+var globalStatsPerLD : float = 0
+var globalStatsPerXP : float = 1
+var globalStatsPerCUR : float = 1
 
 var timerrunning = false
 var g_seconds = 0
@@ -69,14 +78,6 @@ func setmusic():
 	$Bossmusic.stop()
 
 func resetrun():
-	global_xp = 0
-	global_total_xp = 0
-	currentrun_extraattack = 0
-	currentrun_extraspeed = 0
-	currentrun_minuscooldown = 0
-	currentrun_extrabullets = 0
-	currentrun_extrahealth = 0
-	currentrun_extrabounce = 0
 	g_spell1 = 0
 	g_spell2 = 0
 	g_spell3 = 0
