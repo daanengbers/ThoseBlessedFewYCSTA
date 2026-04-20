@@ -1,5 +1,5 @@
 extends StatUpgrade
-class_name BounceUpgrade
+class_name SpeedUpgrade
 
 func ApplyStatLevel() -> void:
 	##Up the current level

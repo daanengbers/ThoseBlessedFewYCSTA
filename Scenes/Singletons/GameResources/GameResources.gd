@@ -4,10 +4,10 @@ extends Node
 const meeblingScene := preload("res://Scenes/Meeblings/Base/Meebling.tscn")
 
 ###Projectiles###
-const fireBallScene := preload("res://Scenes/Projectiles/Fireball/BulletFromCrowdFireball.tscn")
+const fireBallScene := preload("res://Scenes/Projectiles/Fireball/Base/CrowdProjectileFireball.tscn")
 const lightningBoltScene := preload("res://Scenes/Projectiles/ThunderBolt/BulletFromCrowdThunderbolt.tscn")
 const frostScene := preload("res://Scenes/Projectiles/Frost/BulletFromCrowdSnowFlake.tscn")
-const baseBulletScene := preload("res://Scenes/Projectiles/Bullet/BulletFromCrowd.tscn")
+const baseBulletScene := preload("res://Scenes/Projectiles/Bullet/CrowdProjectileBasicBullet.tscn")
 const poisonScene := preload("res://Scenes/Projectiles/Poison/BulletFromCrowdPoisonsmoke.tscn")
 const arrowScene := preload("res://Scenes/Projectiles/Arrow/BulletFromCrowdArrow.tscn")
 

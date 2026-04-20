@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://siyq5k5htydp" path="res://Assets/UI/UpgradeIcons.png" id="25_1dhvg"]
 [ext_resource type="FontFile" uid="uid://b85f1e3h4hl2q" path="res://Fonts/Retro Gaming.ttf" id="26_v832a"]
 [ext_resource type="Texture2D" uid="uid://cgakxi0t1lwe7" path="res://Assets/UI/Staticons.png" id="27_ed15m"]
-[ext_resource type="Texture2D" uid="uid://cytptuuf0v3e5" path="res://Scenes/Projectiles/Fireball/BigFireBallSprite.png" id="28_v1up6"]
+[ext_resource type="Texture2D" uid="uid://cytptuuf0v3e5" path="res://Scenes/Projectiles/Fireball/Sprites/BigFireBallSprite.png" id="28_v1up6"]
 [ext_resource type="Texture2D" uid="uid://deqsdtpq6bt6s" path="res://Assets/UI/YCSTA_UIboxes-1.png" id="29_aj6gm"]
 [ext_resource type="Texture2D" uid="uid://c5yw41i5s8ra" path="res://Assets/UI/Meeblingbuttons.png" id="30_51fl5"]
 [ext_resource type="Texture2D" uid="uid://b35lpeblxr4uq" path="res://Scenes/LevelAssets/Props/PropsUnsorted/WoodenBridge2h.png" id="31_bacac"]

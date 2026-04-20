@@ -1,13 +1,13 @@
 extends RigidBody2D
 class_name ProjectileBase
 
-## Stats set by parent on init
+## Stats injected at spawn time by the attack that fires this projectile
 var damage : float = 0.0
 var bouncesLeft : int = 0
 var lifeDrain : float = 0.0
 var destroyOnImpact : bool = true
 
-## Internals
+## Internal
 var randomDirection : float = 0.0
 var damageNumberScene = GameResources.damageNumberScene
 
@@ -61,22 +61,21 @@ func Bounce() -> void:
 func ApplyLifeDrain() -> void:
 	var healAmount := roundi(damage * lifeDrain)
 	if healAmount <= 0:
-		return ## Valid: rounding made it 0, no heal needed
-	
-	## These are structural — if missing, the game is broken and SHOULD crash
+		return
+
+	## Structural — must exist
 	var crowdSim = get_tree().get_first_node_in_group("CrowdSimulation")
 	var targetingService = crowdSim.get_node("TargetingService")
 	
-	## Valid game state: no meeblings alive, nothing to heal
+	## Valid game state: no meeblings alive
 	if targetingService.meeblings.size() == 0:
 		return
 	
-	## Find the closest meebling to this projectile and heal it
 	var closestMeeb : Node2D = null
 	var closestDist := INF
 	for meeb in targetingService.meeblings:
 		if not is_instance_valid(meeb):
-			continue ## Valid: meebling died between frames
+			continue
 		var dist := global_position.distance_squared_to(meeb.global_position)
 		if dist < closestDist:
 			closestDist = dist

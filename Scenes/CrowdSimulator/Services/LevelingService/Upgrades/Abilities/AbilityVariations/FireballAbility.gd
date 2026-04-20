@@ -1,35 +1,39 @@
 extends AbilityBase
 class_name FireballAbility
 
-@export var levelToStartExploding : int = 3
+##Unique vars
 
-var canExplode : bool = false
+@export var levelToStartExploding : int = 3
+@export var levelToLeaveFlames : int = 6
+
+##===============================##
+
+###Unique spell behaviour###
 
 func Cast(crowdSimulator: CharacterBody2D, attackService: Node) -> void:
-	##Get the targeting service
-	var targetingService = crowdSimulator.get_node("TargetingService")
+	var targetingService = GetTargetingService(crowdSimulator)
 	
-	##Use the targeting service to get the closest enemy
 	var closestEnemy = targetingService.GetClosestEnemy(crowdSimulator.global_position)
 	
-	##If there are no enemies, return
 	if closestEnemy == null:
 		return
 	
-	##Make the ability pierce above a certain level
-	canExplode = currentLevel >= levelToStartExploding
+	## Determine level-based behavior
+	var canExplode : bool = currentLevel >= levelToStartExploding
+	var canLeaveFlames : bool = currentLevel >= levelToLeaveFlames
 	
-	##For each meeb
 	for meeb in targetingService.meeblings:
-		##Check if meeb is valid, if not stop cast
 		if not is_instance_valid(meeb):
 			continue
 		
-		##Get rotation from meeb to enemy
 		var rot = meeb.rotateTowardsEnemy()
+		var fireballIn = SpawnProjectileFromMeebling(meeb, GameResources.fireBallScene, attackService.fireballImpulse, rot)
 		
-		var fireballIn = SpawnProjectileFromMeebling(meeb, crowdSimulator.fireBall, attackService.lightningImpulse, rot)
+		## Inject stats from scaling system
+		InjectStats(fireballIn)
 		
-		fireballIn.BaseDamage += 10
-		# If your projectile script supports it:
-		# proj.canPierce = canPierce
+		## Set fireball-specific properties
+		fireballIn.canExplode = canExplode
+		fireballIn.canLeaveFlames = canLeaveFlames
+
+###Unique spell behaviour###

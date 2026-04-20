@@ -10,23 +10,7 @@ var global_fullscreen = true
 
 var highscore_xp = 0
 
-##GlobalStats flat values
 
-var globalStatsExtraDMG : int = 0
-var globalStatsExtraHP : int = 0
-var globalStatsExtraBOU : int  = 0
-var globalStatsExtraAM : int = 0
-var globalStatsExtraSPD : int = 0
-var globalStatsExtraARM : int = 0
-var globalStatsExtraRG : int = 0
-
-##Globalstats percentages
-var globalStatsPerCDR : float = 1
-var globalStatsPerAS : float = 1
-var globalStatsPerDUR : float = 1
-var globalStatsPerLD : float = 0
-var globalStatsPerXP : float = 1
-var globalStatsPerCUR : float = 1
 
 var timerrunning = false
 var g_seconds = 0

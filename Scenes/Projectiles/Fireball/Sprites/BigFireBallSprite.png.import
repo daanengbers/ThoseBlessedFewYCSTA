@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyhj8n444h4h"
-path="res://.godot/imported/FireballExplosion.png-50c15ebf4e8fbd2c21b4bb54061754f5.ctex"
+uid="uid://cytptuuf0v3e5"
+path="res://.godot/imported/BigFireBallSprite.png-34d98162ba5ac2986aa38bbf76fdbc52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Projectiles/Fireball/FireballExplosion.png"
-dest_files=["res://.godot/imported/FireballExplosion.png-50c15ebf4e8fbd2c21b4bb54061754f5.ctex"]
+source_file="res://Scenes/Projectiles/Fireball/Sprites/BigFireBallSprite.png"
+dest_files=["res://.godot/imported/BigFireBallSprite.png-34d98162ba5ac2986aa38bbf76fdbc52.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dgp0r41uai0vo"]
 
 [ext_resource type="Script" path="res://Scenes/Bosses/BirdBoss/Attacks/ArrowFromAboveImpact/ArrowImpact.gd" id="1_722o6"]
-[ext_resource type="Texture2D" uid="uid://cyhj8n444h4h" path="res://Scenes/Projectiles/Fireball/FireballExplosion.png" id="2_bpu06"]
+[ext_resource type="Texture2D" uid="uid://cyhj8n444h4h" path="res://Scenes/Projectiles/Fireball/Sprites/FireballExplosion.png" id="2_bpu06"]
 [ext_resource type="Texture2D" uid="uid://d8e7k7mlxmxk" path="res://Scenes/Bosses/BirdBoss/Attacks/ArrowFromAbove/UGLYaRROW.png" id="3_7d7ue"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2rep"]
