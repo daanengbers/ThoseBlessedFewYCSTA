@@ -39,25 +39,35 @@ func OnHitEnemy(enemy: Node2D) -> void:
 
 ##===============================##
 
-###Fireball Unique###
+###Fireball Unique functions###
 
 func SpawnExplosion() -> void:
-	## TODO: Instantiate explosion AOE scene at global_position
-	## The explosion scene itself handles AOE damage
-	## If canLeaveFlames, also spawn a lasting flame zone
-	pass
-	#var explosionIn = explosionScene.instantiate()
-	#get_tree().current_scene.add_child.call_deferred(explosionIn)
-	#explosionIn.global_position = global_position
-	#
-	#if canLeaveFlames:
-	#	var flameZoneIn = flameZoneScene.instantiate()
-	#	get_tree().current_scene.add_child.call_deferred(flameZoneIn)
-	#	flameZoneIn.global_position = global_position
-	#	## Scale duration with the stat
-	#	flameZoneIn.duration *= Globalsettings.GetStatDuration()
+	## TODO: Create a FireballExplosion.tscn scene (Area2D with collision + timer)
+	## that deals AOE damage to all enemies in radius
+	## For now, deal damage to nearby enemies directly
+	var crowdSim = get_tree().get_first_node_in_group("CrowdSimulation")
+	var targetingService = crowdSim.get_node("TargetingService")
+	
+	var explosionRadius := 40.0
+	for enemy in targetingService.enemies:
+		if not is_instance_valid(enemy):
+			continue
+		if enemy.global_position.distance_to(global_position) <= explosionRadius:
+			enemy.hp -= roundi(damage * 0.5)
+			enemy.hurt()
+			if enemy.hp <= 0:
+				enemy.kill()
+	
+	## If high enough level, leave flame zone
+	if canLeaveFlames:
+		SpawnFlameZone()
 
-###Fireball Unique###
+func SpawnFlameZone() -> void:
+	## TODO: Create a FlameZone.tscn scene (Area2D that ticks damage over time)
+	## For now, placeholder
+	pass
+
+###Fireball Unique functions###
 
 
 ##===============================##

@@ -12,19 +12,27 @@ script = ExtResource("2_5eewi")
 abilityId = 1
 baseCooldown = 5.0
 cooldownReductionPerLevel = Array[float]([0.0, 0.2, 0.3, 0.1, 0.5])
+baseDamage = 15.0
+damageScaling = 1.2
+cdrScaling = 0.7
 upgradeType = 1
-cardName = "Fireball"
+cardName = "Flame"
 description = Array[String](["Shoots a powerfull fireball", "Increase damage by 10", "Increase damage by 10", "Increase damage by 10"])
 spriteFrame = 1
 maxLevel = 4
 
-[node name="LightningBolt" type="Node" parent="."]
+[node name="Lightning" type="Node" parent="."]
 script = ExtResource("3_kv0iu")
 abilityId = 2
 baseCooldown = 5.0
 cooldownReductionPerLevel = Array[float]([0.0, 0.2, 0.3, 0.1, 0.5])
+baseDamage = 5.0
+damageScaling = 0.5
+amountScaling = 0.5
+lifeDrainScaling = 0.3
+durationScaling = 0.4
 upgradeType = 1
-cardName = "Lightning bolt"
+cardName = "Boltstorm"
 description = Array[String](["Shoots a stream of lightining", "increase lightning amount by 2", "Increase damage by 10", "Increase damage by 10"])
 spriteFrame = 2
 maxLevel = 4

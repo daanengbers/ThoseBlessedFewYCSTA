@@ -20,20 +20,20 @@ class_name BasicAttackBase
 ###Computed Values###
 
 func GetCooldown() -> float:
-	var asMultiplier := lerpf(1.0, Globalsettings.GetStatAttackSpeed(), attackSpeedScaling)
+	var asMultiplier = lerpf(1.0, GlobalStats.GetStatAttackSpeed(), attackSpeedScaling)
 	return maxf(0.05, baseCooldown * asMultiplier)
 
 func GetDamage() -> float:
-	return baseDamage + (Globalsettings.GetStatDamage() * damageScaling)
+	return baseDamage + (GlobalStats.GetStatDamage() * damageScaling)
 
 func GetAmount() -> int:
-	return maxi(1, 1 + roundi(Globalsettings.GetStatAmount() * amountScaling))
+	return maxi(1, 1 + roundi(GlobalStats.GetStatAmount() * amountScaling))
 
 func GetBounces() -> int:
-	return maxi(0, roundi(Globalsettings.GetStatBounce() * bounceScaling))
+	return maxi(0, roundi(GlobalStats.GetStatBounce() * bounceScaling))
 
 func GetLifeDrain() -> float:
-	return Globalsettings.GetStatLifeDrain() * lifeDrainScaling
+	return GlobalStats.GetStatLifeDrain() * lifeDrainScaling
 
 ###Computed Values###
 
@@ -43,15 +43,15 @@ func GetLifeDrain() -> float:
 
 func Fire(attackingService: Node, targetingService: Node, crowdSimulator: CharacterBody2D) -> void:
 	var closestEnemy = targetingService.GetClosestEnemy(crowdSimulator.global_position)
-	## Valid: no enemies on screen
+	
+	## No enemies on screen
 	if closestEnemy == null:
 		return
-	Globalsettings.globalClosestEnemy = closestEnemy
 	
-	var dmg := GetDamage()
-	var bounces := GetBounces()
-	var ld := GetLifeDrain()
-	var amount := GetAmount()
+	var dmg = GetDamage()
+	var bounces = GetBounces()
+	var ld = GetLifeDrain()
+	var amount = GetAmount()
 	
 	for i in range(amount):
 		FireOneVolley(targetingService, attackingService, dmg, bounces, ld)

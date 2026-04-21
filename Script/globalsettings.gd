@@ -10,8 +10,6 @@ var global_fullscreen = true
 
 var highscore_xp = 0
 
-
-
 var timerrunning = false
 var g_seconds = 0
 var g_uisecconds = 0

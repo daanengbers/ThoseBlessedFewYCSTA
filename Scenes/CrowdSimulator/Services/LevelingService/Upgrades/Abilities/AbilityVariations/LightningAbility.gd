@@ -2,48 +2,42 @@ extends AbilityBase
 class_name LightningAbility
 
 @export var levelToStartPiercing : int = 3
-
-var lightningAmount : int = 1
-var canPierce : bool = false
+@export var baseLightningAmount : int = 1
 
 func Cast(crowdSimulator: CharacterBody2D, attackService: Node) -> void:
-	##Get the targeting service
-	var targetingService = crowdSimulator.get_node("TargetingService")
+	var targetingService = GetTargetingService(crowdSimulator)
 	
-	##Use the targeting service to get the closest enemy
 	var closestEnemy = targetingService.GetClosestEnemy(crowdSimulator.global_position)
-	
-	##If there are no enemies, return
 	if closestEnemy == null:
 		return
 	
-	##Set the amount of lightning bolts per level
-	if currentLevel >= 2 && currentLevel < 3: 
+	## Lightning bolt count scales with level
+	var lightningAmount = baseLightningAmount
+	if currentLevel >= 2:
 		lightningAmount = 2
-	if currentLevel >= 3 && currentLevel < 5: 
+	if currentLevel >= 3:
 		lightningAmount = 4
 	
-	##Make the ability pierce above a certain level
-	canPierce = currentLevel >= levelToStartPiercing
+	## Pierce above a certain level
+	var canPierce := currentLevel >= levelToStartPiercing
+	var canChainStrike := currentLevel >= levelToStartPiercing
 	
-	##For each meeb
 	for meeb in targetingService.meeblings:
-		##Check if meeb is valid, if not stop cast
 		if not is_instance_valid(meeb):
 			continue
-	
-		##Get rotation from meeb to enemy
+		
 		var baseRot = meeb.rotateTowardsEnemy()
-	
-		##For each bolt to be fired
+		
 		for i in range(lightningAmount):
-			##Set a slight spread
 			var spread = deg_to_rad((i - (lightningAmount - 1) / 2.0) * 8.0)
-			
-			##adjust the rotation with spread in mind
 			var rot = baseRot + spread
 			
-			var lightningBoltIn = SpawnProjectileFromMeebling(meeb, crowdSimulator.lightningBolt, attackService.lightningImpulse, rot)
-
-			# If your projectile script supports it:
-			# proj.canPierce = canPierce
+			var boltIn = SpawnProjectileFromMeebling(meeb, GameResources.lightningBoltScene, attackService.lightningImpulse, rot)
+			
+			## Inject stats from scaling system
+			InjectStats(boltIn)
+			
+			## Set lightning-specific properties
+			boltIn.canPierce = canPierce
+			boltIn.pierceCount = 3 if canPierce else 0
+			boltIn.canChainStrike = canChainStrike

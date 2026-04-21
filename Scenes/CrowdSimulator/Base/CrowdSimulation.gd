@@ -15,19 +15,6 @@ var meebling = GameResources.meeblingScene
 var meeblingParent: Node2D 
 var deadSplash = GameResources.splashEffectScene
 
-var bullet = GameResources.baseBulletScene
-var fireBall = GameResources.fireBallScene
-var lightningBolt = GameResources.lightningBoltScene
-var poison = GameResources.poisonScene
-var frost = GameResources.frostScene
-
-##Stat vars
-var cooldown = 100
-@export var beginCooldown = 100
-
-@export var beginCooldownSeconds: float = 1.0
-var basicAttackCooldown: float = 0.0
-
 ##Game state vars
 var gameOver = false
 
@@ -51,19 +38,12 @@ func _physics_process(delta: float) -> void:
 		##Movement
 		movement()
 		
-		##Attacking
-		basicAttackCooldown = max(0.0, basicAttackCooldown - delta)
-		if basicAttackCooldown <= 0.0:
-			basicAttack(Globalsettings.currentrun_extrabullets)
-			basicAttackCooldown = max(0.05, beginCooldownSeconds - Globalsettings.currentrun_minuscooldown * 0.01)
-		
 		##Abillities
 		AbilityService.HandleAbilityInput()
 		
 		##Set the closest meebling for the enemies to attack
 		if Engine.get_process_frames() % 20 == 0:
 			getClosestMeebling()
-		
 	
 	##CooldownUI
 	UpdateAbilityUI()
@@ -100,7 +80,7 @@ func get_Input():
 
 func movement():
 	var direction = get_Input()
-	velocity = velocity.lerp(direction.normalized() * (arrowSpeed + Globalsettings.currentrun_extraspeed), acceleration ) ##+ Globalsettings.currentrun_extraspeed
+	velocity = velocity.lerp(direction.normalized() * (arrowSpeed + GlobalStats.globalStatsExtraSPD), acceleration ) ##+ Globalsettings.currentrun_extraspeed
 	move_and_slide()
 
 ###Movement handling###
@@ -185,12 +165,6 @@ func getClosestMeebling():
 ##===========================================##
 
 ###Attack and spell handling###
-
-func basicAttack(extraAttacks: int) -> void:
-	for i in range(extraAttacks + 1):
-		attackingService.fireProjectile(bullet, attackingService.bulletImpulse, false)
-		if i < extraAttacks:
-			await get_tree().create_timer(0.02).timeout
 
 func UpdateAbilityUI() -> void:
 	$UI/AbilityBoxes/Box01/CDB.max_value = AbilityService.GetSlotCooldownMax(1)

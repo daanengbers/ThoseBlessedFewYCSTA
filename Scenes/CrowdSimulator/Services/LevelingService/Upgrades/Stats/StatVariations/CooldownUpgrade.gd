@@ -7,4 +7,4 @@ func ApplyStatLevel() -> void:
 	
 	##Apply the stat upgrade
 	var levelValue = levels[currentLevel - 1]
-	Globalsettings.currentrun_minuscooldown -= levelValue
+	GlobalStats.globalStatsPerAS += levelValue

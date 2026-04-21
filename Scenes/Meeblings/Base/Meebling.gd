@@ -5,7 +5,7 @@ extends CharacterBody2D
 var hp
 @export var maxHp = 10
 @export var speed = 30
-var internalMaxHp = maxHp + Globalsettings.currentrun_extrahealth
+var internalMaxHp = maxHp + GlobalStats.globalStatsExtraHP
 var alive = true
 var falling = false
 var isIncapacitated = false
@@ -110,7 +110,7 @@ func movement():
 	if !falling:
 		##If distance is big enough, move towards arrow. If not, stop moving
 		if distanceToArrow.x > 12 + randomOffsetSpace or distanceToArrow.y > 12 + randomOffsetSpace:
-			velocity = Vector2(speed + randomSpeedExtra + Globalsettings.currentrun_extraspeed, 0).rotated($Rot.rotation)
+			velocity = Vector2(speed + randomSpeedExtra + GlobalStats.globalStatsExtraSPD, 0).rotated($Rot.rotation)
 		else:
 			velocity.x = 0
 			velocity.y = 0

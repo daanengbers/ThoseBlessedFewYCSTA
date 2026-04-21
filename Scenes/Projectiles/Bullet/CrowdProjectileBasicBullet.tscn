@@ -7,6 +7,7 @@
 radius = 5.0
 
 [node name="CrowdProjectileBasicBullet" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource("1_ewy1v")
 
 [node name="QueueTimer" type="Timer" parent="."]

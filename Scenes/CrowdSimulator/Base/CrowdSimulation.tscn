@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://gye6sxa3o7gs"]
+[gd_scene load_steps=72 format=3 uid="uid://gye6sxa3o7gs"]
 
 [ext_resource type="Script" path="res://Scenes/CrowdSimulator/Base/CrowdSimulation.gd" id="1_4f4g1"]
 [ext_resource type="Texture2D" uid="uid://dlws0qyse6xe4" path="res://Assets/arrowshadow.png" id="2_0iapw"]
@@ -8,11 +8,13 @@
 [ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/AttackingService/AttackingService.gd" id="3_xhrjw"]
 [ext_resource type="AudioStream" uid="uid://c3c2eau8lpm7v" path="res://Sounds/exppickup1.wav" id="4_1x5fh"]
 [ext_resource type="PackedScene" uid="uid://b84ny54vrc6jo" path="res://Scenes/CrowdSimulator/Services/AbilityService/abilityService.tscn" id="4_h3i2p"]
+[ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/BasicAttackService/BasicAttackService.gd" id="4_k4jrc"]
 [ext_resource type="Texture2D" uid="uid://8wpofymgaama" path="res://Scenes/LevelAssets/TileSets/TilesetsUnsorted/TestMenuOptions.png" id="4_xpi3s"]
 [ext_resource type="FontFile" uid="uid://bu5hdtbp88ojw" path="res://Fonts/EXEPixelPerfect.ttf" id="5_3jsnd"]
 [ext_resource type="AudioStream" uid="uid://b3qee1fus0dfw" path="res://Sounds/meeblingdeath.wav" id="5_b0to5"]
 [ext_resource type="PackedScene" uid="uid://c0imqf2ffpqok" path="res://Scenes/CrowdSimulator/Services/LevelingService/Base/LevelingService.tscn" id="5_fm5cr"]
 [ext_resource type="Script" path="res://Scenes/UIPagesAndMenus/PauseMenu/PauseMenu.gd" id="5_ulwkd"]
+[ext_resource type="PackedScene" uid="uid://bisew28fcjj8h" path="res://Scenes/CrowdSimulator/Services/BasicAttackService/BasicAttackVariants/BulletBasicAttack/BulletBasicAttack.tscn" id="6_3rwjl"]
 [ext_resource type="AudioStream" uid="uid://cshcblbmdc83w" path="res://Sounds/splash2.wav" id="6_5lvbo"]
 [ext_resource type="Texture2D" uid="uid://clekfea7rbiox" path="res://Assets/UI/SplashArt_LettersOnly-2.png" id="6_sbvce"]
 [ext_resource type="AudioStream" uid="uid://dsfcd8ewbeh2s" path="res://Sounds/fireball.wav" id="7_4hp0s"]
@@ -380,6 +382,11 @@ script = ExtResource("2_j82j1")
 
 [node name="AttackingService" type="Node" parent="."]
 script = ExtResource("3_xhrjw")
+
+[node name="BasicAttackService" type="Node" parent="."]
+script = ExtResource("4_k4jrc")
+
+[node name="BulletBasicAttack" parent="BasicAttackService" instance=ExtResource("6_3rwjl")]
 
 [node name="AbilityService" parent="." instance=ExtResource("4_h3i2p")]
 
