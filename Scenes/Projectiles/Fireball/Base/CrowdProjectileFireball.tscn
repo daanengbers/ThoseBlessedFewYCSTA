@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://wn24avjhoy6l"]
 
 [ext_resource type="Script" path="res://Scenes/Projectiles/Fireball/Base/CrowdProjectileFireball.gd" id="1_fppyv"]
-[ext_resource type="Texture2D" uid="uid://dprogycwrhgwq" path="res://Scenes/Projectiles/Fireball/Sprites/FireballSprite.png" id="2_4vfo0"]
+[ext_resource type="Texture2D" uid="uid://bp84cnjjy2rtu" path="res://Scenes/Projectiles/Fireball/Sprites/FireBallSpriteSheet.png" id="2_1ppci"]
 
 [sub_resource type="Curve" id="Curve_jeycq"]
 _data = [Vector2(0, 0.78022), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.53689, 0.0, 0, 0]
@@ -15,6 +15,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 0.811765, 0.52549, 1, 0.911164, 0.54077
 radius = 5.0
 
 [node name="CrowdProjectileFireball" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource("1_fppyv")
 
 [node name="QueueTimer" type="Timer" parent="."]
@@ -37,7 +38,8 @@ color_ramp = SubResource("Gradient_31mlg")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_4vfo0")
+texture = ExtResource("2_1ppci")
+hframes = 3
 
 [node name="Hitbox" type="Area2D" parent="."]
 

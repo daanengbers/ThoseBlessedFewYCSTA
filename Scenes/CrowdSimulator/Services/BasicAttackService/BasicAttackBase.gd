@@ -48,6 +48,8 @@ func Fire(attackingService: Node, targetingService: Node, crowdSimulator: Charac
 	if closestEnemy == null:
 		return
 	
+	Globalsettings.globalClosestEnemy = closestEnemy
+	
 	var dmg = GetDamage()
 	var bounces = GetBounces()
 	var ld = GetLifeDrain()

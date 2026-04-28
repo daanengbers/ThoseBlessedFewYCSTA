@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0imqf2ffpqok"]
+[gd_scene load_steps=8 format=3 uid="uid://c0imqf2ffpqok"]
 
 [ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/LevelingService/Base/LevelingServiceNew.gd" id="1_dmmj1"]
 [ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/LevelingService/Upgrades/Stats/StatVariations/SpeedUpgrade.gd" id="2_kotbj"]
 [ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/LevelingService/Upgrades/Stats/StatVariations/AttackUpgrade.gd" id="3_gr4s0"]
 [ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/LevelingService/Upgrades/Stats/StatVariations/HealthUpgrade.gd" id="3_vyt1a"]
+[ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/LevelingService/Upgrades/Stats/StatVariations/CooldownUpgrade.gd" id="4_ykqay"]
+[ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/LevelingService/Upgrades/Stats/StatVariations/AmountUpgrade.gd" id="5_8qaxy"]
+[ext_resource type="Script" path="res://Scenes/CrowdSimulator/Services/LevelingService/Upgrades/Stats/StatVariations/BounceUpgrade.gd" id="7_6a3ej"]
 
 [node name="LevelingService" type="Node"]
 script = ExtResource("1_dmmj1")
@@ -27,7 +30,7 @@ spriteFrame = 2
 maxLevel = 7
 
 [node name="CD" type="Node" parent="Stats" groups=["Upgrades"]]
-script = ExtResource("2_kotbj")
+script = ExtResource("4_ykqay")
 levels = Array[int]([4, 5, 6, 8, 12, 14, 15])
 cardName = "Cooldown"
 description = Array[String](["Decrease cooldown by 4%", "Decrease cooldown by 5%", "Decrease cooldown by 6%", "Decrease cooldown by 8%", "Decrease cooldown by 12%", "Decrease cooldown by 14%", "Decrease cooldown by 15%"])
@@ -35,7 +38,7 @@ spriteFrame = 3
 maxLevel = 7
 
 [node name="Amount" type="Node" parent="Stats" groups=["Upgrades"]]
-script = ExtResource("2_kotbj")
+script = ExtResource("5_8qaxy")
 levels = Array[int]([0, 0, 1, 0, 0, 0, 1])
 cardName = "Amount"
 description = Array[String](["Nothing happens...", "Nothing happens...", "Increase bullets by 1", "Nothing happens...", "Nothing happens...", "Nothing happens...", "Increase bullets by 1"])
@@ -51,7 +54,7 @@ spriteFrame = 5
 maxLevel = 4
 
 [node name="Bounce" type="Node" parent="Stats" groups=["Upgrades"]]
-script = ExtResource("2_kotbj")
+script = ExtResource("7_6a3ej")
 levels = Array[int]([1, 2, 4, 8])
 cardName = "Bounce"
 description = Array[String](["Increase bounce  by 1", "Increase bounce by 2", "Increase bounce by 4", "Increase bounce by 8"])

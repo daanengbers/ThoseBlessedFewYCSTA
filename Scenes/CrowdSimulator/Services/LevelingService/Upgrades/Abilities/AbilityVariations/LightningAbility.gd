@@ -11,6 +11,8 @@ func Cast(crowdSimulator: CharacterBody2D, attackService: Node) -> void:
 	if closestEnemy == null:
 		return
 	
+	Globalsettings.globalClosestEnemy = closestEnemy
+	
 	## Lightning bolt count scales with level
 	var lightningAmount = baseLightningAmount
 	if currentLevel >= 2:

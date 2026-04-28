@@ -18,6 +18,8 @@ func Cast(crowdSimulator: CharacterBody2D, attackService: Node) -> void:
 	if closestEnemy == null:
 		return
 	
+	Globalsettings.globalClosestEnemy = closestEnemy
+	
 	## Determine level-based behavior
 	var canExplode : bool = currentLevel >= levelToStartExploding
 	var canLeaveFlames : bool = currentLevel >= levelToLeaveFlames
@@ -35,5 +37,6 @@ func Cast(crowdSimulator: CharacterBody2D, attackService: Node) -> void:
 		## Set fireball-specific properties
 		fireballIn.canExplode = canExplode
 		fireballIn.canLeaveFlames = canLeaveFlames
+		
 
 ###Unique spell behaviour###
